@@ -7,21 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2201941D9767FC1EB65D0802 /* Pods_kakakak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31166B9B380F3B955A1AACD7 /* Pods_kakakak.framework */; };
 		ADC672A921E2260700D6D3F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672A821E2260700D6D3F5 /* AppDelegate.swift */; };
-		ADC672AB21E2260700D6D3F5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672AA21E2260700D6D3F5 /* ViewController.swift */; };
 		ADC672AE21E2260700D6D3F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADC672AC21E2260700D6D3F5 /* Main.storyboard */; };
 		ADC672B021E2260800D6D3F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADC672AF21E2260800D6D3F5 /* Assets.xcassets */; };
 		ADC672B321E2260800D6D3F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADC672B121E2260800D6D3F5 /* LaunchScreen.storyboard */; };
+		ADC672BC21E22B6F00D6D3F5 /* abcd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ADC672BB21E22B6F00D6D3F5 /* abcd.jpg */; };
+		ADC672BE21E24E2500D6D3F5 /* CharacterListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672BD21E24E2500D6D3F5 /* CharacterListVC.swift */; };
+		ADC672C221E24F1F00D6D3F5 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672C121E24F1F00D6D3F5 /* CharacterCell.swift */; };
+		ADC672C521E2517700D6D3F5 /* Objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672C421E2517700D6D3F5 /* Objects.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		31166B9B380F3B955A1AACD7 /* Pods_kakakak.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kakakak.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DCAA90BC1391044DF37135F /* Pods-kakakak.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kakakak.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kakakak/Pods-kakakak.debug.xcconfig"; sourceTree = "<group>"; };
 		ADC672A521E2260700D6D3F5 /* kakakak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kakakak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADC672A821E2260700D6D3F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ADC672AA21E2260700D6D3F5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ADC672AD21E2260700D6D3F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ADC672AF21E2260800D6D3F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ADC672B221E2260800D6D3F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ADC672B421E2260800D6D3F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADC672BB21E22B6F00D6D3F5 /* abcd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = abcd.jpg; sourceTree = "<group>"; };
+		ADC672BD21E24E2500D6D3F5 /* CharacterListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListVC.swift; sourceTree = "<group>"; };
+		ADC672C121E24F1F00D6D3F5 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
+		ADC672C421E2517700D6D3F5 /* Objects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Objects.swift; sourceTree = "<group>"; };
+		DD4718A9C835A6A90A2808AA /* Pods-kakakak.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kakakak.release.xcconfig"; path = "Pods/Target Support Files/Pods-kakakak/Pods-kakakak.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +39,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2201941D9767FC1EB65D0802 /* Pods_kakakak.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D3D1859C17D2D711D00B788 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3DCAA90BC1391044DF37135F /* Pods-kakakak.debug.xcconfig */,
+				DD4718A9C835A6A90A2808AA /* Pods-kakakak.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		ADC6729C21E2260700D6D3F5 = {
 			isa = PBXGroup;
 			children = (
+				ADC672BA21E22B6700D6D3F5 /* Resources */,
 				ADC672A721E2260700D6D3F5 /* kakakak */,
 				ADC672A621E2260700D6D3F5 /* Products */,
+				5D3D1859C17D2D711D00B788 /* Pods */,
+				BDF41DCEDCC41CE23ED099A0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +77,56 @@
 		ADC672A721E2260700D6D3F5 /* kakakak */ = {
 			isa = PBXGroup;
 			children = (
+				ADC672C321E2516C00D6D3F5 /* Data */,
+				ADC672C021E24F1300D6D3F5 /* View */,
+				ADC672BF21E24E2A00D6D3F5 /* ViewControllers */,
 				ADC672A821E2260700D6D3F5 /* AppDelegate.swift */,
-				ADC672AA21E2260700D6D3F5 /* ViewController.swift */,
 				ADC672AC21E2260700D6D3F5 /* Main.storyboard */,
 				ADC672AF21E2260800D6D3F5 /* Assets.xcassets */,
 				ADC672B121E2260800D6D3F5 /* LaunchScreen.storyboard */,
 				ADC672B421E2260800D6D3F5 /* Info.plist */,
 			);
 			path = kakakak;
+			sourceTree = "<group>";
+		};
+		ADC672BA21E22B6700D6D3F5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				ADC672BB21E22B6F00D6D3F5 /* abcd.jpg */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		ADC672BF21E24E2A00D6D3F5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				ADC672BD21E24E2500D6D3F5 /* CharacterListVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		ADC672C021E24F1300D6D3F5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ADC672C121E24F1F00D6D3F5 /* CharacterCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ADC672C321E2516C00D6D3F5 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				ADC672C421E2517700D6D3F5 /* Objects.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		BDF41DCEDCC41CE23ED099A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				31166B9B380F3B955A1AACD7 /* Pods_kakakak.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +136,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ADC672B721E2260800D6D3F5 /* Build configuration list for PBXNativeTarget "kakakak" */;
 			buildPhases = (
+				B636AA34A5E218981AD1A88D /* [CP] Check Pods Manifest.lock */,
 				ADC672A121E2260700D6D3F5 /* Sources */,
 				ADC672A221E2260700D6D3F5 /* Frameworks */,
 				ADC672A321E2260700D6D3F5 /* Resources */,
+				BA57182E36E1954D05419608 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,17 +192,63 @@
 				ADC672B321E2260800D6D3F5 /* LaunchScreen.storyboard in Resources */,
 				ADC672B021E2260800D6D3F5 /* Assets.xcassets in Resources */,
 				ADC672AE21E2260700D6D3F5 /* Main.storyboard in Resources */,
+				ADC672BC21E22B6F00D6D3F5 /* abcd.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B636AA34A5E218981AD1A88D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-kakakak-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA57182E36E1954D05419608 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-kakakak/Pods-kakakak-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kakakak/Pods-kakakak-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		ADC672A121E2260700D6D3F5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADC672AB21E2260700D6D3F5 /* ViewController.swift in Sources */,
+				ADC672C221E24F1F00D6D3F5 /* CharacterCell.swift in Sources */,
+				ADC672BE21E24E2500D6D3F5 /* CharacterListVC.swift in Sources */,
+				ADC672C521E2517700D6D3F5 /* Objects.swift in Sources */,
 				ADC672A921E2260700D6D3F5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +393,7 @@
 		};
 		ADC672B821E2260800D6D3F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DCAA90BC1391044DF37135F /* Pods-kakakak.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +412,7 @@
 		};
 		ADC672B921E2260800D6D3F5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD4718A9C835A6A90A2808AA /* Pods-kakakak.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
