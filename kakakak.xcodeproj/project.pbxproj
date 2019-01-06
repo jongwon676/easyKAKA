@@ -15,7 +15,12 @@
 		ADC672BC21E22B6F00D6D3F5 /* abcd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ADC672BB21E22B6F00D6D3F5 /* abcd.jpg */; };
 		ADC672BE21E24E2500D6D3F5 /* CharacterListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672BD21E24E2500D6D3F5 /* CharacterListVC.swift */; };
 		ADC672C221E24F1F00D6D3F5 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672C121E24F1F00D6D3F5 /* CharacterCell.swift */; };
-		ADC672C521E2517700D6D3F5 /* Objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672C421E2517700D6D3F5 /* Objects.swift */; };
+		ADC672C521E2517700D6D3F5 /* Preset.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672C421E2517700D6D3F5 /* Preset.swift */; };
+		ADC672C921E28F6500D6D3F5 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672C821E28F6500D6D3F5 /* Path.swift */; };
+		ADC672CE21E29BC800D6D3F5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672CD21E29BC800D6D3F5 /* User.swift */; };
+		ADC672D021E2A68B00D6D3F5 /* AddUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672CF21E2A68B00D6D3F5 /* AddUserVC.swift */; };
+		ADC672D221E2B91300D6D3F5 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672D121E2B91300D6D3F5 /* UIImage+Extension.swift */; };
+		ADC672D421E2C12F00D6D3F5 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672D321E2C12F00D6D3F5 /* Date.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +35,12 @@
 		ADC672BB21E22B6F00D6D3F5 /* abcd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = abcd.jpg; sourceTree = "<group>"; };
 		ADC672BD21E24E2500D6D3F5 /* CharacterListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListVC.swift; sourceTree = "<group>"; };
 		ADC672C121E24F1F00D6D3F5 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
-		ADC672C421E2517700D6D3F5 /* Objects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Objects.swift; sourceTree = "<group>"; };
+		ADC672C421E2517700D6D3F5 /* Preset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preset.swift; sourceTree = "<group>"; };
+		ADC672C821E28F6500D6D3F5 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
+		ADC672CD21E29BC800D6D3F5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		ADC672CF21E2A68B00D6D3F5 /* AddUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserVC.swift; sourceTree = "<group>"; };
+		ADC672D121E2B91300D6D3F5 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		ADC672D321E2C12F00D6D3F5 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		DD4718A9C835A6A90A2808AA /* Pods-kakakak.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kakakak.release.xcconfig"; path = "Pods/Target Support Files/Pods-kakakak/Pods-kakakak.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,6 +68,8 @@
 		ADC6729C21E2260700D6D3F5 = {
 			isa = PBXGroup;
 			children = (
+				ADC672CA21E28FCD00D6D3F5 /* Realm */,
+				ADC672C721E28F5C00D6D3F5 /* Extension */,
 				ADC672BA21E22B6700D6D3F5 /* Resources */,
 				ADC672A721E2260700D6D3F5 /* kakakak */,
 				ADC672A621E2260700D6D3F5 /* Products */,
@@ -77,7 +89,7 @@
 		ADC672A721E2260700D6D3F5 /* kakakak */ = {
 			isa = PBXGroup;
 			children = (
-				ADC672C321E2516C00D6D3F5 /* Data */,
+				ADC672C321E2516C00D6D3F5 /* Model */,
 				ADC672C021E24F1300D6D3F5 /* View */,
 				ADC672BF21E24E2A00D6D3F5 /* ViewControllers */,
 				ADC672A821E2260700D6D3F5 /* AppDelegate.swift */,
@@ -101,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				ADC672BD21E24E2500D6D3F5 /* CharacterListVC.swift */,
+				ADC672CF21E2A68B00D6D3F5 /* AddUserVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -113,12 +126,30 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		ADC672C321E2516C00D6D3F5 /* Data */ = {
+		ADC672C321E2516C00D6D3F5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				ADC672C421E2517700D6D3F5 /* Objects.swift */,
+				ADC672C421E2517700D6D3F5 /* Preset.swift */,
+				ADC672CD21E29BC800D6D3F5 /* User.swift */,
 			);
-			path = Data;
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ADC672C721E28F5C00D6D3F5 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				ADC672C821E28F6500D6D3F5 /* Path.swift */,
+				ADC672D121E2B91300D6D3F5 /* UIImage+Extension.swift */,
+				ADC672D321E2C12F00D6D3F5 /* Date.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		ADC672CA21E28FCD00D6D3F5 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Realm;
 			sourceTree = "<group>";
 		};
 		BDF41DCEDCC41CE23ED099A0 /* Frameworks */ = {
@@ -247,8 +278,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADC672C221E24F1F00D6D3F5 /* CharacterCell.swift in Sources */,
+				ADC672D221E2B91300D6D3F5 /* UIImage+Extension.swift in Sources */,
 				ADC672BE21E24E2500D6D3F5 /* CharacterListVC.swift in Sources */,
-				ADC672C521E2517700D6D3F5 /* Objects.swift in Sources */,
+				ADC672CE21E29BC800D6D3F5 /* User.swift in Sources */,
+				ADC672C521E2517700D6D3F5 /* Preset.swift in Sources */,
+				ADC672C921E28F6500D6D3F5 /* Path.swift in Sources */,
+				ADC672D021E2A68B00D6D3F5 /* AddUserVC.swift in Sources */,
+				ADC672D421E2C12F00D6D3F5 /* Date.swift in Sources */,
 				ADC672A921E2260700D6D3F5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
