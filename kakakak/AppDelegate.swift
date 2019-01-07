@@ -8,7 +8,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        var rooms = Room.all()
+        var presets = Preset.all()
         
+        if rooms.count == 0 && presets.count >= 2{
+            var users = List<User>()
+            users.append(User(preset: presets[0]))
+            users.append(User(preset: presets[1]))
+            Room.add(users: users)
+        }
         
         return true
     }

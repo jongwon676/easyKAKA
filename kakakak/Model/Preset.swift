@@ -13,6 +13,10 @@ class Preset: Object{
         case name,id,profileImageUrl,isMe,creationDate
     }
     
+    public override static func primaryKey() -> String? {
+        return Properties.id.rawValue
+    }
+    
     static func all(in realm: Realm = try! Realm()) -> Results<Preset>{
         return realm.objects(Preset.self).sorted(byKeyPath: Preset.Properties.creationDate.rawValue)
     }

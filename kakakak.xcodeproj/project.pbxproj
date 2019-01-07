@@ -21,6 +21,19 @@
 		ADC672D021E2A68B00D6D3F5 /* AddUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672CF21E2A68B00D6D3F5 /* AddUserVC.swift */; };
 		ADC672D221E2B91300D6D3F5 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672D121E2B91300D6D3F5 /* UIImage+Extension.swift */; };
 		ADC672D421E2C12F00D6D3F5 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672D321E2C12F00D6D3F5 /* Date.swift */; };
+		ADC672D621E2C67F00D6D3F5 /* RoomListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672D521E2C67F00D6D3F5 /* RoomListVC.swift */; };
+		ADC672D821E2C71B00D6D3F5 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672D721E2C71B00D6D3F5 /* Room.swift */; };
+		ADC672DA21E2C8F800D6D3F5 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672D921E2C8F800D6D3F5 /* Message.swift */; };
+		ADC672DC21E391B500D6D3F5 /* RoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672DB21E391B500D6D3F5 /* RoomCell.swift */; };
+		ADC672DE21E39FCB00D6D3F5 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672DD21E39FCB00D6D3F5 /* ChatVC.swift */; };
+		ADC672E121E3A52400D6D3F5 /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672E021E3A52400D6D3F5 /* TextCell.swift */; };
+		ADC672E321E3A56B00D6D3F5 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672E221E3A56B00D6D3F5 /* ImageCell.swift */; };
+		ADC672E521E3A57900D6D3F5 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672E421E3A57900D6D3F5 /* DateCell.swift */; };
+		ADC672E721E3A59000D6D3F5 /* UserEnterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672E621E3A59000D6D3F5 /* UserEnterCell.swift */; };
+		ADC672E921E3A5A000D6D3F5 /* UserExitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672E821E3A5A000D6D3F5 /* UserExitCell.swift */; };
+		ADC672ED21E3AE3900D6D3F5 /* BaseChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672EC21E3AE3900D6D3F5 /* BaseChatCell.swift */; };
+		ADC672F021E3B0A000D6D3F5 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672EF21E3B0A000D6D3F5 /* Style.swift */; };
+		ADC672F221E3CE6200D6D3F5 /* UserChattingBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672F121E3CE6200D6D3F5 /* UserChattingBaseCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +54,19 @@
 		ADC672CF21E2A68B00D6D3F5 /* AddUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserVC.swift; sourceTree = "<group>"; };
 		ADC672D121E2B91300D6D3F5 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		ADC672D321E2C12F00D6D3F5 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		ADC672D521E2C67F00D6D3F5 /* RoomListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomListVC.swift; sourceTree = "<group>"; };
+		ADC672D721E2C71B00D6D3F5 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		ADC672D921E2C8F800D6D3F5 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		ADC672DB21E391B500D6D3F5 /* RoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCell.swift; sourceTree = "<group>"; };
+		ADC672DD21E39FCB00D6D3F5 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
+		ADC672E021E3A52400D6D3F5 /* TextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
+		ADC672E221E3A56B00D6D3F5 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		ADC672E421E3A57900D6D3F5 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
+		ADC672E621E3A59000D6D3F5 /* UserEnterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEnterCell.swift; sourceTree = "<group>"; };
+		ADC672E821E3A5A000D6D3F5 /* UserExitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserExitCell.swift; sourceTree = "<group>"; };
+		ADC672EC21E3AE3900D6D3F5 /* BaseChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseChatCell.swift; sourceTree = "<group>"; };
+		ADC672EF21E3B0A000D6D3F5 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		ADC672F121E3CE6200D6D3F5 /* UserChattingBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChattingBaseCell.swift; sourceTree = "<group>"; };
 		DD4718A9C835A6A90A2808AA /* Pods-kakakak.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kakakak.release.xcconfig"; path = "Pods/Target Support Files/Pods-kakakak/Pods-kakakak.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,6 +115,7 @@
 		ADC672A721E2260700D6D3F5 /* kakakak */ = {
 			isa = PBXGroup;
 			children = (
+				ADC672EE21E3B09500D6D3F5 /* StyleGuide */,
 				ADC672C321E2516C00D6D3F5 /* Model */,
 				ADC672C021E24F1300D6D3F5 /* View */,
 				ADC672BF21E24E2A00D6D3F5 /* ViewControllers */,
@@ -114,6 +141,8 @@
 			children = (
 				ADC672BD21E24E2500D6D3F5 /* CharacterListVC.swift */,
 				ADC672CF21E2A68B00D6D3F5 /* AddUserVC.swift */,
+				ADC672D521E2C67F00D6D3F5 /* RoomListVC.swift */,
+				ADC672DD21E39FCB00D6D3F5 /* ChatVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -121,7 +150,9 @@
 		ADC672C021E24F1300D6D3F5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ADC672DF21E3A51700D6D3F5 /* ChattingCell */,
 				ADC672C121E24F1F00D6D3F5 /* CharacterCell.swift */,
+				ADC672DB21E391B500D6D3F5 /* RoomCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -131,6 +162,8 @@
 			children = (
 				ADC672C421E2517700D6D3F5 /* Preset.swift */,
 				ADC672CD21E29BC800D6D3F5 /* User.swift */,
+				ADC672D721E2C71B00D6D3F5 /* Room.swift */,
+				ADC672D921E2C8F800D6D3F5 /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -150,6 +183,28 @@
 			children = (
 			);
 			path = Realm;
+			sourceTree = "<group>";
+		};
+		ADC672DF21E3A51700D6D3F5 /* ChattingCell */ = {
+			isa = PBXGroup;
+			children = (
+				ADC672E021E3A52400D6D3F5 /* TextCell.swift */,
+				ADC672E221E3A56B00D6D3F5 /* ImageCell.swift */,
+				ADC672E421E3A57900D6D3F5 /* DateCell.swift */,
+				ADC672E621E3A59000D6D3F5 /* UserEnterCell.swift */,
+				ADC672E821E3A5A000D6D3F5 /* UserExitCell.swift */,
+				ADC672EC21E3AE3900D6D3F5 /* BaseChatCell.swift */,
+				ADC672F121E3CE6200D6D3F5 /* UserChattingBaseCell.swift */,
+			);
+			path = ChattingCell;
+			sourceTree = "<group>";
+		};
+		ADC672EE21E3B09500D6D3F5 /* StyleGuide */ = {
+			isa = PBXGroup;
+			children = (
+				ADC672EF21E3B0A000D6D3F5 /* Style.swift */,
+			);
+			path = StyleGuide;
 			sourceTree = "<group>";
 		};
 		BDF41DCEDCC41CE23ED099A0 /* Frameworks */ = {
@@ -278,14 +333,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADC672C221E24F1F00D6D3F5 /* CharacterCell.swift in Sources */,
+				ADC672DC21E391B500D6D3F5 /* RoomCell.swift in Sources */,
 				ADC672D221E2B91300D6D3F5 /* UIImage+Extension.swift in Sources */,
 				ADC672BE21E24E2500D6D3F5 /* CharacterListVC.swift in Sources */,
+				ADC672D621E2C67F00D6D3F5 /* RoomListVC.swift in Sources */,
 				ADC672CE21E29BC800D6D3F5 /* User.swift in Sources */,
 				ADC672C521E2517700D6D3F5 /* Preset.swift in Sources */,
+				ADC672E521E3A57900D6D3F5 /* DateCell.swift in Sources */,
 				ADC672C921E28F6500D6D3F5 /* Path.swift in Sources */,
+				ADC672DE21E39FCB00D6D3F5 /* ChatVC.swift in Sources */,
 				ADC672D021E2A68B00D6D3F5 /* AddUserVC.swift in Sources */,
+				ADC672E121E3A52400D6D3F5 /* TextCell.swift in Sources */,
 				ADC672D421E2C12F00D6D3F5 /* Date.swift in Sources */,
+				ADC672DA21E2C8F800D6D3F5 /* Message.swift in Sources */,
+				ADC672ED21E3AE3900D6D3F5 /* BaseChatCell.swift in Sources */,
+				ADC672E321E3A56B00D6D3F5 /* ImageCell.swift in Sources */,
+				ADC672E721E3A59000D6D3F5 /* UserEnterCell.swift in Sources */,
 				ADC672A921E2260700D6D3F5 /* AppDelegate.swift in Sources */,
+				ADC672E921E3A5A000D6D3F5 /* UserExitCell.swift in Sources */,
+				ADC672D821E2C71B00D6D3F5 /* Room.swift in Sources */,
+				ADC672F221E3CE6200D6D3F5 /* UserChattingBaseCell.swift in Sources */,
+				ADC672F021E3B0A000D6D3F5 /* Style.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
