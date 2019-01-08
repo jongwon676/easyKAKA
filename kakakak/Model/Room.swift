@@ -33,6 +33,11 @@ class Room: Object {
             realm.add(item)
         }
     }
+    func addMessage(in realm: Realm = try! Realm(), message: Message){
+        try! realm.write {
+            self.messages.append(message)
+        }
+    }
     
     func delete(in realm: Realm = try! Realm()){
         try! realm.write {

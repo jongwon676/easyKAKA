@@ -13,23 +13,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if rooms.count == 0 && presets.count >= 2{
             var users = List<User>()
-            users.append(User(preset: presets[0]))
-            users.append(User(preset: presets[1]))
+            let a = User(preset: presets[0])
+            a.isMe = true
+            let b = User(preset: presets[1])
+            b.isMe = false
+            users.append(a)
+            users.append(b)
             
             
-            var message = Message(owner: users[0], sendDate: Date(), messageText: "야이 쉬벌럼아")
-            var message1 = Message(owner: users[0], sendDate: Date(), messageText: "오키도키염 ㅎㅎㅎ")
-            var message2 = Message(owner: users[1], sendDate: Date(), messageText: "내가 너냐?")
-            var message3 = Message(owner: users[0], sendDate: Date(), messageText: "아 이노무 쉬키가 개빡치게 하네 디지고 싶어? 아니 좀 까불지말고 잇자 그럼 중간은 가니깐")
-            var message4 = Message(owner: users[1], sendDate: Date(), messageText: "야이 쉬벌럼아")
+            
+//            var message = Message(owner: users[0], sendDate: Date(), messageText: "야이 쉬벌럼아")
+//            var message1 = Message(owner: users[0], sendDate: Date(), messageText: "오키도키염 ㅎㅎㅎ")
+//            var message2 = Message(owner: users[1], sendDate: Date(), messageText: "내가 너냐?")
+//            var message3 = Message(owner: users[0], sendDate: Date(), messageText: "아 이노무 쉬키가 개빡치게 하네 디지고 싶어? 아니 좀 까불지말고 잇자 그럼 중간은 가니깐")
+//            var message4 = Message(owner: users[1], sendDate: Date(), messageText: "야이 쉬벌럼아")
             var messages = List<Message>()
-            
-            messages.append(message)
-            messages.append(message1)
-            messages.append(message2)
-            messages.append(message3)
-            messages.append(message4)
-            
+//
+//            messages.append(message)
+//            messages.append(message1)
+//            messages.append(message2)
+//            messages.append(message3)
+//            messages.append(message4)
+//
             Room.add(users: users, messages: messages)
             
             

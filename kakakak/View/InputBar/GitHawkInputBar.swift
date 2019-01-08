@@ -83,15 +83,12 @@ extension GitHawkInputBar: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCell.reuseIdentifier, for: indexPath) as! ImageCell
-        
         cell.user = users[indexPath.section]
-        
         cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handle)))
         return cell
-        
     }
+    
     @objc func handle(_ sender: UIGestureRecognizer){
         let cell = sender.view as! ImageCell
         resetUserSelected()

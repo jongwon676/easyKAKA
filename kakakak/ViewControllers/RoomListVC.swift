@@ -11,8 +11,10 @@ class RoomListVC: UITableViewController{
         
     }
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         self.tabBarController?.tabBar.isHidden = false
+        tableView.reloadData()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

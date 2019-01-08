@@ -47,7 +47,7 @@ class TextCell: UserChattingBaseCell{
         messageLabel.text = message.messageText
         timeLabel.text = Date.timeToString(date: message.sendDate)
         readLabel.text = String(message.noReadUser.count)
-            
+        nameLabel.text = message.owner?.name
         bubbleView.backgroundColor = incomming ? #colorLiteral(red: 0.9996673465, green: 0.8927946687, blue: 0.005554047879, alpha: 1) : #colorLiteral(red: 0.9998916984, green: 1, blue: 0.9998809695, alpha: 1)
         
         subs.forEach { (sub) in
@@ -68,7 +68,7 @@ class TextCell: UserChattingBaseCell{
         
         stackView.snp.remakeConstraints { (mk) in
             if incomming { mk.left.equalTo(bubbleView.snp.right).offset(7) }
-            else { mk.right.equalTo(bubbleView.snp.left).inset(7) }
+            else { mk.right.equalTo(bubbleView.snp.left).offset(-7) }
             mk.bottom.equalTo(bubbleView).inset(7)
         }
         
@@ -90,10 +90,9 @@ class TextCell: UserChattingBaseCell{
                 else { mk.top.equalTo(topView.snp.bottom).offset(Style.messagePadding) }
                 mk.width.lessThanOrEqualTo(250)
             }
-            
         }else{
             messageLabel.snp.remakeConstraints { (mk) in
-                mk.right.equalTo(self).offset(Style.rightMessageToCornerGap)
+                mk.right.equalTo(self).inset(Style.rightMessageToCornerGap)
                 mk.top.equalTo(topView.snp.bottom).offset(Style.messagePadding)
                 mk.width.lessThanOrEqualTo(250)
             }
