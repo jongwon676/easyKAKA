@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2201941D9767FC1EB65D0802 /* Pods_kakakak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31166B9B380F3B955A1AACD7 /* Pods_kakakak.framework */; };
+		AD020C7D21E4C0AD00AC6C1C /* FlexibleTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD020C7C21E4C0AD00AC6C1C /* FlexibleTextView.swift */; };
+		ADB2170321E4B54A008B296B /* FacebookInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB2170221E4B54A008B296B /* FacebookInputBar.swift */; };
 		ADC672A921E2260700D6D3F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672A821E2260700D6D3F5 /* AppDelegate.swift */; };
 		ADC672AE21E2260700D6D3F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADC672AC21E2260700D6D3F5 /* Main.storyboard */; };
 		ADC672B021E2260800D6D3F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADC672AF21E2260800D6D3F5 /* Assets.xcassets */; };
@@ -27,18 +29,23 @@
 		ADC672DC21E391B500D6D3F5 /* RoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672DB21E391B500D6D3F5 /* RoomCell.swift */; };
 		ADC672DE21E39FCB00D6D3F5 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672DD21E39FCB00D6D3F5 /* ChatVC.swift */; };
 		ADC672E121E3A52400D6D3F5 /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672E021E3A52400D6D3F5 /* TextCell.swift */; };
-		ADC672E321E3A56B00D6D3F5 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672E221E3A56B00D6D3F5 /* ImageCell.swift */; };
+		ADC672E321E3A56B00D6D3F5 /* ChattingImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672E221E3A56B00D6D3F5 /* ChattingImageCell.swift */; };
 		ADC672E521E3A57900D6D3F5 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672E421E3A57900D6D3F5 /* DateCell.swift */; };
 		ADC672E721E3A59000D6D3F5 /* UserEnterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672E621E3A59000D6D3F5 /* UserEnterCell.swift */; };
 		ADC672E921E3A5A000D6D3F5 /* UserExitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672E821E3A5A000D6D3F5 /* UserExitCell.swift */; };
 		ADC672ED21E3AE3900D6D3F5 /* BaseChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672EC21E3AE3900D6D3F5 /* BaseChatCell.swift */; };
 		ADC672F021E3B0A000D6D3F5 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672EF21E3B0A000D6D3F5 /* Style.swift */; };
 		ADC672F221E3CE6200D6D3F5 /* UserChattingBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672F121E3CE6200D6D3F5 /* UserChattingBaseCell.swift */; };
+		ADC672F421E42E3200D6D3F5 /* MessageInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672F321E42E3200D6D3F5 /* MessageInputView.swift */; };
+		ADDDF02621E4E69E007E3D16 /* GitHawkInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDDF02521E4E69E007E3D16 /* GitHawkInputBar.swift */; };
+		ADDDF02921E4E6CD007E3D16 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDDF02821E4E6CD007E3D16 /* ImageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		31166B9B380F3B955A1AACD7 /* Pods_kakakak.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kakakak.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DCAA90BC1391044DF37135F /* Pods-kakakak.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kakakak.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kakakak/Pods-kakakak.debug.xcconfig"; sourceTree = "<group>"; };
+		AD020C7C21E4C0AD00AC6C1C /* FlexibleTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleTextView.swift; sourceTree = "<group>"; };
+		ADB2170221E4B54A008B296B /* FacebookInputBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookInputBar.swift; sourceTree = "<group>"; };
 		ADC672A521E2260700D6D3F5 /* kakakak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kakakak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADC672A821E2260700D6D3F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADC672AD21E2260700D6D3F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -60,13 +67,16 @@
 		ADC672DB21E391B500D6D3F5 /* RoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCell.swift; sourceTree = "<group>"; };
 		ADC672DD21E39FCB00D6D3F5 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		ADC672E021E3A52400D6D3F5 /* TextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
-		ADC672E221E3A56B00D6D3F5 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		ADC672E221E3A56B00D6D3F5 /* ChattingImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingImageCell.swift; sourceTree = "<group>"; };
 		ADC672E421E3A57900D6D3F5 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		ADC672E621E3A59000D6D3F5 /* UserEnterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEnterCell.swift; sourceTree = "<group>"; };
 		ADC672E821E3A5A000D6D3F5 /* UserExitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserExitCell.swift; sourceTree = "<group>"; };
 		ADC672EC21E3AE3900D6D3F5 /* BaseChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseChatCell.swift; sourceTree = "<group>"; };
 		ADC672EF21E3B0A000D6D3F5 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		ADC672F121E3CE6200D6D3F5 /* UserChattingBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChattingBaseCell.swift; sourceTree = "<group>"; };
+		ADC672F321E42E3200D6D3F5 /* MessageInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInputView.swift; sourceTree = "<group>"; };
+		ADDDF02521E4E69E007E3D16 /* GitHawkInputBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHawkInputBar.swift; sourceTree = "<group>"; };
+		ADDDF02821E4E6CD007E3D16 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		DD4718A9C835A6A90A2808AA /* Pods-kakakak.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kakakak.release.xcconfig"; path = "Pods/Target Support Files/Pods-kakakak/Pods-kakakak.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,9 +160,14 @@
 		ADC672C021E24F1300D6D3F5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ADDDF02721E4E6C5007E3D16 /* Cell */,
+				ADDDF02421E4E695007E3D16 /* InputBar */,
 				ADC672DF21E3A51700D6D3F5 /* ChattingCell */,
 				ADC672C121E24F1F00D6D3F5 /* CharacterCell.swift */,
 				ADC672DB21E391B500D6D3F5 /* RoomCell.swift */,
+				ADC672F321E42E3200D6D3F5 /* MessageInputView.swift */,
+				ADB2170221E4B54A008B296B /* FacebookInputBar.swift */,
+				AD020C7C21E4C0AD00AC6C1C /* FlexibleTextView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -189,7 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				ADC672E021E3A52400D6D3F5 /* TextCell.swift */,
-				ADC672E221E3A56B00D6D3F5 /* ImageCell.swift */,
+				ADC672E221E3A56B00D6D3F5 /* ChattingImageCell.swift */,
 				ADC672E421E3A57900D6D3F5 /* DateCell.swift */,
 				ADC672E621E3A59000D6D3F5 /* UserEnterCell.swift */,
 				ADC672E821E3A5A000D6D3F5 /* UserExitCell.swift */,
@@ -205,6 +220,22 @@
 				ADC672EF21E3B0A000D6D3F5 /* Style.swift */,
 			);
 			path = StyleGuide;
+			sourceTree = "<group>";
+		};
+		ADDDF02421E4E695007E3D16 /* InputBar */ = {
+			isa = PBXGroup;
+			children = (
+				ADDDF02521E4E69E007E3D16 /* GitHawkInputBar.swift */,
+			);
+			path = InputBar;
+			sourceTree = "<group>";
+		};
+		ADDDF02721E4E6C5007E3D16 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				ADDDF02821E4E6CD007E3D16 /* ImageCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		BDF41DCEDCC41CE23ED099A0 /* Frameworks */ = {
@@ -310,12 +341,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-kakakak/Pods-kakakak-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/InputBarAccessoryView/InputBarAccessoryView.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InputBarAccessoryView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
@@ -334,6 +367,7 @@
 			files = (
 				ADC672C221E24F1F00D6D3F5 /* CharacterCell.swift in Sources */,
 				ADC672DC21E391B500D6D3F5 /* RoomCell.swift in Sources */,
+				ADDDF02621E4E69E007E3D16 /* GitHawkInputBar.swift in Sources */,
 				ADC672D221E2B91300D6D3F5 /* UIImage+Extension.swift in Sources */,
 				ADC672BE21E24E2500D6D3F5 /* CharacterListVC.swift in Sources */,
 				ADC672D621E2C67F00D6D3F5 /* RoomListVC.swift in Sources */,
@@ -342,17 +376,21 @@
 				ADC672E521E3A57900D6D3F5 /* DateCell.swift in Sources */,
 				ADC672C921E28F6500D6D3F5 /* Path.swift in Sources */,
 				ADC672DE21E39FCB00D6D3F5 /* ChatVC.swift in Sources */,
+				ADDDF02921E4E6CD007E3D16 /* ImageCell.swift in Sources */,
 				ADC672D021E2A68B00D6D3F5 /* AddUserVC.swift in Sources */,
 				ADC672E121E3A52400D6D3F5 /* TextCell.swift in Sources */,
 				ADC672D421E2C12F00D6D3F5 /* Date.swift in Sources */,
 				ADC672DA21E2C8F800D6D3F5 /* Message.swift in Sources */,
 				ADC672ED21E3AE3900D6D3F5 /* BaseChatCell.swift in Sources */,
-				ADC672E321E3A56B00D6D3F5 /* ImageCell.swift in Sources */,
+				ADC672E321E3A56B00D6D3F5 /* ChattingImageCell.swift in Sources */,
 				ADC672E721E3A59000D6D3F5 /* UserEnterCell.swift in Sources */,
 				ADC672A921E2260700D6D3F5 /* AppDelegate.swift in Sources */,
+				ADC672F421E42E3200D6D3F5 /* MessageInputView.swift in Sources */,
+				AD020C7D21E4C0AD00AC6C1C /* FlexibleTextView.swift in Sources */,
 				ADC672E921E3A5A000D6D3F5 /* UserExitCell.swift in Sources */,
 				ADC672D821E2C71B00D6D3F5 /* Room.swift in Sources */,
 				ADC672F221E3CE6200D6D3F5 /* UserChattingBaseCell.swift in Sources */,
+				ADB2170321E4B54A008B296B /* FacebookInputBar.swift in Sources */,
 				ADC672F021E3B0A000D6D3F5 /* Style.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -501,7 +539,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U6L6476C2Z;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = kakakak/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -520,7 +558,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U6L6476C2Z;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = kakakak/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

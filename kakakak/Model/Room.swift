@@ -25,9 +25,10 @@ class Room: Object {
         return realm.objects(Room.self).sorted(byKeyPath: Properties.lastActivateDate.rawValue, ascending: false)
     }
     
-    static func add(in realm: Realm = try! Realm(),users: List<User>){
+    static func add(in realm: Realm = try! Realm(),users: List<User>,messages: List<Message>){
         let item = Room()
         item.users = users
+        item.messages = messages
         try! realm.write {
             realm.add(item)
         }

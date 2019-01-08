@@ -11,4 +11,6 @@ class Style{
     static let timeLabelToBottomGap = 2.5
     static let messageToMessageGap = 2.5
     static let firstMessageGap = 8
+    static let nameLabelBubbleGap = 6
+    static let messagePadding = 10
 }

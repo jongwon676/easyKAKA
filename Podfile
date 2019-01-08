@@ -8,4 +8,5 @@ target 'kakakak' do
   # Pods for kakakak
   pod 'RealmSwift', '3.7.1'
   pod 'SnapKit', '~> 4.0.0'
+	pod 'InputBarAccessoryView'
 end

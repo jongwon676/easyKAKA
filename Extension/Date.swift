@@ -5,7 +5,7 @@ extension Date{
     }
     static func timeToString(date: Date)->String{
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "a hh시 mm분"
+        dateFormatter.dateFormat = "a hh:mm"
         dateFormatter.amSymbol = "오전"
         dateFormatter.pmSymbol = "오후"
         return dateFormatter.string(from: date)

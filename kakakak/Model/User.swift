@@ -31,4 +31,5 @@ class User: Object{
         self.id = UUID().uuidString
         self.isMe = false
     }
+    var isSelected: Bool = false
 }
