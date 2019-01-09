@@ -7,10 +7,7 @@ class ChatVC: UITableViewController{
     var realm = try! Realm()
     var timer: Timer?
     var room: Room!
-    
-    
-    var messageToken: NotificationToken?
-    
+
     override var inputAccessoryView: UIView? {
         return inputBar
     }
@@ -23,12 +20,14 @@ class ChatVC: UITableViewController{
         let customInputBar = inputBar as! GitHawkInputBar
         return customInputBar.selectedUser
     }
+
     
     open lazy var attachmentManager: AttachmentManager = { [unowned self] in
         let manager = AttachmentManager()
         manager.delegate = self
         return manager
         }()
+    
     
     var inputBar: InputBarAccessoryView!{
         didSet{
@@ -43,16 +42,7 @@ class ChatVC: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0,
-                                     repeats: true) {
-                                        timer in
-                                        self.navigationItem.title = Date.timeToStringSecondVersion(date: self.room.currentDate)
-                                        try! self.realm.write{
-                                            self.room.currentDate =
-                                                self.room.currentDate.addingTimeInterval(1.0)
-                                            
-                                        }
-        }
+        
         
         inputBar = GitHawkInputBar()
         
@@ -67,10 +57,31 @@ class ChatVC: UITableViewController{
         tableView.separatorStyle = .none
         tableView.backgroundColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
         self.navigationItem.title = Date.timeToStringSecondVersion(date: self.room.currentDate)
+        
+        
+        
+        reload()
+        tableView.reloadData()
+        
+        if self.room.messages.count > 0 {
+            tableView.scrollToRow(at: IndexPath.row(row: self.room.messages.count - 1), at: UITableView.ScrollPosition.bottom, animated: false)
+        }
+        
+    }
+    @objc func handleTimer(){
+        print(self.room.currentDate)
+        self.navigationItem.title = Date.timeToStringSecondVersion(date: self.room.currentDate)
+        try! self.realm.write{
+            self.room.currentDate =
+                self.room.currentDate.addingTimeInterval(1.0)
+            
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         timer?.invalidate()
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -84,33 +95,21 @@ class ChatVC: UITableViewController{
         super.viewWillAppear(animated)
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
         self.tabBarController?.tabBar.isHidden = true
-        
-        
-        messageToken = room.messages.observe{
-            [weak tableView] changes in
-            guard let tableView = tableView else { return }
-            switch changes{
-            case .initial:
-                tableView.reloadData()
-            case .update(_, let deletions, let insertions, let updates):
-                if insertions.count > 0 {
-                    tableView.insertRows(at: [IndexPath(row: insertions.first!, section: 0)], with: .automatic)
-                }
-            case .error: break
-            }
-            if self.room.messages.count > 0 {
-                let path = IndexPath(row: self.room.messages.count-1, section: 0)
-                tableView.scrollToRow(at: path, at: UITableView.ScrollPosition.bottom, animated: true)
-            }
+        timer = Timer.scheduledTimer(withTimeInterval: 1.1,
+                             repeats: true) {
+                                timer in
+                                try! self.realm.write {
+                                    self.room.currentDate = self.room.currentDate.addingTimeInterval(1.0)
+                                }
+                                self.navigationItem.title = Date.timeToStringSecondVersion(date: self.room.currentDate)
         }
     }
     
     
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        //        timer?.invalidate()
-    }
+    
+    
+    
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -121,11 +120,10 @@ class ChatVC: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: TextCell.reuseId) as! TextCell
-        cell.isFirst = true
         let users = (room.messages[indexPath.row].owner)!
         cell.incomming = !users.isMe
-        cell.isLast = true
         cell.configure(message: room.messages[indexPath.row])
         return cell
     }
@@ -142,8 +140,8 @@ extension ChatVC: InputBarAccessoryViewDelegate{
                 }
             }
             room.addMessage(message: message)
+            apply(index: room.messages.count - 1, type: .insert)
         }
-        
     }
     func inputBar(_ inputBar: InputBarAccessoryView, didChangeIntrinsicContentTo size: CGSize) {
         // Adjust content insets

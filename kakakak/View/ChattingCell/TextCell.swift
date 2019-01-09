@@ -5,7 +5,6 @@ import RealmSwift
 class TextCell: UserChattingBaseCell{
 
     static var reuseId: String = "TextCell"
-    
     lazy var commonViews:[UIView] = [topView,bubbleView,messageLabel]
     lazy var leftFirstViews: [UIView] = [nameLabel,profile]
     lazy var rightFirstViews: [UIView] = []
@@ -33,16 +32,19 @@ class TextCell: UserChattingBaseCell{
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
+    
     var subs: [UIView]{
         get{
-            let return_views = commonViews + ((incomming && isFirst) ? leftFirstViews : [])
+            let return_views = commonViews + ((incomming && isFirst ) ? leftFirstViews : [])
             return return_views
         }
     }
     
     func configure(message: Message){
+        
         clear()
+        isFirst = message.isFirstMessage
         profile.image = UIImage.loadImageFromName(message.owner!.profileImageUrl!)!
         messageLabel.text = message.messageText
         timeLabel.text = Date.timeToString(date: message.sendDate)
@@ -63,7 +65,7 @@ class TextCell: UserChattingBaseCell{
         
         topView.snp.remakeConstraints { (mk) in
             mk.left.right.top.equalTo(self)
-            mk.height.equalTo( ( isFirst ? Style.firstMessageGap : 0 ) )
+            mk.height.equalTo( ( message.isFirstMessage ? Style.firstMessageGap + 4 : 4 ) )
         }
         
         stackView.snp.remakeConstraints { (mk) in
@@ -73,9 +75,9 @@ class TextCell: UserChattingBaseCell{
         }
         
         if message.noReadUser.count > 0 { stackView.addArrangedSubview(readLabel) }
-        if isLast { stackView.addArrangedSubview(timeLabel) }
+        if message.isLastMessage { stackView.addArrangedSubview(timeLabel) }
         
-        if incomming && isFirst{
+        if incomming && message.isFirstMessage {
             profile.snp.makeConstraints { (mk) in
                 mk.left.equalTo(self).offset(4)
                 mk.width.height.equalTo(40)
@@ -86,7 +88,7 @@ class TextCell: UserChattingBaseCell{
         if incomming {
             messageLabel.snp.remakeConstraints { (mk) in
                 mk.left.equalTo(self).offset(Style.leftMessageToCornerGap)
-                if isFirst { mk.top.equalTo(nameLabel.snp.bottom).offset(Style.nameLabelBubbleGap + Style.messagePadding) }
+                if message.isFirstMessage  { mk.top.equalTo(nameLabel.snp.bottom).offset(Style.nameLabelBubbleGap + Style.messagePadding) }
                 else { mk.top.equalTo(topView.snp.bottom).offset(Style.messagePadding) }
                 mk.width.lessThanOrEqualTo(250)
             }
@@ -97,7 +99,7 @@ class TextCell: UserChattingBaseCell{
                 mk.width.lessThanOrEqualTo(250)
             }
         }
-        if incomming && isFirst{
+        if incomming && message.isFirstMessage {
             nameLabel.snp.remakeConstraints { (mk) in
                 mk.top.equalTo(profile.snp.top)
                 mk.left.equalTo(bubbleView.snp.left)
@@ -115,6 +117,7 @@ class TextCell: UserChattingBaseCell{
             }
         }
     }
+    
     func clear(){
         self.subviews.forEach { (sub) in
             sub.snp.removeConstraints()

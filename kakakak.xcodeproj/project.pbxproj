@@ -39,6 +39,7 @@
 		ADC672F421E42E3200D6D3F5 /* MessageInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672F321E42E3200D6D3F5 /* MessageInputView.swift */; };
 		ADDDF02621E4E69E007E3D16 /* GitHawkInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDDF02521E4E69E007E3D16 /* GitHawkInputBar.swift */; };
 		ADDDF02921E4E6CD007E3D16 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDDF02821E4E6CD007E3D16 /* ImageCell.swift */; };
+		ADDDF02B21E53E6E007E3D16 /* ChatVC+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDDF02A21E53E6E007E3D16 /* ChatVC+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		ADC672F321E42E3200D6D3F5 /* MessageInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInputView.swift; sourceTree = "<group>"; };
 		ADDDF02521E4E69E007E3D16 /* GitHawkInputBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHawkInputBar.swift; sourceTree = "<group>"; };
 		ADDDF02821E4E6CD007E3D16 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		ADDDF02A21E53E6E007E3D16 /* ChatVC+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatVC+extension.swift"; sourceTree = "<group>"; };
 		DD4718A9C835A6A90A2808AA /* Pods-kakakak.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kakakak.release.xcconfig"; path = "Pods/Target Support Files/Pods-kakakak/Pods-kakakak.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -189,6 +191,7 @@
 				ADC672C821E28F6500D6D3F5 /* Path.swift */,
 				ADC672D121E2B91300D6D3F5 /* UIImage+Extension.swift */,
 				ADC672D321E2C12F00D6D3F5 /* Date.swift */,
+				ADDDF02A21E53E6E007E3D16 /* ChatVC+extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 			files = (
 				ADC672C221E24F1F00D6D3F5 /* CharacterCell.swift in Sources */,
 				ADC672DC21E391B500D6D3F5 /* RoomCell.swift in Sources */,
+				ADDDF02B21E53E6E007E3D16 /* ChatVC+extension.swift in Sources */,
 				ADDDF02621E4E69E007E3D16 /* GitHawkInputBar.swift in Sources */,
 				ADC672D221E2B91300D6D3F5 /* UIImage+Extension.swift in Sources */,
 				ADC672BE21E24E2500D6D3F5 /* CharacterListVC.swift in Sources */,

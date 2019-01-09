@@ -1,8 +1,10 @@
 import UIKit
 extension Date{
+    
     func currentDateToString() -> String{
         return String(self.timeIntervalSince1970)
     }
+    
     static func timeToStringSecondVersion(date: Date) -> String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "a hh:mm:ss"

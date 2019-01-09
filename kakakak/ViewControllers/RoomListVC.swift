@@ -8,7 +8,21 @@ class RoomListVC: UITableViewController{
         super.viewDidLoad()
         rooms = Room.all()
         tableView.rowHeight = 77
-        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(roomAdd))
+    }
+    
+    @objc func roomAdd(){
+        var allPreset = Preset.all()
+        if allPreset.count >= 2{s
+            
+            var userList =   List<User>()
+            var messageList = List<Message>()
+            userList.append(User(preset: allPreset[0]))
+            userList.append(User(preset: allPreset[1]))
+            
+            Room.add(users: userList, messages: messageList)
+            tableView.reloadData()
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -37,5 +51,6 @@ class RoomListVC: UITableViewController{
         
         self.navigationController?.pushViewController(chatVc, animated: true)
     }
+    
     
 }

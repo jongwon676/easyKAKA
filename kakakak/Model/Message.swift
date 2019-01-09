@@ -12,7 +12,8 @@ class Message: Object {
     @objc dynamic var messageText: String = ""
     @objc dynamic var messageImageUrl: String = ""
     @objc dynamic var currentDate: Date = Date()
-    
+    @objc dynamic var isFirstMessage: Bool = false
+    @objc dynamic var isLastMessage: Bool = false
     
     var readUser = List<User>()
     var noReadUser = List<User>()
