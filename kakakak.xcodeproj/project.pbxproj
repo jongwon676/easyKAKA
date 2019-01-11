@@ -132,7 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				ADC672EE21E3B09500D6D3F5 /* StyleGuide */,
-				ADC672C321E2516C00D6D3F5 /* Model */,
+				ADC672C321E2516C00D6D3F5 /* Entity */,
 				ADC672C021E24F1300D6D3F5 /* View */,
 				ADC672BF21E24E2A00D6D3F5 /* ViewControllers */,
 				ADC672A821E2260700D6D3F5 /* AppDelegate.swift */,
@@ -178,7 +178,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		ADC672C321E2516C00D6D3F5 /* Model */ = {
+		ADC672C321E2516C00D6D3F5 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
 				ADC672C421E2517700D6D3F5 /* Preset.swift */,
@@ -186,7 +186,7 @@
 				ADC672D721E2C71B00D6D3F5 /* Room.swift */,
 				ADC672D921E2C8F800D6D3F5 /* Message.swift */,
 			);
-			path = Model;
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		ADC672C721E28F5C00D6D3F5 /* Extension */ = {

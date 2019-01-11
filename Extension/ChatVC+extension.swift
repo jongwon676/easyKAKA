@@ -123,51 +123,8 @@ extension ChatVC{
             }
         }
     }
-    
-    enum UpdateType{
-        case remove
-        case change
-        case insert
-    }
-    
-    // 마지막에 추가할때는 좀 다른데?
-    
-    func apply(index:Int,type: UpdateType){
-        var ret = [Int]()
-        
-        reload()
-        
-        switch type {
-        case .remove:
-            if index - 1 >= 0 && index - 1 < room.messages.count { ret.append(index-1) }
-            if index < room.messages.count { ret.append(index) }
-        case .change:
-            ret.append(index)
-            if index - 1 >= 0 && index - 1 < room.messages.count { ret.append(index - 1) }
-            if index + 1 < room.messages.count { ret.append(index + 1) }
-        case .insert:
-            tableView.insertRows(at: [IndexPath.row(row: index)], with: .automatic)
-            if index - 1 >= 0 && index - 1 < room.messages.count { ret.append(index - 1) }
-            if index + 1 < room.messages.count { ret.append(index + 1) }
-        }
-        
-        var scrollIndex = index
-        
-        if scrollIndex >= room.messages.count{
-            scrollIndex -= 1
-        }
-        
-        tableView.reloadData()
-        if type == .insert{
-
-            tableView.scrollToRow(at: IndexPath.row(row: scrollIndex), at: .middle, animated: false)
-        }
-//        tableView.applyUpdate(updates: ret)
-
-        if scrollIndex >= 0{
-            tableView.scrollToRow(at: IndexPath.row(row: scrollIndex), at: UITableView.ScrollPosition.bottom, animated: false)
-        }
-        tableView.scrollToRow(at: IndexPath.row(row: room.messages.count-1), at: .bottom, animated: false)
+    func scrolToGuideLine(position: UITableView.ScrollPosition = .middle){
+        tableView.scrollToRow(at: guideLineIndex, at: position, animated: false)
         
     }
 }
@@ -177,7 +134,6 @@ extension IndexPath{
         return IndexPath(row: row, section: 0)
     }
 }
-
 
 extension UITableView {
     func applyChanges(deletions: [Int], insertions: [Int], updates: [Int]) {

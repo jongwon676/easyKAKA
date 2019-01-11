@@ -18,12 +18,17 @@ class Message: Object {
     var readUser = List<User>()
     var noReadUser = List<User>()
     
+    var room = LinkingObjects(fromType: Room.self, property: "messages")
+    
+    
     convenience required init(owner: User?,sendDate: Date ,messageText: String){
         self.init()
         self.owner = owner
         self.sendDate = sendDate
         self.messageText = messageText
     }
+    
+    
     
     
     enum MessageType: String{
