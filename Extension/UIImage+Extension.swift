@@ -7,6 +7,7 @@ extension UIImage{
         guard let img = image else { return nil }
         return img
     }
+    
     static func loadImageFromName(_ imgName: String) -> UIImage?{
         do{
             let path = try Path.inDocuments(imgName)
@@ -15,6 +16,7 @@ extension UIImage{
             return nil
         }
     }
+    
     func writeImage(imgName name: String) -> Bool{
         let data = self.jpegData(compressionQuality: 1.0)
         
@@ -28,5 +30,12 @@ extension UIImage{
         }
         return true
     }
-   
+    
+    convenience init(view: UIView) {
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.layer.render(in:UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.init(cgImage: image!.cgImage!)
+    }
 }

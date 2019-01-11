@@ -109,13 +109,15 @@ class TextCell: UserChattingBaseCell{
         bubbleView.snp.remakeConstraints { (mk) in
             let padding = -CGFloat(Style.messagePadding)
             mk.edges.equalTo(messageLabel).inset(UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding))
+            mk.bottom.equalTo(self)
         }
         
-        for element in self.subs{
-            element.snp.makeConstraints { (mk) in
-                mk.bottom.lessThanOrEqualTo(self)
-            }
-        }
+        
+//        for element in self.subs{
+//            element.snp.makeConstraints { (mk) in
+//                mk.bottom.lessThanOrEqualTo(self)
+//            }
+//        }
     }
     
     func clear(){

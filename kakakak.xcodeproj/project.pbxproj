@@ -40,6 +40,8 @@
 		ADDDF02621E4E69E007E3D16 /* GitHawkInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDDF02521E4E69E007E3D16 /* GitHawkInputBar.swift */; };
 		ADDDF02921E4E6CD007E3D16 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDDF02821E4E6CD007E3D16 /* ImageCell.swift */; };
 		ADDDF02B21E53E6E007E3D16 /* ChatVC+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDDF02A21E53E6E007E3D16 /* ChatVC+extension.swift */; };
+		ADDFB85E21E6C8E8003D5DF1 /* GuideLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDFB85D21E6C8E8003D5DF1 /* GuideLineCell.swift */; };
+		ADDFB86021E7037A003D5DF1 /* ChatVC+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDFB85F21E7037A003D5DF1 /* ChatVC+Alert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +81,8 @@
 		ADDDF02521E4E69E007E3D16 /* GitHawkInputBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHawkInputBar.swift; sourceTree = "<group>"; };
 		ADDDF02821E4E6CD007E3D16 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		ADDDF02A21E53E6E007E3D16 /* ChatVC+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatVC+extension.swift"; sourceTree = "<group>"; };
+		ADDFB85D21E6C8E8003D5DF1 /* GuideLineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideLineCell.swift; sourceTree = "<group>"; };
+		ADDFB85F21E7037A003D5DF1 /* ChatVC+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatVC+Alert.swift"; sourceTree = "<group>"; };
 		DD4718A9C835A6A90A2808AA /* Pods-kakakak.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kakakak.release.xcconfig"; path = "Pods/Target Support Files/Pods-kakakak/Pods-kakakak.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -192,6 +196,7 @@
 				ADC672D121E2B91300D6D3F5 /* UIImage+Extension.swift */,
 				ADC672D321E2C12F00D6D3F5 /* Date.swift */,
 				ADDDF02A21E53E6E007E3D16 /* ChatVC+extension.swift */,
+				ADDFB85F21E7037A003D5DF1 /* ChatVC+Alert.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -213,6 +218,7 @@
 				ADC672E821E3A5A000D6D3F5 /* UserExitCell.swift */,
 				ADC672EC21E3AE3900D6D3F5 /* BaseChatCell.swift */,
 				ADC672F121E3CE6200D6D3F5 /* UserChattingBaseCell.swift */,
+				ADDFB85D21E6C8E8003D5DF1 /* GuideLineCell.swift */,
 			);
 			path = ChattingCell;
 			sourceTree = "<group>";
@@ -375,6 +381,7 @@
 				ADC672D221E2B91300D6D3F5 /* UIImage+Extension.swift in Sources */,
 				ADC672BE21E24E2500D6D3F5 /* CharacterListVC.swift in Sources */,
 				ADC672D621E2C67F00D6D3F5 /* RoomListVC.swift in Sources */,
+				ADDFB86021E7037A003D5DF1 /* ChatVC+Alert.swift in Sources */,
 				ADC672CE21E29BC800D6D3F5 /* User.swift in Sources */,
 				ADC672C521E2517700D6D3F5 /* Preset.swift in Sources */,
 				ADC672E521E3A57900D6D3F5 /* DateCell.swift in Sources */,
@@ -386,6 +393,7 @@
 				ADC672D421E2C12F00D6D3F5 /* Date.swift in Sources */,
 				ADC672DA21E2C8F800D6D3F5 /* Message.swift in Sources */,
 				ADC672ED21E3AE3900D6D3F5 /* BaseChatCell.swift in Sources */,
+				ADDFB85E21E6C8E8003D5DF1 /* GuideLineCell.swift in Sources */,
 				ADC672E321E3A56B00D6D3F5 /* ChattingImageCell.swift in Sources */,
 				ADC672E721E3A59000D6D3F5 /* UserEnterCell.swift in Sources */,
 				ADC672A921E2260700D6D3F5 /* AppDelegate.swift in Sources */,

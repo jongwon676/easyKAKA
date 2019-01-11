@@ -12,15 +12,15 @@ class RoomListVC: UITableViewController{
     }
     
     @objc func roomAdd(){
-        var allPreset = Preset.all()
-        if allPreset.count >= 2{s
-            
-            var userList =   List<User>()
-            var messageList = List<Message>()
-            userList.append(User(preset: allPreset[0]))
-            userList.append(User(preset: allPreset[1]))
-            
-            Room.add(users: userList, messages: messageList)
+        let allPreset = Preset.all()
+        if allPreset.count >= 2{
+            let userList =   List<User>()
+            userList.append(objectsIn: [User(preset: allPreset[0]),User(preset: allPreset[1])])
+            let messages = List<Message>()
+            let guideMessage = Message(owner: nil, sendDate: Date(), messageText: "")
+            guideMessage.type = .guide
+            messages.append(guideMessage)
+            Room.add(users: userList, messages: messages)
             tableView.reloadData()
         }
     }

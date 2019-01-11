@@ -40,6 +40,7 @@ class Path {
             .containerURL(forSecurityApplicationGroupIdentifier: groupId) else {
                 throw PathError.containerNotFound(groupId)
         }
+        
         return url.appendingPathComponent(name)
     }
     
