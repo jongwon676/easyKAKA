@@ -7,6 +7,7 @@ class ChatVC: UITableViewController{
     var realm = try! Realm()
     private weak var timer: Timer?
     var room: Room!
+    private var token: NotificationToken?
     
     var colors = [UIColor.red,.green,.black,.magenta,.orange,.blue]
     
@@ -28,7 +29,7 @@ class ChatVC: UITableViewController{
         let manager = AttachmentManager()
         manager.delegate = self
         return manager
-        }()
+    }()
     
     
     var inputBar: InputBarAccessoryView!{
@@ -89,66 +90,58 @@ class ChatVC: UITableViewController{
                 let msg = room.messages[idx]
                 return msg.type == .guide
             })
+            
             assert(guideIndices.count == 2)
             (guideRow < insertPosition)
                 ? room.messages.remove(at: guideIndices[0])
                 : room.messages.remove(at: guideIndices[1])
             tableView.reloadData()
+            tableView.scrollToRow(at: IndexPath.row(row: insertPosition), at: .middle, animated: false)
         }
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-    }
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("delegate \(indexPath.row) cell contain tap position")
-    }
-    var cacheHeight = [Date: CGFloat]()
-    
-    //    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    //
-    //        let msg = room.messages[indexPath.row]
-    //
-    //
-    //
-    //
-    //        if let h = cacheHeight[msg.creationDate]{
-    //            return h
-    //        }
-    //        switch msg.type {
-    //        case .guide:
-    //            let cell = tableView.dequeueReusableCell(withIdentifier: GuideLineCell.reuseId) as! GuideLineCell
-    //            let height =  cell.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
-    //            cacheHeight[msg.creationDate] = height
-    //            return height
-    //
-    //        default:
-    //            let cell = tableView.dequeueReusableCell(withIdentifier: TextCell.reuseId) as! TextCell
-    //            let users = (room.messages[indexPath.row].owner)!
-    //            cell.incomming = !users.isMe
-    //            cell.backgroundColor = UIColor.red
-    //            cell.configure(message: room.messages[indexPath.row])
-    //            cell.setNeedsLayout()
-    //            cell.layoutIfNeeded()
-    //
-    //           let height =  cell.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
-    //            cacheHeight[msg.creationDate] = height
-    //            return height
-    //        }
-    //
-    //    }
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(TextCell.self, forCellReuseIdentifier: TextCell.reuseId)
+        tableView.register(GuideLineCell.self, forCellReuseIdentifier: GuideLineCell.reuseId)
+        //reload()
         
-        for idx in 0 ..< room.messages.count{
-            try! realm.write {
-                let msg = room.messages[idx]
-                msg.messageText = String(idx)
+        token = room.messages.observe{ [weak tableView] changes in
+            guard let tableView = tableView else { return }
+            switch changes{
+            case .initial:
+                tableView.reloadData()
+            case .update(_, let deletions, let insertions, let updates):
+                print("delete \(deletions.count) insert \(insertions.count) updates \(updates.count)")
+                tableView.applyChanges(deletions: deletions, insertions: insertions, updates: updates)
+            case .error: break
             }
         }
-        //        tableView.rowHeight = UITableView.automaticDimension
-        //        tableView.estimatedRowHeight = 300
+        try! realm.write {
+            room.messages.removeAll()
+        }
+ 
+        var dummymsgs = [Message]()
+        if room.messages.count < 2000{
+        for idx in 0 ..< 1000{
+            var txt = ""
+//            txt = String(idx)
+            for idx in  0 ..< arc4random_uniform(200) + 1{
+                txt += String(idx)
+            }
+            let msg = Message(owner: room.users[0], sendDate: room.currentDate, messageText: txt)
+            dummymsgs.append(msg)
+        }
+            try! realm.write {
+                let msg = Message(owner: nil, sendDate: Date(), messageText: "")
+                msg.type = .guide
+                room.messages.append(objectsIn: dummymsgs)
+                room.messages.append(msg)
+            }
+        
+        }
+        
         
         tableView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
         
@@ -163,8 +156,7 @@ class ChatVC: UITableViewController{
         
         self.tableView.keyboardDismissMode = .interactive
         
-        tableView.register(TextCell.self, forCellReuseIdentifier: TextCell.reuseId)
-        tableView.register(GuideLineCell.self, forCellReuseIdentifier: GuideLineCell.reuseId)
+        
         
         tableView.separatorStyle = .none
         tableView.backgroundColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
@@ -196,8 +188,9 @@ class ChatVC: UITableViewController{
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
     }
-    
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        token?.invalidate()
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
@@ -224,7 +217,7 @@ class ChatVC: UITableViewController{
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //        print(indexPath.row)
+                print(indexPath.row)
         
         let msg = room.messages[indexPath.row]
         
@@ -243,8 +236,7 @@ class ChatVC: UITableViewController{
             cell.configure(message: room.messages[indexPath.row])
             cell.backgroundColor = colors[indexPath.row % colors.count]
             
-            
-            
+        
             return cell
             
         }
@@ -271,7 +263,7 @@ extension ChatVC: InputBarAccessoryViewDelegate{
             
             //            room.addMessage(message: message)
             //            UIImage.screenShot?.writeImage(imgName: "window.jpg")
-            apply(index: insertIndex, type: .insert)
+//            apply(index: insertIndex, type: .insert)
         }
     }
     func inputBar(_ inputBar: InputBarAccessoryView, didChangeIntrinsicContentTo size: CGSize) {

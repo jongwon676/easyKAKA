@@ -102,35 +102,26 @@ extension ChatVC{
     
     func reload(){
         
-//        try! realm.write {
-
-
-            for idx in stride(from: room.messages.count - 1, through: 0, by: -1){
+        try! realm.write {
+             for idx in stride(from: room.messages.count - 1, through: 0, by: -1){
                 if !checkUserMessage(message: room.messages[idx]){
                     continue
                 }
-
-//                room.messages[idx].isFirstMessage = true
-
-
-//                advanceFirst(index: idx, message: room.messages[idx])
+                room.messages[idx].isFirstMessage = true
+                advanceFirst(index: idx, message: room.messages[idx])
             }
-//            for element in room.messages{
-//                print(element.isFirstMessage)
-//            }
-
+            for element in room.messages{
+                print(element.isFirstMessage)
+            }
+            
             for idx in stride(from: 0, through: room.messages.count - 1, by: 1){
                 if !checkUserMessage(message: room.messages[idx]){
                     continue
                 }
-
-//                    room.messages[idx].isLastMessage = true
-
-//                advanceLast(index: idx, message: room.messages[idx])
+                room.messages[idx].isLastMessage = true
+                advanceLast(index: idx, message: room.messages[idx])
             }
-
-//        }
-        
+        }
     }
     
     enum UpdateType{
@@ -168,16 +159,15 @@ extension ChatVC{
         
         tableView.reloadData()
         if type == .insert{
-            print(scrollIndex)
-            print("scroll")
+
             tableView.scrollToRow(at: IndexPath.row(row: scrollIndex), at: .middle, animated: false)
         }
 //        tableView.applyUpdate(updates: ret)
-//
-//        if scrollIndex >= 0{
-//            tableView.scrollToRow(at: IndexPath.row(row: scrollIndex), at: UITableView.ScrollPosition.bottom, animated: false)
-//        }
-//        tableView.scrollToRow(at: IndexPath.row(row: room.messages.count-1), at: .bottom, animated: false)
+
+        if scrollIndex >= 0{
+            tableView.scrollToRow(at: IndexPath.row(row: scrollIndex), at: UITableView.ScrollPosition.bottom, animated: false)
+        }
+        tableView.scrollToRow(at: IndexPath.row(row: room.messages.count-1), at: .bottom, animated: false)
         
     }
 }
@@ -190,10 +180,10 @@ extension IndexPath{
 
 
 extension UITableView {
-    func applyUpdate(updates: [Int]) {
-        beginUpdates()
-        reloadRows(at: updates.map(IndexPath.row), with: .none)
-//        reloadRows(at: updates.map(IndexPath.row), with: .automatic)
-        endUpdates()
+    func applyChanges(deletions: [Int], insertions: [Int], updates: [Int]) {
+        reloadData()
+        if insertions.count > 0 {
+            scrollToRow(at: IndexPath.row(row: insertions.first!), at: .middle, animated: false)
+        }
     }
 }
