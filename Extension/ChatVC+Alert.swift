@@ -1,6 +1,9 @@
 import Foundation
 import UIKit
 extension ChatVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+    
+    
+    
     @objc func handleHamburger(){
         let alert = UIAlertController(title: nil, message: "옵션", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "등장인물 초대", style: .default, handler: nil))
@@ -24,7 +27,6 @@ extension ChatVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate
                     messages.insert(msg, at: guideLineIndex.row)
                 
             }
-            
         }
         picker.dismiss(animated: true, completion: nil)
     }
@@ -38,14 +40,51 @@ extension ChatVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate
             picker.delegate = self
             self.present(picker, animated: true, completion: nil)
         }))
+        
         alert.addAction(UIAlertAction(title: "날짜선 추가", style: .default, handler: { (action) in
-            
+                
+            self.dateSelect()
         }))
         alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
     
+    func dateSelect()  {
+        
+        let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 260))
+        datePicker.datePickerMode = UIDatePicker.Mode.date
+        
+        datePicker.addTarget(self, action: #selector(dateSelected(datePicker:)), for: UIControl.Event.valueChanged)
+        
+        let alertController = UIAlertController(title: nil, message:"날짜선 추가" , preferredStyle: UIAlertController.Style.actionSheet)
+        
+        alertController.view.addSubview(datePicker)//add subview
+        
+        let okayAction = UIAlertAction(title: "확인", style: .default) { (action) in
+            self.dateSelected(datePicker: datePicker)
+        }
+        
+        //add button to action sheet
+        alertController.addAction(okayAction)
+        
+        let height:NSLayoutConstraint = NSLayoutConstraint(item: alertController.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 300)
+        alertController.view.addConstraint(height);
+        
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
     
+    
+    //selected date func
+    @objc func dateSelected(datePicker:UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy년 MMM월 d일 EEE"
+        let currentDate = datePicker.date
+        print(dateFormatter.string(from: currentDate))
+        // "yyyy년 MMM월 d일 EEE"
+        // 2018년 4월 27일 금요일
+        
+    }
 }
 extension UIImage {
     class var screenShot: UIImage? {

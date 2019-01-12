@@ -6,19 +6,21 @@ class Message: Object {
     //채팅방 시간, [유저], [Message], id
     
     @objc dynamic private var _messageType = MessageType.text.rawValue
-    @objc dynamic var owner: User?
-    @objc dynamic var creationDate: Date = Date()
+    
+    @objc dynamic var owner: User?  // [fromUser, ExitUser]
+    @objc dynamic var toUser: User? // [toUser]
+    
     @objc dynamic var sendDate: Date = Date()
     @objc dynamic var messageText: String = ""
     @objc dynamic var messageImageUrl: String = ""
-    @objc dynamic var currentDate: Date = Date()
+    
     @objc dynamic var isFirstMessage: Bool = false
     @objc dynamic var isLastMessage: Bool = false
     
     var readUser = List<User>()
     var noReadUser = List<User>()
     
-    var room = LinkingObjects(fromType: Room.self, property: "messages")
+
     
     
     convenience required init(owner: User?,sendDate: Date ,messageText: String){
@@ -52,6 +54,28 @@ class Message: Object {
         msg.sendDate = sendDate
         msg.type = .image
         msg.messageImageUrl = imageUrl
+        return msg
+    }
+    static func makeDateMessage(date: Date = Date()) -> Message{
+        let msg = Message()
+        msg.owner = nil
+        msg.type = .date
+        msg.sendDate = date
+        return msg
+    }
+    static func makeEnterMessage(from: User, to: User) -> Message{
+        let msg = Message()
+        
+        msg.owner = from
+        msg.toUser = to
+        msg.type = .enter
+
+        return msg
+    }
+    static func makeExitMessage(exit: User) -> Message{
+        let msg = Message()
+        msg.type = .exit
+        msg.owner = exit
         return msg
     }
 }

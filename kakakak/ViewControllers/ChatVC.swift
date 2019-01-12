@@ -9,7 +9,7 @@ class ChatVC: UITableViewController{
     var room: Room!
     lazy var messages = room.messages
     private var token: NotificationToken?
-    
+    let datePicker = UIDatePicker()
     var colors = [UIColor.red,.green,.black,.magenta,.orange,.blue]
     
     override var inputAccessoryView: UIView? {
@@ -112,8 +112,20 @@ class ChatVC: UITableViewController{
                 let msg = Message(owner: room.users[0], sendDate: room.currentDate, messageText: txt)
                 dummymsgs.append(msg)
             }
-            for idx in 0 ..< 20{
-                let msg = Message.makeImageMessage(owner: room.users[0], sendDate: room.currentDate, imageUrl: "1547227315.3748941.jpg")
+//            for idx in 0 ..< 20{
+//                let msg = Message.makeImageMessage(owner: room.users[0], sendDate: room.currentDate, imageUrl: "1547227315.3748941.jpg")
+//                dummymsgs.append(msg)
+//            }
+            for idx in 0 ..< 1 {
+                let msg = Message.makeDateMessage()
+                dummymsgs.append(msg)
+            }
+            for idx in 0 ..< 1{
+                let msg = Message.makeEnterMessage(from: room.users[0], to: room.users[1])
+                dummymsgs.append(msg)
+            }
+            for idx in 0 ..< 1{
+                let msg = Message.makeExitMessage(exit: room.users[0])
                 dummymsgs.append(msg)
             }
             try! realm.write {
@@ -127,13 +139,19 @@ class ChatVC: UITableViewController{
         }
     }
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func registerCells(){
         tableView.register(TextCell.self, forCellReuseIdentifier: TextCell.reuseId)
         tableView.register(GuideLineCell.self, forCellReuseIdentifier: GuideLineCell.reuseId)
         tableView.register(ChattingImageCell.self, forCellReuseIdentifier: ChattingImageCell.reuseId)
-        
+        tableView.register(DateCell.self, forCellReuseIdentifier: DateCell.reuseId)
+        tableView.register(UserEnterCell.self, forCellReuseIdentifier: UserEnterCell.reuseId)
+        tableView.register(UserExitCell.self, forCellReuseIdentifier: UserExitCell.reuseId)
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        registerCells()
         token = messages.observe{ [weak tableView] changes in
             print("observe")
             guard let tableView = tableView else { return }
@@ -147,7 +165,7 @@ class ChatVC: UITableViewController{
         }
         
         
-//        makeDummyCells()
+        makeDummyCells()
 //        reload()
        
         
@@ -216,19 +234,32 @@ class ChatVC: UITableViewController{
             return cell
         case .text:
             let cell = tableView.dequeueReusableCell(withIdentifier: TextCell.reuseId) as! TextCell
-            let users = (messages[indexPath.row].owner)!
+            let users = (msg.owner)!
             cell.incomming = !users.isMe
 //            cell.backgroundColor = UIColor.red
-            cell.configure(message: messages[indexPath.row])
+            cell.configure(message: msg)
 //            cell.backgroundColor = colors[indexPath.row % colors.count]
             return cell
         case .image:
             let cell = tableView.dequeueReusableCell(withIdentifier: ChattingImageCell.reuseId) as! ChattingImageCell
-            let users = (messages[indexPath.row].owner)!
+            let users = (msg.owner)!
             cell.incomming = !users.isMe
-            cell.configure(messages[indexPath.row])
+            cell.configure(msg)
             
             return cell
+        case .date:
+            let cell = tableView.dequeueReusableCell(withIdentifier: DateCell.reuseId) as! DateCell
+            cell.configure(message: msg)
+            return cell
+        case .enter:
+            let cell = tableView.dequeueReusableCell(withIdentifier: UserEnterCell.reuseId) as! UserEnterCell
+            cell.configure(message: msg)
+            return cell
+        case .exit:
+            let cell = tableView.dequeueReusableCell(withIdentifier: UserExitCell.reuseId) as! UserExitCell
+            cell.configure(message: msg)
+            return cell
+            
         default:
             return UITableViewCell()
             

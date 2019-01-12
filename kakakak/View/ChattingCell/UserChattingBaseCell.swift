@@ -1,13 +1,7 @@
 import UIKit
 import SnapKit
 class UserChattingBaseCell: BaseChatCell{
-    
-    lazy var topView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.clear
-        return view
-    }()
-    
+
     lazy var nameLabel: UILabel = {
         var label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
