@@ -45,5 +45,14 @@ class Message: Object {
         get { return MessageType(rawValue: _messageType)!}
         set { _messageType = newValue.rawValue }
     }
+    
+    static func makeImageMessage(owner: User?, sendDate: Date, imageUrl: String) -> Message{
+        let msg = Message()
+        msg.owner = owner
+        msg.sendDate = sendDate
+        msg.type = .image
+        msg.messageImageUrl = imageUrl
+        return msg
+    }
 }
 

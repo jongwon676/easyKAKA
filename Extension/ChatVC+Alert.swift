@@ -1,6 +1,6 @@
 import Foundation
 import UIKit
-extension ChatVC{
+extension ChatVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     @objc func handleHamburger(){
         let alert = UIAlertController(title: nil, message: "옵션", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "등장인물 초대", style: .default, handler: nil))
@@ -8,10 +8,40 @@ extension ChatVC{
         alert.addAction(UIAlertAction(title: "대화방 이름 변경하기", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "대화방 시간 변경", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "사진찍기", style: .default, handler: { (action) in
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let img = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
+            let imageName = Date().currentDateToString() + ".jpg"
+            img.writeImage(imgName: imageName)
+            let msg = Message.makeImageMessage(owner: getCurrentUser(), sendDate: room.currentDate, imageUrl: imageName)
+            try! realm.write {
+                    messages.insert(msg, at: guideLineIndex.row)
+                
+            }
             
-            
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func addSpecailFeature(){
+        let alert = UIAlertController(title: nil, message: "옵션", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "이미지 추가", style: .default, handler: { (action) in
+            let picker = UIImagePickerController()
+            picker.sourceType = .photoLibrary
+            picker.allowsEditing = true
+            picker.delegate = self
+            self.present(picker, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "날짜선 추가", style: .default, handler: { (action) in
             
         }))
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
     

@@ -29,12 +29,10 @@ class AddUserVC: UITableViewController, UIImagePickerControllerDelegate,UINaviga
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
         if let img = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
             self.profile.image = img
         }
         picker.dismiss(animated: true, completion: nil)
     }
-    
 }
 

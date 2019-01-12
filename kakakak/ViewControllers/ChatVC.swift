@@ -103,13 +103,17 @@ class ChatVC: UITableViewController{
         
         var dummymsgs = [Message]()
         if messages.count < 2000{
-            for idx in 0 ..< 2000{
+            
+            for idx in 0 ..< 20{
                 var txt = ""
-                //            txt = String(idx)
                 for idx in  0 ..< arc4random_uniform(200) + 1{
                     txt += String(idx)
                 }
                 let msg = Message(owner: room.users[0], sendDate: room.currentDate, messageText: txt)
+                dummymsgs.append(msg)
+            }
+            for idx in 0 ..< 20{
+                let msg = Message.makeImageMessage(owner: room.users[0], sendDate: room.currentDate, imageUrl: "1547227315.3748941.jpg")
                 dummymsgs.append(msg)
             }
             try! realm.write {
@@ -119,6 +123,7 @@ class ChatVC: UITableViewController{
                 messages.append(msg)
             }
             
+            
         }
     }
     
@@ -127,9 +132,10 @@ class ChatVC: UITableViewController{
         super.viewDidLoad()
         tableView.register(TextCell.self, forCellReuseIdentifier: TextCell.reuseId)
         tableView.register(GuideLineCell.self, forCellReuseIdentifier: GuideLineCell.reuseId)
+        tableView.register(ChattingImageCell.self, forCellReuseIdentifier: ChattingImageCell.reuseId)
         
-        reload()
         token = messages.observe{ [weak tableView] changes in
+            print("observe")
             guard let tableView = tableView else { return }
             switch changes{
             case .initial:
@@ -139,8 +145,12 @@ class ChatVC: UITableViewController{
             case .error: break
             }
         }
-
-        makeDummyCells()
+        
+        
+//        makeDummyCells()
+//        reload()
+       
+        
         
         tableView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
         
@@ -151,10 +161,11 @@ class ChatVC: UITableViewController{
         inputBar.inputTextView.keyboardType = UIKeyboardType.emailAddress
         inputBar.inputPlugins = [attachmentManager]
         tableView.tableFooterView = UIView()
-        self.tableView.keyboardDismissMode = .interactive
+//        self.tableView.keyboardDismissMode = .interactive
         tableView.separatorStyle = .none
         tableView.backgroundColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
         self.navigationItem.title = Date.timeToStringSecondVersion(date: self.room.currentDate)
+        tableView.reloadData()
         
     }
     override func viewDidDisappear(_ animated: Bool) {
@@ -163,14 +174,21 @@ class ChatVC: UITableViewController{
         
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    deinit {
         token?.invalidate()
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
         self.tabBarController?.tabBar.isHidden = true
+        
+        
+        
+
+        
+        
         timer = Timer.scheduledTimer(withTimeInterval: 1.0,
                                      repeats: true) {
                                         timer in
@@ -196,15 +214,23 @@ class ChatVC: UITableViewController{
             let cell = tableView.dequeueReusableCell(withIdentifier: GuideLineCell.reuseId) as! GuideLineCell
             
             return cell
-            
-        default:
+        case .text:
             let cell = tableView.dequeueReusableCell(withIdentifier: TextCell.reuseId) as! TextCell
             let users = (messages[indexPath.row].owner)!
             cell.incomming = !users.isMe
-            cell.backgroundColor = UIColor.red
+//            cell.backgroundColor = UIColor.red
             cell.configure(message: messages[indexPath.row])
-            cell.backgroundColor = colors[indexPath.row % colors.count]
+//            cell.backgroundColor = colors[indexPath.row % colors.count]
             return cell
+        case .image:
+            let cell = tableView.dequeueReusableCell(withIdentifier: ChattingImageCell.reuseId) as! ChattingImageCell
+            let users = (messages[indexPath.row].owner)!
+            cell.incomming = !users.isMe
+            cell.configure(messages[indexPath.row])
+            
+            return cell
+        default:
+            return UITableViewCell()
             
         }
     }
@@ -223,9 +249,8 @@ extension ChatVC: InputBarAccessoryViewDelegate{
                     message.noReadUser.append(user)
                 }
             }
-            let insertIndex = guideLineIndex.row
             try! realm.write {
-                messages.insert(message, at: insertIndex)
+                messages.insert(message, at: guideLineIndex.row)
             }
             reload()
         }

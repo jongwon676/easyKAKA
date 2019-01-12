@@ -22,12 +22,14 @@ class UserChattingBaseCell: BaseChatCell{
         imageView.layer.masksToBounds = true
         return imageView
     }()
+    
     lazy var timeLabel: UILabel = {
         let label = UILabel()
         label.textColor = #colorLiteral(red: 0.3863650262, green: 0.4467757344, blue: 0.4761275649, alpha: 1)
         label.font = UIFont.systemFont(ofSize: 10)
         return label
     }()
+    
     lazy var readLabel: UILabel = {
         let label = UILabel()
         label.textColor = #colorLiteral(red: 0.9955037236, green: 0.9007681012, blue: 0, alpha: 1)

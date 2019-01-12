@@ -44,29 +44,89 @@ class GitHawkInputBar: InputBarAccessoryView,UICollectionViewDelegate{
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     func configure() {
+        setupTextView()
+        setupLeft()
+        setupRight()
+        setupTop()
+    }
+    
+    func setupTextView(){
         inputTextView.placeholder = "Leave a comment"
         inputTextView.keyboardType = .default
-        sendButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        
+        inputTextView.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
+        inputTextView.layer.borderColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1).cgColor
+        inputTextView.layer.borderWidth = 1.0
+        inputTextView.layer.cornerRadius = 16.0
+        inputTextView.layer.masksToBounds = true
+        inputTextView.scrollIndicatorInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+        
+        textViewPadding.right = -77
+        inputTextView.textContainerInset = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 77)
+    }
+    @objc func specailButtonClick(){
+        if let chatVC = delegate as? ChatVC{
+            chatVC.addSpecailFeature()
+        }
+    }
+    
+    
+    func setupLeft(){
+        let button = InputBarButtonItem()
+        button.addTarget(delegate, action: #selector(specailButtonClick), for: .touchUpInside)
+        button.onKeyboardSwipeGesture { item, gesture in
+            if gesture.direction == .left {
+                item.inputBarAccessoryView?.setLeftStackViewWidthConstant(to: 0, animated: true)
+            } else if gesture.direction == .right {
+                item.inputBarAccessoryView?.setLeftStackViewWidthConstant(to: 36, animated: true)
+            }
+        }
+        
+        button.setSize(CGSize(width: 36, height: 36), animated: false)
+        button.setImage(#imageLiteral(resourceName: "ic_plus").withRenderingMode(.alwaysTemplate), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.tintColor = UIColor(red: 0, green: 122/255, blue: 1, alpha: 1)
+        setLeftStackViewWidthConstant(to: 36, animated: false)
+        setStackViewItems([button], forStack: .left, animated: false)
+    }
+    
+    func setupRight(){
+        
+        let smileButton = InputBarButtonItem()
+        smileButton.setSize(CGSize(width: 36, height: 36), animated: false)
+        smileButton.setImage(#imageLiteral(resourceName: "anonymous").withRenderingMode(.alwaysTemplate), for: .normal)
+        smileButton.imageView?.contentMode = .scaleAspectFit
+        smileButton.tintColor = UIColor(red: 0, green: 122/255, blue: 1, alpha: 1)
+        
+        
+        sendButton.contentEdgeInsets = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
         sendButton.setSize(CGSize(width: 36, height: 36), animated: false)
         sendButton.image = #imageLiteral(resourceName: "ic_send").withRenderingMode(.alwaysTemplate)
         sendButton.title = nil
         sendButton.tintColor = tintColor
+        setRightStackViewWidthConstant(to: 77, animated: false)
         
-        
+        // 36 + 36 + 5 = 77
+        // InputBarButtonItem.fixedSpace(2)
+        setStackViewItems([smileButton,InputBarButtonItem.fixedSpace(5),sendButton], forStack: .right, animated: false)
+    }
+    
+    func setupTop(){
         collectionView.intrinsicContentHeight = 80
-        
+        collectionView.backgroundColor = UIColor.cyan
         collectionView.dataSource = self
         collectionView.delegate = self
         
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(ImageCell.self, forCellWithReuseIdentifier: ImageCell.reuseIdentifier)
-        bottomStackView.addArrangedSubview(collectionView)
+        topStackView.addArrangedSubview(collectionView)
         collectionView.reloadData()
     }
     
 }
+
+
 
 extension GitHawkInputBar: UICollectionViewDataSource {
     

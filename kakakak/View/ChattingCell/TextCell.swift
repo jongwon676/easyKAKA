@@ -33,7 +33,6 @@ class TextCell: UserChattingBaseCell{
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     var subs: [UIView]{
         get{
             let return_views = commonViews + ((incomming && isFirst ) ? leftFirstViews : [])
@@ -47,8 +46,11 @@ class TextCell: UserChattingBaseCell{
         isFirst = message.isFirstMessage
         profile.image = UIImage.loadImageFromName(message.owner!.profileImageUrl!)!
         messageLabel.text = message.messageText
-        timeLabel.text = Date.timeToString(date: message.sendDate)
-        readLabel.text = String(message.noReadUser.count)
+        
+        
+        
+        
+        
         nameLabel.text = message.owner?.name
         bubbleView.backgroundColor = incomming ? #colorLiteral(red: 0.9996673465, green: 0.8927946687, blue: 0.005554047879, alpha: 1) : #colorLiteral(red: 0.9998916984, green: 1, blue: 0.9998809695, alpha: 1)
         
@@ -56,17 +58,27 @@ class TextCell: UserChattingBaseCell{
             self.addSubview(sub)
         }
         
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.distribution = .fillEqually
-        stackView.alignment = incomming ? .leading : .trailing
-        self.addSubview(stackView)
+        
+        
+        
         
         
         topView.snp.remakeConstraints { (mk) in
             mk.left.right.top.equalTo(self)
             mk.height.equalTo( ( message.isFirstMessage ? Style.firstMessageGap + 4 : 4 ) )
         }
+        
+        
+        timeLabel.text = Date.timeToString(date: message.sendDate)
+        readLabel.text = String(message.noReadUser.count)
+        
+        
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.alignment = incomming ? .leading : .trailing
+        self.addSubview(stackView)
+        
         
         stackView.snp.remakeConstraints { (mk) in
             if incomming { mk.left.equalTo(bubbleView.snp.right).offset(7) }
@@ -76,6 +88,7 @@ class TextCell: UserChattingBaseCell{
         
         if message.noReadUser.count > 0 { stackView.addArrangedSubview(readLabel) }
         if message.isLastMessage { stackView.addArrangedSubview(timeLabel) }
+        
         
         if incomming && message.isFirstMessage {
             profile.snp.makeConstraints { (mk) in
