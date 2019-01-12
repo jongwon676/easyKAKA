@@ -1,14 +1,18 @@
 import UIKit
 import RealmSwift
+import GoogleMobileAds
 class RoomListVC: UITableViewController{
     
     var rooms: Results<Room>!
-    
+    var bannerView: GADBannerView = GADBannerView(frame:  CGRect(x: 0, y: 0, width: 200, height: 200))
     override func viewDidLoad() {
         super.viewDidLoad()
         rooms = Room.all()
         tableView.rowHeight = 77
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(roomAdd))
+        
+        
+        
     }
     
     @objc func roomAdd(){

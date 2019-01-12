@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		2201941D9767FC1EB65D0802 /* Pods_kakakak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31166B9B380F3B955A1AACD7 /* Pods_kakakak.framework */; };
 		AD020C7D21E4C0AD00AC6C1C /* FlexibleTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD020C7C21E4C0AD00AC6C1C /* FlexibleTextView.swift */; };
+		AD0AA03221EA00D000B45EF5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD0AA03121EA00D000B45EF5 /* GoogleService-Info.plist */; };
 		AD51D17C21E9996D00DA4B13 /* smileTemp.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = AD51D17B21E9996C00DA4B13 /* smileTemp.jpeg */; };
+		AD87909921EA048A0008177D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD87909821EA048A0008177D /* ViewController.swift */; };
 		ADB2170321E4B54A008B296B /* FacebookInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB2170221E4B54A008B296B /* FacebookInputBar.swift */; };
 		ADC672A921E2260700D6D3F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672A821E2260700D6D3F5 /* AppDelegate.swift */; };
 		ADC672AE21E2260700D6D3F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADC672AC21E2260700D6D3F5 /* Main.storyboard */; };
@@ -49,7 +51,9 @@
 		31166B9B380F3B955A1AACD7 /* Pods_kakakak.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kakakak.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DCAA90BC1391044DF37135F /* Pods-kakakak.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kakakak.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kakakak/Pods-kakakak.debug.xcconfig"; sourceTree = "<group>"; };
 		AD020C7C21E4C0AD00AC6C1C /* FlexibleTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleTextView.swift; sourceTree = "<group>"; };
+		AD0AA03121EA00D000B45EF5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AD51D17B21E9996C00DA4B13 /* smileTemp.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = smileTemp.jpeg; sourceTree = "<group>"; };
+		AD87909821EA048A0008177D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ADB2170221E4B54A008B296B /* FacebookInputBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookInputBar.swift; sourceTree = "<group>"; };
 		ADC672A521E2260700D6D3F5 /* kakakak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kakakak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADC672A821E2260700D6D3F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 		ADC6729C21E2260700D6D3F5 = {
 			isa = PBXGroup;
 			children = (
+				AD0AA03121EA00D000B45EF5 /* GoogleService-Info.plist */,
 				ADC672CA21E28FCD00D6D3F5 /* Realm */,
 				ADC672C721E28F5C00D6D3F5 /* Extension */,
 				ADC672BA21E22B6700D6D3F5 /* Resources */,
@@ -162,6 +167,7 @@
 				ADC672CF21E2A68B00D6D3F5 /* AddUserVC.swift */,
 				ADC672D521E2C67F00D6D3F5 /* RoomListVC.swift */,
 				ADC672DD21E39FCB00D6D3F5 /* ChatVC.swift */,
+				AD87909821EA048A0008177D /* ViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -323,6 +329,7 @@
 				ADC672AE21E2260700D6D3F5 /* Main.storyboard in Resources */,
 				ADC672BC21E22B6F00D6D3F5 /* abcd.jpg in Resources */,
 				AD51D17C21E9996D00DA4B13 /* smileTemp.jpeg in Resources */,
+				AD0AA03221EA00D000B45EF5 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,17 +361,21 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-kakakak/Pods-kakakak-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/InputBarAccessoryView/InputBarAccessoryView.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InputBarAccessoryView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -387,6 +398,7 @@
 				ADC672D621E2C67F00D6D3F5 /* RoomListVC.swift in Sources */,
 				ADDFB86021E7037A003D5DF1 /* ChatVC+Alert.swift in Sources */,
 				ADC672CE21E29BC800D6D3F5 /* User.swift in Sources */,
+				AD87909921EA048A0008177D /* ViewController.swift in Sources */,
 				ADC672C521E2517700D6D3F5 /* Preset.swift in Sources */,
 				ADC672E521E3A57900D6D3F5 /* DateCell.swift in Sources */,
 				ADC672C921E28F6500D6D3F5 /* Path.swift in Sources */,
@@ -561,7 +573,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = adasdsadasdasd.kakakak;
+				PRODUCT_BUNDLE_IDENTIFIER = "movietalktalk-e9321";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -580,7 +592,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = adasdsadasdasd.kakakak;
+				PRODUCT_BUNDLE_IDENTIFIER = "movietalktalk-e9321";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

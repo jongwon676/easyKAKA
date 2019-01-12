@@ -6,7 +6,11 @@ target 'kakakak' do
   use_frameworks!
 
   # Pods for kakakak
+pod 'InputBarAccessoryView'
   pod 'RealmSwift', '3.7.1'
   pod 'SnapKit', '~> 4.0.0'
+pod 'Google-Mobile-Ads-SDK'
 	pod 'InputBarAccessoryView'
+pod 'Firebase/Core'
+pod 'Firebase/AdMob'
 end

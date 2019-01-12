@@ -12,8 +12,12 @@ class ChatVC: UITableViewController{
     let datePicker = UIDatePicker()
     var colors = [UIColor.red,.green,.black,.magenta,.orange,.blue]
     
+    
+    
     override var inputAccessoryView: UIView? {
-        return inputBar
+        
+       return inputBar
+        
     }
     
     override var canBecomeFirstResponder: Bool {
@@ -174,12 +178,14 @@ class ChatVC: UITableViewController{
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "hamburger"), style: .plain, target: self, action: #selector(handleHamburger))
         
+        
         inputBar = GitHawkInputBar()
         inputBar.delegate = self
-        inputBar.inputTextView.keyboardType = UIKeyboardType.emailAddress
+        inputBar.inputTextView.keyboardType = UIKeyboardType.default
         inputBar.inputPlugins = [attachmentManager]
+        tableView.keyboardDismissMode = .interactive
+        
         tableView.tableFooterView = UIView()
-//        self.tableView.keyboardDismissMode = .interactive
         tableView.separatorStyle = .none
         tableView.backgroundColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
         self.navigationItem.title = Date.timeToStringSecondVersion(date: self.room.currentDate)
@@ -285,6 +291,7 @@ extension ChatVC: InputBarAccessoryViewDelegate{
             }
             reload()
         }
+        inputBar.inputTextView.text = String()
     }
     func inputBar(_ inputBar: InputBarAccessoryView, didChangeIntrinsicContentTo size: CGSize) {
 
@@ -298,7 +305,7 @@ extension ChatVC: AttachmentManagerDelegate {
     // MARK: - AttachmentManagerDelegate
     
     func attachmentManager(_ manager: AttachmentManager, shouldBecomeVisible: Bool) {
-        //        setAttachmentManager(active: shouldBecomeVisible)
+                setAttachmentManager(active: shouldBecomeVisible)
     }
     
     func attachmentManager(_ manager: AttachmentManager, didReloadTo attachments: [AttachmentManager.Attachment]) {

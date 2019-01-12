@@ -1,6 +1,6 @@
 import UIKit
 import InputBarAccessoryView
-
+import GoogleMobileAds
 class GitHawkInputBar: InputBarAccessoryView,UICollectionViewDelegate{
     
     var isFirstLoad: Bool = true
@@ -27,13 +27,7 @@ class GitHawkInputBar: InputBarAccessoryView,UICollectionViewDelegate{
     
     private var users: [User] = []
     
-    lazy var collectionView: AttachmentCollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 40, height: 40)
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 20)
-        return AttachmentCollectionView(frame: .zero, collectionViewLayout: layout)
-    }()
+   
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -49,7 +43,11 @@ class GitHawkInputBar: InputBarAccessoryView,UICollectionViewDelegate{
         setupLeft()
         setupRight()
         setupTop()
+        setupBottom()
+//        inputViewController
     }
+   
+    
     
     func setupTextView(){
         inputTextView.placeholder = "Leave a comment"
@@ -112,7 +110,15 @@ class GitHawkInputBar: InputBarAccessoryView,UICollectionViewDelegate{
         setStackViewItems([smileButton,InputBarButtonItem.fixedSpace(5),sendButton], forStack: .right, animated: false)
     }
     
-    func setupTop(){
+    lazy var collectionView: AttachmentCollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 40, height: 40)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 20)
+        return AttachmentCollectionView(frame: .zero, collectionViewLayout: layout)
+    }()
+    
+    func setupBottom(){
         collectionView.intrinsicContentHeight = 80
         collectionView.backgroundColor = UIColor.cyan
         collectionView.dataSource = self
@@ -120,8 +126,32 @@ class GitHawkInputBar: InputBarAccessoryView,UICollectionViewDelegate{
         
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(ImageCell.self, forCellWithReuseIdentifier: ImageCell.reuseIdentifier)
-        topStackView.addArrangedSubview(collectionView)
+        bottomStackView.addArrangedSubview(collectionView)
         collectionView.reloadData()
+    }
+    lazy var adsView: AttachmentCollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 40, height: 40)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 20)
+        return AttachmentCollectionView(frame: .zero, collectionViewLayout: layout)
+        
+    }()
+    func setupTop(){
+        adsView.intrinsicContentHeight = 50
+        adsView.showsHorizontalScrollIndicator = false
+        let viewController = UIApplication.shared.keyWindow!.rootViewController
+        let bannerView = GADBannerView()
+        bannerView.rootViewController = viewController
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/6300978111"
+        bannerView.load(GADRequest())
+    
+        adsView.addSubview(bannerView)
+        
+        bannerView.frame = CGRect(x: 0, y: 5, width: UIScreen.main.bounds.width, height: 50)
+        
+        topStackView.addArrangedSubview(adsView)
+        print(bottomStackView.frame)
     }
     
 }
@@ -157,3 +187,4 @@ extension GitHawkInputBar: UICollectionViewDataSource {
     }
     
 }
+

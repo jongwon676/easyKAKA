@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -378,6 +379,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bzw-8b-mHo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-10" y="-403"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="9VG-AO-6En">
+            <objects>
+                <viewController id="d3f-Cf-r0I" customClass="ViewController" customModule="kakakak" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Lw-8Z-mC9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6mc-gA-oSt" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="627" width="375" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="mB8-Tn-bsa"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nzg-d6-IJk" firstAttribute="trailing" secondItem="6mc-gA-oSt" secondAttribute="trailing" id="BcL-E8-jpV"/>
+                            <constraint firstItem="6mc-gA-oSt" firstAttribute="bottom" secondItem="nzg-d6-IJk" secondAttribute="bottom" id="XeC-Om-L6i"/>
+                            <constraint firstItem="6mc-gA-oSt" firstAttribute="leading" secondItem="nzg-d6-IJk" secondAttribute="leading" id="eNd-9Y-pyk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nzg-d6-IJk"/>
+                    </view>
+                    <connections>
+                        <outlet property="bannerView" destination="6mc-gA-oSt" id="pXO-Ms-u6b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Vp-LA-hhA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2230" y="-1200"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="grR-jh-gTz">
