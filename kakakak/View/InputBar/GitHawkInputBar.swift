@@ -118,7 +118,7 @@ class GitHawkInputBar: InputBarAccessoryView,UICollectionViewDelegate{
         return AttachmentCollectionView(frame: .zero, collectionViewLayout: layout)
     }()
     
-    func setupBottom(){
+    func setupTop(){
         collectionView.intrinsicContentHeight = 80
         collectionView.backgroundColor = UIColor.cyan
         collectionView.dataSource = self
@@ -126,7 +126,7 @@ class GitHawkInputBar: InputBarAccessoryView,UICollectionViewDelegate{
         
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(ImageCell.self, forCellWithReuseIdentifier: ImageCell.reuseIdentifier)
-        bottomStackView.addArrangedSubview(collectionView)
+        topStackView.addArrangedSubview(collectionView)
         collectionView.reloadData()
     }
     lazy var adsView: AttachmentCollectionView = {
@@ -137,7 +137,7 @@ class GitHawkInputBar: InputBarAccessoryView,UICollectionViewDelegate{
         return AttachmentCollectionView(frame: .zero, collectionViewLayout: layout)
         
     }()
-    func setupTop(){
+    func setupBottom(){
         adsView.intrinsicContentHeight = 50
         adsView.showsHorizontalScrollIndicator = false
         let viewController = UIApplication.shared.keyWindow!.rootViewController
@@ -150,7 +150,7 @@ class GitHawkInputBar: InputBarAccessoryView,UICollectionViewDelegate{
         
         bannerView.frame = CGRect(x: 0, y: 5, width: UIScreen.main.bounds.width, height: 50)
         
-        topStackView.addArrangedSubview(adsView)
+        bottomStackView.addArrangedSubview(adsView)
         print(bottomStackView.frame)
     }
     

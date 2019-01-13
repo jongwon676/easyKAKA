@@ -11,7 +11,7 @@ class ChatVC: UITableViewController{
     private var token: NotificationToken?
     let datePicker = UIDatePicker()
     var colors = [UIColor.red,.green,.black,.magenta,.orange,.blue]
-    
+    var btn = UIButton(type: .custom)
     
     
     override var inputAccessoryView: UIView? {
@@ -99,49 +99,6 @@ class ChatVC: UITableViewController{
         }
         
     }
-
-    func makeDummyCells(){
-        try! realm.write {
-            realm.delete(messages)
-        }
-        
-        var dummymsgs = [Message]()
-        if messages.count < 2000{
-            
-            for idx in 0 ..< 20{
-                var txt = ""
-                for idx in  0 ..< arc4random_uniform(200) + 1{
-                    txt += String(idx)
-                }
-                let msg = Message(owner: room.users[0], sendDate: room.currentDate, messageText: txt)
-                dummymsgs.append(msg)
-            }
-//            for idx in 0 ..< 20{
-//                let msg = Message.makeImageMessage(owner: room.users[0], sendDate: room.currentDate, imageUrl: "1547227315.3748941.jpg")
-//                dummymsgs.append(msg)
-//            }
-            for idx in 0 ..< 1 {
-                let msg = Message.makeDateMessage()
-                dummymsgs.append(msg)
-            }
-            for idx in 0 ..< 1{
-                let msg = Message.makeEnterMessage(from: room.users[0], to: room.users[1])
-                dummymsgs.append(msg)
-            }
-            for idx in 0 ..< 1{
-                let msg = Message.makeExitMessage(exit: room.users[0])
-                dummymsgs.append(msg)
-            }
-            try! realm.write {
-                let msg = Message(owner: nil, sendDate: Date(), messageText: "")
-                msg.type = .guide
-                messages.append(objectsIn: dummymsgs)
-                messages.append(msg)
-            }
-            
-            
-        }
-    }
     
     func registerCells(){
         tableView.register(TextCell.self, forCellReuseIdentifier: TextCell.reuseId)
@@ -152,10 +109,53 @@ class ChatVC: UITableViewController{
         tableView.register(UserExitCell.self, forCellReuseIdentifier: UserExitCell.reuseId)
     }
     
+    func floatingButton(){
+        btn.setTitle("floating", for: .normal)
+        btn.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+        btn.clipsToBounds = true
+        btn.layer.cornerRadius = 25
+        btn.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        btn.layer.borderWidth = 3.0
+        btn.addTarget(self,action: #selector(tap), for: .touchUpInside)
+        if let window = UIApplication.shared.keyWindow {
+            window.addSubview(btn)
+        }
+    }
+    override func viewWillLayoutSubviews() {
+        let offset: CGFloat = 5.0
+        var navHeight:CGFloat = 0
+        if let nav = self.navigationController {
+            navHeight = nav.navigationBar.frame.height + UIApplication.shared.statusBarFrame.height
+        }
+        
+        let btnWidth:CGFloat = 50
+        let btnHeight:CGFloat = 50
+
+        btn.frame = CGRect(x: UIScreen.main.bounds.width - btnWidth - offset, y: navHeight + offset, width: btnWidth, height: btnHeight)
+    }
+    
+    @objc func tap(){
+        print("tap")
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer?.invalidate()
+        super.viewWillDisappear(animated)
+        btn.removeFromSuperview()
+    }
+   
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCells()
+        floatingButton()
         token = messages.observe{ [weak tableView] changes in
             print("observe")
             guard let tableView = tableView else { return }
@@ -192,22 +192,22 @@ class ChatVC: UITableViewController{
         tableView.reloadData()
         
     }
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        timer?.invalidate()
-        
-    }
+    
     
     deinit {
         token?.invalidate()
     }
     
+   
+
+   
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
         self.tabBarController?.tabBar.isHidden = true
         
+
         
         
 

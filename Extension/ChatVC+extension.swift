@@ -127,6 +127,50 @@ extension ChatVC{
         tableView.scrollToRow(at: guideLineIndex, at: position, animated: false)
         
     }
+    
+    func makeDummyCells(){
+        try! realm.write {
+            realm.delete(messages)
+        }
+        
+        var dummymsgs = [Message]()
+        if messages.count < 2000{
+            
+            for idx in 0 ..< 20{
+                var txt = ""
+                for idx in  0 ..< arc4random_uniform(200) + 1{
+                    txt += String(idx)
+                }
+                let msg = Message(owner: room.users[0], sendDate: room.currentDate, messageText: txt)
+                dummymsgs.append(msg)
+            }
+            //            for idx in 0 ..< 20{
+            //                let msg = Message.makeImageMessage(owner: room.users[0], sendDate: room.currentDate, imageUrl: "1547227315.3748941.jpg")
+            //                dummymsgs.append(msg)
+            //            }
+            for idx in 0 ..< 1 {
+                let msg = Message.makeDateMessage()
+                dummymsgs.append(msg)
+            }
+            for idx in 0 ..< 1{
+                let msg = Message.makeEnterMessage(from: room.users[0], to: room.users[1])
+                dummymsgs.append(msg)
+            }
+            for idx in 0 ..< 1{
+                let msg = Message.makeExitMessage(exit: room.users[0])
+                dummymsgs.append(msg)
+            }
+            try! realm.write {
+                let msg = Message(owner: nil, sendDate: Date(), messageText: "")
+                msg.type = .guide
+                messages.append(objectsIn: dummymsgs)
+                messages.append(msg)
+            }
+            
+            
+        }
+    }
+    
 }
 
 extension IndexPath{
