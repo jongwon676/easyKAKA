@@ -1,22 +1,43 @@
 import UIKit
-class AddUserVC: UITableViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+class AddUserVC: UITableViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate{
+    
     
     @IBOutlet var profile: UIImageView!
     @IBOutlet var nameField: UITextField!
     @IBOutlet var stateField: UITextField!
     @IBOutlet var isMe: UISwitch!
+    var user: Preset? = nil
+    
     
     override func viewDidLoad() {
+        
+        nameField.delegate = self
+        nameField.text = user?.name
+        if let imgName = user?.profileImageUrl,let image = UIImage.loadImageFromName(imgName){
+            profile.image = image
+        }
+
+        if user != nil{
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(save))
+        }else{
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save))
+            navigationItem.rightBarButtonItem?.isEnabled = false
+        }
         profile.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapProfile(_:))))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save))
+
     }
     
     
     @objc func save(){
-        let imageName = Date().currentDateToString() + ".jpg"
-        profile.image?.writeImage(imgName: imageName)
-        Preset.add(name: nameField.text!, profileImageUrl: imageName)
-        self.navigationController?.popViewController(animated: true)
+
+        guard let name = nameField.text, let image = profile.image else { return }
+        if user != nil{
+            user?.edit(name: name, image: image)
+            self.navigationController?.popViewController(animated: true)
+        }else{
+            Preset.add(name: name, image: image)
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     @objc func tapProfile(_ sender: UIImageView){
@@ -34,5 +55,13 @@ class AddUserVC: UITableViewController, UIImagePickerControllerDelegate,UINaviga
         }
         picker.dismiss(animated: true, completion: nil)
     }
+    @IBAction func editChanged(_ sender: UITextField) {
+        if (sender.text?.isEmpty)!{
+            self.navigationItem.rightBarButtonItem?.isEnabled = false
+        }else{
+            self.navigationItem.rightBarButtonItem?.isEnabled = true
+        }
+    }
 }
+
 

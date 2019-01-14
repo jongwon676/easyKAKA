@@ -4,10 +4,7 @@ import RealmSwift
 class CharacterListVC: UITableViewController{
     
     
-    @IBAction func userAdd(_ sender: Any) {
-        
-    }
-    
+
     var presets: Results<Preset>!
     var token: NotificationToken?
     let realm = try! Realm()
@@ -51,6 +48,16 @@ class CharacterListVC: UITableViewController{
         cell.nameLabel.text = presets[indexPath.row].name
         
         return cell
+    }
+    
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let editUserVc = storyboard?.instantiateViewController(withIdentifier: "UserEditVC") as? AddUserVC{
+            editUserVc.user = presets[indexPath.row]
+            self.navigationController?.pushViewController(editUserVc, animated: true)
+        }
+
     }
     
 }

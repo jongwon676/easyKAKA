@@ -152,10 +152,10 @@ extension ChatVC{
                 let msg = Message.makeDateMessage()
                 dummymsgs.append(msg)
             }
-            for idx in 0 ..< 1{
-                let msg = Message.makeEnterMessage(from: room.users[0], to: room.users[1])
-                dummymsgs.append(msg)
-            }
+//            for idx in 0 ..< 1{
+//                let msg = Message.makeEnterMessage(from: room.users[0], to: room.users[1])
+//                dummymsgs.append(msg)
+//            }
             for idx in 0 ..< 1{
                 let msg = Message.makeExitMessage(exit: room.users[0])
                 dummymsgs.append(msg)

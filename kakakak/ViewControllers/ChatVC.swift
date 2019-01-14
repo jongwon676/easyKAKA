@@ -4,20 +4,18 @@ import InputBarAccessoryView
 import RealmSwift
 
 class ChatVC: UITableViewController{
+    
     var realm = try! Realm()
     private weak var timer: Timer?
     var room: Room!
     lazy var messages = room.messages
     private var token: NotificationToken?
     let datePicker = UIDatePicker()
-    var colors = [UIColor.red,.green,.black,.magenta,.orange,.blue]
+    
     var btn = UIButton(type: .custom)
     
-    
     override var inputAccessoryView: UIView? {
-        
-       return inputBar
-        
+        return inputBar
     }
     
     override var canBecomeFirstResponder: Bool {
@@ -59,12 +57,10 @@ class ChatVC: UITableViewController{
     }
     
     @objc func handleTap(_ sender: UITapGestureRecognizer){
-        
         let clickY = sender.location(in: sender.view).y
         if sender.state != .recognized{
             return
         }
-        
         var clickIndex = -1
         let pos = sender.location(in: sender.view)
         for idx in 0 ..< messages.count{
@@ -75,16 +71,13 @@ class ChatVC: UITableViewController{
                 }
             }
         }
-        
         var insertPosition = 0
-        
         if clickIndex == -1{ insertPosition = messages.count }
         else{
             let rect = tableView.rectForRow(at: IndexPath.row(row: clickIndex))
             let upInsert = abs(rect.minY - clickY) < abs(rect.maxY - clickY)
             insertPosition = upInsert ? clickIndex : clickIndex + 1
         }
-        
         let guideRow = guideLineIndex.row
         if guideRow == insertPosition || guideRow == insertPosition - 1{
             return
@@ -97,7 +90,6 @@ class ChatVC: UITableViewController{
             tableView.reloadData()
             scrolToGuideLine()
         }
-        
     }
     
     func registerCells(){
@@ -108,6 +100,7 @@ class ChatVC: UITableViewController{
         tableView.register(UserEnterCell.self, forCellReuseIdentifier: UserEnterCell.reuseId)
         tableView.register(UserExitCell.self, forCellReuseIdentifier: UserExitCell.reuseId)
     }
+    
     
     func floatingButton(){
         btn.setTitle("floating", for: .normal)
@@ -121,6 +114,8 @@ class ChatVC: UITableViewController{
             window.addSubview(btn)
         }
     }
+    
+    
     override func viewWillLayoutSubviews() {
         let offset: CGFloat = 5.0
         var navHeight:CGFloat = 0
@@ -141,8 +136,8 @@ class ChatVC: UITableViewController{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-    
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         timer?.invalidate()
@@ -168,11 +163,7 @@ class ChatVC: UITableViewController{
             }
         }
         
-        
         makeDummyCells()
-//        reload()
-       
-        
         
         tableView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
         
@@ -183,6 +174,8 @@ class ChatVC: UITableViewController{
         inputBar.delegate = self
         inputBar.inputTextView.keyboardType = UIKeyboardType.default
         inputBar.inputPlugins = [attachmentManager]
+        
+        
         tableView.keyboardDismissMode = .interactive
         
         tableView.tableFooterView = UIView()
@@ -198,21 +191,10 @@ class ChatVC: UITableViewController{
         token?.invalidate()
     }
     
-   
-
-   
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
         self.tabBarController?.tabBar.isHidden = true
-        
-
-        
-        
-
-        
-        
         timer = Timer.scheduledTimer(withTimeInterval: 1.0,
                                      repeats: true) {
                                         timer in
@@ -231,20 +213,17 @@ class ChatVC: UITableViewController{
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
                 print(indexPath.row)
-        
         let msg = messages[indexPath.row]
+        
         switch msg.type {
         case .guide:
             let cell = tableView.dequeueReusableCell(withIdentifier: GuideLineCell.reuseId) as! GuideLineCell
-            
             return cell
         case .text:
             let cell = tableView.dequeueReusableCell(withIdentifier: TextCell.reuseId) as! TextCell
             let users = (msg.owner)!
             cell.incomming = !users.isMe
-//            cell.backgroundColor = UIColor.red
             cell.configure(message: msg)
-//            cell.backgroundColor = colors[indexPath.row % colors.count]
             return cell
         case .image:
             let cell = tableView.dequeueReusableCell(withIdentifier: ChattingImageCell.reuseId) as! ChattingImageCell

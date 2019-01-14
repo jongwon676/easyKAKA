@@ -45,4 +45,11 @@ class Room: Object {
             realm.delete(self)
         }
     }
+    var activateUsers:List<User> {
+        let list = List<User>()
+        for user in users{
+            if user.isExited == false { list.append(user) }
+        }
+        return list
+    }
 }

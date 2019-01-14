@@ -6,10 +6,12 @@ class User: Object{
     @objc dynamic var id: String = UUID().uuidString
     @objc dynamic var profileImageUrl: String? = ""
     @objc dynamic var isMe: Bool = false
+    @objc dynamic var isExited: Bool = false
     
+    var isSelected: Bool = false
     
     enum Properties: String{
-        case name,id,profileImageUrl,isMe,creationDate
+        case name,id,profileImageUrl,isMe,creationDate,isExited
     }
     
     public override static func primaryKey() -> String? {
@@ -24,12 +26,12 @@ class User: Object{
         self.isMe = false
     }
     
-    convenience init(preset: Preset){
+    convenience init(preset: Preset,isMe: Bool = false){
         self.init()
         self.name = preset.name
         self.profileImageUrl = preset.profileImageUrl
         self.id = UUID().uuidString
-        self.isMe = false
+        self.isMe = isMe
     }
-    var isSelected: Bool = false
+    
 }

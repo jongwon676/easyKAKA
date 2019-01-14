@@ -29,15 +29,24 @@ class Preset: Object{
         self.creationDate = Date.distantPast
     }
     
-    static func add(name: String, profileImageUrl: String,in realm: Realm = try! Realm()){
-        let item = Preset(name: name, url: profileImageUrl)
+    static func add(name: String,image: UIImage,in realm: Realm = try! Realm()){
+        let imageName = Date().currentDateToString() + ".jpg"
+        image.writeImage(imgName: imageName)
+        let item = Preset(name: name, url: imageName)
         try! realm.write {
             realm.add(item)
+        }
+    }
+    func edit(name: String, image: UIImage, in realm: Realm = try! Realm()){
+        image.writeImage(imgName: self.profileImageUrl)
+        try! realm.write {
+            self.name = name
         }
     }
     
     func delete(in realm: Realm = try! Realm()){
         try! realm.write {
+            //이미지도 삭제해야됨.
             realm.delete(self)
         }
     }

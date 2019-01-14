@@ -9,7 +9,7 @@ class RoomListVC: UITableViewController{
         super.viewDidLoad()
         rooms = Room.all()
         tableView.rowHeight = 77
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(roomAdd))
+//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(roomAdd))
         
         
         

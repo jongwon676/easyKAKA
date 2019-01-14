@@ -4,24 +4,19 @@ import RealmSwift
 
 class Message: Object {
     //채팅방 시간, [유저], [Message], id
-    
     @objc dynamic private var _messageType = MessageType.text.rawValue
-    
     @objc dynamic var owner: User?  // [fromUser, ExitUser]
     @objc dynamic var toUser: User? // [toUser]
-    
     @objc dynamic var sendDate: Date = Date()
     @objc dynamic var messageText: String = ""
     @objc dynamic var messageImageUrl: String = ""
-    
     @objc dynamic var isFirstMessage: Bool = false
     @objc dynamic var isLastMessage: Bool = false
     
-    var readUser = List<User>()
+    var room = LinkingObjects(fromType: Room.self, property: "messages")
     var noReadUser = List<User>()
-    
-
-    
+    var totalUser = List<User>()
+    var invitedUser = List<User>()
     
     convenience required init(owner: User?,sendDate: Date ,messageText: String){
         self.init()
@@ -29,10 +24,7 @@ class Message: Object {
         self.sendDate = sendDate
         self.messageText = messageText
     }
-    
-    
-    
-    
+
     enum MessageType: String{
         case text
         case image
@@ -48,6 +40,12 @@ class Message: Object {
         set { _messageType = newValue.rawValue }
     }
     
+    static func makeGuideMessage() -> Message{
+        let guideMessage = Message(owner: nil, sendDate: Date(), messageText: "")
+        guideMessage.type = .guide
+        return guideMessage
+    }
+    
     static func makeImageMessage(owner: User?, sendDate: Date, imageUrl: String) -> Message{
         let msg = Message()
         msg.owner = owner
@@ -56,6 +54,7 @@ class Message: Object {
         msg.messageImageUrl = imageUrl
         return msg
     }
+    
     static func makeDateMessage(date: Date = Date()) -> Message{
         let msg = Message()
         msg.owner = nil
@@ -63,15 +62,15 @@ class Message: Object {
         msg.sendDate = date
         return msg
     }
-    static func makeEnterMessage(from: User, to: User) -> Message{
+    
+    static func makeEnterMessage(from: User,to: List<User>) -> Message{
         let msg = Message()
-        
         msg.owner = from
-        msg.toUser = to
+        msg.invitedUser = to
         msg.type = .enter
-
         return msg
     }
+    
     static func makeExitMessage(exit: User) -> Message{
         let msg = Message()
         msg.type = .exit
