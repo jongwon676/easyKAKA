@@ -13,9 +13,16 @@ class Message: Object {
     @objc dynamic var isFirstMessage: Bool = false
     @objc dynamic var isLastMessage: Bool = false
     
-    var room = LinkingObjects(fromType: Room.self, property: "messages")
-    var noReadUser = List<User>()
-    var totalUser = List<User>()
+    
+    var rooms = LinkingObjects(fromType: Room.self, property: "messages"){
+        didSet{
+            // noReadUser를 셋팅?
+            var room = rooms.first
+            
+        }
+    }
+    
+    var noReadUser = List<User>() // 퇴장시에 1전부 감소 시켜야됨.
     var invitedUser = List<User>()
     
     convenience required init(owner: User?,sendDate: Date ,messageText: String){
@@ -39,7 +46,7 @@ class Message: Object {
         get { return MessageType(rawValue: _messageType)!}
         set { _messageType = newValue.rawValue }
     }
-    
+     
     static func makeGuideMessage() -> Message{
         let guideMessage = Message(owner: nil, sendDate: Date(), messageText: "")
         guideMessage.type = .guide

@@ -69,6 +69,21 @@ class GitHawkInputBar: InputBarAccessoryView,UICollectionViewDelegate{
         }
     }
     
+    var isCaptureMode = false {
+        didSet{
+            if isCaptureMode == true{
+                collectionView.intrinsicContentHeight = 0
+                adsView.intrinsicContentHeight = 0
+                topStackView.layoutIfNeeded()
+                bottomStackView.layoutIfNeeded()
+            }else{
+                collectionView.intrinsicContentHeight = 50
+                adsView.intrinsicContentHeight = 50
+                topStackView.layoutIfNeeded()
+                bottomStackView.layoutIfNeeded()
+            }
+        }
+    }
     
     func setupLeft(){
         let button = InputBarButtonItem()
@@ -88,6 +103,9 @@ class GitHawkInputBar: InputBarAccessoryView,UICollectionViewDelegate{
         setLeftStackViewWidthConstant(to: 36, animated: false)
         setStackViewItems([button], forStack: .left, animated: false)
     }
+    
+    
+    
     
     func setupRight(){
         
@@ -119,7 +137,7 @@ class GitHawkInputBar: InputBarAccessoryView,UICollectionViewDelegate{
     }()
     
     func setupTop(){
-        collectionView.intrinsicContentHeight = 80
+        collectionView.intrinsicContentHeight = 50
         collectionView.backgroundColor = UIColor.cyan
         collectionView.dataSource = self
         collectionView.delegate = self

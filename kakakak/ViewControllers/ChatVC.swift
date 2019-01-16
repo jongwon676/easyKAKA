@@ -2,8 +2,14 @@ import UIKit
 import SnapKit
 import InputBarAccessoryView
 import RealmSwift
+extension ChatVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
 
-class ChatVC: UITableViewController{
+class ChatVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
     
     var realm = try! Realm()
     private weak var timer: Timer?
@@ -14,13 +20,25 @@ class ChatVC: UITableViewController{
     
     var btn = UIButton(type: .custom)
     
-    override var inputAccessoryView: UIView? {
-        return inputBar
-    }
+    var tableView = UITableView()
     
-    override var canBecomeFirstResponder: Bool {
-        return true
-    }
+    
+
+    
+    
+    
+
+private var keyboardManager = KeyboardManager()
+    
+    
+    
+//    override var inputAccessoryView: UIView? {
+//        return inputBar
+//    }
+    
+//    override var canBecomeFirstResponder: Bool {
+//        return true
+//    }
     
     func getCurrentUser() -> User?{
         let customInputBar = inputBar as! GitHawkInputBar
@@ -39,6 +57,7 @@ class ChatVC: UITableViewController{
         didSet{
             let customInput  = inputBar as! GitHawkInputBar
             customInput.clearUser()
+            
             for user in room.users {
                 customInput.addUser(user: user)
             }
@@ -57,39 +76,41 @@ class ChatVC: UITableViewController{
     }
     
     @objc func handleTap(_ sender: UITapGestureRecognizer){
-        let clickY = sender.location(in: sender.view).y
-        if sender.state != .recognized{
-            return
-        }
-        var clickIndex = -1
-        let pos = sender.location(in: sender.view)
-        for idx in 0 ..< messages.count{
-            if let cell = tableView.cellForRow(at: IndexPath.row(row: idx)){
-                if cell.frame.contains(pos){
-                    clickIndex = idx
-                    break
-                }
-            }
-        }
-        var insertPosition = 0
-        if clickIndex == -1{ insertPosition = messages.count }
-        else{
-            let rect = tableView.rectForRow(at: IndexPath.row(row: clickIndex))
-            let upInsert = abs(rect.minY - clickY) < abs(rect.maxY - clickY)
-            insertPosition = upInsert ? clickIndex : clickIndex + 1
-        }
-        let guideRow = guideLineIndex.row
-        if guideRow == insertPosition || guideRow == insertPosition - 1{
-            return
-        }
-        if guideRow < insertPosition {
-            insertPosition -= 1
-        }
-        try! realm.write {
-            messages.move(from: guideRow, to: insertPosition)
-            tableView.reloadData()
-            scrolToGuideLine()
-        }
+//        let clickY = sender.location(in: sender.view).y
+        inputBar.inputTextView.resignFirstResponder()
+//        if sender.state != .recognized{
+//            return
+//        }
+//        var clickIndex = -1
+//        let pos = sender.location(in: sender.view)
+//        for idx in 0 ..< messages.count{
+//
+//            if let cell = tableView.cellForRow(at: IndexPath.row(row: idx)){
+//                if cell.frame.contains(pos){
+//                    clickIndex = idx
+//                    break
+//                }
+//            }
+//        }
+//        var insertPosition = 0
+//        if clickIndex == -1{ insertPosition = messages.count }
+//        else{
+//            let rect = tableView.rectForRow(at: IndexPath.row(row: clickIndex))
+//            let upInsert = abs(rect.minY - clickY) < abs(rect.maxY - clickY)
+//            insertPosition = upInsert ? clickIndex : clickIndex + 1
+//        }
+//        let guideRow = guideLineIndex.row
+//        if guideRow == insertPosition || guideRow == insertPosition - 1{
+//            return
+//        }
+//        if guideRow < insertPosition {
+//            insertPosition -= 1
+//        }
+//        try! realm.write {
+//            messages.move(from: guideRow, to: insertPosition)
+//            tableView.reloadData()
+//            scrolToGuideLine()
+//        }
     }
     
     func registerCells(){
@@ -101,6 +122,8 @@ class ChatVC: UITableViewController{
         tableView.register(UserExitCell.self, forCellReuseIdentifier: UserExitCell.reuseId)
     }
     
+    
+    var bottomConstraint: Constraint?
     
     func floatingButton(){
         btn.setTitle("floating", for: .normal)
@@ -130,8 +153,7 @@ class ChatVC: UITableViewController{
     }
     
     @objc func tap(){
-        print("tap")
-        
+        inputBar.inputTextView.resignFirstResponder()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -144,24 +166,97 @@ class ChatVC: UITableViewController{
         super.viewWillDisappear(animated)
         btn.removeFromSuperview()
     }
-   
+    
+
+    
+//    @objc func keyShow(){
+//
+//
+//        bottomConstraint?.update(offset: -150)
+//        UIView.animate(withDuration: 1) {
+//                self.view.layoutIfNeeded()
+//        }
+//
+////        tableView.scrollToRow(at: IndexPath.row(row: messages.count-1), at: .middle, animated: true)
+//
+//    }
+//    @objc func keyHide(){
+//
+//        tableView.scrollToRow(at: IndexPath.row(row: messages.count-1), at: .middle, animated: true)
+//    }
+    
+
+    
+    
     
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
+        
+        
+        
+        
+        
+        self.view.addSubview(tableView)
+        inputBar = GitHawkInputBar()
+        view.addSubview(inputBar)
+        
+        tableView.tableFooterView = UIView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
+            ])
+        
+
+        keyboardManager.bind(inputAccessoryView: inputBar)
+        
+        
+        
+        
+        // Binding to the tableView will enabled interactive dismissal
+        keyboardManager.bind(to: tableView)
+        
+        // Add some extra handling to manage content inset
+        keyboardManager.on(event: .didChangeFrame) { [weak self] (notification) in
+            let barHeight = self?.inputBar.bounds.height ?? 0
+            self?.tableView.contentInset.bottom = barHeight + notification.endFrame.height
+            self?.tableView.scrollIndicatorInsets.bottom = barHeight + notification.endFrame.height
+            }.on(event: .didHide) { [weak self] _ in
+                let barHeight = self?.inputBar.bounds.height ?? 0
+                self?.tableView.contentInset.bottom = barHeight
+                self?.tableView.scrollIndicatorInsets.bottom = barHeight
+        }
+        
+        
+
+        
+       self.tableView.dataSource = self
+        
+        
+        
+        self.tableView.delegate = self
+        
+
+        
         registerCells()
         floatingButton()
-        token = messages.observe{ [weak tableView] changes in
-            print("observe")
-            guard let tableView = tableView else { return }
-            switch changes{
-            case .initial:
-                tableView.reloadData()
-            case .update(_, let deletions, let insertions, let updates):
-                tableView.applyChanges(deletions: deletions, insertions: insertions, updates: updates)
-            case .error: break
-            }
-        }
+        
+//        token = messages.observe{ [weak tableView] changes in
+//            print("observe")
+//            guard let tableView = tableView else { return }
+//            switch changes{
+//            case .initial:
+//                tableView.reloadData()
+//            case .update(_, let deletions, let insertions, let updates):
+//                tableView.applyChanges(deletions: deletions, insertions: insertions, updates: updates)
+//            case .error: break
+//            }
+//        }
         
         makeDummyCells()
         
@@ -170,9 +265,10 @@ class ChatVC: UITableViewController{
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "hamburger"), style: .plain, target: self, action: #selector(handleHamburger))
         
         
-        inputBar = GitHawkInputBar()
+        
         inputBar.delegate = self
         inputBar.inputTextView.keyboardType = UIKeyboardType.default
+        
         inputBar.inputPlugins = [attachmentManager]
         
         
@@ -188,11 +284,16 @@ class ChatVC: UITableViewController{
     
     
     deinit {
+        print("chatvc deini")
         token?.invalidate()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        
+        
+        
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
         self.tabBarController?.tabBar.isHidden = true
         timer = Timer.scheduledTimer(withTimeInterval: 1.0,
@@ -204,15 +305,15 @@ class ChatVC: UITableViewController{
                                         self.navigationItem.title = Date.timeToStringSecondVersion(date: self.room.currentDate)
         }
     }
-    override func numberOfSections(in tableView: UITableView) -> Int {
+     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
     }
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-                print(indexPath.row)
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//                print(indexPath.row)
         let msg = messages[indexPath.row]
         
         switch msg.type {
@@ -273,7 +374,11 @@ extension ChatVC: InputBarAccessoryViewDelegate{
         inputBar.inputTextView.text = String()
     }
     func inputBar(_ inputBar: InputBarAccessoryView, didChangeIntrinsicContentTo size: CGSize) {
-
+        // Adjust content insets
+        
+        
+        print(size)
+        tableView.contentInset.bottom = size.height
     }
 }
 
@@ -310,5 +415,6 @@ extension ChatVC: AttachmentManagerDelegate {
             topStackView.layoutIfNeeded()
         }
     }
+    
 }
 

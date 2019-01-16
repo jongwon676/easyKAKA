@@ -110,9 +110,6 @@ extension ChatVC{
                 room.messages[idx].isFirstMessage = true
                 advanceFirst(index: idx, message: room.messages[idx])
             }
-            for element in room.messages{
-                print(element.isFirstMessage)
-            }
             
             for idx in stride(from: 0, through: room.messages.count - 1, by: 1){
                 if !checkUserMessage(message: room.messages[idx]){
@@ -123,9 +120,17 @@ extension ChatVC{
             }
         }
     }
+    
+    
+    
+    
     func scrolToGuideLine(position: UITableView.ScrollPosition = .middle){
-        tableView.scrollToRow(at: guideLineIndex, at: position, animated: false)
-        
+//        tableView.scrollToRow(at: guideLineIndex, at: position, animated: false)
+    }
+    func scrollToBottom(){
+        if messages.count != 0{
+            self.tableView.scrollToRow(at: IndexPath.row(row: messages.count-1), at: .bottom, animated: false)
+        }
     }
     
     func makeDummyCells(){
@@ -166,11 +171,8 @@ extension ChatVC{
                 messages.append(objectsIn: dummymsgs)
                 messages.append(msg)
             }
-            
-            
         }
     }
-    
 }
 
 extension IndexPath{
