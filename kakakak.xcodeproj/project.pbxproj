@@ -10,10 +10,12 @@
 		2201941D9767FC1EB65D0802 /* Pods_kakakak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31166B9B380F3B955A1AACD7 /* Pods_kakakak.framework */; };
 		AD020C7D21E4C0AD00AC6C1C /* FlexibleTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD020C7C21E4C0AD00AC6C1C /* FlexibleTextView.swift */; };
 		AD0AA03221EA00D000B45EF5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD0AA03121EA00D000B45EF5 /* GoogleService-Info.plist */; };
+		AD27D16721F07066009E367A /* userCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD27D16621F07066009E367A /* userCell.swift */; };
 		AD51D17C21E9996D00DA4B13 /* smileTemp.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = AD51D17B21E9996C00DA4B13 /* smileTemp.jpeg */; };
 		AD542CB621EC871A00656196 /* RoomAddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD542CB521EC871A00656196 /* RoomAddVC.swift */; };
 		AD542CB821EC8D8A00656196 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD542CB721EC8D8A00656196 /* UserCell.swift */; };
 		AD87909921EA048A0008177D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD87909821EA048A0008177D /* ViewController.swift */; };
+		ADA5F29A21EF2F4A002C0F85 /* KeyBoardAreaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA5F29921EF2F4A002C0F85 /* KeyBoardAreaController.swift */; };
 		ADB2170321E4B54A008B296B /* FacebookInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB2170221E4B54A008B296B /* FacebookInputBar.swift */; };
 		ADC672A921E2260700D6D3F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672A821E2260700D6D3F5 /* AppDelegate.swift */; };
 		ADC672AE21E2260700D6D3F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADC672AC21E2260700D6D3F5 /* Main.storyboard */; };
@@ -54,10 +56,12 @@
 		3DCAA90BC1391044DF37135F /* Pods-kakakak.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kakakak.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kakakak/Pods-kakakak.debug.xcconfig"; sourceTree = "<group>"; };
 		AD020C7C21E4C0AD00AC6C1C /* FlexibleTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleTextView.swift; sourceTree = "<group>"; };
 		AD0AA03121EA00D000B45EF5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AD27D16621F07066009E367A /* userCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userCell.swift; sourceTree = "<group>"; };
 		AD51D17B21E9996C00DA4B13 /* smileTemp.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = smileTemp.jpeg; sourceTree = "<group>"; };
 		AD542CB521EC871A00656196 /* RoomAddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomAddVC.swift; sourceTree = "<group>"; };
 		AD542CB721EC8D8A00656196 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		AD87909821EA048A0008177D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ADA5F29921EF2F4A002C0F85 /* KeyBoardAreaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBoardAreaController.swift; sourceTree = "<group>"; };
 		ADB2170221E4B54A008B296B /* FacebookInputBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookInputBar.swift; sourceTree = "<group>"; };
 		ADC672A521E2260700D6D3F5 /* kakakak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kakakak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADC672A821E2260700D6D3F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -173,6 +177,8 @@
 				ADC672DD21E39FCB00D6D3F5 /* ChatVC.swift */,
 				AD87909821EA048A0008177D /* ViewController.swift */,
 				AD542CB521EC871A00656196 /* RoomAddVC.swift */,
+				ADA5F29921EF2F4A002C0F85 /* KeyBoardAreaController.swift */,
+				AD27D16621F07066009E367A /* userCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -404,8 +410,10 @@
 				ADC672D621E2C67F00D6D3F5 /* RoomListVC.swift in Sources */,
 				ADDFB86021E7037A003D5DF1 /* ChatVC+Alert.swift in Sources */,
 				ADC672CE21E29BC800D6D3F5 /* User.swift in Sources */,
+				ADA5F29A21EF2F4A002C0F85 /* KeyBoardAreaController.swift in Sources */,
 				AD542CB621EC871A00656196 /* RoomAddVC.swift in Sources */,
 				AD87909921EA048A0008177D /* ViewController.swift in Sources */,
+				AD27D16721F07066009E367A /* userCell.swift in Sources */,
 				ADC672C521E2517700D6D3F5 /* Preset.swift in Sources */,
 				ADC672E521E3A57900D6D3F5 /* DateCell.swift in Sources */,
 				ADC672C921E28F6500D6D3F5 /* Path.swift in Sources */,

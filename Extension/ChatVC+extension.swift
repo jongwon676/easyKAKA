@@ -1,7 +1,7 @@
 import UIKit
 import RealmSwift
 
-extension ChatVC{
+extension ChatVC: UITextViewDelegate{
     
     func checkFirst(index: Int,message: Message) -> Bool{
         for idx in stride(from: index-1, through: 0, by: -1){
@@ -43,48 +43,46 @@ extension ChatVC{
     
     func advanceFirst(index: Int, message: Message){
         
-            
-            
-            for idx in stride(from: index + 1, through: room.messages.count - 1, by: 1){
-                if room.messages[idx].owner != message.owner{
-                    break
-                }
-                if room.messages[idx].type == Message.MessageType.date ||
-                    room.messages[idx].type == Message.MessageType.enter ||
-                    room.messages[idx].type == Message.MessageType.exit{
-                    break
-                }
-                if room.messages[idx].isFirstMessage == false{
-                    break
-                }
-                if Date.timeToString(date: room.messages[idx].sendDate) != Date.timeToString(date: message.sendDate) {
-                    break
-                }
-                room.messages[idx].isFirstMessage = false
+        for idx in stride(from: index + 1, through: room.messages.count - 1, by: 1){
+            if room.messages[idx].owner != message.owner{
+                break
             }
-            
+            if room.messages[idx].type == Message.MessageType.date ||
+                room.messages[idx].type == Message.MessageType.enter ||
+                room.messages[idx].type == Message.MessageType.exit{
+                break
+            }
+            if room.messages[idx].isFirstMessage == false{
+                break
+            }
+            if Date.timeToString(date: room.messages[idx].sendDate) != Date.timeToString(date: message.sendDate) {
+                break
+            }
+            room.messages[idx].isFirstMessage = false
+        }
+        
         
     }
     
     func advanceLast(index: Int, message: Message){
         
-            
-            for idx in stride(from: index - 1, through: 0, by: -1){
-                if room.messages[idx].owner != message.owner{
-                    break
-                }
-                if room.messages[idx].type == Message.MessageType.date ||
-                    room.messages[idx].type == Message.MessageType.enter ||
-                    room.messages[idx].type == Message.MessageType.exit{
-                    break
-                }
-                if room.messages[idx].isLastMessage == false{
-                    break
-                }
-                if Date.timeToString(date: room.messages[idx].sendDate) != Date.timeToString(date: message.sendDate) {
-                    break
-                }
-                room.messages[idx].isLastMessage = false
+        
+        for idx in stride(from: index - 1, through: 0, by: -1){
+            if room.messages[idx].owner != message.owner{
+                break
+            }
+            if room.messages[idx].type == Message.MessageType.date ||
+                room.messages[idx].type == Message.MessageType.enter ||
+                room.messages[idx].type == Message.MessageType.exit{
+                break
+            }
+            if room.messages[idx].isLastMessage == false{
+                break
+            }
+            if Date.timeToString(date: room.messages[idx].sendDate) != Date.timeToString(date: message.sendDate) {
+                break
+            }
+            room.messages[idx].isLastMessage = false
             
         }
     }
@@ -103,7 +101,7 @@ extension ChatVC{
     func reload(){
         
         try! realm.write {
-             for idx in stride(from: room.messages.count - 1, through: 0, by: -1){
+            for idx in stride(from: room.messages.count - 1, through: 0, by: -1){
                 if !checkUserMessage(message: room.messages[idx]){
                     continue
                 }
@@ -121,16 +119,75 @@ extension ChatVC{
         }
     }
     
-    
-    
-    
-    func scrolToGuideLine(position: UITableView.ScrollPosition = .middle){
-//        tableView.scrollToRow(at: guideLineIndex, at: position, animated: false)
-    }
-    func scrollToBottom(){
-        if messages.count != 0{
-            self.tableView.scrollToRow(at: IndexPath.row(row: messages.count-1), at: .bottom, animated: false)
+    @objc func go(){
+        let textView = bottomController.textView
+        guard let inputView = textView.inputView else { return }
+        if textView.isFirstResponder{
+            inputView.frame.size.height = 0
+            inputView.resignFirstResponder()
+        }else{
+            inputView.frame.size.height = 300
+            
         }
+    }
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        print("textview begin edit")
+    }
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        return true
+    }
+    
+    
+    @objc func adjustInsetForKeyboard(_ notification: NSNotification) {
+        guard let userInfo = notification.userInfo else { return }
+
+        let keyFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let duration = notification.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
+
+        print("duration \(duration)")
+        keyBoardFrame = keyFrame
+       
+        let show = (notification.name == UIResponder.keyboardWillShowNotification)
+            ? true
+            : false
+
+
+
+        guard let keyBoardFrame = keyBoardFrame else { return }
+//        print(keyBoardFrame)
+        let tempView = UIView()
+        tempView.backgroundColor = UIColor.black
+        tempView.frame.size.height = keyBoardFrame.height ?? 0
+//        bottomController.textView.inputView = tempView
+        
+
+        print(show)
+
+        if show{
+            UIView.animate(withDuration: duration) {
+                self.bottomController.view.snp.updateConstraints({ (mk) in
+                    mk.bottom.equalTo(self.view).offset(-keyFrame.size.height)
+                })
+            }
+            self.view.layoutIfNeeded()
+        }else{
+            UIView.animate(withDuration: duration, animations: {
+                self.bottomController.view.snp.updateConstraints({ (mk) in
+                    mk.bottom.equalTo(self.view).offset(0)
+                })
+            })
+
+            self.view.layoutIfNeeded()
+        }
+        
+    }
+    
+    
+    
+    
+    var bottomMost:IndexPath{
+        return IndexPath(row: messages.count - 1, section: 0)
     }
     
     func makeDummyCells(){
@@ -140,7 +197,6 @@ extension ChatVC{
         
         var dummymsgs = [Message]()
         if messages.count < 2000{
-            
             for idx in 0 ..< 20{
                 var txt = ""
                 for idx in  0 ..< arc4random_uniform(200) + 1{
@@ -149,32 +205,30 @@ extension ChatVC{
                 let msg = Message(owner: room.users[0], sendDate: room.currentDate, messageText: txt)
                 dummymsgs.append(msg)
             }
-            //            for idx in 0 ..< 20{
-            //                let msg = Message.makeImageMessage(owner: room.users[0], sendDate: room.currentDate, imageUrl: "1547227315.3748941.jpg")
-            //                dummymsgs.append(msg)
-            //            }
             for idx in 0 ..< 1 {
                 let msg = Message.makeDateMessage()
                 dummymsgs.append(msg)
             }
-//            for idx in 0 ..< 1{
-//                let msg = Message.makeEnterMessage(from: room.users[0], to: room.users[1])
-//                dummymsgs.append(msg)
-//            }
             for idx in 0 ..< 1{
                 let msg = Message.makeExitMessage(exit: room.users[0])
                 dummymsgs.append(msg)
             }
             try! realm.write {
-                let msg = Message(owner: nil, sendDate: Date(), messageText: "")
-                msg.type = .guide
                 messages.append(objectsIn: dummymsgs)
-                messages.append(msg)
             }
         }
     }
 }
 
+extension ChatVC: bottomInfoReceiver{
+    func addMinute(minute: Int) {
+        try! realm.write {
+            room.currentDate = room.currentDate.addingTimeInterval(60.0 * Double(minute))
+//            print(room.currentDate)
+            self.navigationItem.title = Date.timeToStringSecondVersion(date: self.room.currentDate)
+        }
+    }
+}
 extension IndexPath{
     static func row(row: Int) -> IndexPath{
         return IndexPath(row: row, section: 0)

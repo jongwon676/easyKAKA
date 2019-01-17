@@ -2,8 +2,6 @@ import UIKit
 
 class ImageCell: UICollectionViewCell {
     
-    
-    
     var user: User?{
         didSet{
             imageView.layer.borderColor = (user?.isSelected)! ? UIColor.red.cgColor : UIColor.clear.cgColor

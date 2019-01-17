@@ -11,7 +11,7 @@ extension ChatVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate
         alert.addAction(UIAlertAction(title: "대화방 이름 변경하기", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "대화방 시간 변경", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "사진찍기", style: .default, handler: { (action) in
-            (self.inputBar as? GitHawkInputBar)?.isCaptureMode = true
+//            (self.inputBar as? GitHawkInputBar)?.isCaptureMode = true
         }))
         present(alert, animated: true, completion: nil)
     }
@@ -20,11 +20,11 @@ extension ChatVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate
         if let img = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
             let imageName = Date().currentDateToString() + ".jpg"
             img.writeImage(imgName: imageName)
-            let msg = Message.makeImageMessage(owner: getCurrentUser(), sendDate: room.currentDate, imageUrl: imageName)
-            try! realm.write {
-                    messages.insert(msg, at: guideLineIndex.row)
-                
-            }
+//            let msg = Message.makeImageMessage(owner: getCurrentUser(), sendDate: room.currentDate, imageUrl: imageName)
+//            try! realm.write {
+//                    messages.insert(msg, at: guideLineIndex.row)
+//                
+//            }
         }
         picker.dismiss(animated: true, completion: nil)
     }

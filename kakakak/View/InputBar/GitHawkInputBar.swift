@@ -141,10 +141,10 @@ class GitHawkInputBar: InputBarAccessoryView,UICollectionViewDelegate{
         collectionView.backgroundColor = UIColor.cyan
         collectionView.dataSource = self
         collectionView.delegate = self
-        
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(ImageCell.self, forCellWithReuseIdentifier: ImageCell.reuseIdentifier)
         topStackView.addArrangedSubview(collectionView)
+        
         collectionView.reloadData()
     }
     lazy var adsView: AttachmentCollectionView = {

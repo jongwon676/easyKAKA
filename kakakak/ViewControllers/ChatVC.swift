@@ -1,6 +1,6 @@
 import UIKit
 import SnapKit
-import InputBarAccessoryView
+
 import RealmSwift
 extension ChatVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -16,54 +16,17 @@ class ChatVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
     var room: Room!
     lazy var messages = room.messages
     private var token: NotificationToken?
+    var keyBoardFrame: CGRect? = nil
+    
+
     let datePicker = UIDatePicker()
+    
+    
     
     var btn = UIButton(type: .custom)
     
     var tableView = UITableView()
-    
-    
 
-    
-    
-    
-
-private var keyboardManager = KeyboardManager()
-    
-    
-    
-//    override var inputAccessoryView: UIView? {
-//        return inputBar
-//    }
-    
-//    override var canBecomeFirstResponder: Bool {
-//        return true
-//    }
-    
-    func getCurrentUser() -> User?{
-        let customInputBar = inputBar as! GitHawkInputBar
-        return customInputBar.selectedUser
-    }
-    
-    
-    open lazy var attachmentManager: AttachmentManager = { [unowned self] in
-        let manager = AttachmentManager()
-        manager.delegate = self
-        return manager
-    }()
-    
-    
-    var inputBar: InputBarAccessoryView!{
-        didSet{
-            let customInput  = inputBar as! GitHawkInputBar
-            customInput.clearUser()
-            
-            for user in room.users {
-                customInput.addUser(user: user)
-            }
-        }
-    }
-    
     var guideLineIndex: IndexPath{
         get{
             for (idx,msg) in messages.enumerated(){
@@ -76,41 +39,10 @@ private var keyboardManager = KeyboardManager()
     }
     
     @objc func handleTap(_ sender: UITapGestureRecognizer){
-//        let clickY = sender.location(in: sender.view).y
-        inputBar.inputTextView.resignFirstResponder()
-//        if sender.state != .recognized{
-//            return
-//        }
-//        var clickIndex = -1
-//        let pos = sender.location(in: sender.view)
-//        for idx in 0 ..< messages.count{
-//
-//            if let cell = tableView.cellForRow(at: IndexPath.row(row: idx)){
-//                if cell.frame.contains(pos){
-//                    clickIndex = idx
-//                    break
-//                }
-//            }
-//        }
-//        var insertPosition = 0
-//        if clickIndex == -1{ insertPosition = messages.count }
-//        else{
-//            let rect = tableView.rectForRow(at: IndexPath.row(row: clickIndex))
-//            let upInsert = abs(rect.minY - clickY) < abs(rect.maxY - clickY)
-//            insertPosition = upInsert ? clickIndex : clickIndex + 1
-//        }
-//        let guideRow = guideLineIndex.row
-//        if guideRow == insertPosition || guideRow == insertPosition - 1{
-//            return
-//        }
-//        if guideRow < insertPosition {
-//            insertPosition -= 1
-//        }
-//        try! realm.write {
-//            messages.move(from: guideRow, to: insertPosition)
-//            tableView.reloadData()
-//            scrolToGuideLine()
-//        }
+//        inputBar.inputTextView.resignFirstResponder()
+//        textField.resignFirstResponder()
+        bottomController.textView.resignFirstResponder()
+        bottomController.textField.resignFirstResponder()
     }
     
     func registerCells(){
@@ -146,6 +78,7 @@ private var keyboardManager = KeyboardManager()
             navHeight = nav.navigationBar.frame.height + UIApplication.shared.statusBarFrame.height
         }
         
+        
         let btnWidth:CGFloat = 50
         let btnHeight:CGFloat = 50
 
@@ -153,12 +86,14 @@ private var keyboardManager = KeyboardManager()
     }
     
     @objc func tap(){
-        inputBar.inputTextView.resignFirstResponder()
+//        inputBar.inputTextView.resignFirstResponder()
+        textField.resignFirstResponder()
+        
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
+    
+    
+
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -167,82 +102,57 @@ private var keyboardManager = KeyboardManager()
         btn.removeFromSuperview()
     }
     
+    let textField = UITextField()
+    
+    
+    public let bottomController = KeyBoardAreaController()
 
     
-//    @objc func keyShow(){
-//
-//
-//        bottomConstraint?.update(offset: -150)
-//        UIView.animate(withDuration: 1) {
-//                self.view.layoutIfNeeded()
-//        }
-//
-////        tableView.scrollToRow(at: IndexPath.row(row: messages.count-1), at: .middle, animated: true)
-//
-//    }
-//    @objc func keyHide(){
-//
-//        tableView.scrollToRow(at: IndexPath.row(row: messages.count-1), at: .middle, animated: true)
-//    }
-    
-
+    var first: Bool = true
     
     
     
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        
-        
-        
-        
-        
-        
         self.view.addSubview(tableView)
-        inputBar = GitHawkInputBar()
-        view.addSubview(inputBar)
         
+        addChild(bottomController)
+        self.view.addSubview(bottomController.view)
+        bottomController.didMove(toParent: self)
+        bottomController.receiver = self
+        bottomController.users = room.users
+        
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(adjustInsetForKeyboard(_:)),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(adjustInsetForKeyboard(_:)),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil)
         tableView.tableFooterView = UIView()
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
-            ])
         
-
-        keyboardManager.bind(inputAccessoryView: inputBar)
-        
-        
-        
-        
-        // Binding to the tableView will enabled interactive dismissal
-        keyboardManager.bind(to: tableView)
-        
-        // Add some extra handling to manage content inset
-        keyboardManager.on(event: .didChangeFrame) { [weak self] (notification) in
-            let barHeight = self?.inputBar.bounds.height ?? 0
-            self?.tableView.contentInset.bottom = barHeight + notification.endFrame.height
-            self?.tableView.scrollIndicatorInsets.bottom = barHeight + notification.endFrame.height
-            }.on(event: .didHide) { [weak self] _ in
-                let barHeight = self?.inputBar.bounds.height ?? 0
-                self?.tableView.contentInset.bottom = barHeight
-                self?.tableView.scrollIndicatorInsets.bottom = barHeight
-        }
-        
-        
-
-        
-       self.tableView.dataSource = self
-        
-        
-        
+        self.tableView.dataSource = self
         self.tableView.delegate = self
         
-
+        self.tableView.snp.makeConstraints { (mk) in
+            mk.left.right.bottom.top.equalTo(self.view)
+        }
         
+
+        let bottomView = bottomController.view
+
+
+        bottomView?.snp.makeConstraints({ (mk) in
+            mk.left.right.bottom.equalTo(self.view)
+        })
+
+//
         registerCells()
         floatingButton()
         
@@ -263,17 +173,7 @@ private var keyboardManager = KeyboardManager()
         tableView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "hamburger"), style: .plain, target: self, action: #selector(handleHamburger))
-        
-        
-        
-        inputBar.delegate = self
-        inputBar.inputTextView.keyboardType = UIKeyboardType.default
-        
-        inputBar.inputPlugins = [attachmentManager]
-        
-        
         tableView.keyboardDismissMode = .interactive
-        
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
         tableView.backgroundColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
@@ -284,16 +184,16 @@ private var keyboardManager = KeyboardManager()
     
     
     deinit {
-        print("chatvc deini")
+        print("chatvc deinit")
+        // obsever init 해주고
+        
         token?.invalidate()
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        
-        
-        
+   
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
         self.tabBarController?.tabBar.isHidden = true
         timer = Timer.scheduledTimer(withTimeInterval: 1.0,
@@ -312,6 +212,8 @@ private var keyboardManager = KeyboardManager()
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
     }
+    
+    
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //                print(indexPath.row)
         let msg = messages[indexPath.row]
@@ -354,67 +256,4 @@ private var keyboardManager = KeyboardManager()
     
 }
 
-
-extension ChatVC: InputBarAccessoryViewDelegate{
-    func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        let selectedUser = getCurrentUser()
-        if let currentUser = selectedUser{
-            let message = Message(owner: currentUser, sendDate: Date(), messageText: text)
-            message.sendDate = self.room.currentDate
-            for user in room.users{
-                if user.id != currentUser.id {
-                    message.noReadUser.append(user)
-                }
-            }
-            try! realm.write {
-                messages.insert(message, at: guideLineIndex.row)
-            }
-            reload()
-        }
-        inputBar.inputTextView.text = String()
-    }
-    func inputBar(_ inputBar: InputBarAccessoryView, didChangeIntrinsicContentTo size: CGSize) {
-        // Adjust content insets
-        
-        
-        print(size)
-        tableView.contentInset.bottom = size.height
-    }
-}
-
-
-extension ChatVC: AttachmentManagerDelegate {
-    
-    
-    // MARK: - AttachmentManagerDelegate
-    
-    func attachmentManager(_ manager: AttachmentManager, shouldBecomeVisible: Bool) {
-                setAttachmentManager(active: shouldBecomeVisible)
-    }
-    
-    func attachmentManager(_ manager: AttachmentManager, didReloadTo attachments: [AttachmentManager.Attachment]) {
-        inputBar.sendButton.isEnabled = manager.attachments.count > 0
-    }
-    
-    func attachmentManager(_ manager: AttachmentManager, didInsert attachment: AttachmentManager.Attachment, at index: Int) {
-        inputBar.sendButton.isEnabled = manager.attachments.count > 0
-    }
-    
-    func attachmentManager(_ manager: AttachmentManager, didRemove attachment: AttachmentManager.Attachment, at index: Int) {
-        inputBar.sendButton.isEnabled = manager.attachments.count > 0
-    }
-    
-    func setAttachmentManager(active: Bool) {
-        
-        let topStackView = inputBar.topStackView
-        if active && !topStackView.arrangedSubviews.contains(attachmentManager.attachmentView) {
-            topStackView.insertArrangedSubview(attachmentManager.attachmentView, at: topStackView.arrangedSubviews.count)
-            topStackView.layoutIfNeeded()
-        } else if !active && topStackView.arrangedSubviews.contains(attachmentManager.attachmentView) {
-            topStackView.removeArrangedSubview(attachmentManager.attachmentView)
-            topStackView.layoutIfNeeded()
-        }
-    }
-    
-}
 
