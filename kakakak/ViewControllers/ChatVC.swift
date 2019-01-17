@@ -2,12 +2,7 @@ import UIKit
 import SnapKit
 
 import RealmSwift
-extension ChatVC: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-}
+
 
 class ChatVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
     
@@ -39,10 +34,8 @@ class ChatVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
     }
     
     @objc func handleTap(_ sender: UITapGestureRecognizer){
-//        inputBar.inputTextView.resignFirstResponder()
-//        textField.resignFirstResponder()
-        bottomController.textView.resignFirstResponder()
-        bottomController.textField.resignFirstResponder()
+        bottomController.keyboardHide()
+        
     }
     
     func registerCells(){
@@ -87,8 +80,7 @@ class ChatVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
     
     @objc func tap(){
 //        inputBar.inputTextView.resignFirstResponder()
-        textField.resignFirstResponder()
-        
+//        textField.resignFirstResponder()
     }
     
     
@@ -122,6 +114,7 @@ class ChatVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
         bottomController.didMove(toParent: self)
         bottomController.receiver = self
         bottomController.users = room.users
+        bottomController.mode = .chatting
         
         
         NotificationCenter.default.addObserver(
@@ -130,11 +123,13 @@ class ChatVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
             name: UIResponder.keyboardWillHideNotification,
             object: nil
         )
+        
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(adjustInsetForKeyboard(_:)),
             name: UIResponder.keyboardWillShowNotification,
             object: nil)
+        
         tableView.tableFooterView = UIView()
         
         self.tableView.dataSource = self
@@ -156,17 +151,17 @@ class ChatVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
         registerCells()
         floatingButton()
         
-//        token = messages.observe{ [weak tableView] changes in
-//            print("observe")
-//            guard let tableView = tableView else { return }
-//            switch changes{
-//            case .initial:
-//                tableView.reloadData()
-//            case .update(_, let deletions, let insertions, let updates):
-//                tableView.applyChanges(deletions: deletions, insertions: insertions, updates: updates)
-//            case .error: break
-//            }
-//        }
+        token = messages.observe{ [weak tableView] changes in
+
+            guard let tableView = tableView else { return }
+            switch changes{
+            case .initial:
+                tableView.reloadData()
+            case .update(_, let deletions, let insertions, let updates):
+                tableView.applyChanges(deletions: deletions, insertions: insertions, updates: updates)
+            case .error: break
+            }
+        }
         
         makeDummyCells()
         
@@ -185,8 +180,7 @@ class ChatVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
     
     deinit {
         print("chatvc deinit")
-        // obsever init 해주고
-        
+        NotificationCenter.default.removeObserver(self)
         token?.invalidate()
     }
     

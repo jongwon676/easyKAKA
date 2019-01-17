@@ -8,7 +8,7 @@ class User: Object{
     @objc dynamic var isMe: Bool = false
     @objc dynamic var isExited: Bool = false
     
-    var isSelected: Bool = false
+    @objc dynamic var isSelected: Bool = false
     
     enum Properties: String{
         case name,id,profileImageUrl,isMe,creationDate,isExited

@@ -1,21 +1,27 @@
 import UIKit
 
-class ImageCell: UICollectionViewCell {
+
+class UserCollectionCell: UICollectionViewCell {
+    
+    
     
     var user: User?{
         didSet{
             imageView.layer.borderColor = (user?.isSelected)! ? UIColor.red.cgColor : UIColor.clear.cgColor
+            print(user?.isSelected)
+            imageView.layer.borderWidth = 3
             let img = UIImage.loadImageFromName((user?.profileImageUrl)!)!
             imageView.image = img
         }
     }
     
-    class var reuseIdentifier: String {
-        return "ImageCell"
+    class var reuseId: String {
+        return "UserCollectionCell"
     }
     
+    
     let imageView: UIImageView = {
-       let imgView = UIImageView()
+        let imgView = UIImageView()
         imgView.layer.borderColor = UIColor.red.cgColor
         imgView.layer.borderWidth = 1
         return imgView
@@ -32,11 +38,14 @@ class ImageCell: UICollectionViewCell {
     
     func setupView() {
         addSubview(imageView)
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.masksToBounds = true
     }
+    
     
     override func layoutSubviews() {
         super.layoutSubviews()
         imageView.frame = bounds
+        imageView.layer.cornerRadius = imageView.frame.width / 2
     }
 }

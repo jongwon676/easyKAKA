@@ -2,19 +2,20 @@ import Foundation
 import UIKit
 extension ChatVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     
-    
-    
     @objc func handleHamburger(){
+        self.bottomController.keyboardHide()
         let alert = UIAlertController(title: nil, message: "옵션", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "등장인물 초대", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "등장인물 퇴장", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "대화방 이름 변경하기", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "대화방 시간 변경", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "사진찍기", style: .default, handler: { (action) in
-//            (self.inputBar as? GitHawkInputBar)?.isCaptureMode = true
+            self.bottomController.mode = .capture
         }))
-        present(alert, animated: true, completion: nil)
+        present(alert, animated: true) 
+        
     }
+    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let img = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{

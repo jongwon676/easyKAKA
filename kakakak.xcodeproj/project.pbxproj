@@ -10,7 +10,7 @@
 		2201941D9767FC1EB65D0802 /* Pods_kakakak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31166B9B380F3B955A1AACD7 /* Pods_kakakak.framework */; };
 		AD020C7D21E4C0AD00AC6C1C /* FlexibleTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD020C7C21E4C0AD00AC6C1C /* FlexibleTextView.swift */; };
 		AD0AA03221EA00D000B45EF5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD0AA03121EA00D000B45EF5 /* GoogleService-Info.plist */; };
-		AD27D16721F07066009E367A /* userCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD27D16621F07066009E367A /* userCell.swift */; };
+		AD27D16721F07066009E367A /* UserCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD27D16621F07066009E367A /* UserCollectionCell.swift */; };
 		AD51D17C21E9996D00DA4B13 /* smileTemp.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = AD51D17B21E9996C00DA4B13 /* smileTemp.jpeg */; };
 		AD542CB621EC871A00656196 /* RoomAddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD542CB521EC871A00656196 /* RoomAddVC.swift */; };
 		AD542CB821EC8D8A00656196 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD542CB721EC8D8A00656196 /* UserCell.swift */; };
@@ -45,7 +45,6 @@
 		ADC672F221E3CE6200D6D3F5 /* UserChattingBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672F121E3CE6200D6D3F5 /* UserChattingBaseCell.swift */; };
 		ADC672F421E42E3200D6D3F5 /* MessageInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672F321E42E3200D6D3F5 /* MessageInputView.swift */; };
 		ADDDF02621E4E69E007E3D16 /* GitHawkInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDDF02521E4E69E007E3D16 /* GitHawkInputBar.swift */; };
-		ADDDF02921E4E6CD007E3D16 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDDF02821E4E6CD007E3D16 /* ImageCell.swift */; };
 		ADDDF02B21E53E6E007E3D16 /* ChatVC+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDDF02A21E53E6E007E3D16 /* ChatVC+extension.swift */; };
 		ADDFB85E21E6C8E8003D5DF1 /* GuideLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDFB85D21E6C8E8003D5DF1 /* GuideLineCell.swift */; };
 		ADDFB86021E7037A003D5DF1 /* ChatVC+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDFB85F21E7037A003D5DF1 /* ChatVC+Alert.swift */; };
@@ -56,7 +55,7 @@
 		3DCAA90BC1391044DF37135F /* Pods-kakakak.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kakakak.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kakakak/Pods-kakakak.debug.xcconfig"; sourceTree = "<group>"; };
 		AD020C7C21E4C0AD00AC6C1C /* FlexibleTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleTextView.swift; sourceTree = "<group>"; };
 		AD0AA03121EA00D000B45EF5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		AD27D16621F07066009E367A /* userCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userCell.swift; sourceTree = "<group>"; };
+		AD27D16621F07066009E367A /* UserCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionCell.swift; sourceTree = "<group>"; };
 		AD51D17B21E9996C00DA4B13 /* smileTemp.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = smileTemp.jpeg; sourceTree = "<group>"; };
 		AD542CB521EC871A00656196 /* RoomAddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomAddVC.swift; sourceTree = "<group>"; };
 		AD542CB721EC8D8A00656196 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
@@ -93,7 +92,6 @@
 		ADC672F121E3CE6200D6D3F5 /* UserChattingBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChattingBaseCell.swift; sourceTree = "<group>"; };
 		ADC672F321E42E3200D6D3F5 /* MessageInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInputView.swift; sourceTree = "<group>"; };
 		ADDDF02521E4E69E007E3D16 /* GitHawkInputBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHawkInputBar.swift; sourceTree = "<group>"; };
-		ADDDF02821E4E6CD007E3D16 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		ADDDF02A21E53E6E007E3D16 /* ChatVC+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatVC+extension.swift"; sourceTree = "<group>"; };
 		ADDFB85D21E6C8E8003D5DF1 /* GuideLineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideLineCell.swift; sourceTree = "<group>"; };
 		ADDFB85F21E7037A003D5DF1 /* ChatVC+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatVC+Alert.swift"; sourceTree = "<group>"; };
@@ -178,7 +176,7 @@
 				AD87909821EA048A0008177D /* ViewController.swift */,
 				AD542CB521EC871A00656196 /* RoomAddVC.swift */,
 				ADA5F29921EF2F4A002C0F85 /* KeyBoardAreaController.swift */,
-				AD27D16621F07066009E367A /* userCell.swift */,
+				AD27D16621F07066009E367A /* UserCollectionCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -262,7 +260,6 @@
 		ADDDF02721E4E6C5007E3D16 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				ADDDF02821E4E6CD007E3D16 /* ImageCell.swift */,
 				AD542CB721EC8D8A00656196 /* UserCell.swift */,
 			);
 			path = Cell;
@@ -413,12 +410,11 @@
 				ADA5F29A21EF2F4A002C0F85 /* KeyBoardAreaController.swift in Sources */,
 				AD542CB621EC871A00656196 /* RoomAddVC.swift in Sources */,
 				AD87909921EA048A0008177D /* ViewController.swift in Sources */,
-				AD27D16721F07066009E367A /* userCell.swift in Sources */,
+				AD27D16721F07066009E367A /* UserCollectionCell.swift in Sources */,
 				ADC672C521E2517700D6D3F5 /* Preset.swift in Sources */,
 				ADC672E521E3A57900D6D3F5 /* DateCell.swift in Sources */,
 				ADC672C921E28F6500D6D3F5 /* Path.swift in Sources */,
 				ADC672DE21E39FCB00D6D3F5 /* ChatVC.swift in Sources */,
-				ADDDF02921E4E6CD007E3D16 /* ImageCell.swift in Sources */,
 				ADC672D021E2A68B00D6D3F5 /* AddUserVC.swift in Sources */,
 				ADC672E121E3A52400D6D3F5 /* TextCell.swift in Sources */,
 				ADC672D421E2C12F00D6D3F5 /* Date.swift in Sources */,

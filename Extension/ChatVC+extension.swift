@@ -221,10 +221,18 @@ extension ChatVC: UITextViewDelegate{
 }
 
 extension ChatVC: bottomInfoReceiver{
+    func sendMessage(text: String) {
+        guard let currentUser = bottomController.selectedUser else { return }
+
+        room.addMessage(message: Message(owner: currentUser, sendDate: room.currentDate, messageText: text))
+        
+        
+    }
+    
     func addMinute(minute: Int) {
         try! realm.write {
             room.currentDate = room.currentDate.addingTimeInterval(60.0 * Double(minute))
-//            print(room.currentDate)
+            
             self.navigationItem.title = Date.timeToStringSecondVersion(date: self.room.currentDate)
         }
     }
@@ -238,8 +246,5 @@ extension IndexPath{
 extension UITableView {
     func applyChanges(deletions: [Int], insertions: [Int], updates: [Int]) {
         reloadData()
-        if insertions.count > 0 {
-            scrollToRow(at: IndexPath.row(row: insertions.first!), at: .middle, animated: false)
-        }
     }
 }
