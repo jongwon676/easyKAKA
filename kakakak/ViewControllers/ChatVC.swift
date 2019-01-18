@@ -65,6 +65,7 @@ class ChatVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
     
     
     override func viewWillLayoutSubviews() {
+//        bottomController.textView.resignFirstResponder()
         let offset: CGFloat = 5.0
         var navHeight:CGFloat = 0
         if let nav = self.navigationController {
@@ -108,26 +109,21 @@ class ChatVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(tableView)
-        
+        bottomController.textView.becomeFirstResponder()
         addChild(bottomController)
         self.view.addSubview(bottomController.view)
         bottomController.didMove(toParent: self)
         bottomController.receiver = self
+
+        
         bottomController.users = room.users
         bottomController.mode = .chatting
         
-        
+ 
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(adjustInsetForKeyboard(_:)),
-            name: UIResponder.keyboardWillHideNotification,
-            object: nil
-        )
-        
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(adjustInsetForKeyboard(_:)),
-            name: UIResponder.keyboardWillShowNotification,
+            selector: #selector(calcKeyBoardFrame(_:)),
+            name: UIResponder.keyboardWillChangeFrameNotification,
             object: nil)
         
         tableView.tableFooterView = UIView()
@@ -163,7 +159,7 @@ class ChatVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
             }
         }
         
-        makeDummyCells()
+//        makeDummyCells()
         
         tableView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
         
@@ -177,6 +173,22 @@ class ChatVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        // 
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(adjustInsetForKeyboard(_:)),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(adjustInsetForKeyboard(_:)),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil)
+
+    }
     
     deinit {
         print("chatvc deinit")
@@ -187,7 +199,9 @@ class ChatVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-   
+        
+        
+        
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
         self.tabBarController?.tabBar.isHidden = true
         timer = Timer.scheduledTimer(withTimeInterval: 1.0,
@@ -198,7 +212,10 @@ class ChatVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
                                         }
                                         self.navigationItem.title = Date.timeToStringSecondVersion(date: self.room.currentDate)
         }
+        
     }
+    
+    
      func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

@@ -21,15 +21,18 @@ enum ChatMode{
 
 class KeyBoardAreaController: UIViewController{
     
+    var keyFrame: CGRect? = nil
+    
     func keyboardHide(){
         self.textView.resignFirstResponder()
         self.smileButton.resignFirstResponder()
     }
+    
     var mode: ChatMode = .chatting{
         didSet{
             
             if mode == .chatting{
-                [topView,middleView,bottomView].forEach{
+                [topView,bottomView].forEach{
                     $0.snp.updateConstraints({ (mk) in
                         mk.height.equalTo(elementHeight)
                     })
@@ -46,32 +49,41 @@ class KeyBoardAreaController: UIViewController{
             self.view.layoutIfNeeded()
         }
     }
-    var users = List<User>()
+    var users = List<User>() {
+        didSet{
+            print("user collection set")
+            userCollectionView.reloadData()
+        }
+    }
     let layout = UICollectionViewFlowLayout()
     let realm = try! Realm()
+    var hasText: Bool = false{
+        didSet{
+            sendButton.setImage(UIImage(named: hasText ? "enter" : "sharp"), for: .normal)
+        }
+    }
+    
+    
+    
     
     lazy var sendButton: UIButton = {
         let btn = UIButton(type: .custom)
-        btn.setImage(#imageLiteral(resourceName: "ic_up"), for: .normal)
+        btn.setImage(UIImage(named: "sharp"), for: .normal)
         btn.addTarget(self, action: #selector(sendMsg), for: .touchUpInside)
         return btn
     }()
     
     lazy var smileButton: TimeButton = {
         let btn = TimeButton(type: .custom)
-        btn.setImage(#imageLiteral(resourceName: "smileTemp.jpeg"), for: .normal)
+        btn.setImage(UIImage(named: "emoji_origin"), for: .normal)
         btn.delegate = self
         btn.addTarget(btn, action: #selector(becomeFirstResponder), for: .touchUpInside)
         btn.inputView = timeInputView
         return btn
     }()
     
-    var hasText: Bool = false{ didSet{ } }
-    
-    
-    
+
     weak var receiver: bottomInfoReceiver?
-    
 
     lazy var userCollectionView:UICollectionView = {
        let collection = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
@@ -98,9 +110,10 @@ class KeyBoardAreaController: UIViewController{
         textView.font = UIFont.systemFont(ofSize: 16)
         textView.textContainerInset = textViewInset
         textView.layer.cornerRadius = 16
-        textView.layer.borderColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
-        textView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        textView.layer.borderWidth = 0.5
+        textView.layer.borderColor = #colorLiteral(red: 0.9097726345, green: 0.9057027698, blue: 0.917971909, alpha: 1)
+        textView.backgroundColor = #colorLiteral(red: 0.9726272225, green: 0.9645878673, blue: 0.9726623893, alpha: 1)
+        
+        textView.layer.borderWidth = 1
         textView.layer.masksToBounds = true
         textView.isScrollEnabled = false
         return textView
@@ -142,16 +155,26 @@ class KeyBoardAreaController: UIViewController{
         userCollectionView.snp.makeConstraints { (mk) in
             mk.height.equalTo(elementHeight)
         }
+        userCollectionView.backgroundColor = UIColor.white
         return userCollectionView
     }()
     
+    class CustomView: UIView {
+        var height:CGFloat = 500
+        override var intrinsicContentSize: CGSize{
+            return CGSize(width: 10, height: height)
+        }
+    }
+    
+    
     lazy var middleView: UIView = {
-        let containerView = UIView()
+        let containerView = CustomView()
+        containerView.layer.borderColor = #colorLiteral(red: 0.9097726345, green: 0.9057027698, blue: 0.917971909, alpha: 1)
+        containerView.layer.borderWidth = 1
         containerView.backgroundColor = UIColor.white
-
-        let specailFeatureButton = UIButton()
-        specailFeatureButton.setImage(#imageLiteral(resourceName: "addImage"), for: .normal)
         
+        let specailFeatureButton = UIButton()
+        specailFeatureButton.setImage(UIImage(named: "special_features_origin"), for: .normal)
         let rightStackView = UIStackView()
         
         rightStackView.addArrangedSubview(smileButton)
@@ -173,39 +196,44 @@ class KeyBoardAreaController: UIViewController{
         containerView.addSubview(specailFeatureButton)
         specailFeatureButton.snp.makeConstraints { (mk) in
             mk.left.equalTo(containerView).offset(10)
-            mk.bottom.equalTo(containerView).inset(10)
+            mk.bottom.equalTo(containerView).inset(15)
             mk.width.height.equalTo(20)
         }
+        
         textView.snp.makeConstraints({ (mk) in
             mk.top.equalTo(containerView.snp.top).offset(5)
             mk.bottom.equalTo(containerView.snp.bottom).offset(-5)
             mk.left.equalTo(specailFeatureButton.snp.right).offset(10)
             mk.right.equalTo(containerView).offset(-10)
             mk.height.equalTo(elementHeight - 10)
-            
         })
+ 
         rightStackView.snp.makeConstraints { (mk) in
             mk.right.equalTo(textView.snp.right).inset(2)
             mk.width.equalTo(60)
             mk.height.equalTo(30)
-            mk.bottom.equalTo(specailFeatureButton)
+            mk.centerY.equalTo(specailFeatureButton)
+//            mk.bottom.equalTo(specailFeatureButton)
         }
         return containerView
+        
     }()
     
 
     lazy var bottomView: UIView = {
-        let containerView = UIView()
-        containerView.backgroundColor = UIColor.green
-        containerView.snp.makeConstraints({ (mk) in
+        
+        var bannerView = GADBannerView()
+        bannerView.backgroundColor = UIColor.white
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/6300978111"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerView.snp.makeConstraints({ (mk) in
             mk.height.equalTo(elementHeight)
         })
 
-        return containerView
+        return bannerView
     }()
-    
 
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -223,11 +251,12 @@ class KeyBoardAreaController: UIViewController{
         stackView.addArrangedSubview(bottomView)
         
     }
-    
+
     @objc func sendMsg(){
         guard !textView.text.isEmpty else { return }
         receiver?.sendMessage(text: textView.text)
         textView.text = ""
+        
     }
     @objc func handleTime(_ sender: UIButton){
         if sender.titleLabel?.text == "+"{
@@ -236,32 +265,23 @@ class KeyBoardAreaController: UIViewController{
             receiver?.addMinute(minute: -1)
         }
     }
-    
-    
+
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
+        stackView.distribution = .fill
         return stackView
     }()
     override func loadView() {
         self.view = stackView
     }
-    
-    
-    
 }
-
-
-
-
-
-
-
 
 
 extension KeyBoardAreaController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         return users.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -273,10 +293,6 @@ extension KeyBoardAreaController: UICollectionViewDataSource{
         
     }
 }
-
-
-
-
 
 
 
@@ -309,22 +325,28 @@ extension KeyBoardAreaController: UICollectionViewDelegateFlowLayout{
     }
     
     var selectedUser: User?{
+        
         get{
+            var ret: User? = nil
             for idx in 0 ..< users.count{
                 if users[idx].isSelected {
-                    return users[idx]
+                    ret = users[idx]
+                    break
                 }
             }
-            if users.count > 0 {
-                users[0].isSelected = true
-                return users[0]
+            try! realm.write {
+                if users.count > 0 {
+                    users[0].isSelected = true
+                    ret = users[0]
+                }
             }
-            return nil
+            return ret
         }
+        
     }
 }
 
-let maxHeight: CGFloat = 80
+let maxHeight: CGFloat = 120
 
 extension KeyBoardAreaController: UITextViewDelegate{
     func textViewDidChange(_ textView: UITextView) {
@@ -338,6 +360,8 @@ extension KeyBoardAreaController: UITextViewDelegate{
         textView.snp.updateConstraints { (mk) in
             mk.height.equalTo(nextHeight)
         }
+        
+        
     }
 }
 

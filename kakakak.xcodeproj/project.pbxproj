@@ -11,6 +11,7 @@
 		AD020C7D21E4C0AD00AC6C1C /* FlexibleTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD020C7C21E4C0AD00AC6C1C /* FlexibleTextView.swift */; };
 		AD0AA03221EA00D000B45EF5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD0AA03121EA00D000B45EF5 /* GoogleService-Info.plist */; };
 		AD27D16721F07066009E367A /* UserCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD27D16621F07066009E367A /* UserCollectionCell.swift */; };
+		AD27D16921F14B9D009E367A /* icon in Resources */ = {isa = PBXBuildFile; fileRef = AD27D16821F14B9D009E367A /* icon */; };
 		AD51D17C21E9996D00DA4B13 /* smileTemp.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = AD51D17B21E9996C00DA4B13 /* smileTemp.jpeg */; };
 		AD542CB621EC871A00656196 /* RoomAddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD542CB521EC871A00656196 /* RoomAddVC.swift */; };
 		AD542CB821EC8D8A00656196 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD542CB721EC8D8A00656196 /* UserCell.swift */; };
@@ -56,6 +57,7 @@
 		AD020C7C21E4C0AD00AC6C1C /* FlexibleTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleTextView.swift; sourceTree = "<group>"; };
 		AD0AA03121EA00D000B45EF5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AD27D16621F07066009E367A /* UserCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionCell.swift; sourceTree = "<group>"; };
+		AD27D16821F14B9D009E367A /* icon */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icon; sourceTree = "<group>"; };
 		AD51D17B21E9996C00DA4B13 /* smileTemp.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = smileTemp.jpeg; sourceTree = "<group>"; };
 		AD542CB521EC871A00656196 /* RoomAddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomAddVC.swift; sourceTree = "<group>"; };
 		AD542CB721EC8D8A00656196 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		ADC6729C21E2260700D6D3F5 = {
 			isa = PBXGroup;
 			children = (
+				AD27D16821F14B9D009E367A /* icon */,
 				AD0AA03121EA00D000B45EF5 /* GoogleService-Info.plist */,
 				ADC672CA21E28FCD00D6D3F5 /* Realm */,
 				ADC672C721E28F5C00D6D3F5 /* Extension */,
@@ -335,6 +338,7 @@
 			files = (
 				ADC672B321E2260800D6D3F5 /* LaunchScreen.storyboard in Resources */,
 				ADC672B021E2260800D6D3F5 /* Assets.xcassets in Resources */,
+				AD27D16921F14B9D009E367A /* icon in Resources */,
 				ADC672AE21E2260700D6D3F5 /* Main.storyboard in Resources */,
 				ADC672BC21E22B6F00D6D3F5 /* abcd.jpg in Resources */,
 				AD51D17C21E9996D00DA4B13 /* smileTemp.jpeg in Resources */,

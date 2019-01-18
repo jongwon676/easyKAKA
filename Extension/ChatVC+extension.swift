@@ -138,32 +138,57 @@ extension ChatVC: UITextViewDelegate{
         return true
     }
     
-    
+    @objc func calcKeyBoardFrame(_ notification: NSNotification){
+        guard let userInfo = notification.userInfo else { return }
+        let keyFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        if self.bottomController.keyFrame == nil && keyFrame.height >= 200{
+            
+            self.bottomController.timeInputView.frame = keyFrame
+//            self.bottomController.textView.frame = keyFrame
+            
+            print("calc keyboard \(keyFrame)")
+            NotificationCenter.default.removeObserver(self)
+            bottomController.textView.resignFirstResponder()
+//
+//            NotificationCenter.default.addObserver(
+//                self,
+//                selector: #selector(adjustInsetForKeyboard(_:)),
+//                name: UIResponder.keyboardWillHideNotification,
+//                object: nil
+//            )
+//
+//            NotificationCenter.default.addObserver(
+//                self,
+//                selector: #selector(adjustInsetForKeyboard(_:)),
+//                name: UIResponder.keyboardWillShowNotification,
+//                object: nil)
+
+        }
+        
+        
+
+        return
+    }
     @objc func adjustInsetForKeyboard(_ notification: NSNotification) {
         guard let userInfo = notification.userInfo else { return }
 
         let keyFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        
+        print("init keyFrame\(keyFrame)")
+        
         let duration = notification.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
 
-        print("duration \(duration)")
+        
         keyBoardFrame = keyFrame
        
         let show = (notification.name == UIResponder.keyboardWillShowNotification)
             ? true
             : false
-
-
-
         guard let keyBoardFrame = keyBoardFrame else { return }
-//        print(keyBoardFrame)
-        let tempView = UIView()
-        tempView.backgroundColor = UIColor.black
-        tempView.frame.size.height = keyBoardFrame.height ?? 0
-//        bottomController.textView.inputView = tempView
         
 
-        print(show)
-
+        
+        
         if show{
             UIView.animate(withDuration: duration) {
                 self.bottomController.view.snp.updateConstraints({ (mk) in
@@ -191,9 +216,9 @@ extension ChatVC: UITextViewDelegate{
     }
     
     func makeDummyCells(){
-        try! realm.write {
-            realm.delete(messages)
-        }
+//        try! realm.write {
+//            realm.delete(messages)
+//        }
         
         var dummymsgs = [Message]()
         if messages.count < 2000{
@@ -225,7 +250,7 @@ extension ChatVC: bottomInfoReceiver{
         guard let currentUser = bottomController.selectedUser else { return }
 
         room.addMessage(message: Message(owner: currentUser, sendDate: room.currentDate, messageText: text))
-        
+//
         
     }
     
