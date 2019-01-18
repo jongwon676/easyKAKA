@@ -118,7 +118,7 @@ class KeyBoardAreaController: UIViewController{
         textView.isScrollEnabled = false
         return textView
     }()
-    let textViewInset: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 5, right: 30)
+    let textViewInset: UIEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 30)
 
     let elementHeight: CGFloat = 50
     
@@ -205,7 +205,7 @@ class KeyBoardAreaController: UIViewController{
             mk.bottom.equalTo(containerView.snp.bottom).offset(-5)
             mk.left.equalTo(specailFeatureButton.snp.right).offset(10)
             mk.right.equalTo(containerView).offset(-10)
-            mk.height.equalTo(elementHeight - 10)
+            mk.height.equalTo(elementHeight - 20)
         })
  
         rightStackView.snp.makeConstraints { (mk) in
@@ -353,9 +353,10 @@ extension KeyBoardAreaController: UITextViewDelegate{
         let size = CGSize(width: textView.frame.width, height: .infinity)
         let estimateSize = textView.sizeThatFits(size)
         self.hasText = !textView.text.isEmpty
-        
-        var nextHeight = min(estimateSize.height + textViewInset.top + textViewInset.bottom, maxHeight)
-        nextHeight = max(elementHeight - 10 , nextHeight)
+        print(textView.frame.height)
+        print(estimateSize.height + textViewInset.top + textViewInset.bottom)
+        var nextHeight = min(estimateSize.height, maxHeight)
+        nextHeight = max(elementHeight - 20 , nextHeight)
         textView.isScrollEnabled = (nextHeight >= maxHeight)
         textView.snp.updateConstraints { (mk) in
             mk.height.equalTo(nextHeight)

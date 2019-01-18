@@ -12,6 +12,7 @@
 		AD0AA03221EA00D000B45EF5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD0AA03121EA00D000B45EF5 /* GoogleService-Info.plist */; };
 		AD27D16721F07066009E367A /* UserCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD27D16621F07066009E367A /* UserCollectionCell.swift */; };
 		AD27D16921F14B9D009E367A /* icon in Resources */ = {isa = PBXBuildFile; fileRef = AD27D16821F14B9D009E367A /* icon */; };
+		AD27D16E21F185FA009E367A /* ChatEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD27D16D21F185FA009E367A /* ChatEditVC.swift */; };
 		AD51D17C21E9996D00DA4B13 /* smileTemp.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = AD51D17B21E9996C00DA4B13 /* smileTemp.jpeg */; };
 		AD542CB621EC871A00656196 /* RoomAddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD542CB521EC871A00656196 /* RoomAddVC.swift */; };
 		AD542CB821EC8D8A00656196 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD542CB721EC8D8A00656196 /* UserCell.swift */; };
@@ -58,6 +59,7 @@
 		AD0AA03121EA00D000B45EF5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AD27D16621F07066009E367A /* UserCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionCell.swift; sourceTree = "<group>"; };
 		AD27D16821F14B9D009E367A /* icon */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icon; sourceTree = "<group>"; };
+		AD27D16D21F185FA009E367A /* ChatEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatEditVC.swift; sourceTree = "<group>"; };
 		AD51D17B21E9996C00DA4B13 /* smileTemp.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = smileTemp.jpeg; sourceTree = "<group>"; };
 		AD542CB521EC871A00656196 /* RoomAddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomAddVC.swift; sourceTree = "<group>"; };
 		AD542CB721EC8D8A00656196 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
@@ -121,6 +123,33 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		AD27D16A21F1855A009E367A /* KeyBoard */ = {
+			isa = PBXGroup;
+			children = (
+				AD27D16621F07066009E367A /* UserCollectionCell.swift */,
+				ADA5F29921EF2F4A002C0F85 /* KeyBoardAreaController.swift */,
+			);
+			path = KeyBoard;
+			sourceTree = "<group>";
+		};
+		AD27D16B21F18581009E367A /* RoomList */ = {
+			isa = PBXGroup;
+			children = (
+				AD542CB521EC871A00656196 /* RoomAddVC.swift */,
+				ADC672D521E2C67F00D6D3F5 /* RoomListVC.swift */,
+			);
+			path = RoomList;
+			sourceTree = "<group>";
+		};
+		AD27D16C21F185A4009E367A /* UserList */ = {
+			isa = PBXGroup;
+			children = (
+				ADC672CF21E2A68B00D6D3F5 /* AddUserVC.swift */,
+				ADC672BD21E24E2500D6D3F5 /* CharacterListVC.swift */,
+			);
+			path = UserList;
+			sourceTree = "<group>";
+		};
 		ADC6729C21E2260700D6D3F5 = {
 			isa = PBXGroup;
 			children = (
@@ -147,12 +176,16 @@
 		ADC672A721E2260700D6D3F5 /* kakakak */ = {
 			isa = PBXGroup;
 			children = (
+				AD27D16C21F185A4009E367A /* UserList */,
+				AD27D16B21F18581009E367A /* RoomList */,
+				AD27D16A21F1855A009E367A /* KeyBoard */,
 				ADC672EE21E3B09500D6D3F5 /* StyleGuide */,
 				ADC672C321E2516C00D6D3F5 /* Entity */,
 				ADC672C021E24F1300D6D3F5 /* View */,
-				ADC672BF21E24E2A00D6D3F5 /* ViewControllers */,
+				ADC672BF21E24E2A00D6D3F5 /* Chatting */,
 				ADC672A821E2260700D6D3F5 /* AppDelegate.swift */,
 				ADC672AC21E2260700D6D3F5 /* Main.storyboard */,
+				AD87909821EA048A0008177D /* ViewController.swift */,
 				ADC672AF21E2260800D6D3F5 /* Assets.xcassets */,
 				ADC672B121E2260800D6D3F5 /* LaunchScreen.storyboard */,
 				ADC672B421E2260800D6D3F5 /* Info.plist */,
@@ -169,19 +202,13 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		ADC672BF21E24E2A00D6D3F5 /* ViewControllers */ = {
+		ADC672BF21E24E2A00D6D3F5 /* Chatting */ = {
 			isa = PBXGroup;
 			children = (
-				ADC672BD21E24E2500D6D3F5 /* CharacterListVC.swift */,
-				ADC672CF21E2A68B00D6D3F5 /* AddUserVC.swift */,
-				ADC672D521E2C67F00D6D3F5 /* RoomListVC.swift */,
 				ADC672DD21E39FCB00D6D3F5 /* ChatVC.swift */,
-				AD87909821EA048A0008177D /* ViewController.swift */,
-				AD542CB521EC871A00656196 /* RoomAddVC.swift */,
-				ADA5F29921EF2F4A002C0F85 /* KeyBoardAreaController.swift */,
-				AD27D16621F07066009E367A /* UserCollectionCell.swift */,
+				AD27D16D21F185FA009E367A /* ChatEditVC.swift */,
 			);
-			path = ViewControllers;
+			path = Chatting;
 			sourceTree = "<group>";
 		};
 		ADC672C021E24F1300D6D3F5 /* View */ = {
@@ -419,6 +446,7 @@
 				ADC672E521E3A57900D6D3F5 /* DateCell.swift in Sources */,
 				ADC672C921E28F6500D6D3F5 /* Path.swift in Sources */,
 				ADC672DE21E39FCB00D6D3F5 /* ChatVC.swift in Sources */,
+				AD27D16E21F185FA009E367A /* ChatEditVC.swift in Sources */,
 				ADC672D021E2A68B00D6D3F5 /* AddUserVC.swift in Sources */,
 				ADC672E121E3A52400D6D3F5 /* TextCell.swift in Sources */,
 				ADC672D421E2C12F00D6D3F5 /* Date.swift in Sources */,
