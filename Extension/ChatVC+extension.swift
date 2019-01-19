@@ -119,17 +119,7 @@ extension ChatVC: UITextViewDelegate{
         }
     }
     
-    @objc func go(){
-        let textView = bottomController.textView
-        guard let inputView = textView.inputView else { return }
-        if textView.isFirstResponder{
-            inputView.frame.size.height = 0
-            inputView.resignFirstResponder()
-        }else{
-            inputView.frame.size.height = 300
-            
-        }
-    }
+ 
     func textViewDidBeginEditing(_ textView: UITextView) {
         print("textview begin edit")
     }
@@ -148,7 +138,7 @@ extension ChatVC: UITextViewDelegate{
             
             print("calc keyboard \(keyFrame)")
             NotificationCenter.default.removeObserver(self)
-            bottomController.textView.resignFirstResponder()
+//            bottomController.middleView.textViewResignFirstResponder()
 //
 //            NotificationCenter.default.addObserver(
 //                self,
@@ -272,4 +262,27 @@ extension UITableView {
     func applyChanges(deletions: [Int], insertions: [Int], updates: [Int]) {
         reloadData()
     }
+}
+extension ChatVC: EditChatting{
+    func excuteDelete() {
+        
+    }
+    
+    func excuteCancel() {
+        //xk
+    }
+    
+    func excuetEdit() {
+        
+    }
+    
+    func excuteEsc() {
+        isEditMode = false
+    }
+    
+    func editClear(){
+        
+    }
+    
+    
 }

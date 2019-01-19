@@ -4,7 +4,7 @@ import SnapKit
 import RealmSwift
 
 
-class ChatVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
+class ChatVC: UIViewController{
     
     var realm = try! Realm()
     private weak var timer: Timer?
@@ -12,43 +12,83 @@ class ChatVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
     lazy var messages = room.messages
     private var token: NotificationToken?
     var keyBoardFrame: CGRect? = nil
-    
-
     let datePicker = UIDatePicker()
-    
-    
-    
     var btn = UIButton(type: .custom)
     
-    var tableView = UITableView()
-
-    var guideLineIndex: IndexPath{
-        get{
-            for (idx,msg) in messages.enumerated(){
-                if msg.type == .guide{
-                    return IndexPath.row(row: idx)
-                }
+    var selectedRows = Set<IndexPath>()
+    lazy var editView:EditView = {
+        let eview = EditView()
+        self.view.addSubview(eview)
+        eview.backgroundColor = UIColor.black
+        return eview
+    }()
+    
+    var isEditMode: Bool = false{
+        didSet{
+            if isEditMode == true{
+                self.tableView.allowsSelection = true
+                self.tableView.allowsMultipleSelection = true
+                bottomController.view.isHidden = true
+                bottomController.keyboardHide()
+                selectedRows.removeAll()
+                editView.isHidden = false
+            }else{
+                self.tableView.allowsSelection = false
+                self.tableView.allowsMultipleSelection = false
+                self.tableView.indexPathsForSelectedRows?.forEach({ (indexPath) in
+                    self.tableView.deselectRow(at: indexPath, animated: false)
+                })
+                bottomController.view.isHidden = false
+                editView.isHidden = true
             }
-            return IndexPath.row(row: 0)
         }
     }
     
-    @objc func handleTap(_ sender: UITapGestureRecognizer){
-        bottomController.keyboardHide()
+    public lazy var bottomController: KeyBoardAreaController = {
+        let controller = KeyBoardAreaController()
+        addChild(controller)
         
+        controller.didMove(toParent: self)
+        
+        controller.receiver = self
+        controller.users = room.users
+        controller.mode = .chatting
+        
+        
+        return controller
+    }()
+
+    
+    lazy var tableView:ChatTableView = {
+        let table = ChatTableView()
+        
+        table.dataSource = self
+        table.delegate = self
+        
+        
+        table.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
+        return table
+        
+    }()
+
+ 
+    
+    @objc func handleTap(_ sender: UITapGestureRecognizer){
+        if isEditMode{
+            if sender.state == .ended , let indexPath = tableView.indexPathForRow(at: sender.location(in: tableView)){
+                if selectedRows.contains(indexPath){
+                    tableView.deselectRow(at: indexPath, animated: false)
+                    selectedRows.remove(indexPath)
+                }else{
+                    tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+                    selectedRows.insert(indexPath)
+                }
+            }
+        }else{
+            bottomController.keyboardHide()
+        }
     }
     
-    func registerCells(){
-        tableView.register(TextCell.self, forCellReuseIdentifier: TextCell.reuseId)
-        tableView.register(GuideLineCell.self, forCellReuseIdentifier: GuideLineCell.reuseId)
-        tableView.register(ChattingImageCell.self, forCellReuseIdentifier: ChattingImageCell.reuseId)
-        tableView.register(DateCell.self, forCellReuseIdentifier: DateCell.reuseId)
-        tableView.register(UserEnterCell.self, forCellReuseIdentifier: UserEnterCell.reuseId)
-        tableView.register(UserExitCell.self, forCellReuseIdentifier: UserExitCell.reuseId)
-    }
-    
-    
-    var bottomConstraint: Constraint?
     
     func floatingButton(){
         btn.setTitle("floating", for: .normal)
@@ -57,98 +97,58 @@ class ChatVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
         btn.layer.cornerRadius = 25
         btn.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         btn.layer.borderWidth = 3.0
-        btn.addTarget(self,action: #selector(tap), for: .touchUpInside)
+        btn.addTarget(self,action: #selector(editButtonTap), for: .touchUpInside)
         if let window = UIApplication.shared.keyWindow {
             window.addSubview(btn)
         }
     }
     
     
-    override func viewWillLayoutSubviews() {
-//        bottomController.textView.resignFirstResponder()
-        let offset: CGFloat = 5.0
-        var navHeight:CGFloat = 0
-        if let nav = self.navigationController {
-            navHeight = nav.navigationBar.frame.height + UIApplication.shared.statusBarFrame.height
-        }
-        
-        
-        let btnWidth:CGFloat = 50
-        let btnHeight:CGFloat = 50
 
-        btn.frame = CGRect(x: UIScreen.main.bounds.width - btnWidth - offset, y: navHeight + offset, width: btnWidth, height: btnHeight)
-    }
-    
-    @objc func tap(){
-//        inputBar.inputTextView.resignFirstResponder()
-//        textField.resignFirstResponder()
-    }
     
     
+    @objc func editButtonTap(){ isEditMode = !isEditMode }
     
 
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        timer?.invalidate()
-        super.viewWillDisappear(animated)
-        btn.removeFromSuperview()
-    }
-    
-    let textField = UITextField()
-    
-    
-    public let bottomController = KeyBoardAreaController()
-
-    
-    var first: Bool = true
-    
-    
-    
-    
+    // MARK: viewcontroller life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.view.addSubview(tableView)
-        bottomController.textView.becomeFirstResponder()
-        addChild(bottomController)
+        tableView.snp.makeConstraints { (mk) in
+            mk.left.right.bottom.top.equalTo(self.view)
+        }
+        
         self.view.addSubview(bottomController.view)
-        bottomController.didMove(toParent: self)
-        bottomController.receiver = self
+        bottomController.view?.snp.makeConstraints({ (mk) in
+            mk.left.right.bottom.equalTo(self.view)
+        })
+        
+        editView.snp.makeConstraints { (mk) in
+            mk.left.right.bottom.equalTo(self.view)
+            mk.height.equalTo(40)
+        }
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "hamburger"), style: .plain, target: self, action: #selector(handleHamburger))
+        
+        self.navigationItem.title = Date.timeToStringSecondVersion(date: self.room.currentDate)
 
+        bottomController.middleView.becomeFirstResponder()
         
-        bottomController.users = room.users
-        bottomController.mode = .chatting
         
- 
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(calcKeyBoardFrame(_:)),
             name: UIResponder.keyboardWillChangeFrameNotification,
             object: nil)
-        
-        tableView.tableFooterView = UIView()
-        
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        
-        self.tableView.snp.makeConstraints { (mk) in
-            mk.left.right.bottom.top.equalTo(self.view)
-        }
-        
 
-        let bottomView = bottomController.view
+    
 
-
-        bottomView?.snp.makeConstraints({ (mk) in
-            mk.left.right.bottom.equalTo(self.view)
-        })
-
-//
-        registerCells()
         floatingButton()
         
         token = messages.observe{ [weak tableView] changes in
-
+            
             guard let tableView = tableView else { return }
             switch changes{
             case .initial:
@@ -159,47 +159,26 @@ class ChatVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
             }
         }
         
-//        makeDummyCells()
-        
-        tableView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "hamburger"), style: .plain, target: self, action: #selector(handleHamburger))
-        tableView.keyboardDismissMode = .interactive
-        tableView.tableFooterView = UIView()
-        tableView.separatorStyle = .none
-        tableView.backgroundColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
-        self.navigationItem.title = Date.timeToStringSecondVersion(date: self.room.currentDate)
         tableView.reloadData()
         
+        isEditMode = false
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        // 
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(adjustInsetForKeyboard(_:)),
-            name: UIResponder.keyboardWillHideNotification,
-            object: nil
-        )
+    override func viewWillLayoutSubviews() {
+        //        bottomController.textView.resignFirstResponder()
+        let offset: CGFloat = 5.0
+        var navHeight:CGFloat = 0
+        if let nav = self.navigationController {
+            navHeight = nav.navigationBar.frame.height + UIApplication.shared.statusBarFrame.height
+        }
         
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(adjustInsetForKeyboard(_:)),
-            name: UIResponder.keyboardWillShowNotification,
-            object: nil)
-
+        
+        let btnWidth:CGFloat = 50
+        let btnHeight:CGFloat = 50
+        
+        btn.frame = CGRect(x: UIScreen.main.bounds.width - btnWidth - offset, y: navHeight + offset, width: btnWidth, height: btnHeight)
     }
-    
-    deinit {
-        print("chatvc deinit")
-        NotificationCenter.default.removeObserver(self)
-        token?.invalidate()
-    }
-    
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         
         
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
@@ -215,24 +194,48 @@ class ChatVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        // 
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(adjustInsetForKeyboard(_:)),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(adjustInsetForKeyboard(_:)),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil)
+    }
     
-     func numberOfSections(in tableView: UITableView) -> Int {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer?.invalidate()
+        super.viewWillDisappear(animated)
+        btn.removeFromSuperview()
+    }
+    
+    
+    deinit {
+        print("chatvc deinit")
+        NotificationCenter.default.removeObserver(self)
+        token?.invalidate()
+    }
+}
+
+
+
+extension ChatVC: UITableViewDataSource,UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
     }
-    
-    
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//                print(indexPath.row)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let msg = messages[indexPath.row]
-        
         switch msg.type {
-        case .guide:
-            let cell = tableView.dequeueReusableCell(withIdentifier: GuideLineCell.reuseId) as! GuideLineCell
-            return cell
         case .text:
             let cell = tableView.dequeueReusableCell(withIdentifier: TextCell.reuseId) as! TextCell
             let users = (msg.owner)!
@@ -264,6 +267,7 @@ class ChatVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
             
         }
     }
+
     
 }
 
