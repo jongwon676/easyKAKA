@@ -18,8 +18,10 @@ class ChatVC: UIViewController{
     var selectedRows = Set<IndexPath>()
     lazy var editView:EditView = {
         let eview = EditView()
+        eview.delegate = self
         self.view.addSubview(eview)
         eview.backgroundColor = UIColor.black
+        
         return eview
     }()
     
@@ -35,9 +37,7 @@ class ChatVC: UIViewController{
             }else{
                 self.tableView.allowsSelection = false
                 self.tableView.allowsMultipleSelection = false
-                self.tableView.indexPathsForSelectedRows?.forEach({ (indexPath) in
-                    self.tableView.deselectRow(at: indexPath, animated: false)
-                })
+                excuteCancel()
                 bottomController.view.isHidden = false
                 editView.isHidden = true
             }

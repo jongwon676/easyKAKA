@@ -82,8 +82,19 @@ extension ChatVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate
         print(dateFormatter.string(from: currentDate))
         // "yyyy년 MMM월 d일 EEE"
         // 2018년 4월 27일 금요일
-        
     }
+    
+    func showDeleteMessagesModal(){
+        let alert = UIAlertController(title: "메시지를 삭제 하시겠습니까?", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .destructive, handler: { (action) in
+            
+        }))
+        alert.addAction(UIAlertAction(title: "취소", style: .default, handler: { (action) in
+            
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+    
 }
 extension UIImage {
     class var screenShot: UIImage? {

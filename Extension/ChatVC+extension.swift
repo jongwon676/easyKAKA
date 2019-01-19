@@ -265,24 +265,24 @@ extension UITableView {
 }
 extension ChatVC: EditChatting{
     func excuteDelete() {
-        
+        print("delete 버튼이 클릭도이ㅓ씁니다.")
+        showDeleteMessagesModal()
     }
     
     func excuteCancel() {
-        //xk
+        self.tableView.indexPathsForSelectedRows?.forEach({ (indexPath) in
+            self.tableView.deselectRow(at: indexPath, animated: false)
+        })
     }
     
     func excuetEdit() {
-        
+        print("eidt button이 클릭되엇습니다.")
     }
     
     func excuteEsc() {
         isEditMode = false
     }
     
-    func editClear(){
-        
-    }
     
     
 }
