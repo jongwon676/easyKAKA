@@ -17,6 +17,9 @@
 		AD50748121F28D9C003B50F5 /* TimeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD50748021F28D9C003B50F5 /* TimeInputView.swift */; };
 		AD50748421F2971D003B50F5 /* MiddleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD50748321F2971D003B50F5 /* MiddleView.swift */; };
 		AD50748621F29EEA003B50F5 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD50748521F29EEA003B50F5 /* EditView.swift */; };
+		AD50748821F30471003B50F5 /* ReplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD50748721F30471003B50F5 /* ReplayController.swift */; };
+		AD50748A21F31635003B50F5 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD50748921F31635003B50F5 /* RealmProvider.swift */; };
+		AD50748C21F32179003B50F5 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD50748B21F32179003B50F5 /* Object.swift */; };
 		AD51D17C21E9996D00DA4B13 /* smileTemp.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = AD51D17B21E9996C00DA4B13 /* smileTemp.jpeg */; };
 		AD542CB621EC871A00656196 /* RoomAddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD542CB521EC871A00656196 /* RoomAddVC.swift */; };
 		AD542CB821EC8D8A00656196 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD542CB721EC8D8A00656196 /* UserCell.swift */; };
@@ -66,6 +69,9 @@
 		AD50748021F28D9C003B50F5 /* TimeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInputView.swift; sourceTree = "<group>"; };
 		AD50748321F2971D003B50F5 /* MiddleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleView.swift; sourceTree = "<group>"; };
 		AD50748521F29EEA003B50F5 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
+		AD50748721F30471003B50F5 /* ReplayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplayController.swift; sourceTree = "<group>"; };
+		AD50748921F31635003B50F5 /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
+		AD50748B21F32179003B50F5 /* Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
 		AD51D17B21E9996C00DA4B13 /* smileTemp.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = smileTemp.jpeg; sourceTree = "<group>"; };
 		AD542CB521EC871A00656196 /* RoomAddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomAddVC.swift; sourceTree = "<group>"; };
 		AD542CB721EC8D8A00656196 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
@@ -225,6 +231,7 @@
 				AD27D16D21F185FA009E367A /* ChatEditVC.swift */,
 				AD27D18D21F1D422009E367A /* ChatTableView.swift */,
 				AD50748521F29EEA003B50F5 /* EditView.swift */,
+				AD50748721F30471003B50F5 /* ReplayController.swift */,
 			);
 			path = Chatting;
 			sourceTree = "<group>";
@@ -259,6 +266,7 @@
 				ADC672D321E2C12F00D6D3F5 /* Date.swift */,
 				ADDDF02A21E53E6E007E3D16 /* ChatVC+extension.swift */,
 				ADDFB85F21E7037A003D5DF1 /* ChatVC+Alert.swift */,
+				AD50748B21F32179003B50F5 /* Object.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -266,6 +274,7 @@
 		ADC672CA21E28FCD00D6D3F5 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
+				AD50748921F31635003B50F5 /* RealmProvider.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -448,6 +457,7 @@
 				ADDDF02B21E53E6E007E3D16 /* ChatVC+extension.swift in Sources */,
 				ADDDF02621E4E69E007E3D16 /* GitHawkInputBar.swift in Sources */,
 				ADC672D221E2B91300D6D3F5 /* UIImage+Extension.swift in Sources */,
+				AD50748A21F31635003B50F5 /* RealmProvider.swift in Sources */,
 				ADC672BE21E24E2500D6D3F5 /* CharacterListVC.swift in Sources */,
 				ADC672D621E2C67F00D6D3F5 /* RoomListVC.swift in Sources */,
 				ADDFB86021E7037A003D5DF1 /* ChatVC+Alert.swift in Sources */,
@@ -465,12 +475,14 @@
 				ADC672E121E3A52400D6D3F5 /* TextCell.swift in Sources */,
 				ADC672D421E2C12F00D6D3F5 /* Date.swift in Sources */,
 				ADC672DA21E2C8F800D6D3F5 /* Message.swift in Sources */,
+				AD50748821F30471003B50F5 /* ReplayController.swift in Sources */,
 				AD542CB821EC8D8A00656196 /* UserCell.swift in Sources */,
 				ADC672ED21E3AE3900D6D3F5 /* BaseChatCell.swift in Sources */,
 				AD50748121F28D9C003B50F5 /* TimeInputView.swift in Sources */,
 				ADDFB85E21E6C8E8003D5DF1 /* GuideLineCell.swift in Sources */,
 				AD50748621F29EEA003B50F5 /* EditView.swift in Sources */,
 				ADC672E321E3A56B00D6D3F5 /* ChattingImageCell.swift in Sources */,
+				AD50748C21F32179003B50F5 /* Object.swift in Sources */,
 				AD27D19021F1E16C009E367A /* KeyBoardView.swift in Sources */,
 				ADC672E721E3A59000D6D3F5 /* UserEnterCell.swift in Sources */,
 				ADC672A921E2260700D6D3F5 /* AppDelegate.swift in Sources */,

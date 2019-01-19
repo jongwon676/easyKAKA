@@ -2,30 +2,28 @@ import Foundation
 import UIKit
 import RealmSwift
 
-class Message: Object {
+class Message: Object,NSCopying {
     //채팅방 시간, [유저], [Message], id
+    
     @objc dynamic private var _messageType = MessageType.text.rawValue
     @objc dynamic var owner: User?  // [fromUser, ExitUser]
-    @objc dynamic var toUser: User? // [toUser]
     @objc dynamic var sendDate: Date = Date()
     @objc dynamic var messageText: String = ""
     @objc dynamic var messageImageUrl: String = ""
+    var noReadUser = List<User>()
     @objc dynamic var isFirstMessage: Bool = false
     @objc dynamic var isLastMessage: Bool = false
     
+    @objc dynamic var creationDate: Date = Date()
+     // 퇴장시에 1전부 감소 시켜야됨.
     
-    var rooms = LinkingObjects(fromType: Room.self, property: "messages"){
-        didSet{
-            // noReadUser를 셋팅?
-            var room = rooms.first
-            
-        }
+    
+    override static func ignoredProperties() -> [String] {
+        return ["isFirstMessage","isLastMessage"]
     }
     
-    var noReadUser = List<User>() // 퇴장시에 1전부 감소 시켜야됨.
-    var invitedUser = List<User>()
-    
     convenience required init(owner: User?,sendDate: Date ,messageText: String){
+        
         self.init()
         self.owner = owner
         self.sendDate = sendDate
@@ -38,21 +36,12 @@ class Message: Object {
         case enter
         case exit
         case date
-        case guide
     }
-    
-    
     var type: MessageType{
         get { return MessageType(rawValue: _messageType)!}
         set { _messageType = newValue.rawValue }
     }
-     
-    static func makeGuideMessage() -> Message{
-        let guideMessage = Message(owner: nil, sendDate: Date(), messageText: "")
-        guideMessage.type = .guide
-        return guideMessage
-    }
-    
+
     static func makeImageMessage(owner: User?, sendDate: Date, imageUrl: String) -> Message{
         let msg = Message()
         msg.owner = owner
@@ -73,7 +62,6 @@ class Message: Object {
     static func makeEnterMessage(from: User,to: List<User>) -> Message{
         let msg = Message()
         msg.owner = from
-        msg.invitedUser = to
         msg.type = .enter
         return msg
     }
@@ -84,5 +72,25 @@ class Message: Object {
         msg.owner = exit
         return msg
     }
+    
+    func copy(with zone: NSZone? = nil) -> Any {
+        
+        let copy: Message = Message()
+        copy.type = self.type
+        copy._messageType = self._messageType
+        copy.isFirstMessage = true
+        copy.isLastMessage = true
+        copy.messageImageUrl = self.messageImageUrl
+        copy.creationDate = self.creationDate
+        copy.sendDate = self.sendDate
+        
+        
+        return copy as Any
+    }
+    static func all(in provider: Realm) -> Results<Message>{
+        return provider.objects(Message.self)
+            .sorted(byKeyPath: "creationDate")
+    }
+    
 }
 

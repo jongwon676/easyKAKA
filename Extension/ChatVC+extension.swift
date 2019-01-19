@@ -42,7 +42,6 @@ extension ChatVC: UITextViewDelegate{
     }
     
     func advanceFirst(index: Int, message: Message){
-        
         for idx in stride(from: index + 1, through: room.messages.count - 1, by: 1){
             if room.messages[idx].owner != message.owner{
                 break
@@ -60,8 +59,6 @@ extension ChatVC: UITextViewDelegate{
             }
             room.messages[idx].isFirstMessage = false
         }
-        
-        
     }
     
     func advanceLast(index: Int, message: Message){
@@ -94,13 +91,13 @@ extension ChatVC: UITextViewDelegate{
         case .exit: return false
         case .image: return true
         case .text: return true
-        case .guide: return false
         }
     }
     
     func reload(){
         
         try! realm.write {
+            
             for idx in stride(from: room.messages.count - 1, through: 0, by: -1){
                 if !checkUserMessage(message: room.messages[idx]){
                     continue
@@ -206,9 +203,7 @@ extension ChatVC: UITextViewDelegate{
     }
     
     func makeDummyCells(){
-//        try! realm.write {
-//            realm.delete(messages)
-//        }
+
         
         var dummymsgs = [Message]()
         if messages.count < 2000{

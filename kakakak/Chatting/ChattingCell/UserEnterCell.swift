@@ -5,15 +5,17 @@ import RealmSwift
 class UserEnterCell: BaseChatCell{
     static var reuseId = "UserEnterCell"
     lazy var inviteLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.textColor = #colorLiteral(red: 0.132842958, green: 0.1489416063, blue: 0.1573187113, alpha: 1)
         return label
     }()
     
     func configure(message: Message){
-        let fromName = message.owner?.name
-        let toName = message.toUser?.name
-        inviteLabel.text = "\(fromName!)님이 \(toName!)님을 초대했습니다."
+        
+        let fromName = ""
+        let toName = ""
+        
+        inviteLabel.text = "\(fromName)님이 \(toName)님을 초대했습니다."
         inviteLabel.sizeToFit()
     }
     

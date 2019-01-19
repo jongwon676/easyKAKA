@@ -21,9 +21,6 @@ class RoomListVC: UITableViewController{
             let userList =   List<User>()
             userList.append(objectsIn: [User(preset: allPreset[0]),User(preset: allPreset[1])])
             let messages = List<Message>()
-            let guideMessage = Message(owner: nil, sendDate: Date(), messageText: "")
-            guideMessage.type = .guide
-            messages.append(guideMessage)
             Room.add(users: userList, messages: messages)
             tableView.reloadData()
         }

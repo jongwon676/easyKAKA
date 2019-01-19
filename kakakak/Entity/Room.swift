@@ -3,7 +3,9 @@ import UIKit
 import RealmSwift
 
 
-class Room: Object {
+class Room: Object{
+    
+    
     
     @objc dynamic var lastActivateDate: Date = Date()
     @objc dynamic var currentDate: Date = Date()
@@ -12,7 +14,7 @@ class Room: Object {
     var users = List<User>()
     var messages = List<Message>()
     
-    
+  
     enum Properties: String{
         case lastActivateDate,users,messages,id
     }
@@ -45,6 +47,7 @@ class Room: Object {
             realm.delete(self)
         }
     }
+    
     var activateUsers:List<User> {
         let list = List<User>()
         for user in users{

@@ -12,6 +12,14 @@ extension ChatVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate
         alert.addAction(UIAlertAction(title: "사진찍기", style: .default, handler: { (action) in
             self.bottomController.mode = .capture
         }))
+        
+        alert.addAction(UIAlertAction(title: "미리보기", style: .default, handler: { (action) in
+                let replayControlelr = ReplayController()
+                replayControlelr.room = self.room
+                let nav = UINavigationController(rootViewController: replayControlelr)
+                self.present(nav, animated: true, completion: nil)
+        }))
+        
         present(alert, animated: true) 
         
     }
@@ -21,11 +29,11 @@ extension ChatVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate
         if let img = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
             let imageName = Date().currentDateToString() + ".jpg"
             img.writeImage(imgName: imageName)
-//            let msg = Message.makeImageMessage(owner: getCurrentUser(), sendDate: room.currentDate, imageUrl: imageName)
-//            try! realm.write {
-//                    messages.insert(msg, at: guideLineIndex.row)
-//                
-//            }
+            //            let msg = Message.makeImageMessage(owner: getCurrentUser(), sendDate: room.currentDate, imageUrl: imageName)
+            //            try! realm.write {
+            //                    messages.insert(msg, at: guideLineIndex.row)
+            //
+            //            }
         }
         picker.dismiss(animated: true, completion: nil)
     }
@@ -41,7 +49,7 @@ extension ChatVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate
         }))
         
         alert.addAction(UIAlertAction(title: "날짜선 추가", style: .default, handler: { (action) in
-                
+            
             self.dateSelect()
         }))
         alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
@@ -142,26 +150,26 @@ extension UIView {
     
     
     
-//    func screenshot() {
-//        //Create the UIImage
-//        guard let layer = UIApplication.shared.keyWindow?.layer else { return }
-//        UIGraphicsBeginImageContextWithOptions(layer.frame.size, true, 0)
-//        guard let context = UIGraphicsGetCurrentContext() else { return }
-//        layer.render(in: context)
-//        guard let image = UIGraphicsGetImageFromCurrentImageContext() else { return }
-//        UIGraphicsEndImageContext()
-//        image.writeImage(imgName: "view.jpg")
-//        //Save it to the camera roll
-////        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-//    }
-        /*
- 
- @Nicholas This code does not take into account the scale factor, so it creates pixelated images in Retina displays. Replace with this: UIGraphicsBeginImageContextWithOptions(view.frame.size, false, UIScreen.mainScreen().scale) – Nick Kanellopoulos May 11 '16 at 10:21
-         
-         
-         
-         you also need Privacy - Photo Library Additions Usage Description if you want to save to photo albums
- */
+    //    func screenshot() {
+    //        //Create the UIImage
+    //        guard let layer = UIApplication.shared.keyWindow?.layer else { return }
+    //        UIGraphicsBeginImageContextWithOptions(layer.frame.size, true, 0)
+    //        guard let context = UIGraphicsGetCurrentContext() else { return }
+    //        layer.render(in: context)
+    //        guard let image = UIGraphicsGetImageFromCurrentImageContext() else { return }
+    //        UIGraphicsEndImageContext()
+    //        image.writeImage(imgName: "view.jpg")
+    //        //Save it to the camera roll
+    ////        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+    //    }
+    /*
+     
+     @Nicholas This code does not take into account the scale factor, so it creates pixelated images in Retina displays. Replace with this: UIGraphicsBeginImageContextWithOptions(view.frame.size, false, UIScreen.mainScreen().scale) – Nick Kanellopoulos May 11 '16 at 10:21
+     
+     
+     
+     you also need Privacy - Photo Library Additions Usage Description if you want to save to photo albums
+     */
     
 }
 
