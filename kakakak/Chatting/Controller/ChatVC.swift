@@ -118,8 +118,12 @@ class ChatVC: UIViewController{
     // MARK: viewcontroller life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        try! realm.write {
+            messages.removeAll()
+        }
         self.makeDummyCells()
         self.view.addSubview(tableView)
+        
         
         tableView.snp.makeConstraints { (mk) in
             mk.left.right.bottom.top.equalTo(self.view)

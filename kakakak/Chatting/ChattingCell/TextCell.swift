@@ -86,13 +86,13 @@ class TextCell: UserChattingBaseCell{
                 mk.left.equalTo(self).offset(Style.leftMessageToCornerGap)
                 if message.isFirstMessage  { mk.top.equalTo(nameLabel.snp.bottom).offset(Style.nameLabelBubbleGap + Style.messagePadding) }
                 else { mk.top.equalTo(topView.snp.bottom).offset(Style.messagePadding) }
-                mk.width.lessThanOrEqualTo(250)
+                mk.width.lessThanOrEqualTo(Style.limitMessageWidth)
             }
         }else{
             messageLabel.snp.remakeConstraints { (mk) in
                 mk.right.equalTo(self).inset(Style.rightMessageToCornerGap)
                 mk.top.equalTo(topView.snp.bottom).offset(Style.messagePadding)
-                mk.width.lessThanOrEqualTo(250)
+                mk.width.lessThanOrEqualTo(Style.limitMessageWidth)
             }
         }
         if incomming && message.isFirstMessage {
@@ -117,3 +117,27 @@ class TextCell: UserChattingBaseCell{
     }
 }
 
+extension TextCell{
+    static func calcHeight(message: Message) -> CGFloat{
+        guard let owner = message.owner else { return 10 }
+        
+//        return 60
+        let messageSize = HeightCalculator.calcLabel(string: message.messageText, font: Style.messageLabelFont, limitWidth: Style.limitMessageWidth, limitHeight: .infinity, numberOfLines: 0)
+        
+        var height = Style.basicTopGap + messageSize.height + 2 * Style.messagePadding
+        
+        
+        if message.isFirstMessage{
+            height += Style.firstMessageGap
+            
+            if !owner.isMe {
+                let usernameSize = HeightCalculator.calcLabel(string: owner.name, font: Style.nameLabelFont, limitWidth: Style.limitUsernameWidth, limitHeight: .infinity,numberOfLines: 1)
+                height += usernameSize.height + Style.nameLabelBubbleGap
+            }
+        }
+        
+        
+        return height
+        
+    }
+}

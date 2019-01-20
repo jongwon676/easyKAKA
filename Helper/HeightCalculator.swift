@@ -1,9 +1,10 @@
 import UIKit
 struct HeightCalculator{
-    static func labelCalc(string: String, font: UIFont, limitWidth: CGFloat , limitHeight: CGFloat) -> CGFloat{
+    static func calcLabel(string: String, font: UIFont, limitWidth: CGFloat , limitHeight: CGFloat,numberOfLines: Int) -> CGSize{
         let label = UILabel()
         label.font = font
         label.text = string
-        return label.sizeThatFits(strin)
+        label.numberOfLines = numberOfLines
+        return label.sizeThatFits(CGSize(width: limitWidth, height: limitHeight))
     }
 }

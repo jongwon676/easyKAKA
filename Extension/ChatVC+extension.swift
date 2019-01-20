@@ -206,34 +206,41 @@ extension ChatVC: UITextViewDelegate{
     
     func makeDummyCells(){
 
-        
-        var dummymsgs = [Message]()
-        if messages.count < 2000{
-            for idx in 0 ..< 2{
-                let msg = Message(owner: room.users[idx], sendDate: room.currentDate, messageText: "")
-                msg.type = .voice
-                dummymsgs.append(msg)
-            }
-            for idx in 0 ..< 20{
+        func makeDummyText(num: Int){
+            var msgs = [Message]()
+            for _ in 0 ..< num{
                 var txt = ""
-                for idx in  0 ..< arc4random_uniform(200) + 1{
-                    txt += String(idx)
-                }
+                for idx in  0 ..< arc4random_uniform(200) + 1{ txt += String(idx) }
                 let msg = Message(owner: room.users[0], sendDate: room.currentDate, messageText: txt)
-                dummymsgs.append(msg)
-            }
-            for idx in 0 ..< 1 {
-                let msg = Message.makeDateMessage()
-                dummymsgs.append(msg)
-            }
-            for idx in 0 ..< 1{
-                let msg = Message.makeExitMessage(exit: room.users[0])
-                dummymsgs.append(msg)
+                msgs.append(msg)
             }
             try! realm.write {
-                messages.append(objectsIn: dummymsgs)
+                messages.append(objectsIn: msgs)
             }
         }
+        func makeDummyDate(num:Int){
+            var msgs = [Message]()
+            for _ in 0 ..< num {
+                let msg = Message.makeDateMessage()
+                msgs.append(msg)
+            }
+            try! realm.write {
+                messages.append(objectsIn: msgs)
+            }
+        }
+        func makeExitDummy(num: Int){
+            var msgs = [Message]()
+            for _ in 0 ..< num{
+                let msg = Message.makeExitMessage(exit: room.users[0])
+                msgs.append(msg)
+            }
+            try! realm.write {
+                messages.append(objectsIn: msgs)
+            }
+        }
+//        makeDummyDate(num: 1)
+        makeDummyText(num: 100)
+//        makeExitDummy(num: 1)
     }
 }
 

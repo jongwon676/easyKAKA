@@ -98,12 +98,12 @@ class ReplayController: UIViewController {
         tableView.scrollToRow(at: IndexPath.row(row: dataCount - 1), at: .top, animated: false)
         print(tableView.contentSize)
     }
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 80
-//    }
-//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 80
-//    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return BaseChatCell.calc(message: messages[indexPath.row])
+    }
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return BaseChatCell.calc(message: messages[indexPath.row])
+    }
     
 }
 
