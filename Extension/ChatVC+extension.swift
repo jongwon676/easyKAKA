@@ -80,17 +80,19 @@ extension ChatVC: UITextViewDelegate{
                 break
             }
             room.messages[idx].isLastMessage = false
-            
         }
     }
     
     func checkUserMessage(message: Message) -> Bool{
         switch message.type {
+            
         case .date: return false
         case .enter: return false
         case .exit: return false
+            
         case .image: return true
         case .text: return true
+        case .voice: return true
         }
     }
     
@@ -207,6 +209,11 @@ extension ChatVC: UITextViewDelegate{
         
         var dummymsgs = [Message]()
         if messages.count < 2000{
+            for idx in 0 ..< 2{
+                let msg = Message(owner: room.users[idx], sendDate: room.currentDate, messageText: "")
+                msg.type = .voice
+                dummymsgs.append(msg)
+            }
             for idx in 0 ..< 20{
                 var txt = ""
                 for idx in  0 ..< arc4random_uniform(200) + 1{

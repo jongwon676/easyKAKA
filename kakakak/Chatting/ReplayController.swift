@@ -1,11 +1,3 @@
-//
-//  ReplayController.swift
-//  kakakak
-//
-//  Created by 성용강 on 19/01/2019.
-//  Copyright © 2019 성용강. All rights reserved.
-//
-
 import UIKit
 import RealmSwift
 class ReplayController: UIViewController {
@@ -14,9 +6,16 @@ class ReplayController: UIViewController {
     let defaultRealm = try! Realm()
     let replayRealm = RealmProvider.replayRealm.realm
     var copyUsers = [String: User]()
+    var room: Room!{
+        didSet{
+            self.messages = room.messages
+        }
+    }
     lazy var tableView: UITableView = {
        let tableView = ChatTableView()
-        tableView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addNextMessage)))
+        tableView.delegate = self
+        tableView.dataSource = self
+    tableView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addNextMessage)))
         self.view.addSubview(tableView)
         tableView.snp.makeConstraints({ (mk) in
             mk.left.right.top.equalTo(self.view)
@@ -39,27 +38,11 @@ class ReplayController: UIViewController {
         return middleView
     }()
     
-    
-    
-    
     var messages = List<Message>()
+//    var displayMessages: Results<Message>
     
-    var displayMessages = Message.all(in: RealmProvider.replayRealm.realm)
+    var dataCount = 0
     
-    
-    var room: Room!{
-        didSet{
-            messages = room.messages
-            for user in room.users{
-                if copyUsers[user.id] == nil{
-                    copyUsers[user.id] = (user.copy() as! User)
-                }
-            }
-            try! replayRealm.write {
-                replayRealm.deleteAll()
-            }
-        }
-    }
     
     deinit {
         token?.invalidate()
@@ -73,34 +56,53 @@ class ReplayController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        token = messages.observe{ [weak tableView] changes in
-            guard let tableView = tableView else { return }
-            switch changes{
-            case .initial:
-                tableView.reloadData()
-            case .update(_, let deletions, let insertions, let updates):
-                tableView.applyChanges(deletions: deletions, insertions: insertions, updates: updates)
-            case .error: break
-            }
-        }
+        tableView.bounces = false
+        self.tableView.layer.removeAllAnimations()
+        self.tableView.contentInsetAdjustmentBehavior = .automatic
+//        tableView.rowHeight = 50
+//        token = messages.observe{ [weak tableView] changes in
+//            guard let tableView = tableView else { return }
+//            switch changes{
+//            case .initial:
+//                tableView.reloadData()
+//            case .update(_, let deletions, let insertions, let updates):
+//                tableView.applyChanges(deletions: deletions, insertions: insertions, updates: updates)
+//            case .error: break
+//            }
+//        }
     }
     
     @objc func addNextMessage(){
-        if displayMessages.count >= messages.count{ return }
-        try! replayRealm.write {
-            replayRealm.add(messages[displayMessages.count].copy() as! Message)
-        }
+        if dataCount >= messages.count{ return }
+        dataCount += 1
+        
+        tableView.insertRows(at: [IndexPath.row(row: dataCount - 1)], with: .none)
+        
+        tableView.scrollToRow(at: IndexPath.row(row: dataCount - 1), at: .top, animated: false)
+        
+        print(tableView.contentSize)
+        
+//        tableView.scrollToRow(at: IndexPath.row(row: dataCount - 1), at: .bottom, animated: false)
     }
+//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 80
+//    }
     
 }
 
 extension ReplayController: UITableViewDelegate,UITableViewDataSource{
+    
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return displayMessages.count
+        return dataCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let msg = displayMessages[indexPath.row]
+//        let cell = UITableViewCell()
+//        cell.backgroundColor = UIColor.red
+//        return cell
+        let msg = messages[indexPath.row]
         switch msg.type {
         case .text:
             let cell = tableView.dequeueReusableCell(withIdentifier: TextCell.reuseId) as! TextCell
@@ -125,6 +127,10 @@ extension ReplayController: UITableViewDelegate,UITableViewDataSource{
             return cell
         case .exit:
             let cell = tableView.dequeueReusableCell(withIdentifier: UserExitCell.reuseId) as! UserExitCell
+            cell.configure(message: msg)
+            return cell
+        case .voice:
+            let cell = tableView.dequeueReusableCell(withIdentifier: VoiceCell.reuseId) as! VoiceCell
             cell.configure(message: msg)
             return cell
 

@@ -8,11 +8,13 @@ class TextCell: UserChattingBaseCell{
     lazy var commonViews:[UIView] = [topView,bubbleView,messageLabel]
     lazy var leftFirstViews: [UIView] = [nameLabel,profile]
     lazy var rightFirstViews: [UIView] = []
+    
     lazy var messageLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = #colorLiteral(red: 0.2655298114, green: 0.3016560972, blue: 0.3267259598, alpha: 1)
         label.numberOfLines = 0
+        
         return label
     }()
     
@@ -20,6 +22,7 @@ class TextCell: UserChattingBaseCell{
         let bubble = UIView()
         bubble.layer.cornerRadius = 5
         bubble.layer.masksToBounds = true
+        
         return bubble
     }()
     
@@ -42,52 +45,27 @@ class TextCell: UserChattingBaseCell{
     
     func configure(message: Message){
         
-        clear()
+        self.message = message
         isFirst = message.isFirstMessage
         profile.image = UIImage.loadImageFromName(message.owner!.profileImageUrl!)!
+        // profile image는 슈퍼뷰에서 처리
         messageLabel.text = message.messageText
-        
-        
-        
-        
-        
-        nameLabel.text = message.owner?.name
         bubbleView.backgroundColor = incomming ? #colorLiteral(red: 0.9996673465, green: 0.8927946687, blue: 0.005554047879, alpha: 1) : #colorLiteral(red: 0.9998916984, green: 1, blue: 0.9998809695, alpha: 1)
-        
-        subs.forEach { (sub) in
-            self.addSubview(sub)
-        }
-        
-        
-        
-        
-        
+
+        self.addSubview(bubbleView)
+        self.addSubview(messageLabel)
         
         topView.snp.remakeConstraints { (mk) in
             mk.left.right.top.equalTo(self)
             mk.height.equalTo( ( message.isFirstMessage ? Style.firstMessageGap + 4 : 4 ) )
-        }
+        } //top View도 슈퍼 뷰에서 처리
         
-        
-        timeLabel.text = Date.timeToString(date: message.sendDate)
-        readLabel.text = String(message.noReadUser.count)
-        
-        
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.distribution = .fillEqually
-        stackView.alignment = incomming ? .leading : .trailing
-        self.addSubview(stackView)
-        
-        
+
         stackView.snp.remakeConstraints { (mk) in
             if incomming { mk.left.equalTo(bubbleView.snp.right).offset(7) }
             else { mk.right.equalTo(bubbleView.snp.left).offset(-7) }
             mk.bottom.equalTo(bubbleView).inset(7)
         }
-        
-        if message.noReadUser.count > 0 { stackView.addArrangedSubview(readLabel) }
-        if message.isLastMessage { stackView.addArrangedSubview(timeLabel) }
         
         
         if incomming && message.isFirstMessage {
@@ -96,9 +74,14 @@ class TextCell: UserChattingBaseCell{
                 mk.width.height.equalTo(40)
                 mk.top.equalTo(topView.snp.bottom)
             }
-        }
+        } // super view에서 처리.
+        
+        
+        
         
         if incomming {
+            
+            //incomming도 프로필이미지 투명 처리 해놓구 만들기.
             messageLabel.snp.remakeConstraints { (mk) in
                 mk.left.equalTo(self).offset(Style.leftMessageToCornerGap)
                 if message.isFirstMessage  { mk.top.equalTo(nameLabel.snp.bottom).offset(Style.nameLabelBubbleGap + Style.messagePadding) }

@@ -24,5 +24,6 @@ class ChatTableView: UITableView {
         self.register(DateCell.self, forCellReuseIdentifier: DateCell.reuseId)
         self.register(UserEnterCell.self, forCellReuseIdentifier: UserEnterCell.reuseId)
         self.register(UserExitCell.self, forCellReuseIdentifier: UserExitCell.reuseId)
+        self.register(VoiceCell.self, forCellReuseIdentifier: VoiceCell.reuseId)
     }
 }

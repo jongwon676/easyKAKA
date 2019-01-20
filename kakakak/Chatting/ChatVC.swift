@@ -114,7 +114,7 @@ class ChatVC: UIViewController{
     // MARK: viewcontroller life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.makeDummyCells()
         self.view.addSubview(tableView)
         tableView.snp.makeConstraints { (mk) in
             mk.left.right.bottom.top.equalTo(self.view)
@@ -261,7 +261,10 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: UserExitCell.reuseId) as! UserExitCell
             cell.configure(message: msg)
             return cell
-            
+        case .voice:
+            let cell = tableView.dequeueReusableCell(withIdentifier: VoiceCell.reuseId) as! VoiceCell
+            cell.configure(message: msg)
+            return cell
         default:
             return UITableViewCell()
             

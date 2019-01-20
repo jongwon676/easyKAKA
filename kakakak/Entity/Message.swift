@@ -36,6 +36,7 @@ class Message: Object,NSCopying {
         case enter
         case exit
         case date
+        case voice
     }
     var type: MessageType{
         get { return MessageType(rawValue: _messageType)!}

@@ -13,4 +13,11 @@ class Style{
     static let firstMessageGap = 8
     static let nameLabelBubbleGap = 6
     static let messagePadding = 10
+    static let voicePadding:CGFloat = 12
+    static let voiceImageSize:CGFloat = 40
+    static let profileImageSize: CGFloat = 40
+    
+    
+    static let bubbleWhiteColor: UIColor = UIColor.white
+    static let bubbleCornerRadius: CGFloat = 4
 }
