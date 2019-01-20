@@ -13,11 +13,21 @@ class Style{
     static let firstMessageGap = 8
     static let nameLabelBubbleGap = 6
     static let messagePadding = 10
+    
+    
     static let voicePadding:CGFloat = 12
     static let voiceImageSize:CGFloat = 40
     static let profileImageSize: CGFloat = 40
-    
-    
     static let bubbleWhiteColor: UIColor = UIColor.white
     static let bubbleCornerRadius: CGFloat = 4
+    
+    
+    
+    static let limitMessageWidth: CGFloat = UIScreen.main.bounds.width * 0.75
+    static let limitUsernameWidth: CGFloat = UIScreen.main.bounds.width * 0.5
+    static let readLabelFont: UIFont = UIFont.systemFont(ofSize: 10)
+    static let timeLabelFont: UIFont = UIFont.systemFont(ofSize: 10)
+    static let messageLabelFont: UIFont = UIFont.systemFont(ofSize: 14)
+    static let nameLabelFont: UIFont = UIFont.systemFont(ofSize: 14)
+    
 }

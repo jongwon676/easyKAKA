@@ -14,4 +14,5 @@ class BaseChatCell: UITableViewCell{
     var isLast = false
     var incomming = false
     
+    
 }

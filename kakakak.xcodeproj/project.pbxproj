@@ -30,6 +30,7 @@
 		AD95E6C721F43393000450AB /* BackgroundCaptureImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95E6C621F43393000450AB /* BackgroundCaptureImageCell.swift */; };
 		AD95E6C921F43E65000450AB /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95E6C821F43E65000450AB /* UIColor.swift */; };
 		ADA5F29A21EF2F4A002C0F85 /* KeyBoardAreaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA5F29921EF2F4A002C0F85 /* KeyBoardAreaController.swift */; };
+		ADB8D83821F48D13001D88BD /* HeightCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB8D83721F48D13001D88BD /* HeightCalculator.swift */; };
 		ADC672A921E2260700D6D3F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672A821E2260700D6D3F5 /* AppDelegate.swift */; };
 		ADC672AE21E2260700D6D3F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADC672AC21E2260700D6D3F5 /* Main.storyboard */; };
 		ADC672B021E2260800D6D3F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADC672AF21E2260800D6D3F5 /* Assets.xcassets */; };
@@ -87,6 +88,7 @@
 		AD95E6C621F43393000450AB /* BackgroundCaptureImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCaptureImageCell.swift; sourceTree = "<group>"; };
 		AD95E6C821F43E65000450AB /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		ADA5F29921EF2F4A002C0F85 /* KeyBoardAreaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBoardAreaController.swift; sourceTree = "<group>"; };
+		ADB8D83721F48D13001D88BD /* HeightCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightCalculator.swift; sourceTree = "<group>"; };
 		ADC672A521E2260700D6D3F5 /* kakakak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kakakak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADC672A821E2260700D6D3F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADC672AD21E2260700D6D3F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -196,7 +198,7 @@
 			children = (
 				AD27D16821F14B9D009E367A /* icon */,
 				AD0AA03121EA00D000B45EF5 /* GoogleService-Info.plist */,
-				ADC672CA21E28FCD00D6D3F5 /* Realm */,
+				ADC672CA21E28FCD00D6D3F5 /* Helper */,
 				ADC672C721E28F5C00D6D3F5 /* Extension */,
 				ADC672BA21E22B6700D6D3F5 /* Resources */,
 				ADC672A721E2260700D6D3F5 /* kakakak */,
@@ -293,12 +295,13 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		ADC672CA21E28FCD00D6D3F5 /* Realm */ = {
+		ADC672CA21E28FCD00D6D3F5 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
 				AD50748921F31635003B50F5 /* RealmProvider.swift */,
+				ADB8D83721F48D13001D88BD /* HeightCalculator.swift */,
 			);
-			path = Realm;
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		ADC672DF21E3A51700D6D3F5 /* ChattingCell */ = {
@@ -511,6 +514,7 @@
 				AD50748621F29EEA003B50F5 /* EditView.swift in Sources */,
 				ADC672E321E3A56B00D6D3F5 /* ChattingImageCell.swift in Sources */,
 				AD50748C21F32179003B50F5 /* Object.swift in Sources */,
+				ADB8D83821F48D13001D88BD /* HeightCalculator.swift in Sources */,
 				AD27D19021F1E16C009E367A /* KeyBoardView.swift in Sources */,
 				ADC672E721E3A59000D6D3F5 /* UserEnterCell.swift in Sources */,
 				ADC672A921E2260700D6D3F5 /* AppDelegate.swift in Sources */,

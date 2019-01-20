@@ -11,7 +11,7 @@ class TextCell: UserChattingBaseCell{
     
     lazy var messageLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.font = Style.messageLabelFont
         label.textColor = #colorLiteral(red: 0.2655298114, green: 0.3016560972, blue: 0.3267259598, alpha: 1)
         label.numberOfLines = 0
         
