@@ -25,6 +25,10 @@
 		AD542CB821EC8D8A00656196 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD542CB721EC8D8A00656196 /* UserCell.swift */; };
 		AD87909921EA048A0008177D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD87909821EA048A0008177D /* ViewController.swift */; };
 		AD95E6C021F3F9C1000450AB /* VoiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95E6BF21F3F9C1000450AB /* VoiceCell.swift */; };
+		AD95E6C321F422FD000450AB /* BackgroundSelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95E6C221F422FD000450AB /* BackgroundSelectController.swift */; };
+		AD95E6C521F425B4000450AB /* BackgroundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95E6C421F425B4000450AB /* BackgroundCell.swift */; };
+		AD95E6C721F43393000450AB /* BackgroundCaptureImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95E6C621F43393000450AB /* BackgroundCaptureImageCell.swift */; };
+		AD95E6C921F43E65000450AB /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95E6C821F43E65000450AB /* UIColor.swift */; };
 		ADA5F29A21EF2F4A002C0F85 /* KeyBoardAreaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA5F29921EF2F4A002C0F85 /* KeyBoardAreaController.swift */; };
 		ADC672A921E2260700D6D3F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672A821E2260700D6D3F5 /* AppDelegate.swift */; };
 		ADC672AE21E2260700D6D3F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADC672AC21E2260700D6D3F5 /* Main.storyboard */; };
@@ -78,6 +82,10 @@
 		AD542CB721EC8D8A00656196 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		AD87909821EA048A0008177D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AD95E6BF21F3F9C1000450AB /* VoiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceCell.swift; sourceTree = "<group>"; };
+		AD95E6C221F422FD000450AB /* BackgroundSelectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundSelectController.swift; sourceTree = "<group>"; };
+		AD95E6C421F425B4000450AB /* BackgroundCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCell.swift; sourceTree = "<group>"; };
+		AD95E6C621F43393000450AB /* BackgroundCaptureImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCaptureImageCell.swift; sourceTree = "<group>"; };
+		AD95E6C821F43E65000450AB /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		ADA5F29921EF2F4A002C0F85 /* KeyBoardAreaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBoardAreaController.swift; sourceTree = "<group>"; };
 		ADC672A521E2260700D6D3F5 /* kakakak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kakakak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADC672A821E2260700D6D3F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -173,6 +181,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		AD95E6C121F422E3000450AB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				ADC672DD21E39FCB00D6D3F5 /* ChatVC.swift */,
+				AD50748721F30471003B50F5 /* ReplayController.swift */,
+				AD95E6C221F422FD000450AB /* BackgroundSelectController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		ADC6729C21E2260700D6D3F5 = {
 			isa = PBXGroup;
 			children = (
@@ -228,12 +246,13 @@
 		ADC672BF21E24E2A00D6D3F5 /* Chatting */ = {
 			isa = PBXGroup;
 			children = (
+				AD95E6C121F422E3000450AB /* Controller */,
 				ADC672DF21E3A51700D6D3F5 /* ChattingCell */,
-				ADC672DD21E39FCB00D6D3F5 /* ChatVC.swift */,
 				AD27D16D21F185FA009E367A /* ChatEditVC.swift */,
+				AD95E6C621F43393000450AB /* BackgroundCaptureImageCell.swift */,
 				AD27D18D21F1D422009E367A /* ChatTableView.swift */,
 				AD50748521F29EEA003B50F5 /* EditView.swift */,
-				AD50748721F30471003B50F5 /* ReplayController.swift */,
+				AD95E6C421F425B4000450AB /* BackgroundCell.swift */,
 			);
 			path = Chatting;
 			sourceTree = "<group>";
@@ -269,6 +288,7 @@
 				ADDDF02A21E53E6E007E3D16 /* ChatVC+extension.swift */,
 				ADDFB85F21E7037A003D5DF1 /* ChatVC+Alert.swift */,
 				AD50748B21F32179003B50F5 /* Object.swift */,
+				AD95E6C821F43E65000450AB /* UIColor.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -459,6 +479,7 @@
 				ADC672DC21E391B500D6D3F5 /* RoomCell.swift in Sources */,
 				ADDDF02B21E53E6E007E3D16 /* ChatVC+extension.swift in Sources */,
 				ADDDF02621E4E69E007E3D16 /* GitHawkInputBar.swift in Sources */,
+				AD95E6C921F43E65000450AB /* UIColor.swift in Sources */,
 				ADC672D221E2B91300D6D3F5 /* UIImage+Extension.swift in Sources */,
 				AD50748A21F31635003B50F5 /* RealmProvider.swift in Sources */,
 				AD95E6C021F3F9C1000450AB /* VoiceCell.swift in Sources */,
@@ -473,14 +494,17 @@
 				ADC672C521E2517700D6D3F5 /* Preset.swift in Sources */,
 				ADC672E521E3A57900D6D3F5 /* DateCell.swift in Sources */,
 				ADC672C921E28F6500D6D3F5 /* Path.swift in Sources */,
+				AD95E6C321F422FD000450AB /* BackgroundSelectController.swift in Sources */,
 				ADC672DE21E39FCB00D6D3F5 /* ChatVC.swift in Sources */,
 				AD27D16E21F185FA009E367A /* ChatEditVC.swift in Sources */,
 				ADC672D021E2A68B00D6D3F5 /* AddUserVC.swift in Sources */,
 				ADC672E121E3A52400D6D3F5 /* TextCell.swift in Sources */,
 				ADC672D421E2C12F00D6D3F5 /* Date.swift in Sources */,
+				AD95E6C721F43393000450AB /* BackgroundCaptureImageCell.swift in Sources */,
 				ADC672DA21E2C8F800D6D3F5 /* Message.swift in Sources */,
 				AD50748821F30471003B50F5 /* ReplayController.swift in Sources */,
 				AD542CB821EC8D8A00656196 /* UserCell.swift in Sources */,
+				AD95E6C521F425B4000450AB /* BackgroundCell.swift in Sources */,
 				ADC672ED21E3AE3900D6D3F5 /* BaseChatCell.swift in Sources */,
 				AD50748121F28D9C003B50F5 /* TimeInputView.swift in Sources */,
 				ADDFB85E21E6C8E8003D5DF1 /* GuideLineCell.swift in Sources */,

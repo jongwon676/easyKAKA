@@ -11,6 +11,10 @@ class ChatVC: UIViewController{
     var room: Room!
     lazy var messages = room.messages
     private var token: NotificationToken?
+    
+    
+    
+    
     var keyBoardFrame: CGRect? = nil
     let datePicker = UIDatePicker()
     var btn = UIButton(type: .custom)
@@ -116,6 +120,7 @@ class ChatVC: UIViewController{
         super.viewDidLoad()
         self.makeDummyCells()
         self.view.addSubview(tableView)
+        
         tableView.snp.makeConstraints { (mk) in
             mk.left.right.bottom.top.equalTo(self.view)
         }
@@ -179,9 +184,25 @@ class ChatVC: UIViewController{
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if let backgroundUrl = room.backgroundImageName, let backgroundImage = UIImage.loadImageFromName(backgroundUrl){
+            
+            let imageView = UIImageView(image: backgroundImage)
+            imageView.contentMode = .scaleAspectFill
+            imageView.layer.masksToBounds = true
+            
+            tableView.backgroundView = UIImageView(image: backgroundImage)
+            tableView.backgroundColor = nil
+        }else if let colorHex = room.backgroundColorHex{
+            tableView.backgroundColor = UIColor.init(hexString: colorHex)
+            tableView.backgroundView = nil
+            
+        }else{
+            navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
+            tableView.backgroundColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
+            tableView.backgroundView = nil
+        }
         
         
-        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
         self.tabBarController?.tabBar.isHidden = true
         timer = Timer.scheduledTimer(withTimeInterval: 1.0,
                                      repeats: true) {
@@ -212,7 +233,6 @@ class ChatVC: UIViewController{
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         timer?.invalidate()
-        super.viewWillDisappear(animated)
         btn.removeFromSuperview()
     }
     
@@ -221,6 +241,7 @@ class ChatVC: UIViewController{
         print("chatvc deinit")
         NotificationCenter.default.removeObserver(self)
         token?.invalidate()
+        
     }
 }
 

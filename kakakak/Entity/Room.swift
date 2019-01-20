@@ -11,6 +11,10 @@ class Room: Object{
     @objc dynamic var currentDate: Date = Date()
     @objc dynamic var id: String = UUID().uuidString
     
+    @objc dynamic var backgroundImageName: String?
+    @objc dynamic var backgroundColorHex: String?
+    
+    
     var users = List<User>()
     var messages = List<Message>()
     
@@ -45,6 +49,18 @@ class Room: Object{
     func delete(in realm: Realm = try! Realm()){
         try! realm.write {
             realm.delete(self)
+        }
+    }
+    func writeBackgroundImage(in realm:Realm =  try! Realm(), imageName: String){
+        try! realm.write {
+            self.backgroundImageName = imageName
+            self.backgroundColorHex = nil
+        }
+    }
+    func writeBackgroundColor(in realm:Realm = try! Realm(),colorHex: String){
+        try! realm.write {
+            self.backgroundColorHex = colorHex
+            self.backgroundImageName = nil
         }
     }
     

@@ -17,7 +17,7 @@ extension UIImage{
         }
     }
     
-    func writeImage(imgName name: String) -> Bool{
+    func writeImage(imgName name: String ) -> Bool{
         let data = self.jpegData(compressionQuality: 1.0)
         
         guard let imgData = data else { return false }

@@ -11,6 +11,7 @@ class ReplayController: UIViewController {
             self.messages = room.messages
         }
     }
+    
     lazy var tableView: UITableView = {
        let tableView = ChatTableView()
         tableView.delegate = self
@@ -52,13 +53,32 @@ class ReplayController: UIViewController {
         
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let backgroundUrl = room.backgroundImageName, let backgroundImage = UIImage.loadImageFromName(backgroundUrl){
+            
+            let imageView = UIImageView(image: backgroundImage)
+            imageView.contentMode = .scaleAspectFill
+            imageView.layer.masksToBounds = true
+            
+            tableView.backgroundView = UIImageView(image: backgroundImage)
+            tableView.backgroundColor = nil
+        }else if let colorHex = room.backgroundColorHex{
+            tableView.backgroundColor = UIColor.init(hexString: colorHex)
+            tableView.backgroundView = nil
+            
+        }else{
+            navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
+            tableView.backgroundColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
+            tableView.backgroundView = nil
+        }
+    }
    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.bounces = false
         self.tableView.layer.removeAllAnimations()
-        self.tableView.contentInsetAdjustmentBehavior = .automatic
+//        self.tableView.contentInsetAdjustmentBehavior = .automatic
 //        tableView.rowHeight = 50
 //        token = messages.observe{ [weak tableView] changes in
 //            guard let tableView = tableView else { return }
@@ -71,19 +91,16 @@ class ReplayController: UIViewController {
 //            }
 //        }
     }
-    
     @objc func addNextMessage(){
         if dataCount >= messages.count{ return }
         dataCount += 1
-        
         tableView.insertRows(at: [IndexPath.row(row: dataCount - 1)], with: .none)
-        
         tableView.scrollToRow(at: IndexPath.row(row: dataCount - 1), at: .top, animated: false)
-        
         print(tableView.contentSize)
-        
-//        tableView.scrollToRow(at: IndexPath.row(row: dataCount - 1), at: .bottom, animated: false)
     }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 80
+//    }
 //    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return 80
 //    }

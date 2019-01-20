@@ -19,6 +19,14 @@ extension ChatVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate
                 let nav = UINavigationController(rootViewController: replayControlelr)
                 self.present(nav, animated: true, completion: nil)
         }))
+        alert.addAction(UIAlertAction(title: "배경 변경", style: .default, handler: { (action)
+            in
+            
+            let backGroundController = BackgroundSelectController(collectionViewLayout: UICollectionViewFlowLayout())
+            backGroundController.room = self.room
+            let nav = UINavigationController(rootViewController: backGroundController)
+            self.present(nav, animated: true, completion: nil)
+        }))
         
         present(alert, animated: true) 
         

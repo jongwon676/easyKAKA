@@ -8,7 +8,7 @@ class ChatTableView: UITableView {
         self.allowsSelection = false
         self.tableFooterView = UIView()
         self.separatorStyle = .none
-        self.backgroundColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
+        
         self.isUserInteractionEnabled = true
     }
     
