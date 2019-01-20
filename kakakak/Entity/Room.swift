@@ -51,10 +51,13 @@ class Room: Object{
             realm.delete(self)
         }
     }
-    func writeBackgroundImage(in realm:Realm =  try! Realm(), imageName: String){
-        try! realm.write {
-            self.backgroundImageName = imageName
-            self.backgroundColorHex = nil
+    func writeBackgroundImage(in realm:Realm =  try! Realm(), image: UIImage){
+        let imageName = Date().currentDateToString() + ".jpg"
+        if image.writeImage(imgName: imageName){
+            try! realm.write {
+                self.backgroundImageName = imageName
+                self.backgroundColorHex = nil
+            }
         }
     }
     func writeBackgroundColor(in realm:Realm = try! Realm(),colorHex: String){

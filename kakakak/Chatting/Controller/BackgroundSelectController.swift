@@ -77,8 +77,8 @@ class BackgroundSelectController: UICollectionViewController{
             if let indexPath = indexPath{
                 
                 if indexPath.item == 0, let image = (collectionView.cellForItem(at: indexPath) as? BackgroundCaptureImageCell)?.image {
-                    let imageName = Date().currentDateToString() + ".jpg"
-                    self.room?.writeBackgroundImage(imageName: imageName)
+                
+                    self.room?.writeBackgroundImage(image: image)
                 }
                 else {
                     let color = colors[indexPath.item]
@@ -96,7 +96,7 @@ class BackgroundSelectController: UICollectionViewController{
         let picker = UIImagePickerController()
         picker.sourceType = source
         picker.delegate = self
-        picker.allowsEditing = true
+        picker.allowsEditing = false
         self.present(picker, animated: true, completion: nil)
     }
     
@@ -135,7 +135,7 @@ UIImagePickerControllerDelegate,UINavigationControllerDelegate{
         
         let topIndexPath = IndexPath(item: 0, section: 0)
         
-        if let img = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
+        if let img = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
             if let cell = collectionView.cellForItem(at: topIndexPath) as? BackgroundCaptureImageCell{
                 allIndexPaths.forEach{ deselectIndexPath(indexPath: $0) }
                 selectIndexPath(indexPath: topIndexPath)
