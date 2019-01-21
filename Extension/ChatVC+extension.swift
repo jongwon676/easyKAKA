@@ -89,7 +89,6 @@ extension ChatVC: UITextViewDelegate{
         case .date: return false
         case .enter: return false
         case .exit: return false
-            
         case .image: return true
         case .text: return true
         case .voice: return true
@@ -173,6 +172,7 @@ extension ChatVC: UITextViewDelegate{
         let show = (notification.name == UIResponder.keyboardWillShowNotification)
             ? true
             : false
+        
         guard let keyBoardFrame = keyBoardFrame else { return }
         
 
@@ -200,9 +200,9 @@ extension ChatVC: UITextViewDelegate{
     
     
     
-    var bottomMost:IndexPath{
-        return IndexPath(row: messages.count - 1, section: 0)
-    }
+//    var bottomMost:IndexPath{
+//        return IndexPath(row: messages.count - 1, section: 0)
+//    }
     
     func makeDummyCells(){
 
@@ -215,19 +215,23 @@ extension ChatVC: UITextViewDelegate{
                 msgs.append(msg)
             }
             try! realm.write {
-                messages.append(objectsIn: msgs)
+                room.messages.append(objectsIn: msgs)
             }
         }
         func makeDummyDate(num:Int){
             var msgs = [Message]()
             for _ in 0 ..< num {
                 let msg = Message.makeDateMessage()
+                
                 msgs.append(msg)
             }
             try! realm.write {
-                messages.append(objectsIn: msgs)
+                room.messages.append(objectsIn: msgs)
+                
             }
         }
+        
+        
         func makeExitDummy(num: Int){
             var msgs = [Message]()
             for _ in 0 ..< num{
@@ -235,7 +239,7 @@ extension ChatVC: UITextViewDelegate{
                 msgs.append(msg)
             }
             try! realm.write {
-                messages.append(objectsIn: msgs)
+                room.messages.append(objectsIn: msgs)
             }
         }
 //        makeDummyDate(num: 1)

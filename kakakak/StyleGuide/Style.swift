@@ -22,11 +22,7 @@ class Style{
     static let bubbleWhiteColor: UIColor = UIColor.white
     static let bubbleCornerRadius: CGFloat = 4
     
-    
-    
-    
-    
-    static let limitMessageWidth: CGFloat = UIScreen.main.bounds.width * 0.75
+    static let limitMessageWidth: CGFloat = UIScreen.main.bounds.width * 0.6
     static let limitUsernameWidth: CGFloat = UIScreen.main.bounds.width * 0.5
     static let readLabelFont: UIFont = UIFont.systemFont(ofSize: 10)
     static let timeLabelFont: UIFont = UIFont.systemFont(ofSize: 10)

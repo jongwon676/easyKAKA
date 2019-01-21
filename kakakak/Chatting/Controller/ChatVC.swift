@@ -9,9 +9,9 @@ class ChatVC: UIViewController{
     var realm = try! Realm()
     private weak var timer: Timer?
     var room: Room!
-    lazy var messages = room.messages
+//    lazy var messages = Array(room.messages)
     private var token: NotificationToken?
-    
+    var messageManager: MessageProcessor!
     
     
     
@@ -118,18 +118,31 @@ class ChatVC: UIViewController{
     // MARK: viewcontroller life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        try! realm.write {
-            messages.removeAll()
-        }
-        self.makeDummyCells()
         self.view.addSubview(tableView)
+        self.view.addSubview(bottomController.view)
+        self.makeDummyCells()
+        
+        
+        messageManager = MessageProcessor(room: room)
+        
+        messageManager.reload()
+        
+        for message in messageManager.messages{
+            if message.isFirstMessage{
+                print("isFirst message\(message)")
+                
+            }
+            if message.isLastMessage{
+                print("isLast message\(message)")
+            }
+        }
         
         
         tableView.snp.makeConstraints { (mk) in
             mk.left.right.bottom.top.equalTo(self.view)
         }
         
-        self.view.addSubview(bottomController.view)
+        
         bottomController.view?.snp.makeConstraints({ (mk) in
             mk.left.right.bottom.equalTo(self.view)
         })
@@ -155,18 +168,6 @@ class ChatVC: UIViewController{
     
 
         floatingButton()
-        
-        token = messages.observe{ [weak tableView] changes in
-            
-            guard let tableView = tableView else { return }
-            switch changes{
-            case .initial:
-                tableView.reloadData()
-            case .update(_, let deletions, let insertions, let updates):
-                tableView.applyChanges(deletions: deletions, insertions: insertions, updates: updates)
-            case .error: break
-            }
-        }
         
         tableView.reloadData()
         
@@ -256,10 +257,11 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return messages.count
+        return messageManager?.messages.count ?? 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let msg = messages[indexPath.row]
+        let msg = messageManager.getMessage(idx: indexPath.row)
+        print("\(indexPath.row) \(msg.isFirstMessage) \(msg.isLastMessage)")
         switch msg.type {
         case .text:
             let cell = tableView.dequeueReusableCell(withIdentifier: TextCell.reuseId) as! TextCell

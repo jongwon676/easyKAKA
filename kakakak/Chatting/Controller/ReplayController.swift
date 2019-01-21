@@ -1,22 +1,18 @@
 import UIKit
 import RealmSwift
-class ReplayController: UIViewController {
+import ReplayKit
 
-    var token: NotificationToken?
-    let defaultRealm = try! Realm()
-    let replayRealm = RealmProvider.replayRealm.realm
-    var copyUsers = [String: User]()
-    var room: Room!{
-        didSet{
-            self.messages = room.messages
-        }
-    }
+class ReplayController: UIViewController {
+    
+    var messageManager: MessageProcessor!
+    
+    var room: Room!
     
     lazy var tableView: UITableView = {
        let tableView = ChatTableView()
         tableView.delegate = self
         tableView.dataSource = self
-    tableView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addNextMessage)))
+        tableView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addNextMessage)))
         self.view.addSubview(tableView)
         tableView.snp.makeConstraints({ (mk) in
             mk.left.right.top.equalTo(self.view)
@@ -39,19 +35,7 @@ class ReplayController: UIViewController {
         return middleView
     }()
     
-    var messages = List<Message>()
-//    var displayMessages: Results<Message>
-    
-    var dataCount = 0
-    
-    
-    deinit {
-        token?.invalidate()
-        try! replayRealm.write {
-            replayRealm.deleteAll()
-        }
-        
-    }
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -78,31 +62,17 @@ class ReplayController: UIViewController {
         super.viewDidLoad()
         tableView.bounces = false
         self.tableView.layer.removeAllAnimations()
-//        self.tableView.contentInsetAdjustmentBehavior = .automatic
-//        tableView.rowHeight = 50
-//        token = messages.observe{ [weak tableView] changes in
-//            guard let tableView = tableView else { return }
-//            switch changes{
-//            case .initial:
-//                tableView.reloadData()
-//            case .update(_, let deletions, let insertions, let updates):
-//                tableView.applyChanges(deletions: deletions, insertions: insertions, updates: updates)
-//            case .error: break
-//            }
-//        }
+        messageManager = MessageProcessor(room: room)
+        messageManager.clear()
     }
     @objc func addNextMessage(){
-        if dataCount >= messages.count{ return }
-        dataCount += 1
-        tableView.insertRows(at: [IndexPath.row(row: dataCount - 1)], with: .none)
-        tableView.scrollToRow(at: IndexPath.row(row: dataCount - 1), at: .top, animated: false)
-        print(tableView.contentSize)
+        messageManager.update(tableView: self.tableView)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return BaseChatCell.calc(message: messages[indexPath.row])
+        return BaseChatCell.calc(message: messageManager.getMessage(idx: indexPath.row))
     }
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return BaseChatCell.calc(message: messages[indexPath.row])
+        return BaseChatCell.calc(message: messageManager.getMessage(idx: indexPath.row))
     }
     
 }
@@ -112,14 +82,14 @@ extension ReplayController: UITableViewDelegate,UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataCount
+        return messageManager.messages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cell = UITableViewCell()
 //        cell.backgroundColor = UIColor.red
 //        return cell
-        let msg = messages[indexPath.row]
+        let msg = messageManager.getMessage(idx: indexPath.row)
         switch msg.type {
         case .text:
             let cell = tableView.dequeueReusableCell(withIdentifier: TextCell.reuseId) as! TextCell
