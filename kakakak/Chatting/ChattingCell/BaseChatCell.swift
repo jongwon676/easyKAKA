@@ -3,12 +3,7 @@ import SnapKit
 import RealmSwift
 
 class BaseChatCell: UITableViewCell{
-    lazy var topView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.clear
-        self.addSubview(view)
-        return view
-    }()
+    var containerView: UIView = UIView()
     
     var isFirst = false
     var isLast = false
@@ -20,7 +15,6 @@ class BaseChatCell: UITableViewCell{
         
         default: return 40
         }
-        
         return 40
     }
 }

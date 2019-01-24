@@ -7,10 +7,28 @@ class AddUserVC: UITableViewController, UIImagePickerControllerDelegate,UINaviga
     @IBOutlet var stateField: UITextField!
     @IBOutlet var isMe: UISwitch!
     var user: Preset? = nil
-    
+    @objc func saveKeyboardHeight(_ notification: NSNotification){
+        guard let userInfo = notification.userInfo else { return }
+        
+        let keyFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        if keyFrame.height > 180{
+            let plist = UserDefaults.standard
+            plist.set(keyFrame.height, forKey: "keyboardHeight")
+            plist.synchronize()
+        }
+    }
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     
     override func viewDidLoad() {
         
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(saveKeyboardHeight),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil)
+
         nameField.delegate = self
         nameField.text = user?.name
         if let imgName = user?.profileImageUrl,let image = UIImage.loadImageFromName(imgName){

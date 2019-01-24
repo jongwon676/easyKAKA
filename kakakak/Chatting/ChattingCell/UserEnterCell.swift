@@ -25,14 +25,15 @@ class UserEnterCell: BaseChatCell{
         self.backgroundColor = .clear
         let containerView = UIView()
         
-        self.addSubview(topView)
+//        self.addSubview(topView)
         self.addSubview(containerView)
         containerView.addSubview(inviteLabel)
         containerView.backgroundColor = #colorLiteral(red: 0.4352941176, green: 0.4431372549, blue: 0.4745098039, alpha: 1)
         
         containerView.snp.makeConstraints { (mk) in
             mk.left.right.bottom.equalTo(self)
-            mk.top.equalTo(topView.snp.bottom)
+            mk.top.equalTo(self)
+//            mk.top.equalTo(topView.snp.bottom)
             mk.height.equalTo(32)
         }
         

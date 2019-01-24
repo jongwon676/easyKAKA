@@ -9,7 +9,9 @@ class UserChattingBaseCell: BaseChatCell{
             readLabel.text = String(message.noReadUser.count)
             readLabel.isHidden = (message.noReadUser.count <= 0)
             nameLabel.text = message.owner?.name
-            
+            if let owner = message.owner{
+                nameLabel.isHidden = (!owner.isMe || !message.isFirstMessage)
+            }
             
             stackView.alignment = incomming ? .leading : .trailing
             stackView.subviews.forEach{ $0.removeFromSuperview() }
@@ -17,9 +19,6 @@ class UserChattingBaseCell: BaseChatCell{
             if message.isLastMessage { stackView.addArrangedSubview(timeLabel) }
             profile.isHidden = (message.owner!.isMe) || (!message.isFirstMessage)
             profile.image = UIImage.loadImageFromName(message.messageImageUrl)
-            
-            
-            
         }
     }
     lazy var nameLabel: UILabel = {
@@ -60,11 +59,15 @@ class UserChattingBaseCell: BaseChatCell{
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = UIColor.clear
-        self.addSubview(nameLabel)
-        self.addSubview(timeLabel)
-        self.addSubview(readLabel)
-        self.addSubview(stackView)
-        self.addSubview(profile)
+        self.addSubview(containerView)
+        
+        
+        containerView.addSubview(nameLabel)
+        containerView.addSubview(timeLabel)
+        containerView.addSubview(readLabel)
+        containerView.addSubview(stackView)
+        containerView.addSubview(profile)
+        
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

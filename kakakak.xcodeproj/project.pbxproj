@@ -19,7 +19,6 @@
 		AD50748621F29EEA003B50F5 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD50748521F29EEA003B50F5 /* EditView.swift */; };
 		AD50748821F30471003B50F5 /* ReplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD50748721F30471003B50F5 /* ReplayController.swift */; };
 		AD50748A21F31635003B50F5 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD50748921F31635003B50F5 /* RealmProvider.swift */; };
-		AD50748C21F32179003B50F5 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD50748B21F32179003B50F5 /* Object.swift */; };
 		AD51D17C21E9996D00DA4B13 /* smileTemp.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = AD51D17B21E9996C00DA4B13 /* smileTemp.jpeg */; };
 		AD542CB621EC871A00656196 /* RoomAddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD542CB521EC871A00656196 /* RoomAddVC.swift */; };
 		AD542CB821EC8D8A00656196 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD542CB721EC8D8A00656196 /* UserCell.swift */; };
@@ -30,7 +29,7 @@
 		AD95E6C721F43393000450AB /* BackgroundCaptureImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95E6C621F43393000450AB /* BackgroundCaptureImageCell.swift */; };
 		AD95E6C921F43E65000450AB /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95E6C821F43E65000450AB /* UIColor.swift */; };
 		ADA5F29A21EF2F4A002C0F85 /* KeyBoardAreaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA5F29921EF2F4A002C0F85 /* KeyBoardAreaController.swift */; };
-		ADB8D83821F48D13001D88BD /* HeightCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB8D83721F48D13001D88BD /* HeightCalculator.swift */; };
+		ADB8D83821F48D13001D88BD /* SizeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB8D83721F48D13001D88BD /* SizeCalculator.swift */; };
 		ADB8D83A21F54886001D88BD /* MessageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB8D83921F54886001D88BD /* MessageProcessor.swift */; };
 		ADB8D83F21F88702001D88BD /* UserCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB8D83E21F88702001D88BD /* UserCollectionView.swift */; };
 		ADC672A921E2260700D6D3F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672A821E2260700D6D3F5 /* AppDelegate.swift */; };
@@ -81,7 +80,6 @@
 		AD50748521F29EEA003B50F5 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		AD50748721F30471003B50F5 /* ReplayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplayController.swift; sourceTree = "<group>"; };
 		AD50748921F31635003B50F5 /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
-		AD50748B21F32179003B50F5 /* Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
 		AD51D17B21E9996C00DA4B13 /* smileTemp.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = smileTemp.jpeg; sourceTree = "<group>"; };
 		AD542CB521EC871A00656196 /* RoomAddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomAddVC.swift; sourceTree = "<group>"; };
 		AD542CB721EC8D8A00656196 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
@@ -92,7 +90,7 @@
 		AD95E6C621F43393000450AB /* BackgroundCaptureImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCaptureImageCell.swift; sourceTree = "<group>"; };
 		AD95E6C821F43E65000450AB /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		ADA5F29921EF2F4A002C0F85 /* KeyBoardAreaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBoardAreaController.swift; sourceTree = "<group>"; };
-		ADB8D83721F48D13001D88BD /* HeightCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightCalculator.swift; sourceTree = "<group>"; };
+		ADB8D83721F48D13001D88BD /* SizeCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeCalculator.swift; sourceTree = "<group>"; };
 		ADB8D83921F54886001D88BD /* MessageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageProcessor.swift; sourceTree = "<group>"; };
 		ADB8D83E21F88702001D88BD /* UserCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionView.swift; sourceTree = "<group>"; };
 		ADC672A521E2260700D6D3F5 /* kakakak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kakakak.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -301,7 +299,6 @@
 				ADC672D321E2C12F00D6D3F5 /* Date.swift */,
 				ADDDF02A21E53E6E007E3D16 /* ChatVC+extension.swift */,
 				ADDFB85F21E7037A003D5DF1 /* ChatVC+Alert.swift */,
-				AD50748B21F32179003B50F5 /* Object.swift */,
 				AD95E6C821F43E65000450AB /* UIColor.swift */,
 			);
 			path = Extension;
@@ -311,7 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				AD50748921F31635003B50F5 /* RealmProvider.swift */,
-				ADB8D83721F48D13001D88BD /* HeightCalculator.swift */,
+				ADB8D83721F48D13001D88BD /* SizeCalculator.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -529,8 +526,7 @@
 				ADDFB85E21E6C8E8003D5DF1 /* GuideLineCell.swift in Sources */,
 				AD50748621F29EEA003B50F5 /* EditView.swift in Sources */,
 				ADC672E321E3A56B00D6D3F5 /* ChattingImageCell.swift in Sources */,
-				AD50748C21F32179003B50F5 /* Object.swift in Sources */,
-				ADB8D83821F48D13001D88BD /* HeightCalculator.swift in Sources */,
+				ADB8D83821F48D13001D88BD /* SizeCalculator.swift in Sources */,
 				AD27D19021F1E16C009E367A /* KeyBoardView.swift in Sources */,
 				ADC672E721E3A59000D6D3F5 /* UserEnterCell.swift in Sources */,
 				ADC672A921E2260700D6D3F5 /* AppDelegate.swift in Sources */,

@@ -48,5 +48,4 @@ class User: Object,NSCopying{
         self.id = UUID().uuidString
         self.isMe = isMe
     }
-    
 }

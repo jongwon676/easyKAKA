@@ -126,37 +126,7 @@ extension ChatVC: UITextViewDelegate{
         return true
     }
     
-    @objc func calcKeyBoardFrame(_ notification: NSNotification){
-        guard let userInfo = notification.userInfo else { return }
-        let keyFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        if self.bottomController.keyFrame == nil && keyFrame.height >= 200{
-            
-            self.bottomController.timeInputView.frame = keyFrame
-//            self.bottomController.textView.frame = keyFrame
-            
-            print("calc keyboard \(keyFrame)")
-            NotificationCenter.default.removeObserver(self)
-//            bottomController.middleView.textViewResignFirstResponder()
-//
-//            NotificationCenter.default.addObserver(
-//                self,
-//                selector: #selector(adjustInsetForKeyboard(_:)),
-//                name: UIResponder.keyboardWillHideNotification,
-//                object: nil
-//            )
-//
-//            NotificationCenter.default.addObserver(
-//                self,
-//                selector: #selector(adjustInsetForKeyboard(_:)),
-//                name: UIResponder.keyboardWillShowNotification,
-//                object: nil)
-
-        }
-        
-        
-
-        return
-    }
+  
     @objc func adjustInsetForKeyboard(_ notification: NSNotification) {
         guard let userInfo = notification.userInfo else { return }
 
@@ -198,12 +168,6 @@ extension ChatVC: UITextViewDelegate{
     }
     
     
-    
-    
-//    var bottomMost:IndexPath{
-//        return IndexPath(row: messages.count - 1, section: 0)
-//    }
-    
     func makeDummyCells(){
 
         func makeDummyText(num: Int){
@@ -243,7 +207,7 @@ extension ChatVC: UITextViewDelegate{
             }
         }
 //        makeDummyDate(num: 1)
-        makeDummyText(num: 100)
+        makeDummyText(num: 500)
 //        makeExitDummy(num: 1)
     }
 }
@@ -251,16 +215,11 @@ extension ChatVC: UITextViewDelegate{
 extension ChatVC: bottomInfoReceiver{
     func sendMessage(text: String) {
         guard let currentUser = bottomController.selectedUser else { return }
-
         room.addMessage(message: Message(owner: currentUser, sendDate: room.currentDate, messageText: text))
-//
-        
     }
-    
     func addMinute(minute: Int) {
         try! realm.write {
             room.currentDate = room.currentDate.addingTimeInterval(60.0 * Double(minute))
-            
             self.navigationItem.title = Date.timeToStringSecondVersion(date: self.room.currentDate)
         }
     }
@@ -278,7 +237,6 @@ extension UITableView {
 }
 extension ChatVC: EditChatting{
     func excuteDelete() {
-        print("delete 버튼이 클릭도이ㅓ씁니다.")
         showDeleteMessagesModal()
     }
     
@@ -289,7 +247,7 @@ extension ChatVC: EditChatting{
     }
     
     func excuetEdit() {
-        print("eidt button이 클릭되엇습니다.")
+        
     }
     
     func excuteEsc() {

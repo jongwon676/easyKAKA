@@ -14,7 +14,7 @@ class Style{
     static let basicTopGap:CGFloat = 4
     static let nameLabelBubbleGap:CGFloat = 6
     static let messagePadding:CGFloat = 10
-    
+    static let nameLabelProfileGap: CGFloat = 10
     
     static let voicePadding:CGFloat = 12
     static let voiceImageSize:CGFloat = 40

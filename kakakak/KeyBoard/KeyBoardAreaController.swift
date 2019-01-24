@@ -90,9 +90,20 @@ class KeyBoardAreaController: UIViewController{
     
     lazy var timeInputView: TimeInputView = {
         let tempView = TimeInputView()
-        tempView.frame.size.height = 300
+//        tempView.frame.size.height = 300
+//        tempView.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
+        
         tempView.decButton.addTarget(self, action: #selector(handleTime(_:)), for: .touchUpInside)
         tempView.incButton.addTarget(self, action: #selector(handleTime(_:)), for: .touchUpInside)
+        
+        let plist = UserDefaults.standard
+        let keyboardHeight = plist.double(forKey: "keyboardHeight")
+        if keyboardHeight >= 180{
+            tempView.frame.size.height = CGFloat(keyboardHeight)
+        }else{
+            tempView.autoresizingMask = .flexibleHeight
+        }
+        
         return tempView
     }()
     
@@ -110,9 +121,13 @@ class KeyBoardAreaController: UIViewController{
         let view = MiddleView()
         view.sendButton.addTarget(self, action: #selector(sendMsg), for: .touchUpInside)
         view.smileButton.addTarget(self, action: #selector(becomeFirstResponder), for: .touchUpInside)
+        view.smileButton.addTarget(self, action: #selector(checker), for: .touchUpInside)
         return view
     }()
-    
+    @objc func checker(){
+        middleView.smileButton.becomeFirstResponder()
+        print(middleView.smileButton.isFirstResponder)
+    }
     
     lazy var bottomView: UIView = {
         
@@ -171,6 +186,7 @@ class KeyBoardAreaController: UIViewController{
         guard !self.middleView.isEmpty() else { return }
         receiver?.sendMessage(text: middleView.text)
         middleView.text = ""
+        
     }
     
     @objc func handleTime(_ sender: UIButton){
@@ -229,35 +245,11 @@ extension KeyBoardAreaController: UICollectionViewDelegateFlowLayout{
         }
     }
     
-//    func pickUser(idx: Int){
-//        guard users.count > 0 else { return }
-//
-//        resetSelectedUser()
-//        try! realm.write {
-//            users[idx].isSelected = true
-//        }
-//        userCollectionView.reloadData()
-//    }
+
     
     var selectedUser: User?{
-        
-        get{
-            var ret: User? = nil
-            for idx in 0 ..< users.count{
-                if users[idx].isSelected {
-                    ret = users[idx]
-                    break
-                }
-            }
-            try! realm.write {
-                if users.count > 0 {
-                    users[0].isSelected = true
-                    ret = users[0]
-                }
-            }
-            return ret
-        }
-        
+        guard let indexPath = centeredIndex() else { return nil }
+        return users[indexPath.item]
     }
 }
 
@@ -269,29 +261,20 @@ extension KeyBoardAreaController: UITextViewDelegate{
         let size = CGSize(width: textView.frame.width, height: .infinity)
         let estimateSize = textView.sizeThatFits(size)
         self.hasText = !textView.text.isEmpty
-        //        print(textView.frame.height)
-        //        print(estimateSize.height + textViewInset.top + textViewInset.bottom)
         var nextHeight = min(estimateSize.height, maxHeight)
         nextHeight = max(elementHeight - 20 , nextHeight)
         textView.isScrollEnabled = (nextHeight >= maxHeight)
         textView.snp.updateConstraints { (mk) in
             mk.height.equalTo(nextHeight)
         }
-        
     }
 }
 
 extension KeyBoardAreaController: UIScrollViewDelegate{
     
-    
-    
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    func centeredIndex() -> IndexPath?{
         let bounds = userCollectionView.bounds
         let xPosition = userCollectionView.contentOffset.x + bounds.size.width / 2.0
-        let yPosition = bounds.size.height/2.0
-        let xyPoint = CGPoint(x: xPosition, y: yPosition)
-        
         var scrollItem = -1
         
         var dist:CGFloat = 5000
@@ -304,11 +287,13 @@ extension KeyBoardAreaController: UIScrollViewDelegate{
                 }
             }
         }
-        if scrollItem == -1{
-            return
-        }
-        
-        let indexPath = IndexPath(item: scrollItem, section: 0)
+        if scrollItem == -1 { return nil }
+        return IndexPath(item: scrollItem, section: 0)
+    }
+    
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+       guard let indexPath = centeredIndex() else { return  }
         selectCell(for: indexPath, animated: true)
     }
     

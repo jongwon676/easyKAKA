@@ -5,9 +5,6 @@ import RealmSwift
 class TextCell: UserChattingBaseCell{
 
     static var reuseId: String = "TextCell"
-    lazy var commonViews:[UIView] = [topView,bubbleView,messageLabel]
-    lazy var leftFirstViews: [UIView] = [nameLabel,profile]
-    lazy var rightFirstViews: [UIView] = []
     
     lazy var messageLabel: UILabel = {
         let label = UILabel()
@@ -34,94 +31,80 @@ class TextCell: UserChattingBaseCell{
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    var subs: [UIView]{
-        get{
-            let return_views = commonViews + ((incomming && isFirst ) ? leftFirstViews : [])
-            return return_views
-        }
-    }
-    
     func configure(message: Message){
+        guard let owner = message.owner else { return }
+        
+        containerView.addSubview(bubbleView)
+        containerView.addSubview(messageLabel)
+        
         
         self.message = message
-        isFirst = message.isFirstMessage
-        profile.image = UIImage.loadImageFromName(message.owner!.profileImageUrl!)!
-        // profile image는 슈퍼뷰에서 처리
+        let screenWidth = UIScreen.main.bounds.width
+        containerView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: 200)
+        
+        let profileX: CGFloat = Style.profileToCornerGap
+        let profileY: CGFloat = 0
+        let profileWidth = Style.profileImageSize
+        let profileHeight = Style.profileImageSize
+        profile.frame = CGRect(x: profileX, y: profileY, width: profileWidth, height: profileHeight)
+        
+        let nameLabelX = profile.frame.maxX + Style.nameLabelProfileGap
+        let nameLabelY = profile.frame.origin.y
+        nameLabel.frame.origin = CGPoint(x: nameLabelX, y: nameLabelY)
+        nameLabel.sizeToFit()
+        
+        
+        // messageLabel origin setting need
         messageLabel.text = message.messageText
+        messageLabel.frame.size = messageLabel.sizeThatFits(CGSize(width: Style.limitMessageWidth, height: .infinity))
+
+
+        //bubbleview origin setting need
         bubbleView.backgroundColor = incomming ? #colorLiteral(red: 0.9996673465, green: 0.8927946687, blue: 0.005554047879, alpha: 1) : #colorLiteral(red: 0.9998916984, green: 1, blue: 0.9998809695, alpha: 1)
-
-        self.addSubview(bubbleView)
-        self.addSubview(messageLabel)
-        
-        topView.snp.remakeConstraints { (mk) in
-            mk.left.right.top.equalTo(self)
-            mk.height.equalTo( ( message.isFirstMessage ? Style.firstMessageGap + 4 : 4 ) )
-        } //top View도 슈퍼 뷰에서 처리
-        
-
-        stackView.snp.remakeConstraints { (mk) in
-            if incomming { mk.left.equalTo(bubbleView.snp.right).offset(7) }
-            else { mk.right.equalTo(bubbleView.snp.left).offset(-7) }
-            mk.bottom.equalTo(bubbleView).inset(7)
-        }
+        bubbleView.frame.size = messageLabel.frame.size
+        bubbleView.frame.size.width += 2 * Style.messagePadding
+        bubbleView.frame.size.height += 2 * Style.messagePadding
         
         
-        if incomming && message.isFirstMessage {
-            profile.snp.makeConstraints { (mk) in
-                mk.left.equalTo(self).offset(4)
-                mk.width.height.equalTo(40)
-                mk.top.equalTo(topView.snp.bottom)
-            }
-        } // super view에서 처리.
+        // bubbleview 의 origin을 셋팅하고 messageLabel의 센터를 버블뷰의 센터에 고정 시키자.
         
-        
-        
-        
-        if incomming {
+        if owner.isMe{
+            bubbleView.frame.origin.x = nameLabelX
+            let bubbleViewY = message.isFirstMessage ? nameLabel.frame.maxY + Style.nameLabelBubbleGap : 0
+            bubbleView.frame.origin.y = bubbleViewY
+            stackView.frame.origin.y = bubbleView.frame.maxY - stackView.frame.height
+            stackView.frame.origin.x = bubbleView.frame.maxX + Style.timeLabelToMessageGap
             
-            //incomming도 프로필이미지 투명 처리 해놓구 만들기.
-            messageLabel.snp.remakeConstraints { (mk) in
-                mk.left.equalTo(self).offset(Style.leftMessageToCornerGap)
-                if message.isFirstMessage  { mk.top.equalTo(nameLabel.snp.bottom).offset(Style.nameLabelBubbleGap + Style.messagePadding) }
-                else { mk.top.equalTo(topView.snp.bottom).offset(Style.messagePadding) }
-                mk.width.lessThanOrEqualTo(Style.limitMessageWidth)
-            }
         }else{
-            messageLabel.snp.remakeConstraints { (mk) in
-                mk.right.equalTo(self).inset(Style.rightMessageToCornerGap)
-                mk.top.equalTo(topView.snp.bottom).offset(Style.messagePadding)
-                mk.width.lessThanOrEqualTo(Style.limitMessageWidth)
-            }
-        }
-        if incomming && message.isFirstMessage {
-            nameLabel.snp.remakeConstraints { (mk) in
-                mk.top.equalTo(profile.snp.top)
-                mk.left.equalTo(bubbleView.snp.left)
-            }
+            bubbleView.frame.origin.x = UIScreen.main.bounds.width - bubbleView.frame.width - Style.profileToCornerGap
+            bubbleView.frame.origin.y = 0
+            stackView.frame.origin.y = bubbleView.frame.maxY - stackView.frame.height
+            stackView.frame.origin.x = bubbleView.frame.minX - stackView.frame.width - Style.timeLabelToMessageGap
         }
         
-        bubbleView.snp.remakeConstraints { (mk) in
-            let padding = -CGFloat(Style.messagePadding)
-            mk.edges.equalTo(messageLabel).inset(UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding))
-            mk.bottom.equalTo(self)
+        containerView.frame.size.height = bubbleView.frame.maxY
+        messageLabel.center = bubbleView.center
+        
+        containerView.snp.remakeConstraints { (mk) in
+            mk.left.right.top.bottom.equalTo(self)
+            mk.height.equalTo(bubbleView.frame.maxY)
         }
+        
+        
+        
     }
-    
-    func clear(){
-        self.subviews.forEach { (sub) in
-            sub.snp.removeConstraints()
-            sub.removeFromSuperview()
-        }
-    }
+
+        
+        
 }
+
 
 extension TextCell{
     static func calcHeight(message: Message) -> CGFloat{
         guard let owner = message.owner else { return 10 }
         
 //        return 60
-        let messageSize = HeightCalculator.calcLabel(string: message.messageText, font: Style.messageLabelFont, limitWidth: Style.limitMessageWidth, limitHeight: .infinity, numberOfLines: 0)
+        let messageSize = SizeCalculator.calcLabelSize(string: message.messageText, font: Style.messageLabelFont, limitWidth: Style.limitMessageWidth, limitHeight: .infinity, numberOfLines: 0)
         
         var height = Style.basicTopGap + messageSize.height + 2 * Style.messagePadding
         
@@ -130,7 +113,7 @@ extension TextCell{
             height += Style.firstMessageGap
             
             if !owner.isMe {
-                let usernameSize = HeightCalculator.calcLabel(string: owner.name, font: Style.nameLabelFont, limitWidth: Style.limitUsernameWidth, limitHeight: .infinity,numberOfLines: 1)
+                let usernameSize = SizeCalculator.calcLabelSize(string: owner.name, font: Style.nameLabelFont, limitWidth: Style.limitUsernameWidth, limitHeight: .infinity,numberOfLines: 1)
                 height += usernameSize.height + Style.nameLabelBubbleGap
             }
         }

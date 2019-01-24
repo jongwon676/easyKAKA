@@ -79,12 +79,12 @@ class ReplayController: UIViewController {
     @objc func addNextMessage(){
         messageManager.update(tableView: self.tableView)
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return BaseChatCell.calc(message: messageManager.getMessage(idx: indexPath.row))
-    }
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return BaseChatCell.calc(message: messageManager.getMessage(idx: indexPath.row))
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return BaseChatCell.calc(message: messageManager.getMessage(idx: indexPath.row))
+//    }
+//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return BaseChatCell.calc(message: messageManager.getMessage(idx: indexPath.row))
+//    }
     
 }
 

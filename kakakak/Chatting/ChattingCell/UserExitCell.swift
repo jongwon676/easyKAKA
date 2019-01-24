@@ -34,7 +34,7 @@ class UserExitCell: BaseChatCell{
         self.backgroundColor = .clear
         let containerView = UIView()
         
-        self.addSubview(topView)
+//        self.addSubview(topView)
         self.addSubview(containerView)
         containerView.addSubview(exitLabel)
         
@@ -43,7 +43,7 @@ class UserExitCell: BaseChatCell{
         
         containerView.snp.makeConstraints { (mk) in
             mk.left.right.bottom.equalTo(self)
-            mk.top.equalTo(topView.snp.bottom)
+//            mk.top.equalTo(topView.snp.bottom)
             mk.height.equalTo(52)
         }
     

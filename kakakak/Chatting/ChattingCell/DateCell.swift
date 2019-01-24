@@ -48,7 +48,7 @@ class DateCell: BaseChatCell{
         
         self.addSubview(dateLabel)
         self.addSubview(containerView)
-        self.addSubview(topView)
+//        self.addSubview(topView)
         
         
         dateLabel.text = "2018년 4월 27일 금요일"
@@ -58,8 +58,10 @@ class DateCell: BaseChatCell{
             mk.center.equalTo(containerView)
         }
         
+        
+        
         containerView.snp.makeConstraints { (mk) in
-            mk.top.equalTo(topView.snp.bottom)
+            mk.top.equalTo(self)
             mk.left.right.bottom.equalTo(self)
             mk.height.equalTo(30)
         }

@@ -26,16 +26,17 @@ class ChattingImageCell: UserChattingBaseCell{
         self.addSubview(messageImage)
         
         
-        topView.snp.remakeConstraints { (mk) in
-            mk.left.right.top.equalTo(self)
-            mk.height.equalTo( ( message.isFirstMessage ? Style.firstMessageGap + 4 : 4 ) )
-        }
+//        topView.snp.remakeConstraints { (mk) in
+//            mk.left.right.top.equalTo(self)
+//            mk.height.equalTo( ( message.isFirstMessage ? Style.firstMessageGap + 4 : 4 ) )
+//        }
         
         messageImage.snp.remakeConstraints { (mk) in
             if incomming { mk.left.equalTo(self).offset(Style.leftMessageToCornerGap)}
             else {mk.right.equalTo(self).inset(Style.rightMessageToCornerGap)}
             mk.size.equalTo(imgViewSize())
-            mk.top.equalTo(topView.snp.bottom)
+            mk.top.equalTo(self).offset(message.isFirstMessage ? Style.firstMessageGap + 4 : 4)
+//            mk.top.equalTo(topView.snp.bottom)
             mk.bottom.equalTo(self)
         }
         
