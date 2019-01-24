@@ -9,6 +9,11 @@ class UserChattingBaseCell: BaseChatCell{
             readLabel.text = String(message.noReadUser.count)
             readLabel.isHidden = (message.noReadUser.count <= 0)
             nameLabel.text = message.owner?.name
+            
+            
+            readLabel.sizeToFit()
+            timeLabel.sizeToFit()
+            
             if let owner = message.owner{
                 nameLabel.isHidden = (!owner.isMe || !message.isFirstMessage)
             }
@@ -17,8 +22,11 @@ class UserChattingBaseCell: BaseChatCell{
             stackView.subviews.forEach{ $0.removeFromSuperview() }
             if message.noReadUser.count > 0 { stackView.addArrangedSubview(readLabel) }
             if message.isLastMessage { stackView.addArrangedSubview(timeLabel) }
+            
+            
             profile.isHidden = (message.owner!.isMe) || (!message.isFirstMessage)
             profile.image = UIImage.loadImageFromName(message.messageImageUrl)
+            
         }
     }
     lazy var nameLabel: UILabel = {
@@ -60,14 +68,6 @@ class UserChattingBaseCell: BaseChatCell{
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = UIColor.clear
         self.addSubview(containerView)
-        
-        
-        containerView.addSubview(nameLabel)
-        containerView.addSubview(timeLabel)
-        containerView.addSubview(readLabel)
-        containerView.addSubview(stackView)
-        containerView.addSubview(profile)
-        
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
