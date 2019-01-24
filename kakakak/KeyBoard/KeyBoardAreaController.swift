@@ -31,27 +31,28 @@ class KeyBoardAreaController: UIViewController{
     var mode: ChatMode = .chatting{
         didSet{
             
-            if mode == .chatting{
-                [topView,bottomView].forEach{
-                    $0.snp.updateConstraints({ (mk) in
-                        mk.height.equalTo(elementHeight)
-                    })
-                }
-                
-            }else{
-                [topView,bottomView].forEach{
-                    $0.snp.updateConstraints({ (mk) in
-                        mk.height.equalTo(0)
-                    })
-                }
-                self.keyboardHide()
-            }
+            //            if mode == .chatting{
+            //                [topView,bottomView].forEach{
+            //                    $0.snp.updateConstraints({ (mk) in
+            //                        mk.height.equalTo(elementHeight)
+            //                    })
+            //                }
+            //
+            //            }else{
+            //                [topView,bottomView].forEach{
+            //                    $0.snp.updateConstraints({ (mk) in
+            //                        mk.height.equalTo(0)
+            //                    })
+            //                }
+            //                self.keyboardHide()
+            //            }
             self.view.layoutIfNeeded()
         }
     }
     
     var users = List<User>() {
         didSet{
+            print("set user")
             userCollectionView.reloadData()
         }
     }
@@ -66,12 +67,12 @@ class KeyBoardAreaController: UIViewController{
     }
     
     
-
+    
     weak var receiver: bottomInfoReceiver?
-
-    lazy var userCollectionView:UICollectionView = {
-       let collection = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        collection.backgroundColor = UIColor.white
+    
+    lazy var userCollectionView: UserCollectionView = {
+        let collection = UserCollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        
         return collection
     }()
     
@@ -97,21 +98,22 @@ class KeyBoardAreaController: UIViewController{
     
     lazy var topView: UIView = {
         userCollectionView.snp.makeConstraints { (mk) in
-            mk.height.equalTo(elementHeight)
+            mk.height.equalTo(90)
         }
-        userCollectionView.backgroundColor = UIColor.white
+        userCollectionView.showsHorizontalScrollIndicator = false 
+        userCollectionView.backgroundColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
         return userCollectionView
     }()
     
     
     lazy var middleView: MiddleView = {
-       let view = MiddleView()
+        let view = MiddleView()
         view.sendButton.addTarget(self, action: #selector(sendMsg), for: .touchUpInside)
         view.smileButton.addTarget(self, action: #selector(becomeFirstResponder), for: .touchUpInside)
         return view
     }()
     
-
+    
     lazy var bottomView: UIView = {
         
         var bannerView = GADBannerView()
@@ -122,14 +124,17 @@ class KeyBoardAreaController: UIViewController{
         bannerView.snp.makeConstraints({ (mk) in
             mk.height.equalTo(elementHeight)
         })
-
+        
         return bannerView
     }()
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let layout = UserLayout()
+        layout.itemSize = CGSize(width: 90, height: 90)
+        
+        userCollectionView.collectionViewLayout = layout
         userCollectionView.dataSource = self
         userCollectionView.delegate = self
         userCollectionView.register(UserCollectionCell.self, forCellWithReuseIdentifier:UserCollectionCell.reuseId)
@@ -140,21 +145,28 @@ class KeyBoardAreaController: UIViewController{
         middleView.textView.delegate = self
         
         
-        pickUser(idx: 0)
+//        pickUser(idx: 0)
         
-        layout.minimumLineSpacing = 10
-        layout.minimumInteritemSpacing = 10
+        
         layout.scrollDirection = .horizontal
         
         stackView.addArrangedSubview(topView)
         stackView.addArrangedSubview(middleView)
         stackView.addArrangedSubview(bottomView)
- 
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let middleIndexPath = IndexPath(item: users.count / 2, section: 0)
+        selectCell(for: middleIndexPath, animated: false)
+//        userCollectionView.setNeedsDisplay()
     }
     deinit {
         print("keyboardarea deinit")
     }
-
+    
     @objc func sendMsg(){
         guard !self.middleView.isEmpty() else { return }
         receiver?.sendMessage(text: middleView.text)
@@ -168,7 +180,7 @@ class KeyBoardAreaController: UIViewController{
             receiver?.addMinute(minute: -1)
         }
     }
-
+    
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -203,13 +215,10 @@ extension KeyBoardAreaController: UICollectionViewDataSource{
 
 
 extension KeyBoardAreaController: UICollectionViewDelegateFlowLayout{
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size:CGFloat = collectionView.frame.size.height
-        return CGSize(width: size, height: size)
-    }
+    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        pickUser(idx: indexPath.item)
+        selectCell(for: indexPath, animated: true)
     }
     
     func resetSelectedUser(){
@@ -220,15 +229,15 @@ extension KeyBoardAreaController: UICollectionViewDelegateFlowLayout{
         }
     }
     
-    func pickUser(idx: Int){
-        guard users.count > 0 else { return }
-        
-        resetSelectedUser()
-        try! realm.write {
-            users[idx].isSelected = true
-        }
-        userCollectionView.reloadData()
-    }
+//    func pickUser(idx: Int){
+//        guard users.count > 0 else { return }
+//
+//        resetSelectedUser()
+//        try! realm.write {
+//            users[idx].isSelected = true
+//        }
+//        userCollectionView.reloadData()
+//    }
     
     var selectedUser: User?{
         
@@ -260,8 +269,8 @@ extension KeyBoardAreaController: UITextViewDelegate{
         let size = CGSize(width: textView.frame.width, height: .infinity)
         let estimateSize = textView.sizeThatFits(size)
         self.hasText = !textView.text.isEmpty
-        print(textView.frame.height)
-//        print(estimateSize.height + textViewInset.top + textViewInset.bottom)
+        //        print(textView.frame.height)
+        //        print(estimateSize.height + textViewInset.top + textViewInset.bottom)
         var nextHeight = min(estimateSize.height, maxHeight)
         nextHeight = max(elementHeight - 20 , nextHeight)
         textView.isScrollEnabled = (nextHeight >= maxHeight)
@@ -269,10 +278,55 @@ extension KeyBoardAreaController: UITextViewDelegate{
             mk.height.equalTo(nextHeight)
         }
         
-        
     }
 }
 
+extension KeyBoardAreaController: UIScrollViewDelegate{
+    
+    
+    
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let bounds = userCollectionView.bounds
+        let xPosition = userCollectionView.contentOffset.x + bounds.size.width / 2.0
+        let yPosition = bounds.size.height/2.0
+        let xyPoint = CGPoint(x: xPosition, y: yPosition)
+        
+        var scrollItem = -1
+        
+        var dist:CGFloat = 5000
+        for idx in (0 ..< userCollectionView.numberOfItems(inSection: 0)){
+            if let cent = self.userCollectionView.layoutAttributesForItem(at: IndexPath(item: idx, section: 0))?.center{
+                
+                if abs(cent.x - xPosition) < dist{
+                    dist = abs(cent.x - xPosition)
+                    scrollItem = idx
+                }
+            }
+        }
+        if scrollItem == -1{
+            return
+        }
+        
+        let indexPath = IndexPath(item: scrollItem, section: 0)
+        selectCell(for: indexPath, animated: true)
+    }
+    
+    private func selectCell(for indexPath: IndexPath, animated: Bool) {
+        userCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: animated)
+    }
+    
+//    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+//        scrollViewDidEndDecelerating(scrollView)
+//    }
+//
+//    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+//        if !decelerate {
+//            scrollViewDidEndDecelerating(scrollView)
+//        }
+//    }
+    
+}
 
 
 
@@ -332,7 +386,7 @@ protocol FirstResponderControlDelegate: class {
 class TimeButton: UIButton, UIKeyInput {
     var hasText: Bool{
         return true
-//        return self.delegate?.firstResponderControlHasText(self) ?? false
+        //        return self.delegate?.firstResponderControlHasText(self) ?? false
     }
     override var canBecomeFirstResponder: Bool{
         return true
@@ -349,7 +403,7 @@ class TimeButton: UIButton, UIKeyInput {
     }
     
     weak var delegate: FirstResponderControlDelegate?
-
+    
     
     func insertText(_ text: String) {
         self.delegate?.firstResponderControl(self, didReceiveText: text)

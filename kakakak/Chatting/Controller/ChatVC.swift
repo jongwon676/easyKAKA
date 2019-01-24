@@ -217,6 +217,8 @@ class ChatVC: UIViewController{
                                         }
                                         self.navigationItem.title = Date.timeToStringSecondVersion(date: self.room.currentDate)
         }
+//        self.updateTimer = Timer.scheduledTimer(timeInterval:1.0, target: self, selector: Selector(("updateFunction")), userInfo: nil, repeats: true)
+        RunLoop.current.add(self.timer!, forMode: RunLoop.Mode.common)
         
     }
     

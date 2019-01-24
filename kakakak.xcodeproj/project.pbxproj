@@ -32,6 +32,7 @@
 		ADA5F29A21EF2F4A002C0F85 /* KeyBoardAreaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA5F29921EF2F4A002C0F85 /* KeyBoardAreaController.swift */; };
 		ADB8D83821F48D13001D88BD /* HeightCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB8D83721F48D13001D88BD /* HeightCalculator.swift */; };
 		ADB8D83A21F54886001D88BD /* MessageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB8D83921F54886001D88BD /* MessageProcessor.swift */; };
+		ADB8D83F21F88702001D88BD /* UserCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB8D83E21F88702001D88BD /* UserCollectionView.swift */; };
 		ADC672A921E2260700D6D3F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672A821E2260700D6D3F5 /* AppDelegate.swift */; };
 		ADC672AE21E2260700D6D3F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADC672AC21E2260700D6D3F5 /* Main.storyboard */; };
 		ADC672B021E2260800D6D3F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADC672AF21E2260800D6D3F5 /* Assets.xcassets */; };
@@ -58,6 +59,8 @@
 		ADC672ED21E3AE3900D6D3F5 /* BaseChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672EC21E3AE3900D6D3F5 /* BaseChatCell.swift */; };
 		ADC672F021E3B0A000D6D3F5 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672EF21E3B0A000D6D3F5 /* Style.swift */; };
 		ADC672F221E3CE6200D6D3F5 /* UserChattingBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672F121E3CE6200D6D3F5 /* UserChattingBaseCell.swift */; };
+		ADCB809F21F8ADAE00BE25D8 /* UserLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCB809E21F8ADAE00BE25D8 /* UserLayout.swift */; };
+		ADCB80A121F9530A00BE25D8 /* UserCollectionLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCB80A021F9530A00BE25D8 /* UserCollectionLayoutAttributes.swift */; };
 		ADDDF02621E4E69E007E3D16 /* GitHawkInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDDF02521E4E69E007E3D16 /* GitHawkInputBar.swift */; };
 		ADDDF02B21E53E6E007E3D16 /* ChatVC+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDDF02A21E53E6E007E3D16 /* ChatVC+extension.swift */; };
 		ADDFB85E21E6C8E8003D5DF1 /* GuideLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDFB85D21E6C8E8003D5DF1 /* GuideLineCell.swift */; };
@@ -91,6 +94,7 @@
 		ADA5F29921EF2F4A002C0F85 /* KeyBoardAreaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBoardAreaController.swift; sourceTree = "<group>"; };
 		ADB8D83721F48D13001D88BD /* HeightCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightCalculator.swift; sourceTree = "<group>"; };
 		ADB8D83921F54886001D88BD /* MessageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageProcessor.swift; sourceTree = "<group>"; };
+		ADB8D83E21F88702001D88BD /* UserCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionView.swift; sourceTree = "<group>"; };
 		ADC672A521E2260700D6D3F5 /* kakakak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kakakak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADC672A821E2260700D6D3F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADC672AD21E2260700D6D3F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -119,6 +123,8 @@
 		ADC672EC21E3AE3900D6D3F5 /* BaseChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseChatCell.swift; sourceTree = "<group>"; };
 		ADC672EF21E3B0A000D6D3F5 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		ADC672F121E3CE6200D6D3F5 /* UserChattingBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChattingBaseCell.swift; sourceTree = "<group>"; };
+		ADCB809E21F8ADAE00BE25D8 /* UserLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLayout.swift; sourceTree = "<group>"; };
+		ADCB80A021F9530A00BE25D8 /* UserCollectionLayoutAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionLayoutAttributes.swift; sourceTree = "<group>"; };
 		ADDDF02521E4E69E007E3D16 /* GitHawkInputBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHawkInputBar.swift; sourceTree = "<group>"; };
 		ADDDF02A21E53E6E007E3D16 /* ChatVC+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatVC+extension.swift"; sourceTree = "<group>"; };
 		ADDFB85D21E6C8E8003D5DF1 /* GuideLineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideLineCell.swift; sourceTree = "<group>"; };
@@ -155,6 +161,9 @@
 				ADA5F29921EF2F4A002C0F85 /* KeyBoardAreaController.swift */,
 				AD27D18F21F1E16C009E367A /* KeyBoardView.swift */,
 				AD50748021F28D9C003B50F5 /* TimeInputView.swift */,
+				ADB8D83E21F88702001D88BD /* UserCollectionView.swift */,
+				ADCB809E21F8ADAE00BE25D8 /* UserLayout.swift */,
+				ADCB80A021F9530A00BE25D8 /* UserCollectionLayoutAttributes.swift */,
 			);
 			path = KeyBoard;
 			sourceTree = "<group>";
@@ -492,6 +501,7 @@
 				AD95E6C021F3F9C1000450AB /* VoiceCell.swift in Sources */,
 				ADC672BE21E24E2500D6D3F5 /* CharacterListVC.swift in Sources */,
 				ADC672D621E2C67F00D6D3F5 /* RoomListVC.swift in Sources */,
+				ADCB80A121F9530A00BE25D8 /* UserCollectionLayoutAttributes.swift in Sources */,
 				ADDFB86021E7037A003D5DF1 /* ChatVC+Alert.swift in Sources */,
 				ADC672CE21E29BC800D6D3F5 /* User.swift in Sources */,
 				ADA5F29A21EF2F4A002C0F85 /* KeyBoardAreaController.swift in Sources */,
@@ -506,12 +516,14 @@
 				AD27D16E21F185FA009E367A /* ChatEditVC.swift in Sources */,
 				ADC672D021E2A68B00D6D3F5 /* AddUserVC.swift in Sources */,
 				ADC672E121E3A52400D6D3F5 /* TextCell.swift in Sources */,
+				ADCB809F21F8ADAE00BE25D8 /* UserLayout.swift in Sources */,
 				ADC672D421E2C12F00D6D3F5 /* Date.swift in Sources */,
 				AD95E6C721F43393000450AB /* BackgroundCaptureImageCell.swift in Sources */,
 				ADC672DA21E2C8F800D6D3F5 /* Message.swift in Sources */,
 				AD50748821F30471003B50F5 /* ReplayController.swift in Sources */,
 				AD542CB821EC8D8A00656196 /* UserCell.swift in Sources */,
 				AD95E6C521F425B4000450AB /* BackgroundCell.swift in Sources */,
+				ADB8D83F21F88702001D88BD /* UserCollectionView.swift in Sources */,
 				ADC672ED21E3AE3900D6D3F5 /* BaseChatCell.swift in Sources */,
 				AD50748121F28D9C003B50F5 /* TimeInputView.swift in Sources */,
 				ADDFB85E21E6C8E8003D5DF1 /* GuideLineCell.swift in Sources */,

@@ -19,12 +19,15 @@ class MessageProcessor{
         
         let left = messages.count
         var right = left
+        
         while right <= room.messages.count && room.messages[right].type == .date{
             right += 1
         }
+        
         right = min(right, room.messages.count-1)
         messages.append(contentsOf: (left...right).map{ room.messages[$0] })
         reload()
+        
         tableView.reloadData()
         tableView.scrollToRow(at: IndexPath.row(row: messages.count - 1), at: .bottom, animated: false)
     }
@@ -114,26 +117,19 @@ class MessageProcessor{
         }
     }
     
-    func reload(){
-        
-        
-            
+    func reload(){     
         for idx in stride(from: messages.count - 1, through: 0, by: -1){
             if !checkUserMessage(message: messages[idx]){
                 continue
             }
-            if checkFirst(index: idx, message: messages[idx]){
-                messages[idx].isFirstMessage = true
-            }
+            messages[idx].isFirstMessage =  checkFirst(index: idx, message: messages[idx])
         }
         
         for idx in stride(from: 0, through: messages.count - 1, by: 1){
             if !checkUserMessage(message: messages[idx]){
                 continue
             }
-            if checkLast(index: idx, message: messages[idx]){
-                messages[idx].isLastMessage = true
-            }
+            messages[idx].isLastMessage =  checkLast(index: idx, message: messages[idx])
         }
         
     }

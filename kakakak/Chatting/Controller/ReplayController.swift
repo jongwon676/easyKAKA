@@ -8,6 +8,8 @@ class ReplayController: UIViewController {
     
     var room: Room!
     
+    
+    
     lazy var tableView: UITableView = {
        let tableView = ChatTableView()
         tableView.delegate = self
@@ -62,9 +64,18 @@ class ReplayController: UIViewController {
         super.viewDidLoad()
         tableView.bounces = false
         self.tableView.layer.removeAllAnimations()
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: #selector(backButtonClick)) 
+        
         messageManager = MessageProcessor(room: room)
         messageManager.clear()
+    
+}
+    
+    @objc func backButtonClick(){
+        self.navigationController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
+    
     @objc func addNextMessage(){
         messageManager.update(tableView: self.tableView)
     }
