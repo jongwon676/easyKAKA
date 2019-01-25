@@ -61,7 +61,6 @@
 		ADCB809F21F8ADAE00BE25D8 /* UserLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCB809E21F8ADAE00BE25D8 /* UserLayout.swift */; };
 		ADCB80A121F9530A00BE25D8 /* UserCollectionLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCB80A021F9530A00BE25D8 /* UserCollectionLayoutAttributes.swift */; };
 		ADDDF02B21E53E6E007E3D16 /* ChatVC+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDDF02A21E53E6E007E3D16 /* ChatVC+extension.swift */; };
-		ADDFB85E21E6C8E8003D5DF1 /* GuideLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDFB85D21E6C8E8003D5DF1 /* GuideLineCell.swift */; };
 		ADDFB86021E7037A003D5DF1 /* ChatVC+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDFB85F21E7037A003D5DF1 /* ChatVC+Alert.swift */; };
 /* End PBXBuildFile section */
 
@@ -123,7 +122,6 @@
 		ADCB809E21F8ADAE00BE25D8 /* UserLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLayout.swift; sourceTree = "<group>"; };
 		ADCB80A021F9530A00BE25D8 /* UserCollectionLayoutAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionLayoutAttributes.swift; sourceTree = "<group>"; };
 		ADDDF02A21E53E6E007E3D16 /* ChatVC+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatVC+extension.swift"; sourceTree = "<group>"; };
-		ADDFB85D21E6C8E8003D5DF1 /* GuideLineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideLineCell.swift; sourceTree = "<group>"; };
 		ADDFB85F21E7037A003D5DF1 /* ChatVC+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatVC+Alert.swift"; sourceTree = "<group>"; };
 		DD4718A9C835A6A90A2808AA /* Pods-kakakak.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kakakak.release.xcconfig"; path = "Pods/Target Support Files/Pods-kakakak/Pods-kakakak.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -320,7 +318,6 @@
 				ADC672E821E3A5A000D6D3F5 /* UserExitCell.swift */,
 				ADC672EC21E3AE3900D6D3F5 /* BaseChatCell.swift */,
 				ADC672F121E3CE6200D6D3F5 /* UserChattingBaseCell.swift */,
-				ADDFB85D21E6C8E8003D5DF1 /* GuideLineCell.swift */,
 				AD95E6BF21F3F9C1000450AB /* VoiceCell.swift */,
 			);
 			path = ChattingCell;
@@ -511,7 +508,6 @@
 				ADB8D83F21F88702001D88BD /* UserCollectionView.swift in Sources */,
 				ADC672ED21E3AE3900D6D3F5 /* BaseChatCell.swift in Sources */,
 				AD50748121F28D9C003B50F5 /* TimeInputView.swift in Sources */,
-				ADDFB85E21E6C8E8003D5DF1 /* GuideLineCell.swift in Sources */,
 				AD50748621F29EEA003B50F5 /* EditView.swift in Sources */,
 				ADC672E321E3A56B00D6D3F5 /* ChattingImageCell.swift in Sources */,
 				ADB8D83821F48D13001D88BD /* SizeCalculator.swift in Sources */,

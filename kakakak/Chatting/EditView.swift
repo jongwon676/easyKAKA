@@ -7,9 +7,7 @@ class EditView: UIView{
     var selectedChattingCount: Int = 0{
         didSet{
             editButton.isEnabled = (selectedChattingCount == 1)
-            cancelButton.isEnabled = (selectedChattingCount >= 1)
             deleteButton.isEnabled = (selectedChattingCount >= 1)
-            escButton.isEnabled = true
         }
     }
     @objc func buttonClicked(_ sender: UIButton){
@@ -33,7 +31,7 @@ class EditView: UIView{
     }()
     lazy var cancelButton: UIButton = {
         let button = UIButton()
-        button.setTitle("삭제", for: .normal)
+        button.setTitle("선택취소", for: .normal)
         button.tag = 1
         button.titleLabel?.textAlignment = .center
         button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
@@ -47,22 +45,22 @@ class EditView: UIView{
         button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
         return button
     }()
-    lazy var escButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("수정모드 종료", for: .normal)
-        button.tag = 3
-        button.titleLabel?.textAlignment = .center
-        button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
-        return button
-    }()
+//    lazy var escButton: UIButton = {
+//        let button = UIButton()
+//        button.setTitle("수정모드 종료", for: .normal)
+//        button.tag = 3
+//        button.titleLabel?.textAlignment = .center
+//        button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
+//        return button
+//    }()
     lazy var stackView: UIStackView = {
         let view = UIStackView()
         view.axis = .horizontal
         view.distribution = .fillEqually
         view.addArrangedSubview(editButton)
         view.addArrangedSubview(deleteButton)
-        view.addArrangedSubview(cancelButton)
-        view.addArrangedSubview(escButton)
+//        view.addArrangedSubview(cancelButton)
+//        view.addArrangedSubview(escButton)
         return view
     }()
        

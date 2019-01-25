@@ -4,6 +4,8 @@ import RealmSwift
 
 class ChatVC: UIViewController{
     var realm = try! Realm()
+    
+    
     private weak var timer: Timer?
     var room: Room!
     private var token: NotificationToken?
@@ -27,17 +29,17 @@ class ChatVC: UIViewController{
                 
                 self.tableView.allowsSelection = true
                 self.tableView.allowsMultipleSelection = true
-                
                 bottomController.view.isHidden = true
                 bottomController.keyboardHide()
                 selectedRows.removeAll()
                 editView.isHidden = false
                 tableView.reloadData()
                 tableView.removeGestureRecognizer(tableviewGestureRecog)
+                
             }else{
+                
                 self.tableView.allowsSelection = false
                 self.tableView.allowsMultipleSelection = false
-                
                 excuteCancel()
                 bottomController.view.isHidden = false
                 editView.isHidden = true
@@ -60,6 +62,7 @@ class ChatVC: UIViewController{
     }()
 
     let tableviewGestureRecog = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+    
     lazy var tableView:ChatTableView = {
         let table = ChatTableView()
         table.dataSource = self
@@ -79,9 +82,7 @@ class ChatVC: UIViewController{
                     selectedRows.insert(indexPath)
                 }
             }
-        }else{
-            bottomController.keyboardHide()
-        }
+        }else{ bottomController.keyboardHide() }
     }
     
     func floatingButton(){
@@ -175,8 +176,8 @@ class ChatVC: UIViewController{
         }
         floatingButton()
         RunLoop.current.add(self.timer!, forMode: RunLoop.Mode.common)
-        
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         timer?.invalidate()
