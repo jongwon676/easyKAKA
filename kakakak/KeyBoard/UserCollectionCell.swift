@@ -107,16 +107,18 @@ class UserCollectionCell: UICollectionViewCell {
         containerView.snp.makeConstraints { (mk) in
             mk.left.right.top.bottom.equalTo(self)
         }
+        
         imageView.contentMode = .scaleAspectFill
         nameLabel.text = user?.name
         nameLabel.font = UIFont.systemFont(ofSize: 11)
         nameLabel.textAlignment = .center
+        
     }
     
     
     override func layoutSubviews() {
+        
         super.layoutSubviews()
-//        print(self.imageView.bounds.size)
         innerShadowView.layer.cornerRadius = innerShadowView.frame.height / 2.0
         outerShadowView.layer.cornerRadius = innerShadowView.frame.height / 2.0
         imageView.layer.cornerRadius = imageView.frame.height / 2.0

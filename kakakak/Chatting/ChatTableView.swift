@@ -8,7 +8,6 @@ class ChatTableView: UITableView {
         self.allowsSelection = false
         self.tableFooterView = UIView()
         self.separatorStyle = .none
-        
         self.isUserInteractionEnabled = true
     }
     

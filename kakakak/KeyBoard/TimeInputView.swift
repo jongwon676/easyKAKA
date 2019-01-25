@@ -32,13 +32,11 @@ class TimeInputView: UIView{
     }
     
     override func layoutSubviews() {
-        
         decButton.frame = self.bounds.leftHalf
         incButton.frame = self.bounds.rightHalf
-        
     }
-    
 }
+
 extension CGRect{
     var leftHalf: CGRect{
         return CGRect(x: self.minX, y: self.minY, width: self.width / 2, height: self.height)

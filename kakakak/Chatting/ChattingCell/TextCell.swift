@@ -34,17 +34,22 @@ class TextCell: UserChattingBaseCell{
     func configure(message: Message){
         guard let owner = message.owner else { return }
         self.message = message
+        
+        
         containerView.addSubview(bubbleView)
         containerView.addSubview(messageLabel)
-        
         containerView.addSubview(stackView)
         containerView.addSubview(nameLabel)
         containerView.addSubview(profile)
         
-        let screenWidth = UIScreen.main.bounds.width
-        containerView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: 200)
         
-        let profileX: CGFloat = Style.profileToCornerGap
+        let screenWidth = UIScreen.main.bounds.width
+        let containerViewY = message.isFirstMessage ? Style.firstMessageGap  : Style.moreThanFirstMessageGap
+        
+        containerView.frame = CGRect(x: 0, y: containerViewY, width: screenWidth, height: 200)
+        
+        
+        let profileX: CGFloat = Style.profileToCornerGap + (editMode ? Style.editModeOffset : 0)
         let profileY: CGFloat = 0
         let profileWidth = Style.profileImageSize
         let profileHeight = Style.profileImageSize
@@ -60,14 +65,17 @@ class TextCell: UserChattingBaseCell{
         messageLabel.text = message.messageText
         messageLabel.frame.size = messageLabel.sizeThatFits(CGSize(width: Style.limitMessageWidth, height: .infinity))
         
-        bubbleView.backgroundColor = incomming ? #colorLiteral(red: 0.9996673465, green: 0.8927946687, blue: 0.005554047879, alpha: 1) : #colorLiteral(red: 0.9998916984, green: 1, blue: 0.9998809695, alpha: 1)
+        
+        bubbleView.backgroundColor = owner.isMe ? #colorLiteral(red: 0.9996673465, green: 0.8927946687, blue: 0.005554047879, alpha: 1) : #colorLiteral(red: 0.9998916984, green: 1, blue: 0.9998809695, alpha: 1)
+        
+        
         bubbleView.frame.size = messageLabel.frame.size
         bubbleView.frame.size.width += 2 * Style.messagePadding
         bubbleView.frame.size.height += 2 * Style.messagePadding
 //        stackView.frame.size = CGSize(width: 50, height: 20)
 //        stackView.sizeToFit()
         
-        if owner.isMe{
+        if !owner.isMe{
             bubbleView.frame.origin.x = nameLabelX
             let bubbleViewY = message.isFirstMessage ? nameLabel.frame.maxY + Style.nameLabelBubbleGap : 0
             bubbleView.frame.origin.y = bubbleViewY
@@ -92,8 +100,10 @@ class TextCell: UserChattingBaseCell{
         
         containerView.frame.size.height = bubbleView.frame.maxY
         messageLabel.center = bubbleView.center
+        
         containerView.snp.remakeConstraints { (mk) in
-            mk.left.right.top.bottom.equalTo(self)
+            mk.left.right.bottom.equalTo(self)
+            mk.top.equalTo(self).offset(containerViewY)
             mk.height.equalTo(bubbleView.frame.maxY)
         }
     }
@@ -121,5 +131,8 @@ extension TextCell{
         
         return height
         
+    }
+    override func layoutSubviews() {
+        print(profile.frame)
     }
 }

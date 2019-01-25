@@ -104,14 +104,10 @@ extension ReplayController: UITableViewDelegate,UITableViewDataSource{
         switch msg.type {
         case .text:
             let cell = tableView.dequeueReusableCell(withIdentifier: TextCell.reuseId) as! TextCell
-            let users = (msg.owner)!
-            cell.incomming = !users.isMe
             cell.configure(message: msg)
             return cell
         case .image:
             let cell = tableView.dequeueReusableCell(withIdentifier: ChattingImageCell.reuseId) as! ChattingImageCell
-            let users = (msg.owner)!
-            cell.incomming = !users.isMe
             cell.configure(msg)
             
             return cell

@@ -60,7 +60,6 @@
 		ADC672F221E3CE6200D6D3F5 /* UserChattingBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672F121E3CE6200D6D3F5 /* UserChattingBaseCell.swift */; };
 		ADCB809F21F8ADAE00BE25D8 /* UserLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCB809E21F8ADAE00BE25D8 /* UserLayout.swift */; };
 		ADCB80A121F9530A00BE25D8 /* UserCollectionLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCB80A021F9530A00BE25D8 /* UserCollectionLayoutAttributes.swift */; };
-		ADDDF02621E4E69E007E3D16 /* GitHawkInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDDF02521E4E69E007E3D16 /* GitHawkInputBar.swift */; };
 		ADDDF02B21E53E6E007E3D16 /* ChatVC+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDDF02A21E53E6E007E3D16 /* ChatVC+extension.swift */; };
 		ADDFB85E21E6C8E8003D5DF1 /* GuideLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDFB85D21E6C8E8003D5DF1 /* GuideLineCell.swift */; };
 		ADDFB86021E7037A003D5DF1 /* ChatVC+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDFB85F21E7037A003D5DF1 /* ChatVC+Alert.swift */; };
@@ -123,7 +122,6 @@
 		ADC672F121E3CE6200D6D3F5 /* UserChattingBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChattingBaseCell.swift; sourceTree = "<group>"; };
 		ADCB809E21F8ADAE00BE25D8 /* UserLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLayout.swift; sourceTree = "<group>"; };
 		ADCB80A021F9530A00BE25D8 /* UserCollectionLayoutAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionLayoutAttributes.swift; sourceTree = "<group>"; };
-		ADDDF02521E4E69E007E3D16 /* GitHawkInputBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHawkInputBar.swift; sourceTree = "<group>"; };
 		ADDDF02A21E53E6E007E3D16 /* ChatVC+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatVC+extension.swift"; sourceTree = "<group>"; };
 		ADDFB85D21E6C8E8003D5DF1 /* GuideLineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideLineCell.swift; sourceTree = "<group>"; };
 		ADDFB85F21E7037A003D5DF1 /* ChatVC+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatVC+Alert.swift"; sourceTree = "<group>"; };
@@ -273,7 +271,6 @@
 			isa = PBXGroup;
 			children = (
 				ADDDF02721E4E6C5007E3D16 /* Cell */,
-				ADDDF02421E4E695007E3D16 /* InputBar */,
 				ADC672C121E24F1F00D6D3F5 /* CharacterCell.swift */,
 				ADC672DB21E391B500D6D3F5 /* RoomCell.swift */,
 			);
@@ -335,14 +332,6 @@
 				ADC672EF21E3B0A000D6D3F5 /* Style.swift */,
 			);
 			path = StyleGuide;
-			sourceTree = "<group>";
-		};
-		ADDDF02421E4E695007E3D16 /* InputBar */ = {
-			isa = PBXGroup;
-			children = (
-				ADDDF02521E4E69E007E3D16 /* GitHawkInputBar.swift */,
-			);
-			path = InputBar;
 			sourceTree = "<group>";
 		};
 		ADDDF02721E4E6C5007E3D16 /* Cell */ = {
@@ -490,7 +479,6 @@
 				ADC672C221E24F1F00D6D3F5 /* CharacterCell.swift in Sources */,
 				ADC672DC21E391B500D6D3F5 /* RoomCell.swift in Sources */,
 				ADDDF02B21E53E6E007E3D16 /* ChatVC+extension.swift in Sources */,
-				ADDDF02621E4E69E007E3D16 /* GitHawkInputBar.swift in Sources */,
 				AD95E6C921F43E65000450AB /* UIColor.swift in Sources */,
 				ADB8D83A21F54886001D88BD /* MessageProcessor.swift in Sources */,
 				ADC672D221E2B91300D6D3F5 /* UIImage+Extension.swift in Sources */,

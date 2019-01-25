@@ -94,8 +94,7 @@ class KeyBoardAreaController: UIViewController{
 //        tempView.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
         
         tempView.decButton.addTarget(self, action: #selector(handleTime(_:)), for: .touchUpInside)
-        tempView.incButton.addTarget(self, action: #selector(handleTime(_:)), for: .touchUpInside)
-        
+        tempView.incButton.addTarget(self, action: #selector(handleTime(_:)), for: .touchUpInside)        
         let plist = UserDefaults.standard
         let keyboardHeight = plist.double(forKey: "keyboardHeight")
         if keyboardHeight >= 180{
@@ -103,7 +102,6 @@ class KeyBoardAreaController: UIViewController{
         }else{
             tempView.autoresizingMask = .flexibleHeight
         }
-        
         return tempView
     }()
     

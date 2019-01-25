@@ -15,17 +15,19 @@ class UserChattingBaseCell: BaseChatCell{
             timeLabel.sizeToFit()
             
             if let owner = message.owner{
-                nameLabel.isHidden = (!owner.isMe || !message.isFirstMessage)
+                nameLabel.isHidden = (owner.isMe || !message.isFirstMessage)
+                profile.isHidden = nameLabel.isHidden
+                if let profileImageUrl = owner.profileImageUrl{
+                    profile.image = UIImage.loadImageFromName(profileImageUrl)
+                }
             }
-            
-            stackView.alignment = incomming ? .leading : .trailing
+//            stackView.alignment = incomming ? .leading : .trailing
             stackView.subviews.forEach{ $0.removeFromSuperview() }
             if message.noReadUser.count > 0 { stackView.addArrangedSubview(readLabel) }
             if message.isLastMessage { stackView.addArrangedSubview(timeLabel) }
             
             
-            profile.isHidden = (message.owner!.isMe) || (!message.isFirstMessage)
-            profile.image = UIImage.loadImageFromName(message.messageImageUrl)
+            
             
         }
     }
@@ -67,7 +69,7 @@ class UserChattingBaseCell: BaseChatCell{
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = UIColor.clear
-        self.addSubview(containerView)
+        
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

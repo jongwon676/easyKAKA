@@ -24,18 +24,26 @@ class ChatVC: UIViewController{
     var isEditMode: Bool = false{
         didSet{
             if isEditMode == true{
+                
                 self.tableView.allowsSelection = true
                 self.tableView.allowsMultipleSelection = true
+                
                 bottomController.view.isHidden = true
                 bottomController.keyboardHide()
                 selectedRows.removeAll()
                 editView.isHidden = false
+                tableView.reloadData()
+                tableView.removeGestureRecognizer(tableviewGestureRecog)
             }else{
                 self.tableView.allowsSelection = false
                 self.tableView.allowsMultipleSelection = false
+                
                 excuteCancel()
                 bottomController.view.isHidden = false
                 editView.isHidden = true
+                tableView.reloadData()
+                tableView.addGestureRecognizer(tableviewGestureRecog)
+                
             }
         }
     }
@@ -51,12 +59,12 @@ class ChatVC: UIViewController{
         return controller
     }()
 
-    
+    let tableviewGestureRecog = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
     lazy var tableView:ChatTableView = {
         let table = ChatTableView()
         table.dataSource = self
         table.delegate = self
-        table.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
+        table.addGestureRecognizer(tableviewGestureRecog)
         return table
     }()
 
@@ -75,6 +83,7 @@ class ChatVC: UIViewController{
             bottomController.keyboardHide()
         }
     }
+    
     func floatingButton(){
         btn.setImage(UIImage(named: "editButton"), for: .normal)
         btn.addTarget(self,action: #selector(editButtonTap), for: .touchUpInside)
@@ -82,6 +91,7 @@ class ChatVC: UIViewController{
             window.addSubview(btn)
         }
     }
+    
     @objc func editButtonTap(){ isEditMode = !isEditMode }
 
     override func viewDidLoad() {
@@ -92,7 +102,7 @@ class ChatVC: UIViewController{
         
         self.view.addSubview(tableView)
         self.view.addSubview(bottomController.view)
-        self.makeDummyCells()
+//        self.makeDummyCells()
         messageManager = MessageProcessor(room: room)
         messageManager.reload()
         tableView.snp.makeConstraints { (mk) in
@@ -193,36 +203,57 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
         switch msg.type {
         case .text:
             let cell = tableView.dequeueReusableCell(withIdentifier: TextCell.reuseId) as! TextCell
-            let users = (msg.owner)!
-            cell.incomming = !users.isMe
+            cell.selectionStyle = .none
+            cell.editMode = self.isEditMode
             cell.configure(message: msg)
+            
             return cell
         case .image:
             let cell = tableView.dequeueReusableCell(withIdentifier: ChattingImageCell.reuseId) as! ChattingImageCell
-            let users = (msg.owner)!
-            cell.incomming = !users.isMe
+            cell.selectionStyle = .none
+            cell.editMode = self.isEditMode
             cell.configure(msg)
             
             return cell
         case .date:
             let cell = tableView.dequeueReusableCell(withIdentifier: DateCell.reuseId) as! DateCell
+            cell.selectionStyle = .none
+            cell.editMode = self.isEditMode
             cell.configure(message: msg)
+            
             return cell
         case .enter:
             let cell = tableView.dequeueReusableCell(withIdentifier: UserEnterCell.reuseId) as! UserEnterCell
+            cell.selectionStyle = .none
+            cell.editMode = self.isEditMode
             cell.configure(message: msg)
+            
             return cell
         case .exit:
             let cell = tableView.dequeueReusableCell(withIdentifier: UserExitCell.reuseId) as! UserExitCell
+            cell.selectionStyle = .none
+            cell.editMode = self.isEditMode
             cell.configure(message: msg)
+            
             return cell
         case .voice:
             let cell = tableView.dequeueReusableCell(withIdentifier: VoiceCell.reuseId) as! VoiceCell
+            cell.selectionStyle = .none
+            cell.editMode = self.isEditMode
             cell.configure(message: msg)
+            
             return cell
         default:
             return UITableViewCell()
         }
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        
     }
 }
 

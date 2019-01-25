@@ -32,8 +32,8 @@ class ChattingImageCell: UserChattingBaseCell{
 //        }
         
         messageImage.snp.remakeConstraints { (mk) in
-            if incomming { mk.left.equalTo(self).offset(Style.leftMessageToCornerGap)}
-            else {mk.right.equalTo(self).inset(Style.rightMessageToCornerGap)}
+//            if incomming { mk.left.equalTo(self).offset(Style.leftMessageToCornerGap)}
+//            else {mk.right.equalTo(self).inset(Style.rightMessageToCornerGap)}
             mk.size.equalTo(imgViewSize())
             mk.top.equalTo(self).offset(message.isFirstMessage ? Style.firstMessageGap + 4 : 4)
 //            mk.top.equalTo(topView.snp.bottom)
@@ -41,8 +41,8 @@ class ChattingImageCell: UserChattingBaseCell{
         }
         
         stackView.snp.remakeConstraints { (mk) in
-            if incomming { mk.left.equalTo(messageImage.snp.right).offset(7) }
-            else { mk.right.equalTo(messageImage.snp.left).offset(-7) }
+//            if incomming { mk.left.equalTo(messageImage.snp.right).offset(7) }
+//            else { mk.right.equalTo(messageImage.snp.left).offset(-7) }
             mk.bottom.equalTo(messageImage).inset(7)
         }
     }
