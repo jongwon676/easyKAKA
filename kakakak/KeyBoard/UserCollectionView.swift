@@ -8,18 +8,15 @@ class UserCollectionView: UICollectionView{
         let halfCircle: CGFloat = 30
         var points = [CGPoint]()
         
-        
-        for x in stride(from: -horRadius  , to: horRadius , by: 1){
+        for x in stride(from: -horRadius  , to: horRadius
+            , by: 1){
             let yZegob = (1.0 - (x * x / (horRadius * horRadius) )) * verRadius * verRadius
             let y = sqrt(yZegob)
             let translateX = x + bounds.width / 2
             let translateY = verRadius + halfCircle + offset - y
-            
             points.append(CGPoint(x: translateX, y: translateY))
         }
-
         let path = UIBezierPath()
-
         for idx in 0 ..< points.count{
             if idx == 0{
                 path.move(to: points[idx])
@@ -30,11 +27,10 @@ class UserCollectionView: UICollectionView{
         path.lineWidth = 0.5
         UIColor.gray.setStroke()
         path.stroke()
-
     }
-    
 }
 extension CGRect{
+    
     var midPoint: CGPoint{
         let midX = self.midX
         let midY = self.midY
@@ -42,9 +38,7 @@ extension CGRect{
     }
     
     static func centeredRect(mid: CGPoint, width: CGFloat, height: CGFloat) -> CGRect{
-        
         return CGRect(x: mid.x - width / 2, y: mid.y - height / 2, width: width, height: height)
-    
     }
 }
 

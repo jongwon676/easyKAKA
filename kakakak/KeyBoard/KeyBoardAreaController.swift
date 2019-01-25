@@ -94,7 +94,7 @@ class KeyBoardAreaController: UIViewController{
 //        tempView.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
         
         tempView.decButton.addTarget(self, action: #selector(handleTime(_:)), for: .touchUpInside)
-        tempView.incButton.addTarget(self, action: #selector(handleTime(_:)), for: .touchUpInside)        
+        tempView.incButton.addTarget(self, action: #selector(handleTime(_:)), for: .touchUpInside)
         let plist = UserDefaults.standard
         let keyboardHeight = plist.double(forKey: "keyboardHeight")
         if keyboardHeight >= 180{
@@ -145,7 +145,7 @@ class KeyBoardAreaController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         let layout = UserLayout()
-        layout.itemSize = CGSize(width: 90, height: 90)
+        layout.itemSize = CGSize(width: 120, height: 120)
         
         userCollectionView.collectionViewLayout = layout
         userCollectionView.dataSource = self

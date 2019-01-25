@@ -72,8 +72,7 @@ class TextCell: UserChattingBaseCell{
         bubbleView.frame.size = messageLabel.frame.size
         bubbleView.frame.size.width += 2 * Style.messagePadding
         bubbleView.frame.size.height += 2 * Style.messagePadding
-//        stackView.frame.size = CGSize(width: 50, height: 20)
-//        stackView.sizeToFit()
+        
         
         if !owner.isMe{
             bubbleView.frame.origin.x = nameLabelX

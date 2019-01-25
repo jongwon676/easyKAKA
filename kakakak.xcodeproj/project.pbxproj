@@ -11,7 +11,6 @@
 		AD0AA03221EA00D000B45EF5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD0AA03121EA00D000B45EF5 /* GoogleService-Info.plist */; };
 		AD27D16721F07066009E367A /* UserCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD27D16621F07066009E367A /* UserCollectionCell.swift */; };
 		AD27D16921F14B9D009E367A /* icon in Resources */ = {isa = PBXBuildFile; fileRef = AD27D16821F14B9D009E367A /* icon */; };
-		AD27D16E21F185FA009E367A /* ChatEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD27D16D21F185FA009E367A /* ChatEditVC.swift */; };
 		AD27D18E21F1D422009E367A /* ChatTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD27D18D21F1D422009E367A /* ChatTableView.swift */; };
 		AD27D19021F1E16C009E367A /* KeyBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD27D18F21F1E16C009E367A /* KeyBoardView.swift */; };
 		AD50748121F28D9C003B50F5 /* TimeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD50748021F28D9C003B50F5 /* TimeInputView.swift */; };
@@ -70,7 +69,6 @@
 		AD0AA03121EA00D000B45EF5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AD27D16621F07066009E367A /* UserCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionCell.swift; sourceTree = "<group>"; };
 		AD27D16821F14B9D009E367A /* icon */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icon; sourceTree = "<group>"; };
-		AD27D16D21F185FA009E367A /* ChatEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatEditVC.swift; sourceTree = "<group>"; };
 		AD27D18D21F1D422009E367A /* ChatTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableView.swift; sourceTree = "<group>"; };
 		AD27D18F21F1E16C009E367A /* KeyBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBoardView.swift; sourceTree = "<group>"; };
 		AD50748021F28D9C003B50F5 /* TimeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInputView.swift; sourceTree = "<group>"; };
@@ -180,6 +178,32 @@
 			path = UserList;
 			sourceTree = "<group>";
 		};
+		AD2B397821FB5C2800BE6869 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AD95E6C621F43393000450AB /* BackgroundCaptureImageCell.swift */,
+				AD27D18D21F1D422009E367A /* ChatTableView.swift */,
+				AD50748521F29EEA003B50F5 /* EditView.swift */,
+				AD95E6C421F425B4000450AB /* BackgroundCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AD2B397921FB5C6A00BE6869 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				ADB8D83921F54886001D88BD /* MessageProcessor.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		AD2B397D21FB6BAA00BE6869 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		AD50748221F296BD003B50F5 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,14 +277,11 @@
 		ADC672BF21E24E2A00D6D3F5 /* Chatting */ = {
 			isa = PBXGroup;
 			children = (
+				AD2B397D21FB6BAA00BE6869 /* Helper */,
+				AD2B397921FB5C6A00BE6869 /* DataManager */,
+				AD2B397821FB5C2800BE6869 /* View */,
 				AD95E6C121F422E3000450AB /* Controller */,
 				ADC672DF21E3A51700D6D3F5 /* ChattingCell */,
-				AD27D16D21F185FA009E367A /* ChatEditVC.swift */,
-				AD95E6C621F43393000450AB /* BackgroundCaptureImageCell.swift */,
-				AD27D18D21F1D422009E367A /* ChatTableView.swift */,
-				AD50748521F29EEA003B50F5 /* EditView.swift */,
-				AD95E6C421F425B4000450AB /* BackgroundCell.swift */,
-				ADB8D83921F54886001D88BD /* MessageProcessor.swift */,
 			);
 			path = Chatting;
 			sourceTree = "<group>";
@@ -495,7 +516,6 @@
 				ADC672C921E28F6500D6D3F5 /* Path.swift in Sources */,
 				AD95E6C321F422FD000450AB /* BackgroundSelectController.swift in Sources */,
 				ADC672DE21E39FCB00D6D3F5 /* ChatVC.swift in Sources */,
-				AD27D16E21F185FA009E367A /* ChatEditVC.swift in Sources */,
 				ADC672D021E2A68B00D6D3F5 /* AddUserVC.swift in Sources */,
 				ADC672E121E3A52400D6D3F5 /* TextCell.swift in Sources */,
 				ADCB809F21F8ADAE00BE25D8 /* UserLayout.swift in Sources */,

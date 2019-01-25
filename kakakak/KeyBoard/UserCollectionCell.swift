@@ -11,14 +11,16 @@ class UserCollectionCell: UICollectionViewCell {
     }()
     lazy var innerShadowView:UIView = {
        let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 0.8980090533, green: 0.8980090533, blue: 0.8980090533, alpha: 1)
+        view.backgroundColor = UIColor.black
+        view.alpha = 0.05
         view.layer.masksToBounds = true
         return view
     }()
     
     lazy var outerShadowView:UIView = {
         let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 0.7781470798, green: 0.7781470798, blue: 0.7781470798, alpha: 1)
+        view.backgroundColor = UIColor.black
+        view.alpha = 0.05
         view.layer.masksToBounds = true
         return view
     }()
@@ -26,10 +28,12 @@ class UserCollectionCell: UICollectionViewCell {
         let view = UIView()
         view.backgroundColor = UIColor.white
         
-        view.layer.borderWidth = 0.5
+//        view.layer.borderWidth = 0.5
         view.layer.cornerRadius = 8
-        view.layer.borderWidth = 0.5
-        view.layer.borderColor  = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.15
+        
         view.layer.masksToBounds = true
         return view
     }()
@@ -144,8 +148,9 @@ class UserCollectionCell: UICollectionViewCell {
         let percent: CGFloat = (1.0 - attributes.distToCenterRatio)
         nameBackgroudView.alpha = percent
         nameViewBottomConstraint?.update(offset: -1.0 * percent * 10)
-        innerShadowView.alpha = percent
-        outerShadowView.alpha = percent
+        innerShadowView.alpha = percent * 0.05
+        outerShadowView.alpha = percent * 0.05
+        
     }
 }
 

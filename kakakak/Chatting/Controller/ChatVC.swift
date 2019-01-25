@@ -4,8 +4,6 @@ import RealmSwift
 
 class ChatVC: UIViewController{
     var realm = try! Realm()
-    
-    
     private weak var timer: Timer?
     var room: Room!
     private var token: NotificationToken?
@@ -13,7 +11,11 @@ class ChatVC: UIViewController{
     var keyBoardFrame: CGRect? = nil
     let datePicker = UIDatePicker()
     var btn = UIButton(type: .custom)
-    var selectedRows = Set<IndexPath>()
+    
+    
+    
+    
+    
     
     lazy var editView:EditView = {
         let eview = EditView()
@@ -23,29 +25,91 @@ class ChatVC: UIViewController{
         return eview
     }()
     
+    lazy var hamburgerButton = UIBarButtonItem(image: #imageLiteral(resourceName: "hamburger"), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(handleHamburger))
+    lazy var backButton = UIBarButtonItem(image: UIImage(named: "back"), style: .plain, target: self, action: #selector(handleBack))
+    lazy var searchButton:UIBarButtonItem = {
+       let btn = UIButton()
+        btn.setImage(UIImage(named: "search"), for: .normal)
+        btn.snp.makeConstraints({ (mk) in
+            mk.width.height.equalTo(25)
+        })
+        return UIBarButtonItem(customView: btn)
+    }()
+    
+    lazy var allSelectButton: UIBarButtonItem = {
+        let btn = UIBarButtonItem(title: "전체 선택", style: .plain, target: self, action: #selector(allSelect))
+        btn.tintColor = UIColor.black
+        return btn
+    }()
+    lazy var allDeselectButton: UIBarButtonItem = {
+        let btn = UIBarButtonItem(title: "선택 해제", style: .plain, target: self, action: #selector(allDeselct))
+        btn.tintColor = UIColor.black
+        btn.title = "전체 해제"
+        return btn
+    }()
+    
+    func updateVisibleCells(selected: Bool){
+        guard let visibleRows = tableView.indexPathsForVisibleRows else {
+            return
+        }
+
+        tableView.reloadRows(at: visibleRows, with: .none)
+    }
+    
+    @objc func allSelect(){
+        for idx in 0 ..< tableView.numberOfRows(inSection: 0){
+            tableView.selectRow(at: IndexPath.row(row: idx), animated: false, scrollPosition: .none)
+        }
+//        updateVisibleCells()
+        
+    }
+    @objc func allDeselct(){
+        for idx in 0 ..< tableView.numberOfRows(inSection: 0){
+            tableView.deselectRow(at: IndexPath.row(row: idx), animated: false)
+        }
+//        updateVisibleCells()
+    }
+    
+    
+    func setEditMode(){
+        
+        
+        self.tableView.allowsSelection = true
+        self.tableView.allowsMultipleSelection = true
+        bottomController.view.isHidden = true
+        bottomController.keyboardHide()
+        editView.isHidden = false
+        tableView.reloadData()
+        tableView.removeGestureRecognizer(tableviewGestureRecog)
+        navigationController?.navigationBar.barTintColor = UIColor.white
+        
+        navigationItem.title = "항목 선택"
+        navigationItem.rightBarButtonItem = allSelectButton
+    }
+    
+    func setNoEditMode(){
+        self.tableView.allowsSelection = false
+        self.tableView.allowsMultipleSelection = false
+        excuteCancel()
+        bottomController.view.isHidden = false
+        editView.isHidden = true
+        tableView.reloadData()
+        tableView.addGestureRecognizer(tableviewGestureRecog)
+        navigationController?.navigationBar.barTintColor = tableView.backgroundColor
+        self.navigationItem.rightBarButtonItems = [
+            hamburgerButton, searchButton
+        ]
+        self.navigationItem.leftBarButtonItem = backButton
+        self.navigationController?.navigationBar.tintColor = UIColor.black
+    }
+    
     var isEditMode: Bool = false{
         didSet{
-            if isEditMode == true{
-                
-                self.tableView.allowsSelection = true
-                self.tableView.allowsMultipleSelection = true
-                bottomController.view.isHidden = true
-                bottomController.keyboardHide()
-                selectedRows.removeAll()
-                editView.isHidden = false
-                tableView.reloadData()
-                tableView.removeGestureRecognizer(tableviewGestureRecog)
-                
+            if isEditMode == false{
+                allDeselct()
+                setNoEditMode()
             }else{
-                
-                self.tableView.allowsSelection = false
-                self.tableView.allowsMultipleSelection = false
-                excuteCancel()
-                bottomController.view.isHidden = false
-                editView.isHidden = true
-                tableView.reloadData()
-                tableView.addGestureRecognizer(tableviewGestureRecog)
-                
+                setEditMode()
             }
         }
     }
@@ -70,19 +134,16 @@ class ChatVC: UIViewController{
         table.addGestureRecognizer(tableviewGestureRecog)
         return table
     }()
+    @objc func handleBack(){
+        self.navigationController?.popViewController(animated: true)
+    }
 
     @objc func handleTap(_ sender: UITapGestureRecognizer){
-        if isEditMode{
-            if sender.state == .ended , let indexPath = tableView.indexPathForRow(at: sender.location(in: tableView)){
-                if selectedRows.contains(indexPath){
-                    tableView.deselectRow(at: indexPath, animated: false)
-                    selectedRows.remove(indexPath)
-                }else{
-                    tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
-                    selectedRows.insert(indexPath)
-                }
-            }
-        }else{ bottomController.keyboardHide() }
+
+        guard !isEditMode else {
+            return
+        }
+         bottomController.keyboardHide() 
     }
     
     func floatingButton(){
@@ -116,8 +177,12 @@ class ChatVC: UIViewController{
             mk.left.right.bottom.equalTo(self.view)
             mk.height.equalTo(40)
         }
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "hamburger"), style: .plain, target: self, action: #selector(handleHamburger))
+        
+        
         self.navigationItem.title = Date.timeToStringSecondVersion(date: self.room.currentDate)
+        
+        
+        
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(adjustInsetForKeyboard(_:)),
@@ -207,15 +272,16 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
             cell.selectionStyle = .none
             cell.editMode = self.isEditMode
             cell.configure(message: msg)
-            
+            print("\(indexPath)" + " \(cell.isSelected)")
             return cell
+            
         case .image:
             let cell = tableView.dequeueReusableCell(withIdentifier: ChattingImageCell.reuseId) as! ChattingImageCell
             cell.selectionStyle = .none
             cell.editMode = self.isEditMode
             cell.configure(msg)
-            
             return cell
+            
         case .date:
             let cell = tableView.dequeueReusableCell(withIdentifier: DateCell.reuseId) as! DateCell
             cell.selectionStyle = .none
@@ -251,9 +317,15 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if let cell = tableView.cellForRow(at: indexPath) as? BaseChatCell{
+            cell.checkBoxImage.image = UIImage(named: "selected")
+        }
     }
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? BaseChatCell{
+            cell.checkBoxImage.image = UIImage(named: "unSelected")
+        }
+        
         
     }
 }

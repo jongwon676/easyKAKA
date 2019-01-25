@@ -14,7 +14,7 @@ class UserLayout: UICollectionViewFlowLayout{
         minimumLineSpacing = 0
         
         minimumInteritemSpacing = 0
-        self.itemSize = CGSize(width: 75, height: 75)
+        self.itemSize = CGSize(width: 90, height: 90)
         collectionView?.contentInset = UIEdgeInsets(top: 0, left: collectionView!.frame.width / 2, bottom: 0, right: collectionView!.frame.width / 2)
     }
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
