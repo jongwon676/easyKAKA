@@ -16,7 +16,7 @@ class ChatVC: UIViewController{
     var messageManager: MessageProcessor!
     var keyBoardFrame: CGRect? = nil
     let datePicker = UIDatePicker()
-    var btn = UIButton(type: .custom)
+    var editButton = UIButton(type: .custom)
     let selectedImage = UIImage(named: "selected")
     let unSelectedImage = UIImage(named: "unSelected")
     
@@ -24,12 +24,22 @@ class ChatVC: UIViewController{
         let eview = EditView()
         eview.delegate = self
         self.view.addSubview(eview)
-        eview.backgroundColor = UIColor.black
+        eview.backgroundColor = UIColor.white
         return eview
     }()
     
     lazy var hamburgerButton = UIBarButtonItem(image: #imageLiteral(resourceName: "hamburger"), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(handleHamburger))
     lazy var backButton = UIBarButtonItem(image: UIImage(named: "back"), style: .plain, target: self, action: #selector(handleBack))
+    lazy var closeButton:UIBarButtonItem = {
+        let btn = UIButton(type: .custom)
+        btn.setImage(UIImage(named: "close"), for: .normal)
+        btn.addTarget(self, action: #selector(handleClose), for: .touchUpInside)
+        btn.snp.makeConstraints({ (mk) in
+            mk.width.height.equalTo(25)
+        })
+        return UIBarButtonItem(customView: btn)
+    }()
+
     lazy var searchButton:UIBarButtonItem = {
        let btn = UIButton()
         btn.setImage(UIImage(named: "search"), for: .normal)
@@ -63,37 +73,20 @@ class ChatVC: UIViewController{
         var cnt = 0
         for message in messageManager.messages{
             if message.isSelected{
-                cnt = 1
-                break
+                cnt += 1
             }
         }
+        editView.selectedChattingCount = cnt
         self.navigationItem.rightBarButtonItem = (cnt > 0) ? allDeselectButton : allSelectButton
         
     }
     
-    @objc func allSelect(){
-        for message in messageManager.messages{
-            message.isSelected = true
-        }
-        tableView.visibleCells.forEach{
-            ($0 as? BaseChatCell)?.checkBoxImage.image = selectedImage
-        }
-        refreshEdit()
-    }
-    @objc func allDeselct(){
-        for message in messageManager.messages{
-            message.isSelected = false
-        }
-        tableView.visibleCells.forEach{
-            ($0 as? BaseChatCell)?.checkBoxImage.image = unSelectedImage
-        }
-        refreshEdit()
-    }
+    
     
     
     func setEditMode(){
         
-        
+        timer?.invalidate()
         self.tableView.allowsSelection = true
         self.tableView.allowsMultipleSelection = true
         bottomController.view.isHidden = true
@@ -104,9 +97,39 @@ class ChatVC: UIViewController{
         tableView.addGestureRecognizer(tableViewEditGestureRecog)
         
         navigationController?.navigationBar.barTintColor = UIColor.white
-        
+        navigationItem.leftBarButtonItem = closeButton
         navigationItem.title = "항목 선택"
-        navigationItem.rightBarButtonItem = allSelectButton
+        navigationItem.rightBarButtonItems = [allSelectButton]
+        
+        
+        
+    }
+    func setNavTitle(){
+        let label = UILabel()
+        var attributedString = NSMutableAttributedString()
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.alignment = .center
+        
+        attributedString.append(NSAttributedString(string: "그룹채팅",attributes: [
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18)
+            ,.paragraphStyle:paragraph])
+        )
+        
+        
+        attributedString.append(NSAttributedString(string: "5\n", attributes: [
+            NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0.3319326043, green: 0.3760439456, blue: 0.4094469249, alpha: 1)
+            , .font: UIFont.systemFont(ofSize: 18)
+            ,.paragraphStyle:paragraph]
+            )
+        )
+        
+        attributedString.append(NSAttributedString(string: Date.getNavTitle(date: self.room.currentDate), attributes:
+            [NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0.4180841446, green: 0.4661870003, blue: 0.5037575364, alpha: 1),.font: UIFont.systemFont(ofSize: 14),.paragraphStyle:paragraph])
+        )
+        
+        label.attributedText = attributedString
+        label.numberOfLines = 2
+        self.navigationItem.titleView = label
     }
     
     func setNoEditMode(){
@@ -118,21 +141,24 @@ class ChatVC: UIViewController{
         tableView.reloadData()
         tableView.addGestureRecognizer(tableviewGestureRecog)
         tableView.removeGestureRecognizer(tableViewEditGestureRecog)
-        
         navigationController?.navigationBar.barTintColor = tableView.backgroundColor
         self.navigationItem.rightBarButtonItems = [
             hamburgerButton, searchButton
         ]
         self.navigationItem.leftBarButtonItem = backButton
         self.navigationController?.navigationBar.tintColor = UIColor.black
+        
+        setTimer()
     }
     
     var isEditMode: Bool = false{
         didSet{
             if isEditMode == false{
+                editButton.isHidden = false
                 allDeselct()
                 setNoEditMode()
             }else{
+                editButton.isHidden = true
                 setEditMode()
             }
         }
@@ -152,16 +178,6 @@ class ChatVC: UIViewController{
     lazy var tableviewGestureRecog = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
     lazy var tableViewEditGestureRecog = UITapGestureRecognizer(target: self, action: #selector(handleTapEdit(_:)))
     
-    @objc func handleTapEdit(_ gesture: UITapGestureRecognizer){
-        let position = gesture.location(in: tableView)
-        if let indexPath = tableView.indexPathForRow(at: position){
-            let newSelected = !messageManager.messages[indexPath.row].isSelected
-            messageManager.messages[indexPath.row].isSelected = newSelected
-            (tableView.cellForRow(at: indexPath) as? BaseChatCell)?.checkBoxImage.image =
-                newSelected ? selectedImage : unSelectedImage
-        }
-        
-    }
     
     lazy var tableView:ChatTableView = {
         let table = ChatTableView()
@@ -170,37 +186,27 @@ class ChatVC: UIViewController{
         table.addGestureRecognizer(tableviewGestureRecog)
         return table
     }()
-    @objc func handleBack(){
-        self.navigationController?.popViewController(animated: true)
-    }
-
-    @objc func handleTap(_ sender: UITapGestureRecognizer){
-
-        guard !isEditMode else {
-            return
-        }
-         bottomController.keyboardHide() 
-    }
     
     func floatingButton(){
-        btn.setImage(UIImage(named: "editButton"), for: .normal)
-        btn.addTarget(self,action: #selector(editButtonTap), for: .touchUpInside)
+        editButton.setImage(UIImage(named: "editButton"), for: .normal)
+        editButton.addTarget(self,action: #selector(editButtonTap), for: .touchUpInside)
         if let window = UIApplication.shared.keyWindow {
-            window.addSubview(btn)
+            window.addSubview(editButton)
         }
     }
     
-    @objc func editButtonTap(){ isEditMode = !isEditMode }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.backgroundColor = UIColor.white
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 44
         
         self.view.addSubview(tableView)
         self.view.addSubview(bottomController.view)
 //        self.makeDummyCells()
+
         messageManager = MessageProcessor(room: room)
         messageManager.reload()
         tableView.snp.makeConstraints { (mk) in
@@ -210,15 +216,10 @@ class ChatVC: UIViewController{
             mk.left.right.bottom.equalTo(self.view)
         })
         editView.snp.makeConstraints { (mk) in
-            mk.left.right.bottom.equalTo(self.view)
-            mk.height.equalTo(40)
+            mk.left.right.bottom.equalTo(self.view.safeAreaLayoutGuide)
+            mk.height.equalTo(60)
         }
-        
-        
-        self.navigationItem.title = Date.timeToStringSecondVersion(date: self.room.currentDate)
-        
-        
-        
+
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(adjustInsetForKeyboard(_:)),
@@ -243,10 +244,22 @@ class ChatVC: UIViewController{
         }
         let btnWidth:CGFloat = 259 / 3
         let btnHeight:CGFloat = 114 / 3
-        btn.frame = CGRect(x: UIScreen.main.bounds.width - btnWidth - offset, y: navHeight + offset, width: btnWidth, height: btnHeight)
+        editButton.frame = CGRect(x: UIScreen.main.bounds.width - btnWidth - offset, y: navHeight + offset, width: btnWidth, height: btnHeight)
         
     }
-    
+    func setTimer(){
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 60.0,
+                                     repeats: true) {
+                                        timer in
+                                        try! self.realm.write {
+                                            self.room.currentDate = self.room.currentDate.addingTimeInterval(60.0)
+                                        }
+                                        self.setNavTitle()
+        }
+        self.setNavTitle()
+        
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let backgroundUrl = room.backgroundImageName, let backgroundImage = UIImage.loadImageFromName(backgroundUrl){
@@ -258,7 +271,6 @@ class ChatVC: UIViewController{
         }else if let colorHex = room.backgroundColorHex{
             tableView.backgroundColor = UIColor.init(hexString: colorHex)
             tableView.backgroundView = nil
-            
         }else{
             navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
             tableView.backgroundColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
@@ -267,22 +279,19 @@ class ChatVC: UIViewController{
         
         
         self.tabBarController?.tabBar.isHidden = true
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0,
-                                     repeats: true) {
-                                        timer in
-                                        try! self.realm.write {
-                                            self.room.currentDate = self.room.currentDate.addingTimeInterval(1.0)
-                                        }
-                                        self.navigationItem.title = Date.timeToStringSecondVersion(date: self.room.currentDate)
-        }
+        
+      
+        setTimer()
         floatingButton()
+        
+        
         RunLoop.current.add(self.timer!, forMode: RunLoop.Mode.common)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         timer?.invalidate()
-        btn.removeFromSuperview()
+        editButton.removeFromSuperview()
     }
     
     deinit {
@@ -317,26 +326,56 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
         }
         return UITableViewCell()
     }
-   
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if let cell = tableView.cellForRow(at: indexPath) as? BaseChatCell{
-//            messageManager.messages[indexPath.row].isSelected = true
-//            cell.checkBoxImage.image = selectedImage
-//            refreshEdit()
-//        }
-//        print("select")
-//
-//    }
-//    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-//        if let cell = tableView.cellForRow(at: indexPath) as? BaseChatCell{
-//            messageManager.messages[indexPath.row].isSelected = false
-//            cell.checkBoxImage.image = unSelectedImage
-//            refreshEdit()
-//        }
-//        print("deselect")
-//
-//    }
 }
 
 
+//@objc function
+extension ChatVC{
+    @objc func handleClose(){
+        self.isEditMode = false
+    }
+    
+    @objc func allSelect(){
+        for message in messageManager.messages{
+            message.isSelected = true
+        }
+        tableView.visibleCells.forEach{
+            ($0 as? BaseChatCell)?.checkBoxImage.image = selectedImage
+        }
+        refreshEdit()
+    }
+    @objc func allDeselct(){
+        for message in messageManager.messages{
+            message.isSelected = false
+        }
+        tableView.visibleCells.forEach{
+            ($0 as? BaseChatCell)?.checkBoxImage.image = unSelectedImage
+        }
+        refreshEdit()
+    }
+    
+    @objc func handleTapEdit(_ gesture: UITapGestureRecognizer){
+        let position = gesture.location(in: tableView)
+        if let indexPath = tableView.indexPathForRow(at: position){
+            let newSelected = !messageManager.messages[indexPath.row].isSelected
+            messageManager.messages[indexPath.row].isSelected = newSelected
+            (tableView.cellForRow(at: indexPath) as? BaseChatCell)?.checkBoxImage.image =
+                newSelected ? selectedImage : unSelectedImage
+        }
+        refreshEdit()
+        
+    }
+    @objc func handleBack(){
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func handleTap(_ sender: UITapGestureRecognizer){
+        
+        guard !isEditMode else {
+            return
+        }
+        bottomController.keyboardHide()
+    }
+    @objc func editButtonTap(){ isEditMode = true }
+}

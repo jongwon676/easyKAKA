@@ -44,4 +44,7 @@ extension CGRect{
     var rightHalf: CGRect{
         return CGRect(x: self.midX, y: self.minY, width: self.width / 2, height: self.height)
     }
+    var center: CGPoint{
+        return CGPoint(x: self.midX, y: self.midY)
+    }
 }

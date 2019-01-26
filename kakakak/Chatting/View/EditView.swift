@@ -8,6 +8,7 @@ class EditView: UIView{
         didSet{
             editButton.isEnabled = (selectedChattingCount == 1)
             deleteButton.isEnabled = (selectedChattingCount >= 1)
+            
         }
     }
     @objc func buttonClicked(_ sender: UIButton){
@@ -24,52 +25,41 @@ class EditView: UIView{
     lazy var editButton: UIButton = {
         let button = UIButton()
         button.tag = 0
-        button.setTitle("수정", for: .normal)
+        
+        button.setImage(UIImage(named: "modify_disabled"), for: .disabled)
+        button.setImage(UIImage(named: "modify"), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        
         button.titleLabel?.textAlignment = .center
         button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
         return button
     }()
-    lazy var cancelButton: UIButton = {
+
+    lazy var deleteButton: UIButton = {
         let button = UIButton()
-        button.setTitle("선택취소", for: .normal)
+        
+        button.setImage(UIImage(named: "delete_disabled"), for: .disabled)
+        button.setImage(UIImage(named: "delete"), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
         button.tag = 1
         button.titleLabel?.textAlignment = .center
         button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
         return button
     }()
-    lazy var deleteButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("선택취소", for: .normal)
-        button.tag = 2
-        button.titleLabel?.textAlignment = .center
-        button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
-        return button
-    }()
-//    lazy var escButton: UIButton = {
-//        let button = UIButton()
-//        button.setTitle("수정모드 종료", for: .normal)
-//        button.tag = 3
-//        button.titleLabel?.textAlignment = .center
-//        button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
-//        return button
-//    }()
-    lazy var stackView: UIStackView = {
-        let view = UIStackView()
-        view.axis = .horizontal
-        view.distribution = .fillEqually
-        view.addArrangedSubview(editButton)
-        view.addArrangedSubview(deleteButton)
-//        view.addArrangedSubview(cancelButton)
-//        view.addArrangedSubview(escButton)
-        return view
-    }()
-       
+
+    
     init() {
         super.init(frame: CGRect.zero)
-        self.addSubview(stackView)
-        stackView.snp.makeConstraints { (mk) in
-            mk.left.right.bottom.top.equalTo(self)
-        }
+        self.addSubview(editButton)
+        self.addSubview(deleteButton)
+    }
+    override func layoutSubviews() {
+        let leftArea = self.bounds.leftHalf
+        let rightArea = self.bounds.rightHalf
+        editButton.frame.size = CGSize(width: 30, height: 38)
+        deleteButton.frame.size = CGSize(width: 30, height: 38)
+        editButton.center = leftArea.center
+        deleteButton.center = rightArea.center
     }
     
     required init(coder: NSCoder) {

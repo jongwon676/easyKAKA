@@ -13,4 +13,5 @@ pod 'Google-Mobile-Ads-SDK'
 	pod 'InputBarAccessoryView'
 pod 'Firebase/Core'
 pod 'Firebase/AdMob'
+pod 'CBFlashyTabBarController'
 end

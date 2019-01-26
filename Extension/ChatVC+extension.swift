@@ -220,7 +220,7 @@ extension ChatVC: bottomInfoReceiver{
     func addMinute(minute: Int) {
         try! realm.write {
             room.currentDate = room.currentDate.addingTimeInterval(60.0 * Double(minute))
-            self.navigationItem.title = Date.timeToStringSecondVersion(date: self.room.currentDate)
+            self.navigationItem.title = Date.timeToStringMinuteVersion(date: self.room.currentDate)
         }
     }
 }
