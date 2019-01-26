@@ -2,8 +2,8 @@ import UIKit
 import SnapKit
 import RealmSwift
 
-class ChattingImageCell: UserChattingBaseCell{
-    static var reuseId = "ChattingImageCell"
+class ChattingImageCell: UserChattingBaseCell,ChattingCellProtocol{
+    static var reuseId: String = Message.MessageType.image.rawValue
     lazy var messageImage: UIImageView = {
         let image = UIImageView()
         
@@ -21,7 +21,7 @@ class ChattingImageCell: UserChattingBaseCell{
         
     }
     
-    func configure(_ message: Message){
+    func configure(message: Message){
         messageImage.image = UIImage.loadImageFromName(message.messageImageUrl)
         self.addSubview(messageImage)
         

@@ -2,8 +2,8 @@ import UIKit
 import SnapKit
 import RealmSwift
 
-class UserExitCell: BaseChatCell{
-    static var reuseId = "UserExitCell"
+class UserExitCell: BaseChatCell,ChattingCellProtocol{
+    static var reuseId: String = Message.MessageType.exit.rawValue
     
     
     

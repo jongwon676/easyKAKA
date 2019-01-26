@@ -2,6 +2,12 @@ import UIKit
 import SnapKit
 import RealmSwift
 
+
+protocol CellConfigurator: class{
+    static var reuseId: String { get }
+    func configure(message: Message)
+}
+
 class ChatVC: UIViewController{
     var realm = try! Realm()
     private weak var timer: Timer?
@@ -11,11 +17,8 @@ class ChatVC: UIViewController{
     var keyBoardFrame: CGRect? = nil
     let datePicker = UIDatePicker()
     var btn = UIButton(type: .custom)
-    
-    
-    
-    
-    
+    let selectedImage = UIImage(named: "selected")
+    let unSelectedImage = UIImage(named: "unSelected")
     
     lazy var editView:EditView = {
         let eview = EditView()
@@ -56,18 +59,35 @@ class ChatVC: UIViewController{
         tableView.reloadRows(at: visibleRows, with: .none)
     }
     
-    @objc func allSelect(){
-        for idx in 0 ..< tableView.numberOfRows(inSection: 0){
-            tableView.selectRow(at: IndexPath.row(row: idx), animated: false, scrollPosition: .none)
+    func refreshEdit(){
+        var cnt = 0
+        for message in messageManager.messages{
+            if message.isSelected{
+                cnt = 1
+                break
+            }
         }
-//        updateVisibleCells()
+        self.navigationItem.rightBarButtonItem = (cnt > 0) ? allDeselectButton : allSelectButton
         
     }
-    @objc func allDeselct(){
-        for idx in 0 ..< tableView.numberOfRows(inSection: 0){
-            tableView.deselectRow(at: IndexPath.row(row: idx), animated: false)
+    
+    @objc func allSelect(){
+        for message in messageManager.messages{
+            message.isSelected = true
         }
-//        updateVisibleCells()
+        tableView.visibleCells.forEach{
+            ($0 as? BaseChatCell)?.checkBoxImage.image = selectedImage
+        }
+        refreshEdit()
+    }
+    @objc func allDeselct(){
+        for message in messageManager.messages{
+            message.isSelected = false
+        }
+        tableView.visibleCells.forEach{
+            ($0 as? BaseChatCell)?.checkBoxImage.image = unSelectedImage
+        }
+        refreshEdit()
     }
     
     
@@ -81,6 +101,8 @@ class ChatVC: UIViewController{
         editView.isHidden = false
         tableView.reloadData()
         tableView.removeGestureRecognizer(tableviewGestureRecog)
+        tableView.addGestureRecognizer(tableViewEditGestureRecog)
+        
         navigationController?.navigationBar.barTintColor = UIColor.white
         
         navigationItem.title = "항목 선택"
@@ -95,6 +117,8 @@ class ChatVC: UIViewController{
         editView.isHidden = true
         tableView.reloadData()
         tableView.addGestureRecognizer(tableviewGestureRecog)
+        tableView.removeGestureRecognizer(tableViewEditGestureRecog)
+        
         navigationController?.navigationBar.barTintColor = tableView.backgroundColor
         self.navigationItem.rightBarButtonItems = [
             hamburgerButton, searchButton
@@ -125,7 +149,19 @@ class ChatVC: UIViewController{
         return controller
     }()
 
-    let tableviewGestureRecog = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+    lazy var tableviewGestureRecog = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+    lazy var tableViewEditGestureRecog = UITapGestureRecognizer(target: self, action: #selector(handleTapEdit(_:)))
+    
+    @objc func handleTapEdit(_ gesture: UITapGestureRecognizer){
+        let position = gesture.location(in: tableView)
+        if let indexPath = tableView.indexPathForRow(at: position){
+            let newSelected = !messageManager.messages[indexPath.row].isSelected
+            messageManager.messages[indexPath.row].isSelected = newSelected
+            (tableView.cellForRow(at: indexPath) as? BaseChatCell)?.checkBoxImage.image =
+                newSelected ? selectedImage : unSelectedImage
+        }
+        
+    }
     
     lazy var tableView:ChatTableView = {
         let table = ChatTableView()
@@ -265,69 +301,42 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
         return messageManager?.messages.count ?? 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
         let msg = messageManager.getMessage(idx: indexPath.row)
-        switch msg.type {
-        case .text:
-            let cell = tableView.dequeueReusableCell(withIdentifier: TextCell.reuseId) as! TextCell
-            cell.selectionStyle = .none
-            cell.editMode = self.isEditMode
-            cell.configure(message: msg)
-            print("\(indexPath)" + " \(cell.isSelected)")
-            return cell
-            
-        case .image:
-            let cell = tableView.dequeueReusableCell(withIdentifier: ChattingImageCell.reuseId) as! ChattingImageCell
-            cell.selectionStyle = .none
-            cell.editMode = self.isEditMode
-            cell.configure(msg)
-            return cell
-            
-        case .date:
-            let cell = tableView.dequeueReusableCell(withIdentifier: DateCell.reuseId) as! DateCell
-            cell.selectionStyle = .none
-            cell.editMode = self.isEditMode
-            cell.configure(message: msg)
-            
-            return cell
-        case .enter:
-            let cell = tableView.dequeueReusableCell(withIdentifier: UserEnterCell.reuseId) as! UserEnterCell
-            cell.selectionStyle = .none
-            cell.editMode = self.isEditMode
-            cell.configure(message: msg)
-            
-            return cell
-        case .exit:
-            let cell = tableView.dequeueReusableCell(withIdentifier: UserExitCell.reuseId) as! UserExitCell
-            cell.selectionStyle = .none
-            cell.editMode = self.isEditMode
-            cell.configure(message: msg)
-            
-            return cell
-        case .voice:
-            let cell = tableView.dequeueReusableCell(withIdentifier: VoiceCell.reuseId) as! VoiceCell
-            cell.selectionStyle = .none
-            cell.editMode = self.isEditMode
-            cell.configure(message: msg)
-            
-            return cell
-        default:
-            return UITableViewCell()
-        }
-    }
-    
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath) as? BaseChatCell{
-            cell.checkBoxImage.image = UIImage(named: "selected")
-        }
-    }
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath) as? BaseChatCell{
-            cell.checkBoxImage.image = UIImage(named: "unSelected")
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: msg.type.rawValue)
+        cell?.selectionStyle = .none
         
-        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: msg.type.rawValue) as? BaseChatCell{
+            cell.selectionStyle = .none
+            cell.editMode = self.isEditMode
+            (cell as? ChattingCellProtocol)?.configure(message: msg)
+            cell.checkBoxImage.image = msg.isSelected ? UIImage(named: "selected") : UIImage(named: "unSelected")
+            cell.bringSubviewToFront(cell.checkBoxImage)
+            return cell
+        }
+        return UITableViewCell()
     }
+   
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        if let cell = tableView.cellForRow(at: indexPath) as? BaseChatCell{
+//            messageManager.messages[indexPath.row].isSelected = true
+//            cell.checkBoxImage.image = selectedImage
+//            refreshEdit()
+//        }
+//        print("select")
+//
+//    }
+//    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+//        if let cell = tableView.cellForRow(at: indexPath) as? BaseChatCell{
+//            messageManager.messages[indexPath.row].isSelected = false
+//            cell.checkBoxImage.image = unSelectedImage
+//            refreshEdit()
+//        }
+//        print("deselect")
+//
+//    }
 }
 
 

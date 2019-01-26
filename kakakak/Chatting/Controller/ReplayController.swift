@@ -97,38 +97,19 @@ extension ReplayController: UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = UITableViewCell()
-//        cell.backgroundColor = UIColor.red
-//        return cell
         let msg = messageManager.getMessage(idx: indexPath.row)
-        switch msg.type {
-        case .text:
-            let cell = tableView.dequeueReusableCell(withIdentifier: TextCell.reuseId) as! TextCell
-            cell.configure(message: msg)
+        let cell = tableView.dequeueReusableCell(withIdentifier: msg.type.rawValue)
+        cell?.selectionStyle = .none
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: msg.type.rawValue) as? BaseChatCell{
+            cell.selectionStyle = .none
+            cell.editMode = false
+            (cell as? ChattingCellProtocol)?.configure(message: msg)
             return cell
-        case .image:
-            let cell = tableView.dequeueReusableCell(withIdentifier: ChattingImageCell.reuseId) as! ChattingImageCell
-            cell.configure(msg)
-            
-            return cell
-        case .date:
-            let cell = tableView.dequeueReusableCell(withIdentifier: DateCell.reuseId) as! DateCell
-            cell.configure(message: msg)
-            return cell
-        case .enter:
-            let cell = tableView.dequeueReusableCell(withIdentifier: UserEnterCell.reuseId) as! UserEnterCell
-            cell.configure(message: msg)
-            return cell
-        case .exit:
-            let cell = tableView.dequeueReusableCell(withIdentifier: UserExitCell.reuseId) as! UserExitCell
-            cell.configure(message: msg)
-            return cell
-        case .voice:
-            let cell = tableView.dequeueReusableCell(withIdentifier: VoiceCell.reuseId) as! VoiceCell
-            cell.configure(message: msg)
-            return cell
+        }
+        return UITableViewCell()
 
-    }
+    
     }
     
     

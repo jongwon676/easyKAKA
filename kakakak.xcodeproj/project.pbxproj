@@ -13,6 +13,7 @@
 		AD27D16921F14B9D009E367A /* icon in Resources */ = {isa = PBXBuildFile; fileRef = AD27D16821F14B9D009E367A /* icon */; };
 		AD27D18E21F1D422009E367A /* ChatTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD27D18D21F1D422009E367A /* ChatTableView.swift */; };
 		AD27D19021F1E16C009E367A /* KeyBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD27D18F21F1E16C009E367A /* KeyBoardView.swift */; };
+		AD2B39A721FC7F4B00BE6869 /* ChattingCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2B39A621FC7F4B00BE6869 /* ChattingCellProtocol.swift */; };
 		AD50748121F28D9C003B50F5 /* TimeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD50748021F28D9C003B50F5 /* TimeInputView.swift */; };
 		AD50748421F2971D003B50F5 /* MiddleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD50748321F2971D003B50F5 /* MiddleView.swift */; };
 		AD50748621F29EEA003B50F5 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD50748521F29EEA003B50F5 /* EditView.swift */; };
@@ -71,6 +72,7 @@
 		AD27D16821F14B9D009E367A /* icon */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icon; sourceTree = "<group>"; };
 		AD27D18D21F1D422009E367A /* ChatTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableView.swift; sourceTree = "<group>"; };
 		AD27D18F21F1E16C009E367A /* KeyBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBoardView.swift; sourceTree = "<group>"; };
+		AD2B39A621FC7F4B00BE6869 /* ChattingCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingCellProtocol.swift; sourceTree = "<group>"; };
 		AD50748021F28D9C003B50F5 /* TimeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInputView.swift; sourceTree = "<group>"; };
 		AD50748321F2971D003B50F5 /* MiddleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleView.swift; sourceTree = "<group>"; };
 		AD50748521F29EEA003B50F5 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 				ADC672EC21E3AE3900D6D3F5 /* BaseChatCell.swift */,
 				ADC672F121E3CE6200D6D3F5 /* UserChattingBaseCell.swift */,
 				AD95E6BF21F3F9C1000450AB /* VoiceCell.swift */,
+				AD2B39A621FC7F4B00BE6869 /* ChattingCellProtocol.swift */,
 			);
 			path = ChattingCell;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				ADC672E921E3A5A000D6D3F5 /* UserExitCell.swift in Sources */,
 				ADC672D821E2C71B00D6D3F5 /* Room.swift in Sources */,
 				ADC672F221E3CE6200D6D3F5 /* UserChattingBaseCell.swift in Sources */,
+				AD2B39A721FC7F4B00BE6869 /* ChattingCellProtocol.swift in Sources */,
 				AD27D18E21F1D422009E367A /* ChatTableView.swift in Sources */,
 				ADC672F021E3B0A000D6D3F5 /* Style.swift in Sources */,
 			);

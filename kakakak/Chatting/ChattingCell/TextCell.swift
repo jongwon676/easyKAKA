@@ -2,9 +2,10 @@ import UIKit
 import SnapKit
 import RealmSwift
 
-class TextCell: UserChattingBaseCell{
+class TextCell: UserChattingBaseCell,ChattingCellProtocol{
 
-    static var reuseId: String = "TextCell"
+    static var reuseId: String = Message.MessageType.text.rawValue
+    
     
     lazy var messageLabel: UILabel = {
         let label = UILabel()

@@ -2,8 +2,9 @@ import UIKit
 import SnapKit
 import RealmSwift
 
-class UserEnterCell: BaseChatCell{
-    static var reuseId = "UserEnterCell"
+class UserEnterCell: BaseChatCell,ChattingCellProtocol{
+    
+    static var reuseId: String = Message.MessageType.enter.rawValue
     lazy var inviteLabel: UILabel = {
         let label = UILabel()
         label.textColor = #colorLiteral(red: 0.132842958, green: 0.1489416063, blue: 0.1573187113, alpha: 1)

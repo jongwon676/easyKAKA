@@ -2,8 +2,8 @@ import UIKit
 import SnapKit
 import RealmSwift
 
-class DateCell: BaseChatCell{
-    static var reuseId = "DateCell"
+class DateCell: BaseChatCell,ChattingCellProtocol{
+    static var reuseId: String = Message.MessageType.date.rawValue
     
     lazy var leftSeparator: UIView = {
        let view = UIView()

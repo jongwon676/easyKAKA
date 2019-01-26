@@ -13,13 +13,13 @@ class Message: Object,NSCopying {
     var noReadUser = List<User>()
     @objc dynamic var isFirstMessage: Bool = false
     @objc dynamic var isLastMessage: Bool = false
-    
+    @objc dynamic var isSelected: Bool = false
     @objc dynamic var creationDate: Date = Date()
      // 퇴장시에 1전부 감소 시켜야됨.
     
     
     override static func ignoredProperties() -> [String] {
-        return ["isFirstMessage","isLastMessage"]
+        return ["isFirstMessage","isLastMessage","isSelected"]
     }
     
     convenience required init(owner: User?,sendDate: Date ,messageText: String){
