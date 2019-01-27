@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 import RealmSwift
-
+import CBFlashyTabBarController
 
 protocol CellConfigurator: class{
     static var reuseId: String { get }
@@ -60,14 +60,15 @@ class ChatVC: UIViewController{
         btn.title = "전체 해제"
         return btn
     }()
-    
-    func updateVisibleCells(selected: Bool){
-        guard let visibleRows = tableView.indexPathsForVisibleRows else {
-            return
-        }
-
-        tableView.reloadRows(at: visibleRows, with: .none)
-    }
+//    
+//    func updateVisibleCells(selected: Bool){
+//        
+//        guard let visibleRows = tableView.indexPathsForVisibleRows else {
+//            return
+//        }
+//
+//        tableView.reloadRows(at: visibleRows, with: .none)
+//    }
     
     func refreshEdit(){
         var cnt = 0
@@ -195,8 +196,6 @@ class ChatVC: UIViewController{
         }
     }
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
@@ -208,6 +207,8 @@ class ChatVC: UIViewController{
 //        self.makeDummyCells()
 
         messageManager = MessageProcessor(room: room)
+        messageManager.vc = self
+        
         messageManager.reload()
         tableView.snp.makeConstraints { (mk) in
             mk.left.right.bottom.top.equalTo(self.view)
@@ -242,8 +243,8 @@ class ChatVC: UIViewController{
         if let nav = self.navigationController {
             navHeight = nav.navigationBar.frame.height + UIApplication.shared.statusBarFrame.height
         }
-        let btnWidth:CGFloat = 259 / 3
-        let btnHeight:CGFloat = 114 / 3
+        let btnWidth: CGFloat = 259 / 3
+        let btnHeight: CGFloat = 114 / 3
         editButton.frame = CGRect(x: UIScreen.main.bounds.width - btnWidth - offset, y: navHeight + offset, width: btnWidth, height: btnHeight)
         
     }
@@ -277,8 +278,10 @@ class ChatVC: UIViewController{
             tableView.backgroundView = nil
         }
         
+        if let tbc = self.tabBarController as? CBFlashyTabBarController{
+            tbc.tabBar.isHidden = true
+        }
         
-        self.tabBarController?.tabBar.isHidden = true
         
       
         setTimer()

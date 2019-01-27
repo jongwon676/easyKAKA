@@ -1,4 +1,5 @@
 PODS:
+  - CBFlashyTabBarController (0.8.0)
   - Firebase/AdMob (5.15.0):
     - Firebase/Core
     - Google-Mobile-Ads-SDK (~> 7.37)
@@ -61,6 +62,7 @@ PODS:
   - SnapKit (4.0.1)
 
 DEPENDENCIES:
+  - CBFlashyTabBarController
   - Firebase/AdMob
   - Firebase/Core
   - Google-Mobile-Ads-SDK
@@ -70,6 +72,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - CBFlashyTabBarController
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -84,6 +87,7 @@ SPEC REPOS:
     - SnapKit
 
 SPEC CHECKSUMS:
+  CBFlashyTabBarController: 4a5373a5b586646f8c4c22b28a6d33d01328538e
   Firebase: 8bb9268bff82374f2cbaaabb143e725743c316ae
   FirebaseAnalytics: c06f9d70577d79074214700a71fd5d39de5550fb
   FirebaseCore: 35747502d9e8c6ee217385ad04446c7c2aaf9c5c
@@ -97,6 +101,6 @@ SPEC CHECKSUMS:
   RealmSwift: 1c2b6bae3dc55bb87e080ffa96537d71442f6dce
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
 
-PODFILE CHECKSUM: f009b85dcdebde0c73da646c1c4056182b62aa10
+PODFILE CHECKSUM: 569fb5e594fbef0c645b3aa88f0a29a9d0755a84
 
 COCOAPODS: 1.5.3

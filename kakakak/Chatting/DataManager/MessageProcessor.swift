@@ -6,6 +6,8 @@ class MessageProcessor{
     var room: Room
     var messages: [Message]
     let realm = try! Realm()
+    weak var vc: ChatVC?
+    
     
     init(room: Room) {
         self.room = room
@@ -167,6 +169,21 @@ class MessageProcessor{
     
     func getMessage(idx: Int) -> Message{
         return messages[idx]
+    }
+    
+    func deleteSelectedMessages(){
+        try! self.realm.write {
+            for idx in self.messages.indices.reversed(){
+                let msg = self.messages[idx]
+                if msg.isSelected{
+                    self.realm.delete(msg)
+                    self.messages.remove(at: idx)
+                }
+            }
+            self.vc?.messageManager.reload()
+            self.vc?.tableView.reloadData()
+            self.vc?.refreshEdit()
+        }
     }
     
 }

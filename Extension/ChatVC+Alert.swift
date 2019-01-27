@@ -57,36 +57,27 @@ extension ChatVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate
         }))
         
         alert.addAction(UIAlertAction(title: "날짜선 추가", style: .default, handler: { (action) in
-            
             self.dateSelect()
         }))
+        
         alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+        
         present(alert, animated: true, completion: nil)
     }
     
     func dateSelect()  {
-        
         let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 260))
         datePicker.datePickerMode = UIDatePicker.Mode.date
-        
         datePicker.addTarget(self, action: #selector(dateSelected(datePicker:)), for: UIControl.Event.valueChanged)
-        
         let alertController = UIAlertController(title: nil, message:"날짜선 추가" , preferredStyle: UIAlertController.Style.actionSheet)
-        
         alertController.view.addSubview(datePicker)//add subview
-        
         let okayAction = UIAlertAction(title: "확인", style: .default) { (action) in
             self.dateSelected(datePicker: datePicker)
         }
-        
-        //add button to action sheet
         alertController.addAction(okayAction)
-        
         let height:NSLayoutConstraint = NSLayoutConstraint(item: alertController.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 300)
         alertController.view.addConstraint(height);
-        
         self.present(alertController, animated: true, completion: nil)
-        
     }
     
     
@@ -103,14 +94,13 @@ extension ChatVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate
     func showDeleteMessagesModal(){
         let alert = UIAlertController(title: "메시지를 삭제 하시겠습니까?", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "확인", style: .destructive, handler: { (action) in
-            
+            self.messageManager.deleteSelectedMessages()
         }))
         alert.addAction(UIAlertAction(title: "취소", style: .default, handler: { (action) in
             
         }))
         present(alert, animated: true, completion: nil)
     }
-    
 }
 extension UIImage {
     class var screenShot: UIImage? {

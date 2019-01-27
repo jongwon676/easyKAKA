@@ -1,6 +1,7 @@
 import UIKit
 import RealmSwift
 import Firebase
+import CBFlashyTabBarController
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,7 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       
         GADMobileAds.configure(withApplicationID: "ca-app-pub-1497706702442314~7743899510")
         TimeZone.ReferenceType.default = TimeZone(abbreviation: "KST")!
-        
+        if let tbc = self.window?.rootViewController as? CBFlashyTabBarController{
+            if let tbItems = tbc.tabBar.items{
+                
+                tbItems[0].image = UIImage(named: "back")
+                tbItems[1].image = UIImage(named: "back")
+                tbItems[2].image = UIImage(named: "back")
+                
+                tbItems[0].title = "등장인물"
+                tbItems[1].title = "대화"
+                tbItems[2].title = "설정"
+            }
+            
+        }
         
         return true
     }

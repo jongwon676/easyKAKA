@@ -569,10 +569,10 @@
             </objects>
             <point key="canvasLocation" x="-2655" y="-1292"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Flashy Tab Bar Controller-->
         <scene sceneID="grR-jh-gTz">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="X8f-Vx-afr" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="X8f-Vx-afr" customClass="CBFlashyTabBarController" customModule="CBFlashyTabBarController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9Ao-SH-A7h">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

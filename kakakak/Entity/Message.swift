@@ -92,6 +92,5 @@ class Message: Object,NSCopying {
         return provider.objects(Message.self)
             .sorted(byKeyPath: "creationDate")
     }
-    
 }
 

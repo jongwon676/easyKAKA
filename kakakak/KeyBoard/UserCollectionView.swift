@@ -1,20 +1,24 @@
 import UIKit
 class UserCollectionView: UICollectionView{
+    
+    //cache화 해놓고 계속 그리자.
+    
     override func draw(_ rect: CGRect) {
         super.draw(rect)
+        print("rect draw")
+        dump(rect)
         let horRadius: CGFloat = 333
         let verRadius: CGFloat = 225 // 타원의 세로 반지름
         let offset: CGFloat = 5
         let halfCircle: CGFloat = 30
         var points = [CGPoint]()
         
-        for x in stride(from: -horRadius  , to: horRadius
-            , by: 1){
+        for x in stride(from: -horRadius  , to: horRadius , by: 1){
             let yZegob = (1.0 - (x * x / (horRadius * horRadius) )) * verRadius * verRadius
             let y = sqrt(yZegob)
             let translateX = x + bounds.width / 2
             let translateY = verRadius + halfCircle + offset - y
-            points.append(CGPoint(x: translateX, y: translateY))
+            points.append(CGPoint(x: translateX + rect.minX , y: translateY + rect.minY))
         }
         let path = UIBezierPath()
         for idx in 0 ..< points.count{

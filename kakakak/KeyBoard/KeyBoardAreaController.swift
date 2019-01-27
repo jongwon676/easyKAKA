@@ -145,7 +145,7 @@ class KeyBoardAreaController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         let layout = UserLayout()
-        layout.itemSize = CGSize(width: 120, height: 120)
+        
         
         userCollectionView.collectionViewLayout = layout
         userCollectionView.dataSource = self
@@ -217,12 +217,11 @@ extension KeyBoardAreaController: UICollectionViewDataSource{
         return users.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = userCollectionView.dequeueReusableCell(withReuseIdentifier: UserCollectionCell.reuseId, for: indexPath) as! UserCollectionCell
+//        cell.setRadius()
         cell.user = users[indexPath.item]
         cell.backgroundColor = UIColor.clear
         return cell
-        
     }
 }
 

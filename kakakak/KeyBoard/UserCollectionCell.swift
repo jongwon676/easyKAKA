@@ -2,13 +2,14 @@ import UIKit
 import SnapKit
 
 class UserCollectionCell: UICollectionViewCell {
-    
     var nameViewBottomConstraint: Constraint?
+    
     var containerView: UIView = {
        let view = UIView()
         view.backgroundColor = UIColor.clear
         return view
     }()
+    
     lazy var innerShadowView:UIView = {
        let view = UIView()
         view.backgroundColor = UIColor.black
@@ -24,17 +25,17 @@ class UserCollectionCell: UICollectionViewCell {
         view.layer.masksToBounds = true
         return view
     }()
+    
     lazy var nameBackgroudView: UIView = {
+        
         let view = UIView()
         view.backgroundColor = UIColor.white
-        
-//        view.layer.borderWidth = 0.5
         view.layer.cornerRadius = 8
-        
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOpacity = 0.15
-        
         view.layer.masksToBounds = true
+        
+        
         return view
     }()
     lazy var nameLabel:UILabel = {
@@ -49,6 +50,7 @@ class UserCollectionCell: UICollectionViewCell {
     let imageView: UIImageView = {
         let imgView = UIImageView()
         imgView.layer.masksToBounds = true
+        
         return imgView
     }()
     
@@ -66,6 +68,7 @@ class UserCollectionCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.addSubview(containerView)
+        
         setupView()
     }
     
@@ -97,8 +100,6 @@ class UserCollectionCell: UICollectionViewCell {
 
         }
         nameBackgroudView.snp.makeConstraints { (mk) in
-            
-            
             mk.centerX.equalTo(containerView)
             nameViewBottomConstraint = mk.bottom.equalTo(containerView).constraint
             mk.width.equalTo(imageView.snp.width).multipliedBy(StyleGuide.imageWidthToNameBackgroundLabelWidth)
@@ -121,23 +122,37 @@ class UserCollectionCell: UICollectionViewCell {
     
     
     override func layoutSubviews() {
-        
         super.layoutSubviews()
-        innerShadowView.layer.cornerRadius = innerShadowView.frame.height / 2.0
-        outerShadowView.layer.cornerRadius = innerShadowView.frame.height / 2.0
-        imageView.layer.cornerRadius = imageView.frame.height / 2.0
+//        innerShadowView.layer.cornerRadius = innerShadowView.frame.height / 2.0
+//        outerShadowView.layer.cornerRadius = innerShadowView.frame.height / 2.0
+        
+        innerShadowView.layer.cornerRadius = StyleGuide.innerShadowSize / 2
+        outerShadowView.layer.cornerRadius = StyleGuide.outerShadowSize / 2
+        imageView.layer.cornerRadius = StyleGuide.imageSize / 2
         
     }
 
+//    func setRadius(size: CGSize){
+//
+//        innerShadowView.layer.cornerRadius = innerShadowView.frame.height / 2.0
+//        outerShadowView.layer.cornerRadius = innerShadowView.frame.height / 2.0
+//        imageView.layer.cornerRadius = imageView.frame.height / 2.0
+//    }
+    
     private struct StyleGuide{
         
-        static let imageSize = 60
-        static let shadowOffset = 5
+        static let imageSize:CGFloat = 60
+        
         static let imageWidthToContainerViewWidth: CGFloat = 60.0 / 90.0
         static let innerShadowWidthToContainerViewWidth: CGFloat = 70.0 / 90.0
         static let outerShadowWidthToContainerViewWidth: CGFloat = 80.0 / 90.0
+        
+        
+        static let shadowOffset:CGFloat = 5
         static let innerShadowSize = StyleGuide.imageSize + StyleGuide.shadowOffset
         static let outerShadowSize = StyleGuide.imageSize + 2 * StyleGuide.shadowOffset
+        
+        
         static let imageWidthToNameBackgroundLabelWidth:CGFloat = 0.8
         static let imageHeightToNameBackgroundLabelHeight: CGFloat = 0.35
         
