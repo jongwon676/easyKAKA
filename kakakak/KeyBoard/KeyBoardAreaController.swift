@@ -26,6 +26,7 @@ class KeyBoardAreaController: UIViewController{
     func keyboardHide(){
         self.middleView.textView.resignFirstResponder()
         self.middleView.smileButton.resignFirstResponder()
+        self.middleView.specailFeatureButton.resignFirstResponder()
     }
     
     var mode: ChatMode = .chatting{
@@ -117,7 +118,7 @@ class KeyBoardAreaController: UIViewController{
     lazy var middleView: MiddleView = {
         let view = MiddleView()
         view.sendButton.addTarget(self, action: #selector(sendMsg), for: .touchUpInside)
-        view.smileButton.addTarget(self, action: #selector(becomeFirstResponder), for: .touchUpInside)
+//        view.smileButton.addTarget(self, action: #selector(becomeFirstResponder), for: .touchUpInside)
         view.smileButton.addTarget(self, action: #selector(checker), for: .touchUpInside)
         return view
     }()
@@ -335,15 +336,15 @@ class customTextView: UITextView{
 
 
 extension KeyBoardAreaController: FirstResponderControlDelegate{
-    func firstResponderControl(_ control: TimeButton, didReceiveText text: String) {
+    func firstResponderControl(_ control: CustomFocusControl, didReceiveText text: String) {
         
     }
     
-    func firstResponderControlDidDeleteBackwards(_ control: TimeButton) {
+    func firstResponderControlDidDeleteBackwards(_ control: CustomFocusControl) {
         
     }
     
-    func firstResponderControlHasText(_ control: TimeButton) -> Bool {
+    func firstResponderControlHasText(_ control: CustomFocusControl) -> Bool {
         return true
     }
     
@@ -352,51 +353,6 @@ extension KeyBoardAreaController: FirstResponderControlDelegate{
 
 
 
-
-
-
-
-protocol FirstResponderControlDelegate: class {
-    func firstResponderControl(_ control: TimeButton, didReceiveText text: String)
-    func firstResponderControlDidDeleteBackwards(_ control: TimeButton)
-    func firstResponderControlHasText(_ control: TimeButton) -> Bool
-}
-
-
-
-
-
-class TimeButton: UIButton, UIKeyInput {
-    var hasText: Bool{
-        return true
-        //        return self.delegate?.firstResponderControlHasText(self) ?? false
-    }
-    override var canBecomeFirstResponder: Bool{
-        return true
-    }
-    
-    private var _inputView: UIView?
-    override var inputView: UIView? {
-        get {
-            return _inputView
-        }
-        set {
-            _inputView = newValue
-        }
-    }
-    
-    weak var delegate: FirstResponderControlDelegate?
-    
-    
-    func insertText(_ text: String) {
-        self.delegate?.firstResponderControl(self, didReceiveText: text)
-    }
-    
-    func deleteBackward() {
-        self.delegate?.firstResponderControlDidDeleteBackwards(self)
-    }
-    
-}
 
 
 

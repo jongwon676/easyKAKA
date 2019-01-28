@@ -7,11 +7,12 @@ class MiddleView: UIView{
         return btn
     }()
     
-    lazy var smileButton: TimeButton = {
-        let btn = TimeButton(type: .custom)
+    lazy var smileButton: CustomFocusControl = {
+        let btn = CustomFocusControl(type: .custom)
         btn.setImage(UIImage(named: "emoji_origin"), for: .normal)
         return btn
     }()
+    let specailFeatureButton = SpecailFeatureButton()
     
     lazy var textView: customTextView = {
         let textView = customTextView()
@@ -37,7 +38,7 @@ class MiddleView: UIView{
         self.layer.borderWidth = 1
         self.backgroundColor = UIColor.white
         
-        let specailFeatureButton = UIButton()
+        
         specailFeatureButton.setImage(UIImage(named: "special_features_origin"), for: .normal)
         let rightStackView = UIStackView()
         
