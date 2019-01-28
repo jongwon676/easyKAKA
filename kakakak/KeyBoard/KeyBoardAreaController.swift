@@ -72,7 +72,6 @@ class KeyBoardAreaController: UIViewController{
     
     lazy var userCollectionView: UserCollectionView = {
         let collection = UserCollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        
         return collection
     }()
     
@@ -151,6 +150,8 @@ class KeyBoardAreaController: UIViewController{
         userCollectionView.dataSource = self
         userCollectionView.delegate = self
         userCollectionView.register(UserCollectionCell.self, forCellWithReuseIdentifier:UserCollectionCell.reuseId)
+        
+        
         
         middleView.smileButton.delegate = self
         middleView.smileButton.inputView = timeInputView

@@ -199,7 +199,7 @@ extension ChatVC: UITextViewDelegate{
         func makeExitDummy(num: Int){
             var msgs = [Message]()
             for _ in 0 ..< num{
-                let msg = Message.makeExitMessage(exit: room.users[0])
+                let msg = Message.makeExitMessage(exit: room.users[1])
                 msgs.append(msg)
             }
             try! realm.write {

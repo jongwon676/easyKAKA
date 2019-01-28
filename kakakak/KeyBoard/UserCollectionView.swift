@@ -31,6 +31,21 @@ class UserCollectionView: UICollectionView{
         path.lineWidth = 0.5
         UIColor.gray.setStroke()
         path.stroke()
+        
+        
+        
+    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.layer.cornerRadius = 2.0
+        self.layer.borderWidth = 1.0
+        self.layer.borderColor = UIColor.clear.cgColor        
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+        self.layer.shadowRadius = 2.0
+        self.layer.shadowOpacity = 0.3
+        self.layer.masksToBounds = false  // false해야지 그림자가 보임.
+        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.layer.cornerRadius).cgPath
     }
 }
 extension CGRect{
@@ -43,6 +58,30 @@ extension CGRect{
     
     static func centeredRect(mid: CGPoint, width: CGFloat, height: CGFloat) -> CGRect{
         return CGRect(x: mid.x - width / 2, y: mid.y - height / 2, width: width, height: height)
+    }
+    
+}
+
+extension CALayer {
+    func applySketchShadow(
+        color: UIColor = .black,
+        alpha: Float = 0.5,
+        x: CGFloat = 0,
+        y: CGFloat = 2,
+        blur: CGFloat = 4,
+        spread: CGFloat = 0)
+    {
+        shadowColor = color.cgColor
+        shadowOpacity = alpha
+        shadowOffset = CGSize(width: x, height: y)
+        shadowRadius = blur / 2.0
+        if spread == 0 {
+            shadowPath = nil
+        } else {
+            let dx = -spread
+            let rect = bounds.insetBy(dx: dx, dy: dx)
+            shadowPath = UIBezierPath(rect: rect).cgPath
+        }
     }
 }
 

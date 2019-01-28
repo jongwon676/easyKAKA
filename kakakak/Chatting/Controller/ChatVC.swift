@@ -204,7 +204,7 @@ class ChatVC: UIViewController{
         
         self.view.addSubview(tableView)
         self.view.addSubview(bottomController.view)
-//        self.makeDummyCells()
+        self.makeDummyCells()
 
         messageManager = MessageProcessor(room: room)
         messageManager.vc = self
