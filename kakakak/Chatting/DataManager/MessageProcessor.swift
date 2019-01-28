@@ -165,6 +165,11 @@ class MessageProcessor{
         }
     }
     
+    func getSelectedMessages() -> [Message]{
+        return self.messages.filter{
+            $0.isSelected
+        }
+    }
     
     
     func getMessage(idx: Int) -> Message{

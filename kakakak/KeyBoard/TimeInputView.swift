@@ -1,27 +1,12 @@
 import UIKit
 class TimeInputView: UIView{
     
-    func getInnerButton() -> UIButton{
-        let button = UIButton()
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
-        button.backgroundColor = UIColor.white
-        self.addSubview(button)
-        return button
-    }
-    
-    lazy var decButton: UIButton = {
-        let button = getInnerButton()
-        button.setTitle("-", for: .normal)
-        self.addSubview(button)
-        return button
+    lazy var timeStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        return stackView
     }()
-    
-    lazy var incButton: UIButton = {
-        let button = getInnerButton()
-        button.setTitle("+", for: .normal)
-        return button
-    }()
-    
+
     init() {
         super.init(frame: CGRect.zero)
         self.backgroundColor = UIColor.black
@@ -32,8 +17,7 @@ class TimeInputView: UIView{
     }
     
     override func layoutSubviews() {
-        decButton.frame = self.bounds.leftHalf
-        incButton.frame = self.bounds.rightHalf
+        
     }
 }
 

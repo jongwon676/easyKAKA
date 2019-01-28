@@ -90,11 +90,8 @@ class KeyBoardAreaController: UIViewController{
     
     lazy var timeInputView: TimeInputView = {
         let tempView = TimeInputView()
-//        tempView.frame.size.height = 300
-//        tempView.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
-        
-        tempView.decButton.addTarget(self, action: #selector(handleTime(_:)), for: .touchUpInside)
-        tempView.incButton.addTarget(self, action: #selector(handleTime(_:)), for: .touchUpInside)
+
+
         let plist = UserDefaults.standard
         let keyboardHeight = plist.double(forKey: "keyboardHeight")
         if keyboardHeight >= 180{

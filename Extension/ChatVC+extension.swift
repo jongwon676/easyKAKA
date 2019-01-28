@@ -241,12 +241,21 @@ extension ChatVC: EditChatting{
     }
     
     func excuteCancel() {
-        self.tableView.indexPathsForSelectedRows?.forEach({ (indexPath) in
-            self.tableView.deselectRow(at: indexPath, animated: false)
-        })
+//        self.tableView.indexPathsForSelectedRows?.forEach({ (indexPath) in
+//            self.tableView.deselectRow(at: indexPath, animated: false)
+//        })
     }
     
     func excuetEdit() {
+        
+        let storyboard = UIStoryboard.init(name: "MessageEdit", bundle: Bundle.main)
+        
+        if let nav = storyboard.instantiateViewController(withIdentifier: "MessageEditNav") as? UINavigationController{
+            ((nav.viewControllers[0]) as? MessageEditController)?.messages = messageManager.getSelectedMessages()
+            
+            self.present(nav, animated: true, completion: nil)
+        }
+        
         
     }
     
