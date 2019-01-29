@@ -8,8 +8,15 @@ extension ChatVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate
         let alert = UIAlertController(title: nil, message: "옵션", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "등장인물 초대", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "등장인물 퇴장", style: .default, handler: nil))
-        alert.addAction(UIAlertAction(title: "대화방 이름 변경하기", style: .default, handler: nil))
-        alert.addAction(UIAlertAction(title: "대화방 시간 변경", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "대화방 이름 변경하기", style: .default, handler: {
+            (_) in
+            self.changeChattingRoomTitle()
+            
+        }))
+        alert.addAction(UIAlertAction(title: "대화방 시간 변경", style: .default, handler: { (_) in
+            
+            
+        }))
         
         alert.addAction(UIAlertAction(title: "사진찍기", style: .default, handler: { (action) in
             self.bottomController.mode = .capture
@@ -35,6 +42,24 @@ extension ChatVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate
         
     }
     
+    func changeChattingRoomTitle(){
+        let alert = UIAlertController(title: nil, message: "대화방 이름을 입력해주세요.", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            // 방의 제목을 입력해줌.
+        }
+        let saveAction = UIAlertAction(title: "확인", style: .default) { (action) in
+            guard let textField = alert.textFields?.first else { return }
+            
+            
+        }
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel) { (action) in
+            
+        }
+        alert.addAction(cancelAction)
+        alert.addAction(saveAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let img = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{

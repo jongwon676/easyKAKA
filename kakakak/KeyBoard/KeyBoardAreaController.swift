@@ -29,25 +29,27 @@ class KeyBoardAreaController: UIViewController{
         self.middleView.specailFeatureButton.resignFirstResponder()
     }
     
+    
+    
     var mode: ChatMode = .chatting{
         didSet{
-            
-            //            if mode == .chatting{
-            //                [topView,bottomView].forEach{
-            //                    $0.snp.updateConstraints({ (mk) in
-            //                        mk.height.equalTo(elementHeight)
-            //                    })
-            //                }
-            //
-            //            }else{
-            //                [topView,bottomView].forEach{
-            //                    $0.snp.updateConstraints({ (mk) in
-            //                        mk.height.equalTo(0)
-            //                    })
-            //                }
-            //                self.keyboardHide()
-            //            }
-            self.view.layoutIfNeeded()
+//            
+//            if mode == .chatting{
+//                [topView,bottomView].forEach{
+//                    $0.snp.updateConstraints({ (mk) in
+//                        mk.height.equalTo(elementHeight)
+//                    })
+//                }
+//                
+//            }else{
+//                [topView,bottomView].forEach{
+//                    $0.snp.updateConstraints({ (mk) in
+//                        mk.height.equalTo(0)
+//                    })
+//                }
+//                self.keyboardHide()
+//            }
+//            self.view.layoutIfNeeded()
         }
     }
     
@@ -90,8 +92,8 @@ class KeyBoardAreaController: UIViewController{
     
     lazy var timeInputView: TimeInputView = {
         let tempView = TimeInputView()
-
-
+        
+        
         let plist = UserDefaults.standard
         let keyboardHeight = plist.double(forKey: "keyboardHeight")
         if keyboardHeight >= 180{
@@ -115,7 +117,7 @@ class KeyBoardAreaController: UIViewController{
     lazy var middleView: MiddleView = {
         let view = MiddleView()
         view.sendButton.addTarget(self, action: #selector(sendMsg), for: .touchUpInside)
-//        view.smileButton.addTarget(self, action: #selector(becomeFirstResponder), for: .touchUpInside)
+        //        view.smileButton.addTarget(self, action: #selector(becomeFirstResponder), for: .touchUpInside)
         view.smileButton.addTarget(self, action: #selector(checker), for: .touchUpInside)
         return view
     }()
@@ -155,11 +157,9 @@ class KeyBoardAreaController: UIViewController{
         middleView.smileButton.inputView = timeInputView
         middleView.textView.modeChecker = self
         middleView.textView.delegate = self
-        middleView.snp.makeConstraints { (mk) in
-            mk.height.equalTo(MiddleView.middleViewHeight)
-        }
         
-//        pickUser(idx: 0)
+        
+        //        pickUser(idx: 0)
         
         
         layout.scrollDirection = .horizontal
@@ -175,7 +175,7 @@ class KeyBoardAreaController: UIViewController{
         
         let middleIndexPath = IndexPath(item: users.count / 2, section: 0)
         selectCell(for: middleIndexPath, animated: false)
-//        userCollectionView.setNeedsDisplay()
+        //        userCollectionView.setNeedsDisplay()
     }
     deinit {
         print("keyboardarea deinit")
@@ -185,7 +185,10 @@ class KeyBoardAreaController: UIViewController{
         guard !self.middleView.isEmpty() else { return }
         receiver?.sendMessage(text: middleView.text)
         middleView.text = ""
-        
+        textViewDidChange(middleView.textView)
+        print("stackView")
+        print(stackView.frame.height)
+        //        textViewDidChange(_ middleView.textView: UITextView)
     }
     
     @objc func handleTime(_ sender: UIButton){
@@ -219,7 +222,7 @@ extension KeyBoardAreaController: UICollectionViewDataSource{
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = userCollectionView.dequeueReusableCell(withReuseIdentifier: UserCollectionCell.reuseId, for: indexPath) as! UserCollectionCell
-//        cell.setRadius()
+        //        cell.setRadius()
         cell.user = users[indexPath.item]
         cell.backgroundColor = UIColor.clear
         return cell
@@ -243,7 +246,7 @@ extension KeyBoardAreaController: UICollectionViewDelegateFlowLayout{
         }
     }
     
-
+    
     
     var selectedUser: User?{
         guard let indexPath = centeredIndex() else { return nil }
@@ -252,8 +255,8 @@ extension KeyBoardAreaController: UICollectionViewDelegateFlowLayout{
 }
 
 
-let maxHeight: CGFloat = 120
-
+let maxHeight: CGFloat = 90
+let minHeight: CGFloat = 36
 extension KeyBoardAreaController: UITextViewDelegate{
     func textViewDidChange(_ textView: UITextView) {
         let size = CGSize(width: textView.frame.width, height: .infinity)
@@ -261,6 +264,8 @@ extension KeyBoardAreaController: UITextViewDelegate{
         self.hasText = !textView.text.isEmpty
         var nextHeight = min(estimateSize.height, maxHeight)
         nextHeight = max(elementHeight - 20 , nextHeight)
+        nextHeight = max(minHeight,nextHeight)
+        
         textView.isScrollEnabled = (nextHeight >= maxHeight)
         textView.snp.updateConstraints { (mk) in
             mk.height.equalTo(nextHeight)
@@ -291,7 +296,7 @@ extension KeyBoardAreaController: UIScrollViewDelegate{
     
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-       guard let indexPath = centeredIndex() else { return  }
+        guard let indexPath = centeredIndex() else { return  }
         selectCell(for: indexPath, animated: true)
     }
     
@@ -299,15 +304,15 @@ extension KeyBoardAreaController: UIScrollViewDelegate{
         userCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: animated)
     }
     
-//    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-//        scrollViewDidEndDecelerating(scrollView)
-//    }
-//
-//    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-//        if !decelerate {
-//            scrollViewDidEndDecelerating(scrollView)
-//        }
-//    }
+    //    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+    //        scrollViewDidEndDecelerating(scrollView)
+    //    }
+    //
+    //    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    //        if !decelerate {
+    //            scrollViewDidEndDecelerating(scrollView)
+    //        }
+    //    }
     
 }
 

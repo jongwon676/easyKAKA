@@ -111,20 +111,21 @@ class ChatVC: UIViewController{
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = .center
         
-        attributedString.append(NSAttributedString(string: "그룹채팅",attributes: [
+        
+        attributedString.append(NSAttributedString(string: room.getRoomTitleName(),attributes: [
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18)
             ,.paragraphStyle:paragraph])
         )
         
-        
-        attributedString.append(NSAttributedString(string: "5\n", attributes: [
+        attributedString.append(NSAttributedString(string: room.getUserNumber(), attributes: [
             NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0.3319326043, green: 0.3760439456, blue: 0.4094469249, alpha: 1)
             , .font: UIFont.systemFont(ofSize: 18)
             ,.paragraphStyle:paragraph]
             )
         )
         
-        attributedString.append(NSAttributedString(string: Date.getNavTitle(date: self.room.currentDate), attributes:
+        attributedString.append(NSAttributedString(string:
+            "대화방 시간 " + Date.timeToString(date: self.room.currentDate), attributes:
             [NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0.4180841446, green: 0.4661870003, blue: 0.5037575364, alpha: 1),.font: UIFont.systemFont(ofSize: 14),.paragraphStyle:paragraph])
         )
         
@@ -277,10 +278,8 @@ class ChatVC: UIViewController{
             tableView.backgroundColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
             tableView.backgroundView = nil
         }
+        self.tabBarController?.tabBar.isHidden = true
         
-        if let tbc = self.tabBarController as? CBFlashyTabBarController{
-            tbc.tabBar.isHidden = true
-        }
         
         
       

@@ -30,7 +30,7 @@ class MiddleView: UIView{
         return textView
     }()
     
-    let textViewInset: UIEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 30)
+    let textViewInset: UIEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 62)
     
     
     func setup(){
@@ -38,22 +38,11 @@ class MiddleView: UIView{
         self.layer.borderWidth = 1
         self.backgroundColor = UIColor.white
         
-        
         specailFeatureButton.setImage(UIImage(named: "special_features_origin"), for: .normal)
-//        let rightStackView = UIStackView()
-//
-//        rightStackView.addArrangedSubview(smileButton)
-//        rightStackView.addArrangedSubview(sendButton)
-//
-//        rightStackView.axis = .horizontal
-//        rightStackView.spacing = 15
-//        rightStackView.alignment = .center
-//        rightStackView.distribution = .fill
+        
         
         self.addSubview(textView)
-        //        self.addSubview(rightStackView)
         self.addSubview(specailFeatureButton)
-        
         self.addSubview(sendButton)
         self.addSubview(smileButton)
         

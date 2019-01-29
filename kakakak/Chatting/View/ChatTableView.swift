@@ -9,6 +9,8 @@ class ChatTableView: UITableView {
         self.tableFooterView = UIView()
         self.separatorStyle = .none
         self.isUserInteractionEnabled = true
+        
+        self.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 150, right: 0)
     }
     
     required init?(coder aDecoder: NSCoder) {

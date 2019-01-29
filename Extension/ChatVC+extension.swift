@@ -30,8 +30,6 @@ extension ChatVC: UITextViewDelegate{
         guard let keyBoardFrame = keyBoardFrame else { return }
         
 
-        
-        
         if show{
             UIView.animate(withDuration: duration) {
                 self.bottomController.view.snp.updateConstraints({ (mk) in

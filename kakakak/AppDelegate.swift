@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         GADMobileAds.configure(withApplicationID: "ca-app-pub-1497706702442314~7743899510")
         TimeZone.ReferenceType.default = TimeZone(abbreviation: "KST")!
-        if let tbc = self.window?.rootViewController as? CBFlashyTabBarController{
+        if let tbc = self.window?.rootViewController as? UITabBarController{
             if let tbItems = tbc.tabBar.items{
                 
                 tbItems[0].image = UIImage(named: "back")
