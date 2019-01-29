@@ -8,7 +8,7 @@ class VoiceCell: UserChattingBaseCell,ChattingCellProtocol{
         super.init(coder: aDecoder)
     }
     lazy var bubble: UIView = {
-      let view = UIView()
+        let view = UIView()
         view.backgroundColor = Style.bubbleWhiteColor
         view.layer.cornerRadius = Style.bubbleCornerRadius
         view.layer.masksToBounds = true

@@ -113,6 +113,7 @@ class UserCollectionCell: UICollectionViewCell {
             mk.left.right.top.bottom.equalTo(self)
         }
         
+        
         imageView.contentMode = .scaleAspectFill
         nameLabel.text = user?.name
         nameLabel.font = UIFont.systemFont(ofSize: 11)

@@ -44,19 +44,27 @@ extension ChatVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate
     
     func changeChattingRoomTitle(){
         let alert = UIAlertController(title: nil, message: "대화방 이름을 입력해주세요.", preferredStyle: .alert)
-        alert.addTextField { (textField) in
-            // 방의 제목을 입력해줌.
+        // alert -> room
+        alert.addTextField { [weak self] (textField) in
+            textField.text = self?.room.getRoomTitleName()
         }
-        let saveAction = UIAlertAction(title: "확인", style: .default) { (action) in
+        let saveAction = UIAlertAction(title: "확인", style: .default) { [weak self] (action) in
             guard let textField = alert.textFields?.first else { return }
-            
-            
+            try! self?.realm.write {
+                if textField.text!.isEmpty{
+                    self?.room.title = nil
+                }else{
+                    self?.room.title = textField.text
+                }
+                self?.setNavTitle()
+            }
         }
         let cancelAction = UIAlertAction(title: "취소", style: .cancel) { (action) in
             
         }
-        alert.addAction(cancelAction)
         alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        
         
         self.present(alert, animated: true, completion: nil)
     }

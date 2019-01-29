@@ -97,6 +97,13 @@ extension ChatVC: UITextViewDelegate{
                 room.messages.append(objectsIn: msgs)
             }
         }
+        func makeVoiceDummy(num: Int){
+            var msgs = [Message]()
+            for _ in 0 ..< num{
+//                let msg = Message.make
+            }
+        }
+        
         makeDummyText(num: 5)
         makeImageDummy(num: 5)
         
