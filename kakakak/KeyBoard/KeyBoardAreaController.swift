@@ -155,7 +155,9 @@ class KeyBoardAreaController: UIViewController{
         middleView.smileButton.inputView = timeInputView
         middleView.textView.modeChecker = self
         middleView.textView.delegate = self
-        
+        middleView.snp.makeConstraints { (mk) in
+            mk.height.equalTo(MiddleView.middleViewHeight)
+        }
         
 //        pickUser(idx: 0)
         

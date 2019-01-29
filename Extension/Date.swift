@@ -29,9 +29,7 @@ extension Date{
         let comps = cal.dateComponents([.weekday], from: date)
         
         let comps2 = cal.dateComponents([.weekday], from: date2)
-        print(comps.weekday!)
-        print(comps2.weekday!)
-        
+
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy년 M월 d일 a h:mm"
         dateFormatter.amSymbol = "오전"

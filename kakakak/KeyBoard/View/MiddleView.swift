@@ -40,30 +40,44 @@ class MiddleView: UIView{
         
         
         specailFeatureButton.setImage(UIImage(named: "special_features_origin"), for: .normal)
-        let rightStackView = UIStackView()
+//        let rightStackView = UIStackView()
+//
+//        rightStackView.addArrangedSubview(smileButton)
+//        rightStackView.addArrangedSubview(sendButton)
+//
+//        rightStackView.axis = .horizontal
+//        rightStackView.spacing = 15
+//        rightStackView.alignment = .center
+//        rightStackView.distribution = .fill
         
-        rightStackView.addArrangedSubview(smileButton)
-        rightStackView.addArrangedSubview(sendButton)
+        self.addSubview(textView)
+        //        self.addSubview(rightStackView)
+        self.addSubview(specailFeatureButton)
         
-        rightStackView.axis = .horizontal
-        rightStackView.spacing = 15
-        rightStackView.alignment = .center
-        rightStackView.distribution = .fill
+        self.addSubview(sendButton)
+        self.addSubview(smileButton)
+        
         
         smileButton.snp.makeConstraints { (mk) in
             mk.width.height.equalTo(20)
-        }
-        sendButton.snp.makeConstraints { (mk) in
-            mk.width.height.equalTo(25)
+            mk.right.equalTo(sendButton.snp.left).offset(-22)
+//            mk.centerY.equalTo(textView)
+            mk.bottom.equalTo(textView).inset(7.5)
         }
         
-        self.addSubview(textView)
-        self.addSubview(rightStackView)
-        self.addSubview(specailFeatureButton)
+        sendButton.snp.makeConstraints { (mk) in
+            mk.width.equalTo(14)
+            mk.height.equalTo(16)
+            mk.right.equalTo(textView.snp.right).inset(14)
+//            mk.centerY.equalTo(textView)
+            mk.bottom.equalTo(textView).inset(8.5)
+        }
+        
+        
         
         specailFeatureButton.snp.makeConstraints { (mk) in
             mk.left.equalTo(self).offset(10)
-            mk.bottom.equalTo(self).inset(15)
+            mk.bottom.equalTo(textView).inset(8.5)
             mk.width.height.equalTo(20)
         }
         
@@ -72,15 +86,15 @@ class MiddleView: UIView{
             mk.bottom.equalTo(self.snp.bottom).offset(-5)
             mk.left.equalTo(specailFeatureButton.snp.right).offset(10)
             mk.right.equalTo(self).offset(-10)
-            mk.height.equalTo(30)
+            mk.height.equalTo(36)
         })
         
-        rightStackView.snp.makeConstraints { (mk) in
-            mk.right.equalTo(textView.snp.right).inset(2)
-            mk.width.equalTo(60)
-            mk.height.equalTo(30)
-            mk.centerY.equalTo(specailFeatureButton)
-        }
+//        rightStackView.snp.makeConstraints { (mk) in
+//            mk.right.equalTo(textView.snp.right).inset(2)
+//            mk.width.equalTo(55)
+//            mk.height.equalTo(20)
+//            mk.centerY.equalTo(specailFeatureButton)
+//        }
     }
     
     init() {
@@ -90,7 +104,7 @@ class MiddleView: UIView{
         
         
     }
-    
+
     var text: String{
         get { return self.textView.text }
         set { self.textView.text = newValue}
@@ -109,7 +123,15 @@ class MiddleView: UIView{
         setup()
 //        fatalError("init(coder:) has not been implemented")
     }
-    
+}
+
+extension MiddleView{
+    static let smileButtonWidth:CGFloat = 20
+    static let smileButtonHeight:CGFloat = 20
+    static let sendButtonWidth: CGFloat = 14
+    static let sendButtonHeight: CGFloat = 16
+    static let textViewHeight:CGFloat = 36
+    static let middleViewHeight:CGFloat = 44
     
 }
 

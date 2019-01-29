@@ -2,122 +2,7 @@ import UIKit
 import RealmSwift
 
 extension ChatVC: UITextViewDelegate{
-    
-    func checkFirst(index: Int,message: Message) -> Bool{
-        for idx in stride(from: index-1, through: 0, by: -1){
-            if room.messages[idx].owner != message.owner{
-                return true
-            }
-            if room.messages[idx].type == Message.MessageType.date ||
-                room.messages[idx].type == Message.MessageType.enter ||
-                room.messages[idx].type == Message.MessageType.exit{
-                return true
-            }
-            
-            if Date.timeToString(date: room.messages[idx].sendDate) != Date.timeToString(date: message.sendDate) {
-                return true
-            }
-            
-            return false
-        }
-        return true
-    }
-    
-    func checkLast(index: Int, message: Message) -> Bool{
-        for idx in stride(from: index + 1, through: room.messages.count - 1, by: 1){
-            if room.messages[idx].owner != message.owner{
-                return true
-            }
-            if room.messages[idx].type == Message.MessageType.date ||
-                room.messages[idx].type == Message.MessageType.enter ||
-                room.messages[idx].type == Message.MessageType.exit{
-                return true
-            }
-            if Date.timeToString(date: room.messages[idx].sendDate) != Date.timeToString(date: message.sendDate) {
-                return true
-            }
-            return false
-        }
-        return true
-    }
-    
-    func advanceFirst(index: Int, message: Message){
-        for idx in stride(from: index + 1, through: room.messages.count - 1, by: 1){
-            if room.messages[idx].owner != message.owner{
-                break
-            }
-            if room.messages[idx].type == Message.MessageType.date ||
-                room.messages[idx].type == Message.MessageType.enter ||
-                room.messages[idx].type == Message.MessageType.exit{
-                break
-            }
-            if room.messages[idx].isFirstMessage == false{
-                break
-            }
-            if Date.timeToString(date: room.messages[idx].sendDate) != Date.timeToString(date: message.sendDate) {
-                break
-            }
-            room.messages[idx].isFirstMessage = false
-        }
-    }
-    
-    func advanceLast(index: Int, message: Message){
-        
-        
-        for idx in stride(from: index - 1, through: 0, by: -1){
-            if room.messages[idx].owner != message.owner{
-                break
-            }
-            if room.messages[idx].type == Message.MessageType.date ||
-                room.messages[idx].type == Message.MessageType.enter ||
-                room.messages[idx].type == Message.MessageType.exit{
-                break
-            }
-            if room.messages[idx].isLastMessage == false{
-                break
-            }
-            if Date.timeToString(date: room.messages[idx].sendDate) != Date.timeToString(date: message.sendDate) {
-                break
-            }
-            room.messages[idx].isLastMessage = false
-        }
-    }
-    
-    func checkUserMessage(message: Message) -> Bool{
-        switch message.type {
-            
-        case .date: return false
-        case .enter: return false
-        case .exit: return false
-        case .image: return true
-        case .text: return true
-        case .voice: return true
-        }
-    }
-    
-    func reload(){
-        
-        try! realm.write {
-            
-            for idx in stride(from: room.messages.count - 1, through: 0, by: -1){
-                if !checkUserMessage(message: room.messages[idx]){
-                    continue
-                }
-                room.messages[idx].isFirstMessage = true
-                advanceFirst(index: idx, message: room.messages[idx])
-            }
-            
-            for idx in stride(from: 0, through: room.messages.count - 1, by: 1){
-                if !checkUserMessage(message: room.messages[idx]){
-                    continue
-                }
-                room.messages[idx].isLastMessage = true
-                advanceLast(index: idx, message: room.messages[idx])
-            }
-        }
-    }
-    
- 
+
     func textViewDidBeginEditing(_ textView: UITextView) {
         print("textview begin edit")
     }
@@ -126,7 +11,6 @@ extension ChatVC: UITextViewDelegate{
         return true
     }
     
-  
     @objc func adjustInsetForKeyboard(_ notification: NSNotification) {
         guard let userInfo = notification.userInfo else { return }
 
@@ -194,7 +78,16 @@ extension ChatVC: UITextViewDelegate{
                 
             }
         }
-        
+        func makeImageDummy(num: Int){
+            var msgs = [Message]()
+            for _ in 0 ..< num{
+                let msg = Message.makeImageMessage(owner: room.users[1], sendDate: room.currentDate, imageUrl: "1547971841.679249.jpg")
+                msgs.append(msg)
+            }
+            try! realm.write {
+                room.messages.append(objectsIn: msgs)
+            }
+        }
         
         func makeExitDummy(num: Int){
             var msgs = [Message]()
@@ -206,8 +99,9 @@ extension ChatVC: UITextViewDelegate{
                 room.messages.append(objectsIn: msgs)
             }
         }
-//        makeDummyDate(num: 1)
-        makeDummyText(num: 500)
+        makeDummyText(num: 5)
+        makeImageDummy(num: 5)
+        
 //        makeExitDummy(num: 1)
     }
 }
@@ -215,7 +109,8 @@ extension ChatVC: UITextViewDelegate{
 extension ChatVC: bottomInfoReceiver{
     func sendMessage(text: String) {
         guard let currentUser = bottomController.selectedUser else { return }
-        room.addMessage(message: Message(owner: currentUser, sendDate: room.currentDate, messageText: text))
+        messageManager.addLast(message: Message(owner: currentUser, sendDate: room.currentDate, messageText: text), tableView: self.tableView)
+        
     }
     func addMinute(minute: Int) {
         try! realm.write {
@@ -252,11 +147,10 @@ extension ChatVC: EditChatting{
         
         if let nav = storyboard.instantiateViewController(withIdentifier: "MessageEditNav") as? UINavigationController{
             ((nav.viewControllers[0]) as? MessageEditController)?.messages = messageManager.getSelectedMessages()
+            ((nav.viewControllers[0]) as? MessageEditController)?.chatVc = self
             
             self.present(nav, animated: true, completion: nil)
         }
-        
-        
     }
     
     func excuteEsc() {

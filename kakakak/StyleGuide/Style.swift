@@ -7,7 +7,7 @@ class Style{
     static let topMessageToCornerGap:CGFloat = 16
     static let tailSize:CGFloat = 5
     static let profileToCornerGap:CGFloat = 2.5
-    static let timeLabelToMessageGap:CGFloat = 4
+    static let timeLabelToMessageGap:CGFloat = 6
     static let timeLabelToBottomGap:CGFloat = 2.5
     static let messageToMessageGap:CGFloat = 2.5
     

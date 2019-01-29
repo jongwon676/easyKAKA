@@ -29,6 +29,8 @@ class UserChattingBaseCell: BaseChatCell{
             
             
             
+            
+            
         }
     }
     lazy var nameLabel: UILabel = {

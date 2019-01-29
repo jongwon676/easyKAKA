@@ -36,20 +36,16 @@ class TextCell: UserChattingBaseCell,ChattingCellProtocol{
         guard let owner = message.owner else { return }
         self.message = message
         
-        
         containerView.addSubview(bubbleView)
         containerView.addSubview(messageLabel)
         containerView.addSubview(stackView)
         containerView.addSubview(nameLabel)
         containerView.addSubview(profile)
         
-        
         let screenWidth = UIScreen.main.bounds.width
         let containerViewY = message.isFirstMessage ? Style.firstMessageGap  : Style.moreThanFirstMessageGap
-        
         containerView.frame = CGRect(x: 0, y: containerViewY, width: screenWidth, height: 200)
-        
-        
+
         let profileX: CGFloat = Style.profileToCornerGap + (editMode ? Style.editModeOffset : 0)
         let profileY: CGFloat = 0
         let profileWidth = Style.profileImageSize
@@ -61,8 +57,6 @@ class TextCell: UserChattingBaseCell,ChattingCellProtocol{
         nameLabel.frame.origin = CGPoint(x: nameLabelX, y: nameLabelY)
         nameLabel.sizeToFit()
         
-        
-        // messageLabel origin setting need
         messageLabel.text = message.messageText
         messageLabel.frame.size = messageLabel.sizeThatFits(CGSize(width: Style.limitMessageWidth, height: .infinity))
         

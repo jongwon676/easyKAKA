@@ -22,29 +22,61 @@ class ChattingImageCell: UserChattingBaseCell,ChattingCellProtocol{
     }
     
     func configure(message: Message){
+        self.message = message
         messageImage.image = UIImage.loadImageFromName(message.messageImageUrl)
-        self.addSubview(messageImage)
+        
+        guard let owner = message.owner else { return }
+        containerView.addSubview(stackView)
+        containerView.addSubview(nameLabel)
+        
+        containerView.addSubview(messageImage)
+        containerView.addSubview(profile)
+        let screenWidth = UIScreen.main.bounds.width
+        let containerViewY = message.isFirstMessage ? Style.firstMessageGap  : Style.moreThanFirstMessageGap
+        containerView.frame = CGRect(x: 0, y: containerViewY, width: screenWidth, height: 200)
+        let profileX: CGFloat = Style.profileToCornerGap + (editMode ? Style.editModeOffset : 0)
+        let profileY: CGFloat = 0
+        let profileWidth = Style.profileImageSize
+        let profileHeight = Style.profileImageSize
+        profile.frame = CGRect(x: profileX, y: profileY, width: profileWidth, height: profileHeight)
+        let nameLabelX = profile.frame.maxX + Style.nameLabelProfileGap
+        let nameLabelY = profile.frame.origin.y
+        nameLabel.frame.origin = CGPoint(x: nameLabelX, y: nameLabelY)
+        nameLabel.sizeToFit()
         
         
-//        topView.snp.remakeConstraints { (mk) in
-//            mk.left.right.top.equalTo(self)
-//            mk.height.equalTo( ( message.isFirstMessage ? Style.firstMessageGap + 4 : 4 ) )
-//        }
+        messageImage.frame.size = CGSize(width: 100, height: 100) // 수정 요망
         
-        messageImage.snp.remakeConstraints { (mk) in
-//            if incomming { mk.left.equalTo(self).offset(Style.leftMessageToCornerGap)}
-//            else {mk.right.equalTo(self).inset(Style.rightMessageToCornerGap)}
-            mk.size.equalTo(imgViewSize())
-            mk.top.equalTo(self).offset(message.isFirstMessage ? Style.firstMessageGap + 4 : 4)
-//            mk.top.equalTo(topView.snp.bottom)
-            mk.bottom.equalTo(self)
+        
+        if !owner.isMe{
+            messageImage.frame.origin.x = nameLabelX
+            let bubbleViewY = message.isFirstMessage ? nameLabel.frame.maxY + Style.nameLabelBubbleGap : 0
+            messageImage.frame.origin.y = bubbleViewY
+            stackView.snp.remakeConstraints { (mk) in
+                mk.left.equalTo(messageImage.snp.right).offset(Style.timeLabelToMessageGap)
+                mk.bottom.equalTo(messageImage.snp.bottom)
+            }
+        }else{
+            messageImage.frame.origin.x = UIScreen.main.bounds.width - messageImage.frame.width - Style.profileToCornerGap
+            messageImage.frame.origin.y = 0
+            stackView.snp.remakeConstraints { (mk) in
+                mk.right.equalTo(messageImage.snp.left).offset(-Style.timeLabelToMessageGap)
+                mk.bottom.equalTo(messageImage.snp.bottom)
+            }
         }
         
-        stackView.snp.remakeConstraints { (mk) in
-//            if incomming { mk.left.equalTo(messageImage.snp.right).offset(7) }
-//            else { mk.right.equalTo(messageImage.snp.left).offset(-7) }
-            mk.bottom.equalTo(messageImage).inset(7)
+        
+        
+        
+        containerView.frame.size.height = messageImage.frame.maxY
+//        messageLabel.center = bubbleView.center
+        
+        containerView.snp.remakeConstraints { (mk) in
+            mk.left.right.bottom.equalTo(self)
+            mk.top.equalTo(self).offset(containerViewY)
+            mk.height.equalTo(messageImage.frame.maxY)
         }
+        
     }
 
     required init?(coder aDecoder: NSCoder) {

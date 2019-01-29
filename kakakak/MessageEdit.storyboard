@@ -24,7 +24,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserNameCell" id="o8a-0X-hYm">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserNameCell" id="o8a-0X-hYm" customClass="UserNameEditCell" customModule="kakakak" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o8a-0X-hYm" id="T9r-th-JUG">
@@ -45,14 +45,17 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="hXo-ai-BKG" firstAttribute="leading" secondItem="T9r-th-JUG" secondAttribute="leadingMargin" id="Cu2-qy-nwL"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="3o7-9Y-oZa" secondAttribute="trailing" id="Txs-7R-8R3"/>
-                                        <constraint firstItem="hXo-ai-BKG" firstAttribute="centerY" secondItem="T9r-th-JUG" secondAttribute="centerY" id="t8w-5B-ge3"/>
-                                        <constraint firstItem="3o7-9Y-oZa" firstAttribute="centerY" secondItem="T9r-th-JUG" secondAttribute="centerY" id="v6H-4m-yZb"/>
+                                        <constraint firstItem="3o7-9Y-oZa" firstAttribute="trailing" secondItem="T9r-th-JUG" secondAttribute="trailingMargin" id="Kmb-3y-fdO"/>
+                                        <constraint firstItem="hXo-ai-BKG" firstAttribute="centerY" secondItem="T9r-th-JUG" secondAttribute="centerY" id="Rof-vA-3jn"/>
+                                        <constraint firstItem="hXo-ai-BKG" firstAttribute="leading" secondItem="T9r-th-JUG" secondAttribute="leadingMargin" id="iXs-x7-Bet"/>
+                                        <constraint firstItem="3o7-9Y-oZa" firstAttribute="centerY" secondItem="T9r-th-JUG" secondAttribute="centerY" id="qAS-IZ-7ws"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="3o7-9Y-oZa" id="jDP-Sd-cEv"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TimeCell" rowHeight="166" id="G22-Av-dBS">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TimeCell" rowHeight="166" id="G22-Av-dBS" customClass="TimeEditCell" customModule="kakakak" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="166"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G22-Av-dBS" id="Eph-5y-v96">
@@ -73,8 +76,11 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="Aec-Pu-rfW" secondAttribute="bottom" id="gWC-ML-hrQ"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="datePicker" destination="Aec-Pu-rfW" id="uPn-Y0-S2y"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextCell" rowHeight="100" id="Qsk-Q0-K48">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextCell" rowHeight="100" id="Qsk-Q0-K48" customClass="TextEditcell" customModule="kakakak" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="238" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qsk-Q0-K48" id="rsi-eo-ZB9">
@@ -107,8 +113,11 @@
                                         <constraint firstItem="Nz2-ak-BWi" firstAttribute="trailing" secondItem="rsi-eo-ZB9" secondAttribute="trailingMargin" id="z2S-Si-c4J"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="textView" destination="Nz2-ak-BWi" id="S3r-yd-EpR"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DateCell" rowHeight="169" id="cXn-rh-iPr">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DateCell" rowHeight="169" id="cXn-rh-iPr" customClass="DateEditCell" customModule="kakakak" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="338" width="375" height="169"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cXn-rh-iPr" id="nok-97-52N">

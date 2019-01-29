@@ -13,9 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SyncManager.shared.logLevel = .off
 //        Firebase.configure()
         FirebaseApp.configure()
-      
-        
-        
         GADMobileAds.configure(withApplicationID: "ca-app-pub-1497706702442314~7743899510")
         TimeZone.ReferenceType.default = TimeZone(abbreviation: "KST")!
         if let tbc = self.window?.rootViewController as? CBFlashyTabBarController{

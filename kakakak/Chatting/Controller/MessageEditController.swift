@@ -1,11 +1,13 @@
-
 import UIKit
 import SnapKit
+import RealmSwift
 
 class MessageEditController: UITableViewController {
     
-    let inds = ["UserNameCell","TimeCell","TextCell","DateCell"]
     
+    
+    static var allIndenties = ["UserNameCell","TimeCell","TextCell","DateCell"]
+    weak var chatVc: ChatVC!
     enum cellKind:String{
         case UserNameCell
         case TimeCell
@@ -30,16 +32,49 @@ class MessageEditController: UITableViewController {
                 cellKind.UserNameCell.rawValue,
                 cellKind.TextCell.rawValue,
                 cellKind.TimeCell.rawValue
-            ]
+                ]
             case .voice: indenties = [cellKind.TimeCell.rawValue]}
         }
         return indenties
     }
     
+    var allCells: [UITableViewCell] {
+        var cells:[UITableViewCell] = []
+        for idx in 0 ..< self.cellKinds.count{
+            cells.append(tableView.cellForRow(at: IndexPath.row(row: idx))!)
+        }
+        return cells
+    }
+    
     
     @IBAction func editComplete(_ sender: Any) {
-        self.navigationController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        
+        let realm = try! Realm()
+        
+        try! realm.write {
+            for msg in messages{
+                if let cell = (allCells.compactMap{  ($0 as? TextEditcell)}.first){
+                    msg.messageText = cell.textView.text
+                }
+                if let cell = (allCells.compactMap{  ($0 as? TimeEditCell)}.first){
+                    msg.sendDate = cell.datePicker.date
+                }
+                if let cell = (allCells.compactMap{  ($0 as? DateEditCell)}.first){
+                    
+                }
+            }
+            
+            chatVc.messageManager.reload()
+            chatVc.tableView.reloadData()
+            self.chatVc.allDeselct()
+            self.navigationController?.presentingViewController?.dismiss(animated: true, completion: {
+//                self.chatVc.allDeselct()
+            })
+            
+        }
+        
     }
+    
     @objc func tapClose(_ sender: Any) {
         self.navigationController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
@@ -64,6 +99,7 @@ class MessageEditController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         cellKinds = getIndsWithMessageType()
+        tableView.showsVerticalScrollIndicator = false
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -77,13 +113,18 @@ class MessageEditController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellType = cellKinds[indexPath.row]
+        let msg = messages.first!
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: cellType)!
+        
         if cellType == cellKind.TextCell.rawValue{
-            
+            guard let owner = msg.owner  else { return cell }
+            (cell as? UserNameEditCell)?.nameLabel.text = owner.name
         }else if cellType == cellKind.DateCell.rawValue{
             
-        }else if cellType == cellKind.TimeCell.rawValue{
             
+        }else if cellType == cellKind.TimeCell.rawValue{
+            (cell as? TimeEditCell)?.time = msg.sendDate
         }else if cellType == cellKind.UserNameCell.rawValue{
             
         }
