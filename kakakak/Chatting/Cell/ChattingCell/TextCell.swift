@@ -6,6 +6,8 @@ class TextCell: UserChattingBaseCell,ChattingCellProtocol{
 
     static var reuseId: String = Message.MessageType.text.rawValue
     
+  
+    
     
     lazy var messageLabel: UILabel = {
         let label = UILabel()
@@ -42,6 +44,8 @@ class TextCell: UserChattingBaseCell,ChattingCellProtocol{
         containerView.addSubview(nameLabel)
         containerView.addSubview(profile)
         
+        
+        
         let screenWidth = UIScreen.main.bounds.width
         let containerViewY = message.isFirstMessage ? Style.firstMessageGap  : Style.moreThanFirstMessageGap
         containerView.frame = CGRect(x: 0, y: containerViewY, width: screenWidth, height: 200)
@@ -57,7 +61,24 @@ class TextCell: UserChattingBaseCell,ChattingCellProtocol{
         nameLabel.frame.origin = CGPoint(x: nameLabelX, y: nameLabelY)
         nameLabel.sizeToFit()
         
-        messageLabel.text = message.messageText
+        
+        
+        if message.isDelete{
+            
+            
+            
+            let errorText = NSAttributedString(string: "\u{e9aa}", attributes: [NSAttributedString.Key.font: UIFont(name: "xeicon", size: 18), .foregroundColor: UIColor.lightGray])
+            let deleteText = NSAttributedString(string: " 삭제된 메시시지입니다.", attributes: [NSAttributedString.Key.font: Style.messageLabelFont, .foregroundColor: UIColor.lightGray,NSAttributedString.Key.baselineOffset: 2])
+            
+            var attributedText = NSMutableAttributedString()
+            attributedText.append(errorText)
+            attributedText.append(deleteText)
+            
+            messageLabel.attributedText = attributedText
+        }else{
+            messageLabel.text = message.messageText
+        }
+        
         messageLabel.frame.size = messageLabel.sizeThatFits(CGSize(width: Style.limitMessageWidth, height: .infinity))
         
         

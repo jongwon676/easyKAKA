@@ -12,6 +12,9 @@ class MiddleView: UIView{
         btn.setImage(UIImage(named: "emoji_origin"), for: .normal)
         return btn
     }()
+    
+    
+    
     let specailFeatureButton = SpecailFeatureButton()
     
     lazy var textView: customTextView = {
@@ -78,12 +81,6 @@ class MiddleView: UIView{
             mk.height.equalTo(36)
         })
         
-//        rightStackView.snp.makeConstraints { (mk) in
-//            mk.right.equalTo(textView.snp.right).inset(2)
-//            mk.width.equalTo(55)
-//            mk.height.equalTo(20)
-//            mk.centerY.equalTo(specailFeatureButton)
-//        }
     }
     
     init() {

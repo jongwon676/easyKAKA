@@ -15,8 +15,7 @@ class Message: Object,NSCopying {
     @objc dynamic var isLastMessage: Bool = false
     @objc dynamic var isSelected: Bool = false
     @objc dynamic var creationDate: Date = Date()
-     // 퇴장시에 1전부 감소 시켜야됨.
-    
+    @objc dynamic var isDelete: Bool = false
     
     override static func ignoredProperties() -> [String] {
         return ["isFirstMessage","isLastMessage","isSelected"]

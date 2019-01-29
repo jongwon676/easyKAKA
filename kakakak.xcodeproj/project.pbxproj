@@ -23,6 +23,7 @@
 		AD542CB621EC871A00656196 /* RoomAddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD542CB521EC871A00656196 /* RoomAddVC.swift */; };
 		AD542CB821EC8D8A00656196 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD542CB721EC8D8A00656196 /* UserCell.swift */; };
 		AD87909921EA048A0008177D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD87909821EA048A0008177D /* ViewController.swift */; };
+		AD8CD3FF2200D6BA0040AE81 /* xeicon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD8CD3FE2200D6BA0040AE81 /* xeicon.ttf */; };
 		AD95E6C021F3F9C1000450AB /* VoiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95E6BF21F3F9C1000450AB /* VoiceCell.swift */; };
 		AD95E6C321F422FD000450AB /* BackgroundSelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95E6C221F422FD000450AB /* BackgroundSelectController.swift */; };
 		AD95E6C521F425B4000450AB /* BackgroundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95E6C421F425B4000450AB /* BackgroundCell.swift */; };
@@ -94,6 +95,7 @@
 		AD542CB521EC871A00656196 /* RoomAddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomAddVC.swift; sourceTree = "<group>"; };
 		AD542CB721EC8D8A00656196 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		AD87909821EA048A0008177D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AD8CD3FE2200D6BA0040AE81 /* xeicon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = xeicon.ttf; sourceTree = "<group>"; };
 		AD95E6BF21F3F9C1000450AB /* VoiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceCell.swift; sourceTree = "<group>"; };
 		AD95E6C221F422FD000450AB /* BackgroundSelectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundSelectController.swift; sourceTree = "<group>"; };
 		AD95E6C421F425B4000450AB /* BackgroundCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCell.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 			children = (
 				AD27D16821F14B9D009E367A /* icon */,
 				AD0AA03121EA00D000B45EF5 /* GoogleService-Info.plist */,
+				AD8CD3FE2200D6BA0040AE81 /* xeicon.ttf */,
 				ADC672CA21E28FCD00D6D3F5 /* Helper */,
 				ADC672C721E28F5C00D6D3F5 /* Extension */,
 				ADC672BA21E22B6700D6D3F5 /* Resources */,
@@ -476,6 +479,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADA7E01421FF596300FCF517 /* MessageEdit.storyboard in Resources */,
+				AD8CD3FF2200D6BA0040AE81 /* xeicon.ttf in Resources */,
 				ADC672B321E2260800D6D3F5 /* LaunchScreen.storyboard in Resources */,
 				ADC672B021E2260800D6D3F5 /* Assets.xcassets in Resources */,
 				AD27D16921F14B9D009E367A /* icon in Resources */,

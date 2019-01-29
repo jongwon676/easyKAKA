@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="xeicon.ttf">
+            <string>xeicon</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--CharacterList-->
         <scene sceneID="rZR-JU-cse">
@@ -576,6 +581,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="xi-error" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1N-50-Tkl">
+                                <rect key="frame" x="158" y="641" width="54" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="xeicon" family="xeicon" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -587,6 +599,7 @@
                     </view>
                     <connections>
                         <outlet property="bannerView" destination="6mc-gA-oSt" id="pXO-Ms-u6b"/>
+                        <outlet property="fontTestLabel" destination="b1N-50-Tkl" id="du4-PW-XpG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Vp-LA-hhA" userLabel="First Responder" sceneMemberID="firstResponder"/>

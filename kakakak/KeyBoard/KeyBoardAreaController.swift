@@ -139,13 +139,23 @@ class KeyBoardAreaController: UIViewController{
         
         return bannerView
     }()
-    
+    lazy var spView: SpeacialFeatureInputView = {
+        let view = SpeacialFeatureInputView(frame: .zero)
+        let plist = UserDefaults.standard
+        let keyboardHeight = plist.double(forKey: "keyboardHeight")
+        if keyboardHeight >= 180{
+            view.frame.size.height = CGFloat(keyboardHeight)
+        }else{
+            view.autoresizingMask = .flexibleHeight
+        }
+        return view
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let layout = UserLayout()
         
-        
+        middleView.specailFeatureButton.inputView = spView
         userCollectionView.collectionViewLayout = layout
         userCollectionView.dataSource = self
         userCollectionView.delegate = self

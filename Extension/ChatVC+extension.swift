@@ -52,18 +52,21 @@ extension ChatVC: UITextViewDelegate{
     
     func makeDummyCells(){
 
-        func makeDummyText(num: Int){
+    
+        func makeDummyText(num: Int,isDelete: Bool = false){
             var msgs = [Message]()
             for _ in 0 ..< num{
                 var txt = ""
                 for idx in  0 ..< arc4random_uniform(200) + 1{ txt += String(idx) }
                 let msg = Message(owner: room.users[0], sendDate: room.currentDate, messageText: txt)
+                msg.isDelete = isDelete
                 msgs.append(msg)
             }
             try! realm.write {
                 room.messages.append(objectsIn: msgs)
             }
         }
+        
         func makeDummyDate(num:Int){
             var msgs = [Message]()
             for _ in 0 ..< num {
@@ -73,9 +76,9 @@ extension ChatVC: UITextViewDelegate{
             }
             try! realm.write {
                 room.messages.append(objectsIn: msgs)
-                
             }
         }
+        
         func makeImageDummy(num: Int){
             var msgs = [Message]()
             for _ in 0 ..< num{
@@ -104,9 +107,9 @@ extension ChatVC: UITextViewDelegate{
             }
         }
         
-        makeDummyText(num: 5)
-        makeImageDummy(num: 5)
-        
+//        makeDummyText(num: 5)
+//        makeImageDummy(num: 5)
+        makeDummyText(num: 5, isDelete: true)
 //        makeExitDummy(num: 1)
     }
 }
@@ -124,6 +127,7 @@ extension ChatVC: bottomInfoReceiver{
         }
     }
 }
+
 extension IndexPath{
     static func row(row: Int) -> IndexPath{
         return IndexPath(row: row, section: 0)
