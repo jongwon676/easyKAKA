@@ -193,4 +193,18 @@ class MessageProcessor{
         }
     }
     
+    func sendMessaegImage(imageName: String,user: User){
+        //보내는사람, 이미지 이름, 보내는날짜
+        let msg = Message.makeImageMessage(owner: user, sendDate: room.currentDate, imageUrl: imageName)
+        try! realm.write {
+            self.messages.append(msg)
+            room.messages.append(msg)
+            self.vc?.messageManager.reload()
+            self.vc?.tableView.reloadData()
+        }
+    }
+    
+    // 알아야될것. 현재 유저가 누구인지
+    
+    
 }

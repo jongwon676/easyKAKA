@@ -22,11 +22,13 @@ enum ChatMode{
 class KeyBoardAreaController: UIViewController{
     
     var keyFrame: CGRect? = nil
+    weak var messageManager: MessageProcessor?
     
     func keyboardHide(){
-        self.middleView.textView.resignFirstResponder()
-        self.middleView.smileButton.resignFirstResponder()
-        self.middleView.specailFeatureButton.resignFirstResponder()
+//        self.middleView.textView.resignFirstResponder()
+//        self.middleView.smileButton.resignFirstResponder()
+//        self.middleView.specailFeatureButton.resignFirstResponder()
+        self.view.endEditing(true)
     }
     
     
@@ -156,6 +158,7 @@ class KeyBoardAreaController: UIViewController{
         let layout = UserLayout()
         
         middleView.specailFeatureButton.inputView = spView
+        spView.collectionView.delegate = self
         userCollectionView.collectionViewLayout = layout
         userCollectionView.dataSource = self
         userCollectionView.delegate = self
@@ -185,7 +188,6 @@ class KeyBoardAreaController: UIViewController{
         
         let middleIndexPath = IndexPath(item: users.count / 2, section: 0)
         selectCell(for: middleIndexPath, animated: false)
-        //        userCollectionView.setNeedsDisplay()
     }
     deinit {
         print("keyboardarea deinit")
@@ -196,10 +198,11 @@ class KeyBoardAreaController: UIViewController{
         receiver?.sendMessage(text: middleView.text)
         middleView.text = ""
         textViewDidChange(middleView.textView)
-        print("stackView")
+
         print(stackView.frame.height)
         //        textViewDidChange(_ middleView.textView: UITextView)
     }
+    
     
     @objc func handleTime(_ sender: UIButton){
         if sender.titleLabel?.text == "+"{
@@ -228,6 +231,7 @@ extension KeyBoardAreaController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
+//        #colorLiteral(red: 0.004580542445, green: 0.01560623012, blue: 0.2958489656, alpha: 1)
         return users.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -245,7 +249,21 @@ extension KeyBoardAreaController: UICollectionViewDelegateFlowLayout{
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectCell(for: indexPath, animated: true)
+        
+        if (collectionView as? UserCollectionView) != nil{ //유저 클릭
+            selectCell(for: indexPath, animated: true)
+        }else{ // 특수기능 버튼 클릭
+            
+            switch indexPath.row{
+            case 0: messageImageAlert()
+            case 1: ()
+            case 2: ()
+            case 3: ()
+            case 4: ()
+            case 5: ()
+            default: ()
+            }
+        }
     }
     
     func resetSelectedUser(){
@@ -290,7 +308,7 @@ extension KeyBoardAreaController: UIScrollViewDelegate{
         let xPosition = userCollectionView.contentOffset.x + bounds.size.width / 2.0
         var scrollItem = -1
         
-        var dist:CGFloat = 5000
+        var dist: CGFloat = 5000
         for idx in (0 ..< userCollectionView.numberOfItems(inSection: 0)){
             if let cent = self.userCollectionView.layoutAttributesForItem(at: IndexPath(item: idx, section: 0))?.center{
                 
@@ -300,6 +318,7 @@ extension KeyBoardAreaController: UIScrollViewDelegate{
                 }
             }
         }
+        
         if scrollItem == -1 { return nil }
         return IndexPath(item: scrollItem, section: 0)
     }
@@ -362,9 +381,53 @@ extension KeyBoardAreaController: FirstResponderControlDelegate{
         return true
     }
     
-    
 }
 
+
+
+
+
+extension KeyBoardAreaController: UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+    func messageImageAlert(){
+        let alert = UIAlertController(title: nil, message: "사진을 가져올 곳을 선택해주세요.", preferredStyle: .actionSheet)
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            alert.addAction(UIAlertAction(title: "카메라", style: .default, handler: { (_) in
+                self.imagePicker(.camera)
+            }))
+        }
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+            alert.addAction(UIAlertAction(title: "저장된 앨범", style: .default, handler: { (_) in
+                self.imagePicker(.savedPhotosAlbum)
+            }))
+        }
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+            alert.addAction(UIAlertAction(title: "포토 라이브러리", style: .default, handler: { (_) in
+                self.imagePicker(.photoLibrary)
+            }))
+        }
+        self.view.endEditing(true)
+        self.present(alert, animated: true)
+    }
+    func imagePicker(_ source: UIImagePickerController.SourceType){
+        let picker = UIImagePickerController()
+        picker.sourceType = source
+        picker.delegate = self
+//        picker.allowsEditing = true
+        self.present(picker, animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let img = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            guard let user = selectedUser else { return }
+            let imgName = Date().currentDateToString() + ".jpg"
+            if img.writeImage(imgName: imgName){
+                messageManager?.sendMessaegImage(imageName: imgName, user: user)
+            }
+        }
+        picker.dismiss(animated: true, completion: nil)
+        
+    }
+}
 
 
 

@@ -13,7 +13,7 @@ class SpeacialFeatureInputView: UIView,UICollectionViewDelegateFlowLayout,UIColl
     override init(frame: CGRect) {
         super.init(frame: .zero)
         self.addSubview(collectionView)
-        collectionView.delegate = self
+        
         collectionView.dataSource = self
         collectionView.backgroundColor = UIColor.clear
         
@@ -21,6 +21,13 @@ class SpeacialFeatureInputView: UIView,UICollectionViewDelegateFlowLayout,UIColl
         collectionView.snp.makeConstraints { (mk) in
             mk.edges.equalTo(self)
         }
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout{
+            layout.itemSize = CGSize(width: 50, height: 70)
+            layout.minimumLineSpacing = 35
+            layout.minimumInteritemSpacing = 35
+            layout.sectionInset = UIEdgeInsets(top: 35, left: 30, bottom: 30, right: 30)
+        }
+        
         self.backgroundColor = UIColor.white
     }
     
@@ -41,20 +48,5 @@ class SpeacialFeatureInputView: UIView,UICollectionViewDelegateFlowLayout,UIColl
         
         return cell
     }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 50, height: 70)
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 35
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 35
-    }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 35, left: 30, bottom: 30, right: 30)
-    }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-    }
 }

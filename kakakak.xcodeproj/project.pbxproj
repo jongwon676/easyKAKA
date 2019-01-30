@@ -24,6 +24,7 @@
 		AD542CB821EC8D8A00656196 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD542CB721EC8D8A00656196 /* UserCell.swift */; };
 		AD87909921EA048A0008177D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD87909821EA048A0008177D /* ViewController.swift */; };
 		AD8CD3FF2200D6BA0040AE81 /* xeicon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD8CD3FE2200D6BA0040AE81 /* xeicon.ttf */; };
+		AD8CD4012200E70F0040AE81 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8CD4002200E70F0040AE81 /* UITableView+Extension.swift */; };
 		AD95E6C021F3F9C1000450AB /* VoiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95E6BF21F3F9C1000450AB /* VoiceCell.swift */; };
 		AD95E6C321F422FD000450AB /* BackgroundSelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95E6C221F422FD000450AB /* BackgroundSelectController.swift */; };
 		AD95E6C521F425B4000450AB /* BackgroundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95E6C421F425B4000450AB /* BackgroundCell.swift */; };
@@ -96,6 +97,7 @@
 		AD542CB721EC8D8A00656196 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		AD87909821EA048A0008177D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AD8CD3FE2200D6BA0040AE81 /* xeicon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = xeicon.ttf; sourceTree = "<group>"; };
+		AD8CD4002200E70F0040AE81 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		AD95E6BF21F3F9C1000450AB /* VoiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceCell.swift; sourceTree = "<group>"; };
 		AD95E6C221F422FD000450AB /* BackgroundSelectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundSelectController.swift; sourceTree = "<group>"; };
 		AD95E6C421F425B4000450AB /* BackgroundCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCell.swift; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 				ADDDF02A21E53E6E007E3D16 /* ChatVC+extension.swift */,
 				ADDFB85F21E7037A003D5DF1 /* ChatVC+Alert.swift */,
 				AD95E6C821F43E65000450AB /* UIColor.swift */,
+				AD8CD4002200E70F0040AE81 /* UITableView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -551,6 +554,7 @@
 				ADC672C221E24F1F00D6D3F5 /* CharacterCell.swift in Sources */,
 				ADC672DC21E391B500D6D3F5 /* RoomCell.swift in Sources */,
 				ADDDF02B21E53E6E007E3D16 /* ChatVC+extension.swift in Sources */,
+				AD8CD4012200E70F0040AE81 /* UITableView+Extension.swift in Sources */,
 				AD95E6C921F43E65000450AB /* UIColor.swift in Sources */,
 				ADB8D83A21F54886001D88BD /* MessageProcessor.swift in Sources */,
 				ADC672D221E2B91300D6D3F5 /* UIImage+Extension.swift in Sources */,

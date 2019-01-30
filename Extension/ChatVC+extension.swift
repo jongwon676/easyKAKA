@@ -109,7 +109,7 @@ extension ChatVC: UITextViewDelegate{
         
 //        makeDummyText(num: 5)
 //        makeImageDummy(num: 5)
-        makeDummyText(num: 5, isDelete: true)
+//        makeDummyText(num: 5, isDelete: true)
 //        makeExitDummy(num: 1)
     }
 }
@@ -134,11 +134,6 @@ extension IndexPath{
     }
 }
 
-extension UITableView {
-    func applyChanges(deletions: [Int], insertions: [Int], updates: [Int]) {
-        reloadData()
-    }
-}
 extension ChatVC: EditChatting{
     func excuteDelete() {
         showDeleteMessagesModal()

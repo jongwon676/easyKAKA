@@ -203,11 +203,16 @@ class ChatVC: UIViewController{
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 44
         
+        
+        
+        
+        
         self.view.addSubview(tableView)
         self.view.addSubview(bottomController.view)
         self.makeDummyCells()
 
         messageManager = MessageProcessor(room: room)
+        bottomController.messageManager = self.messageManager
         messageManager.vc = self
         
         messageManager.reload()
