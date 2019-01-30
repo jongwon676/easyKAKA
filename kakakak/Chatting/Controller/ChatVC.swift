@@ -220,7 +220,8 @@ class ChatVC: UIViewController{
             mk.left.right.bottom.top.equalTo(self.view)
         }
         bottomController.view?.snp.makeConstraints({ (mk) in
-            mk.left.right.bottom.equalTo(self.view)
+            mk.left.right.equalTo(self.view)
+            mk.bottom.equalTo(self.view.safeAreaLayoutGuide)
         })
         editView.snp.makeConstraints { (mk) in
             mk.left.right.bottom.equalTo(self.view.safeAreaLayoutGuide)

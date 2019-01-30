@@ -11,42 +11,43 @@ extension ChatVC: UITextViewDelegate{
         return true
     }
     
+    
+    
+    
     @objc func adjustInsetForKeyboard(_ notification: NSNotification) {
         guard let userInfo = notification.userInfo else { return }
 
         let keyFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         
-        print("init keyFrame\(keyFrame)")
-        
         let duration = notification.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
 
-        
-        keyBoardFrame = keyFrame
-       
         let show = (notification.name == UIResponder.keyboardWillShowNotification)
             ? true
             : false
-        
-        guard let keyBoardFrame = keyBoardFrame else { return }
-        
 
-        if show{
+        var offset:CGFloat = 0
+        
+        if #available(iOS 11.0, *){
+            offset = keyFrame.size.height - CGFloat(view.safeAreaInsets.bottom)
+        }else{
+            offset = keyFrame.size.height
+        }
+        
+        if show {
             UIView.animate(withDuration: duration) {
                 self.bottomController.view.snp.updateConstraints({ (mk) in
-                    mk.bottom.equalTo(self.view).offset(-keyFrame.size.height)
+                    mk.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-offset)
                 })
             }
             self.view.layoutIfNeeded()
-        }else{
+        } else{
             UIView.animate(withDuration: duration, animations: {
                 self.bottomController.view.snp.updateConstraints({ (mk) in
-                    mk.bottom.equalTo(self.view).offset(0)
+                    mk.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(0)
                 })
             })
-
             self.view.layoutIfNeeded()
         }
-        
     }
     
     
