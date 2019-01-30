@@ -260,8 +260,8 @@ class ChatVC: UIViewController{
     func setTimer(){
         
         timer = Timer.scheduledTimer(withTimeInterval: 60.0,
-                                     repeats: true) {
-                                        timer in
+                                     repeats: true) { [unowned self] _ in
+                                        
                                         try! self.realm.write {
                                             self.room.currentDate = self.room.currentDate.addingTimeInterval(60.0)
                                         }
