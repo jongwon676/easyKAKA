@@ -40,9 +40,9 @@ class ChatVC: UIViewController{
         })
         return UIBarButtonItem(customView: btn)
     }()
-
+    
     lazy var searchButton:UIBarButtonItem = {
-       let btn = UIButton()
+        let btn = UIButton()
         btn.setImage(UIImage(named: "search"), for: .normal)
         btn.snp.makeConstraints({ (mk) in
             mk.width.height.equalTo(25)
@@ -61,15 +61,15 @@ class ChatVC: UIViewController{
         btn.title = "전체 해제"
         return btn
     }()
-//    
-//    func updateVisibleCells(selected: Bool){
-//        
-//        guard let visibleRows = tableView.indexPathsForVisibleRows else {
-//            return
-//        }
-//
-//        tableView.reloadRows(at: visibleRows, with: .none)
-//    }
+    //
+    //    func updateVisibleCells(selected: Bool){
+    //
+    //        guard let visibleRows = tableView.indexPathsForVisibleRows else {
+    //            return
+    //        }
+    //
+    //        tableView.reloadRows(at: visibleRows, with: .none)
+    //    }
     
     func refreshEdit(){
         var cnt = 0
@@ -177,7 +177,7 @@ class ChatVC: UIViewController{
         controller.mode = .chatting
         return controller
     }()
-
+    
     lazy var tableviewGestureRecog = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
     lazy var tableViewEditGestureRecog = UITapGestureRecognizer(target: self, action: #selector(handleTapEdit(_:)))
     
@@ -211,7 +211,7 @@ class ChatVC: UIViewController{
         self.view.addSubview(bottomController.view)
         
         self.makeDummyCells()
-
+        
         messageManager = MessageProcessor(room: room)
         bottomController.messageManager = self.messageManager
         messageManager.vc = self
@@ -229,7 +229,7 @@ class ChatVC: UIViewController{
             mk.left.right.bottom.equalTo(self.view.safeAreaLayoutGuide)
             mk.height.equalTo(60)
         }
-
+        
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(adjustInsetForKeyboard(_:)),
@@ -242,8 +242,8 @@ class ChatVC: UIViewController{
             name: UIResponder.keyboardWillShowNotification,
             object: nil)
         
-            tableView.reloadData()
-            isEditMode = false
+        tableView.reloadData()
+        isEditMode = false
     }
     override func viewWillLayoutSubviews() {
         
@@ -260,8 +260,8 @@ class ChatVC: UIViewController{
     func setTimer(){
         
         timer = Timer.scheduledTimer(withTimeInterval: 60.0,
-                                     repeats: true) { [unowned self] _ in
-                                        
+                                     repeats: true) { [weak self] _ in
+                                        guard let `self` = self else { return }
                                         try! self.realm.write {
                                             self.room.currentDate = self.room.currentDate.addingTimeInterval(60.0)
                                         }
@@ -290,12 +290,12 @@ class ChatVC: UIViewController{
         
         
         
-      
+        
         setTimer()
         floatingButton()
         
         
-//        RunLoop.current.add(self.timer!, forMode: RunLoop.Mode.common)
+        //        RunLoop.current.add(self.timer!, forMode: RunLoop.Mode.common)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
