@@ -19,6 +19,7 @@ class ChatVC: UIViewController{
     var editButton = UIButton(type: .custom)
     let selectedImage = UIImage(named: "selected")
     let unSelectedImage = UIImage(named: "unSelected")
+    var cacheHeight = [String: CGFloat]()
     
     lazy var editView:EditView = {
         let eview = EditView()
@@ -200,8 +201,7 @@ class ChatVC: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 44
+        
         
         
         
@@ -209,6 +209,7 @@ class ChatVC: UIViewController{
         
         self.view.addSubview(tableView)
         self.view.addSubview(bottomController.view)
+        
         self.makeDummyCells()
 
         messageManager = MessageProcessor(room: room)
@@ -217,7 +218,8 @@ class ChatVC: UIViewController{
         
         messageManager.reload()
         tableView.snp.makeConstraints { (mk) in
-            mk.left.right.bottom.top.equalTo(self.view)
+            mk.left.right.top.equalTo(self.view)
+            mk.bottom.equalTo(self.view.safeAreaLayoutGuide)
         }
         bottomController.view?.snp.makeConstraints({ (mk) in
             mk.left.right.equalTo(self.view)
@@ -293,7 +295,7 @@ class ChatVC: UIViewController{
         floatingButton()
         
         
-        RunLoop.current.add(self.timer!, forMode: RunLoop.Mode.common)
+//        RunLoop.current.add(self.timer!, forMode: RunLoop.Mode.common)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -305,7 +307,6 @@ class ChatVC: UIViewController{
     deinit {
         NotificationCenter.default.removeObserver(self)
         token?.invalidate()
-        
     }
 }
 
@@ -317,8 +318,17 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messageManager?.messages.count ?? 0
     }
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        let msg = messageManager.messages[indexPath.row]
+        if msg.type == .text{
+            return cacheHeight[msg.messageText] ??   UITableView.automaticDimension
+        }
+        return UITableView.automaticDimension
+    }
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        print(indexPath.row)
         
         let msg = messageManager.getMessage(idx: indexPath.row)
         let cell = tableView.dequeueReusableCell(withIdentifier: msg.type.rawValue)
@@ -330,6 +340,9 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
             (cell as? ChattingCellProtocol)?.configure(message: msg)
             cell.checkBoxImage.image = msg.isSelected ? UIImage(named: "selected") : UIImage(named: "unSelected")
             cell.bringSubviewToFront(cell.checkBoxImage)
+            if (cell as? TextCell) != nil{
+                cacheHeight[msg.messageText] = cell.frame.height
+            }
             return cell
         }
         return UITableViewCell()

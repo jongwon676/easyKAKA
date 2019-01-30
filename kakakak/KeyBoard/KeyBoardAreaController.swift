@@ -280,6 +280,10 @@ extension KeyBoardAreaController: UICollectionViewDelegateFlowLayout{
         guard let indexPath = centeredIndex() else { return nil }
         return users[indexPath.item]
     }
+    
+    func getKeyBoardHeight() -> CGFloat {
+        return stackView.frame.height
+    }
 }
 
 

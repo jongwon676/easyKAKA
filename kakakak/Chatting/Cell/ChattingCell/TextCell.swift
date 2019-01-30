@@ -29,6 +29,11 @@ class TextCell: UserChattingBaseCell,ChattingCellProtocol{
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = .clear
+        containerView.addSubview(bubbleView)
+        containerView.addSubview(messageLabel)
+        containerView.addSubview(stackView)
+        containerView.addSubview(nameLabel)
+        containerView.addSubview(profile)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -37,24 +42,15 @@ class TextCell: UserChattingBaseCell,ChattingCellProtocol{
     func configure(message: Message){
         guard let owner = message.owner else { return }
         self.message = message
-        
-        containerView.addSubview(bubbleView)
-        containerView.addSubview(messageLabel)
-        containerView.addSubview(stackView)
-        containerView.addSubview(nameLabel)
-        containerView.addSubview(profile)
-        
-        
-        
+
         let screenWidth = UIScreen.main.bounds.width
         let containerViewY = message.isFirstMessage ? Style.firstMessageGap  : Style.moreThanFirstMessageGap
         containerView.frame = CGRect(x: 0, y: containerViewY, width: screenWidth, height: 200)
 
         let profileX: CGFloat = Style.profileToCornerGap + (editMode ? Style.editModeOffset : 0)
         let profileY: CGFloat = 0
-        let profileWidth = Style.profileImageSize
-        let profileHeight = Style.profileImageSize
-        profile.frame = CGRect(x: profileX, y: profileY, width: profileWidth, height: profileHeight)
+        
+        profile.frame = CGRect(x: profileX, y: profileY, width: Style.profileImageSize, height: Style.profileImageSize)
         
         let nameLabelX = profile.frame.maxX + Style.nameLabelProfileGap
         let nameLabelY = profile.frame.origin.y
@@ -64,9 +60,6 @@ class TextCell: UserChattingBaseCell,ChattingCellProtocol{
         
         
         if message.isDelete{
-            
-            
-            
             let errorText = NSAttributedString(string: "\u{e9aa}", attributes: [NSAttributedString.Key.font: UIFont(name: "xeicon", size: 18), .foregroundColor: UIColor.lightGray])
             let deleteText = NSAttributedString(string: " 삭제된 메시시지입니다.", attributes: [NSAttributedString.Key.font: Style.messageLabelFont, .foregroundColor: UIColor.lightGray,NSAttributedString.Key.baselineOffset: 2])
             
@@ -78,6 +71,7 @@ class TextCell: UserChattingBaseCell,ChattingCellProtocol{
         }else{
             messageLabel.text = message.messageText
         }
+        
         
         messageLabel.frame.size = messageLabel.sizeThatFits(CGSize(width: Style.limitMessageWidth, height: .infinity))
         
@@ -125,29 +119,29 @@ class TextCell: UserChattingBaseCell,ChattingCellProtocol{
 }
 
 
-extension TextCell{
-    static func calcHeight(message: Message) -> CGFloat{
-        guard let owner = message.owner else { return 10 }
-
-        let messageSize = SizeCalculator.calcLabelSize(string: message.messageText, font: Style.messageLabelFont, limitWidth: Style.limitMessageWidth, limitHeight: .infinity, numberOfLines: 0)
-        
-        var height = Style.basicTopGap + messageSize.height + 2 * Style.messagePadding
-        
-        
-        if message.isFirstMessage{
-            height += Style.firstMessageGap
-            
-            if !owner.isMe {
-                let usernameSize = SizeCalculator.calcLabelSize(string: owner.name, font: Style.nameLabelFont, limitWidth: Style.limitUsernameWidth, limitHeight: .infinity,numberOfLines: 1)
-                height += usernameSize.height + Style.nameLabelBubbleGap
-            }
-        }
-        
-        
-        return height
-        
-    }
-    override func layoutSubviews() {
-        print(profile.frame)
-    }
-}
+//extension TextCell{
+//    static func calcHeight(message: Message) -> CGFloat{
+//        guard let owner = message.owner else { return 10 }
+//
+//        let messageSize = SizeCalculator.calcLabelSize(string: message.messageText, font: Style.messageLabelFont, limitWidth: Style.limitMessageWidth, limitHeight: .infinity, numberOfLines: 0)
+//        
+//        var height = Style.basicTopGap + messageSize.height + 2 * Style.messagePadding
+//        
+//        
+//        if message.isFirstMessage{
+//            height += Style.firstMessageGap
+//            
+//            if !owner.isMe {
+//                let usernameSize = SizeCalculator.calcLabelSize(string: owner.name, font: Style.nameLabelFont, limitWidth: Style.limitUsernameWidth, limitHeight: .infinity,numberOfLines: 1)
+//                height += usernameSize.height + Style.nameLabelBubbleGap
+//            }
+//        }
+//        
+//        
+//        return height
+//        
+//    }
+//    override func layoutSubviews() {
+//        
+//    }
+//}

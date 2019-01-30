@@ -311,8 +311,8 @@
 				AD87909821EA048A0008177D /* ViewController.swift */,
 				ADC672AF21E2260800D6D3F5 /* Assets.xcassets */,
 				ADC672B121E2260800D6D3F5 /* LaunchScreen.storyboard */,
-				ADC672B421E2260800D6D3F5 /* Info.plist */,
 				ADA7E01321FF596300FCF517 /* MessageEdit.storyboard */,
+				ADC672B421E2260800D6D3F5 /* Info.plist */,
 			);
 			path = kakakak;
 			sourceTree = "<group>";

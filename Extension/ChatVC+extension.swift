@@ -33,19 +33,27 @@ extension ChatVC: UITextViewDelegate{
             offset = keyFrame.size.height
         }
         
+        
+        print("stackHeight \(bottomController.getKeyBoardHeight())")
+        let bHeight = bottomController.getKeyBoardHeight()
         if show {
             UIView.animate(withDuration: duration) {
                 self.bottomController.view.snp.updateConstraints({ (mk) in
                     mk.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-offset)
                 })
+                self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyFrame.height + bHeight, right: 0)
             }
+            tableView.setContentOffset(tableView.contentOffset, animated: false)
             self.view.layoutIfNeeded()
+            
         } else{
             UIView.animate(withDuration: duration, animations: {
                 self.bottomController.view.snp.updateConstraints({ (mk) in
                     mk.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(0)
                 })
+                self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: bHeight, right: 0)
             })
+            tableView.setContentOffset(tableView.contentOffset, animated: false)
             self.view.layoutIfNeeded()
         }
     }
@@ -58,7 +66,7 @@ extension ChatVC: UITextViewDelegate{
             var msgs = [Message]()
             for _ in 0 ..< num{
                 var txt = ""
-                for idx in  0 ..< arc4random_uniform(200) + 1{ txt += String(idx) }
+                for idx in  0 ..< arc4random_uniform(40) + 1{ txt += String(idx) }
                 let msg = Message(owner: room.users[0], sendDate: room.currentDate, messageText: txt)
                 msg.isDelete = isDelete
                 msgs.append(msg)
@@ -108,7 +116,7 @@ extension ChatVC: UITextViewDelegate{
             }
         }
         
-//        makeDummyText(num: 5)
+//        makeDummyText(num: 1000)
 //        makeImageDummy(num: 5)
 //        makeDummyText(num: 5, isDelete: true)
 //        makeExitDummy(num: 1)

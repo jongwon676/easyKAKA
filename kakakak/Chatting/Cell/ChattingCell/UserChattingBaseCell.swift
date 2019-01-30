@@ -5,14 +5,10 @@ class UserChattingBaseCell: BaseChatCell{
         didSet{
             
             timeLabel.text = Date.timeToString(date: message.sendDate)
-            timeLabel.isHidden = !message.isLastMessage
             readLabel.text = String(message.noReadUser.count)
-            readLabel.isHidden = (message.noReadUser.count <= 0)
             nameLabel.text = message.owner?.name
-            
-            
-            readLabel.sizeToFit()
-            timeLabel.sizeToFit()
+//            readLabel.sizeToFit()
+//            timeLabel.sizeToFit()
             
             if let owner = message.owner{
                 nameLabel.isHidden = (owner.isMe || !message.isFirstMessage)
@@ -25,22 +21,17 @@ class UserChattingBaseCell: BaseChatCell{
             stackView.subviews.forEach{ $0.removeFromSuperview() }
             if message.noReadUser.count > 0 { stackView.addArrangedSubview(readLabel) }
             if message.isLastMessage { stackView.addArrangedSubview(timeLabel) }
-            
-            
-            
-            
-            
-            
         }
     }
-    lazy var nameLabel: UILabel = {
+    
+    let nameLabel: UILabel = {
         var label = UILabel()
         label.font = Style.nameLabelFont
         label.textColor = UIColor.black
         return label
     }()
     
-    lazy var profile: UIImageView = {
+    let  profile: UIImageView = {
         let imageView = UIImageView()
         let width = 40
         imageView.layer.cornerRadius = CGFloat(width) / CGFloat(2)
@@ -48,20 +39,20 @@ class UserChattingBaseCell: BaseChatCell{
         return imageView
     }()
     
-    lazy var timeLabel: UILabel = {
+    let  timeLabel: UILabel = {
         let label = UILabel()
         label.textColor = #colorLiteral(red: 0.3863650262, green: 0.4467757344, blue: 0.4761275649, alpha: 1)
         label.font = Style.timeLabelFont
         return label
     }()
     
-    lazy var readLabel: UILabel = {
+    let  readLabel: UILabel = {
         let label = UILabel()
         label.textColor = #colorLiteral(red: 0.9955037236, green: 0.9007681012, blue: 0, alpha: 1)
         label.font = Style.readLabelFont
         return label
     }()
-    lazy var stackView: UIStackView = {
+    let  stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.distribution = .fillEqually

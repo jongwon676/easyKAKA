@@ -162,8 +162,10 @@ class MessageProcessor{
             room.messages.append(message)
             messages.append(message)
             advanceLast(index: messages.count - 1, message: message)
-            tableView.reloadData()
-            tableView.scrollToRow(at: IndexPath.row(row: messages.count-1), at: .bottom, animated: false)
+//            reload()
+//            tableView.reloadData()
+            tableView.insertRows(at: [IndexPath.row(row: messages.count-1)], with: .none)
+//            tableView.scrollToRow(at: IndexPath.row(row: messages.count-1), at: .bottom, animated: false)
         }
     }
     
