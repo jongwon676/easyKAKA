@@ -26,6 +26,7 @@ class TextCell: UserChattingBaseCell,ChattingCellProtocol{
         return bubble
     }()
     
+    // stackview 랑 namelabel timelabel하나로 통합하자. label이 많아서 slow , containerview도 없애는게 좋지 않나 싶다.
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = .clear

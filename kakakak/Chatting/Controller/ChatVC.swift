@@ -61,15 +61,7 @@ class ChatVC: UIViewController{
         btn.title = "전체 해제"
         return btn
     }()
-    //
-    //    func updateVisibleCells(selected: Bool){
-    //
-    //        guard let visibleRows = tableView.indexPathsForVisibleRows else {
-    //            return
-    //        }
-    //
-    //        tableView.reloadRows(at: visibleRows, with: .none)
-    //    }
+    
     
     func refreshEdit(){
         var cnt = 0
@@ -166,8 +158,7 @@ class ChatVC: UIViewController{
             }
         }
     }
-    
-    
+
     public lazy var bottomController: KeyBoardAreaController = {
         let controller = KeyBoardAreaController()
         addChild(controller)
@@ -181,14 +172,20 @@ class ChatVC: UIViewController{
     lazy var tableviewGestureRecog = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
     lazy var tableViewEditGestureRecog = UITapGestureRecognizer(target: self, action: #selector(handleTapEdit(_:)))
     
+    @IBOutlet var tableView: UITableView! {
+        didSet{
+            tableView.addGestureRecognizer(tableviewGestureRecog)
+            tableView.backgroundColor = UIColor.clear
+    }
+    }
     
-    lazy var tableView:ChatTableView = {
-        let table = ChatTableView()
-        table.dataSource = self
-        table.delegate = self
-        table.addGestureRecognizer(tableviewGestureRecog)
-        return table
-    }()
+//    lazy var tableView:ChatTableView = {
+//        let table = ChatTableView()
+//        table.dataSource = self
+//        table.delegate = self
+//        table.addGestureRecognizer(tableviewGestureRecog)
+//        return table
+//    }()
     
     func floatingButton(){
         editButton.setImage(UIImage(named: "editButton"), for: .normal)
@@ -199,18 +196,13 @@ class ChatVC: UIViewController{
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
-        
-        
-        
-        
-        
-        
         self.view.addSubview(tableView)
         self.view.addSubview(bottomController.view)
         
-        self.makeDummyCells()
+//        self.makeDummyCells()
         
         messageManager = MessageProcessor(room: room)
         bottomController.messageManager = self.messageManager
@@ -219,7 +211,8 @@ class ChatVC: UIViewController{
         messageManager.reload()
         tableView.snp.makeConstraints { (mk) in
             mk.left.right.top.equalTo(self.view)
-            mk.bottom.equalTo(self.view.safeAreaLayoutGuide)
+//            mk.bottom.equalTo(self.view.safeAreaLayoutGuide)
+            mk.bottom.equalTo(self.bottomController.view.snp.top)
         }
         bottomController.view?.snp.makeConstraints({ (mk) in
             mk.left.right.equalTo(self.view)
@@ -287,15 +280,12 @@ class ChatVC: UIViewController{
             tableView.backgroundView = nil
         }
         self.tabBarController?.tabBar.isHidden = true
-        
-        
-        
-        
+
         setTimer()
         floatingButton()
         
-        
-        //        RunLoop.current.add(self.timer!, forMode: RunLoop.Mode.common)
+    
+        RunLoop.current.add(self.timer!, forMode: RunLoop.Mode.common)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -325,11 +315,15 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
         }
         return UITableView.automaticDimension
     }
-    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 70
+//    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print(indexPath.row)
         
+        let cell2 = tableView.dequeueReusableCell(withIdentifier: "TextFirst")
+        return cell2!
         let msg = messageManager.getMessage(idx: indexPath.row)
         let cell = tableView.dequeueReusableCell(withIdentifier: msg.type.rawValue)
         cell?.selectionStyle = .none

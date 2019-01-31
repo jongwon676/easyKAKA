@@ -24,6 +24,7 @@ extension ChatVC: UITextViewDelegate{
         let show = (notification.name == UIResponder.keyboardWillShowNotification)
             ? true
             : false
+        print("show\(show)")
 
         var offset:CGFloat = 0
         
@@ -34,27 +35,30 @@ extension ChatVC: UITextViewDelegate{
         }
         
         
-        print("stackHeight \(bottomController.getKeyBoardHeight())")
         let bHeight = bottomController.getKeyBoardHeight()
         if show {
-            UIView.animate(withDuration: duration) {
-                self.bottomController.view.snp.updateConstraints({ (mk) in
-                    mk.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-offset)
-                })
-                self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyFrame.height + bHeight, right: 0)
+            self.bottomController.view.snp.updateConstraints({ (mk) in
+                mk.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-offset)
+            })
+            UIView.animate(withDuration: duration, animations: {
+                self.view.layoutIfNeeded()
+            }) { (comp) in
+                self.tableView.scrollToBottom(animation: true)
             }
-            tableView.setContentOffset(tableView.contentOffset, animated: false)
-            self.view.layoutIfNeeded()
+            
+            
+            
+            
             
         } else{
-            UIView.animate(withDuration: duration, animations: {
-                self.bottomController.view.snp.updateConstraints({ (mk) in
-                    mk.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(0)
-                })
-                self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: bHeight, right: 0)
+            self.bottomController.view.snp.updateConstraints({ (mk) in
+                mk.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(0)
             })
-            tableView.setContentOffset(tableView.contentOffset, animated: false)
-            self.view.layoutIfNeeded()
+            UIView.animate(withDuration: duration, animations: {
+                self.view.layoutIfNeeded()
+            })
+            
+            
         }
     }
     
@@ -116,7 +120,7 @@ extension ChatVC: UITextViewDelegate{
             }
         }
         
-//        makeDummyText(num: 1000)
+        makeDummyText(num: 300)
 //        makeImageDummy(num: 5)
 //        makeDummyText(num: 5, isDelete: true)
 //        makeExitDummy(num: 1)

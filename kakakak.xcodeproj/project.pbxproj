@@ -30,6 +30,7 @@
 		AD95E6C521F425B4000450AB /* BackgroundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95E6C421F425B4000450AB /* BackgroundCell.swift */; };
 		AD95E6C721F43393000450AB /* BackgroundCaptureImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95E6C621F43393000450AB /* BackgroundCaptureImageCell.swift */; };
 		AD95E6C921F43E65000450AB /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95E6C821F43E65000450AB /* UIColor.swift */; };
+		AD9E3F242203113200F45BF9 /* Customs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9E3F232203113200F45BF9 /* Customs.swift */; };
 		ADA5F29A21EF2F4A002C0F85 /* KeyBoardAreaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA5F29921EF2F4A002C0F85 /* KeyBoardAreaController.swift */; };
 		ADA7E00821FECCE900FCF517 /* CustomFocusControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA7E00721FECCE900FCF517 /* CustomFocusControl.swift */; };
 		ADA7E00A21FECDBF00FCF517 /* SpecailFeatureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA7E00921FECDBF00FCF517 /* SpecailFeatureButton.swift */; };
@@ -103,6 +104,7 @@
 		AD95E6C421F425B4000450AB /* BackgroundCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCell.swift; sourceTree = "<group>"; };
 		AD95E6C621F43393000450AB /* BackgroundCaptureImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCaptureImageCell.swift; sourceTree = "<group>"; };
 		AD95E6C821F43E65000450AB /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		AD9E3F232203113200F45BF9 /* Customs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customs.swift; sourceTree = "<group>"; };
 		ADA5F29921EF2F4A002C0F85 /* KeyBoardAreaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBoardAreaController.swift; sourceTree = "<group>"; };
 		ADA7E00721FECCE900FCF517 /* CustomFocusControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFocusControl.swift; sourceTree = "<group>"; };
 		ADA7E00921FECDBF00FCF517 /* SpecailFeatureButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecailFeatureButton.swift; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 			children = (
 				AD50748921F31635003B50F5 /* RealmProvider.swift */,
 				ADB8D83721F48D13001D88BD /* SizeCalculator.swift */,
+				AD9E3F232203113200F45BF9 /* Customs.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -573,6 +576,7 @@
 				ADA7E02021FF768500FCF517 /* ImageEditCell.swift in Sources */,
 				ADA7E01A21FF764E00FCF517 /* UserNameEditCell.swift in Sources */,
 				AD27D16721F07066009E367A /* UserCollectionCell.swift in Sources */,
+				AD9E3F242203113200F45BF9 /* Customs.swift in Sources */,
 				ADC672C521E2517700D6D3F5 /* Preset.swift in Sources */,
 				ADC672E521E3A57900D6D3F5 /* DateCell.swift in Sources */,
 				ADC672C921E28F6500D6D3F5 /* Path.swift in Sources */,

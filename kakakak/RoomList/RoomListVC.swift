@@ -48,11 +48,12 @@ class RoomListVC: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let chatVc = ChatVC()
-        chatVc.room = rooms[indexPath.row]
         
-        self.navigationController?.pushViewController(chatVc, animated: true)
+        let storyboard = UIStoryboard.init(name: "MessageEdit", bundle: Bundle.main)
+        
+        if let chatvc = storyboard.instantiateViewController(withIdentifier: "ChatVC") as? ChatVC{
+           chatvc.room = rooms[indexPath.row]
+            self.navigationController?.pushViewController(chatvc, animated: true)
+        }
     }
-    
-    
 }

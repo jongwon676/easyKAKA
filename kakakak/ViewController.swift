@@ -3,6 +3,12 @@ import GoogleMobileAds
 class ViewController: UIViewController{
     @IBOutlet weak var bannerView: GADBannerView!
     
+    
+    @IBOutlet var btn: UIButton!{
+        didSet{
+            btn.titleLabel?.numberOfLines  = 0
+        }
+    }
     @IBOutlet var fontTestLabel: UILabel!{
         didSet{
             fontTestLabel.font = UIFont(name: "xeicon", size: 18)

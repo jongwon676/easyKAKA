@@ -360,33 +360,6 @@
             </objects>
             <point key="canvasLocation" x="-3177" y="2220"/>
         </scene>
-        <!--ChatVC-->
-        <scene sceneID="WCI-6J-jTO">
-            <objects>
-                <viewController id="Oid-zs-qKF" customClass="ChatVC" customModule="kakakak" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="cIX-rv-kuI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Yc9-z7-ouK">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="Yc9-z7-ouK" firstAttribute="leading" secondItem="4eP-EE-xyl" secondAttribute="leading" id="4Vd-nQ-RM2"/>
-                            <constraint firstItem="Yc9-z7-ouK" firstAttribute="trailing" secondItem="4eP-EE-xyl" secondAttribute="trailing" id="9rt-Cf-kvS"/>
-                            <constraint firstItem="Yc9-z7-ouK" firstAttribute="bottom" secondItem="4eP-EE-xyl" secondAttribute="bottom" id="LBm-nF-vlc"/>
-                            <constraint firstItem="Yc9-z7-ouK" firstAttribute="top" secondItem="cIX-rv-kuI" secondAttribute="top" id="fwU-Q3-jDp"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="4eP-EE-xyl"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZiL-hZ-aZD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-3017" y="2976"/>
-        </scene>
         <!--Chatting-->
         <scene sceneID="3nV-LU-uC9">
             <objects>
@@ -540,7 +513,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k23-XS-hMM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2560.8000000000002" y="-102.70935960591133"/>
+            <point key="canvasLocation" x="1919" y="-178"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="9VG-AO-6En">
@@ -588,17 +561,28 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="V0q-yh-upj">
+                                <rect key="frame" x="139" y="116" width="139" height="30"/>
+                                <color key="backgroundColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="139" id="Utk-Ry-NZ3"/>
+                                </constraints>
+                                <state key="normal" title="asdfjas;ldjfl;asjdfl;jasd;fj;alsdfajsd;fljasldfjl;asdfasdfkjas;dfasjkdlfkjas;dfj;asdjfl;"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="nzg-d6-IJk" firstAttribute="trailing" secondItem="6mc-gA-oSt" secondAttribute="trailing" id="BcL-E8-jpV"/>
                             <constraint firstItem="6mc-gA-oSt" firstAttribute="bottom" secondItem="nzg-d6-IJk" secondAttribute="bottom" id="XeC-Om-L6i"/>
+                            <constraint firstItem="V0q-yh-upj" firstAttribute="top" secondItem="nzg-d6-IJk" secondAttribute="top" constant="72" id="ZNd-G8-RfL"/>
                             <constraint firstItem="6mc-gA-oSt" firstAttribute="leading" secondItem="nzg-d6-IJk" secondAttribute="leading" id="eNd-9Y-pyk"/>
+                            <constraint firstItem="V0q-yh-upj" firstAttribute="leading" secondItem="nzg-d6-IJk" secondAttribute="leading" constant="139" id="u7E-ge-Gkm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nzg-d6-IJk"/>
                     </view>
                     <connections>
                         <outlet property="bannerView" destination="6mc-gA-oSt" id="pXO-Ms-u6b"/>
+                        <outlet property="btn" destination="V0q-yh-upj" id="j0n-Dk-Rd8"/>
                         <outlet property="fontTestLabel" destination="b1N-50-Tkl" id="du4-PW-XpG"/>
                     </connections>
                 </viewController>
@@ -698,7 +682,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z42-6D-nX1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1621.5999999999999" y="-102.09895052473765"/>
+            <point key="canvasLocation" x="1298" y="-187"/>
         </scene>
     </scenes>
     <resources>

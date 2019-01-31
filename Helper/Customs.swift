@@ -1,0 +1,28 @@
+import UIKit
+@IBDesignable
+class CornerRadiusView: UIView{
+    func setUp(){
+        self.layer.masksToBounds = true
+    }
+    @IBInspectable var radius: CGFloat = 0{
+        didSet{
+            self.layer.cornerRadius = radius
+        }
+    }
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.layer.masksToBounds = true
+    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.layer.masksToBounds = true
+    }
+    override func prepareForInterfaceBuilder() {
+        setUp()
+    }
+    override func awakeFromNib() {
+        setUp()
+    }
+}
+
+

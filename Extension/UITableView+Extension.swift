@@ -14,4 +14,9 @@ extension UITableView {
         reloadRows(at: updates.map(IndexPath.fromRow), with: .none)
         endUpdates()
     }
+    func scrollToBottom(animation: Bool){
+        let cnt = self.numberOfRows(inSection: 0)
+        guard cnt > 0 else { return }
+        self.scrollToRow(at: IndexPath.fromRow(cnt-1), at: .bottom, animated: animation)
+    }
 }
