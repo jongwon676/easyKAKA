@@ -16,6 +16,7 @@ class Message: Object,NSCopying {
     @objc dynamic var isSelected: Bool = false
     @objc dynamic var creationDate: Date = Date()
     @objc dynamic var isDelete: Bool = false
+    @objc dynamic var isFail: Bool = false
     
     override static func ignoredProperties() -> [String] {
         return ["isFirstMessage","isLastMessage","isSelected"]

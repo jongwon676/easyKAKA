@@ -175,7 +175,8 @@ class ChatVC: UIViewController{
     @IBOutlet var tableView: UITableView! {
         didSet{
             tableView.addGestureRecognizer(tableviewGestureRecog)
-            tableView.backgroundColor = UIColor.clear
+            tableView.backgroundColor = UIColor.red
+            
     }
     }
     
@@ -321,10 +322,11 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print(indexPath.row)
-        
-        let cell2 = tableView.dequeueReusableCell(withIdentifier: "recordMessageAnother")
-        return cell2!
         let msg = messageManager.getMessage(idx: indexPath.row)
+        let cell2 = tableView.dequeueReusableCell(withIdentifier: "textMe") as? TextMe
+        cell2?.configure(message: msg)
+        return cell2!
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: msg.type.rawValue)
         cell?.selectionStyle = .none
         

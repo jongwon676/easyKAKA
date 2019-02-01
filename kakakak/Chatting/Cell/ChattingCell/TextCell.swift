@@ -6,24 +6,21 @@ class TextCell: UserChattingBaseCell,ChattingCellProtocol{
 
     static var reuseId: String = Message.MessageType.text.rawValue
     
-  
-    
-    
     lazy var messageLabel: UILabel = {
         let label = UILabel()
         label.font = Style.messageLabelFont
         label.textColor = #colorLiteral(red: 0.2655298114, green: 0.3016560972, blue: 0.3267259598, alpha: 1)
         label.numberOfLines = 0
-        
         return label
+        
     }()
     
     lazy var bubbleView: UIView = {
         let bubble = UIView()
         bubble.layer.cornerRadius = 5
         bubble.layer.masksToBounds = true
-        
         return bubble
+        
     }()
     
     // stackview 랑 namelabel timelabel하나로 통합하자. label이 많아서 slow , containerview도 없애는게 좋지 않나 싶다.

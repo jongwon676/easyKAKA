@@ -57,7 +57,5 @@ class CharacterListVC: UITableViewController{
             editUserVc.user = presets[indexPath.row]
             self.navigationController?.pushViewController(editUserVc, animated: true)
         }
-
     }
-    
 }

@@ -161,9 +161,10 @@ class MessageProcessor{
         try! realm.write {
             room.messages.append(message)
             messages.append(message)
+//            reload()
             advanceLast(index: messages.count - 1, message: message)
             tableView.insertRows(at: [IndexPath.row(row: messages.count-1)], with: .none)
-            tableView.scrollToBottom(animation: true)
+            tableView.scrollToBottom(animation: false)
         }
     }
     
