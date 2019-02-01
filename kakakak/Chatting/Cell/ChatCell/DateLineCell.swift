@@ -10,7 +10,4 @@ class DateLineCell: BaseChat,ChattingCellProtocol{
         self.backgroundColor = UIColor.clear
         self.bgView.backgroundColor = UIColor.clear
     }
-    
-    
-    
 }

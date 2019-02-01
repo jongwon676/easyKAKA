@@ -1,6 +1,7 @@
 import UIKit
-class VoiceCell: UserChattingBaseCell,ChattingCellProtocol{
-    static var reuseId: String = Message.MessageType.voice.rawValue
+class VoiceCell: UserChattingBaseCell{
+    static var reuseId: String =
+        "voiceCell"
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }

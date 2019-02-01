@@ -115,7 +115,8 @@ class MessageProcessor{
         case .exit: return false
         case .image: return true
         case .text: return true
-        case .voice: return true
+        case .call: return true
+        case .record: return true
         }
     }
     

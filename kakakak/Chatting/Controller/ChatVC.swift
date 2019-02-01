@@ -322,23 +322,20 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print(indexPath.row)
+        
         let msg = messageManager.getMessage(idx: indexPath.row)
-        let cell2 = tableView.dequeueReusableCell(withIdentifier: DateLineCell.reuseId) as? DateLineCell
-        cell2?.configure(message: msg)
-        return cell2!
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: msg.type.rawValue)
-        cell?.selectionStyle = .none
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: msg.type.rawValue) as? BaseChatCell{
+//        let cell = tableView.dequeueReusableCell(withIdentifier: msg.getIdent())
+//        cell?.selectionStyle = .none
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: msg.getIdent()) as? BaseChat{
             cell.selectionStyle = .none
             cell.editMode = self.isEditMode
             (cell as? ChattingCellProtocol)?.configure(message: msg)
             cell.checkBoxImage.image = msg.isSelected ? UIImage(named: "selected") : UIImage(named: "unSelected")
             cell.bringSubviewToFront(cell.checkBoxImage)
-            if (cell as? TextCell) != nil{
-                cacheHeight[msg.messageText] = cell.frame.height
-            }
+         
             return cell
         }
         return UITableViewCell()

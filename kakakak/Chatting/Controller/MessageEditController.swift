@@ -20,21 +20,21 @@ class MessageEditController: UITableViewController {
     
     func getIndsWithMessageType() -> [String]{
         var indenties = [String]()
-        if messages.count > 1 {
-            indenties = [cellKind.TimeCell.rawValue]
-        }else{
-            switch messages.first!.type {
-            case .date: indenties = [cellKind.DateCell.rawValue]
-            case .enter: indenties = [cellKind.TimeCell.rawValue]
-            case .exit: indenties = [cellKind.TimeCell.rawValue]
-            case .image: indenties = [cellKind.TimeCell.rawValue]
-            case .text: indenties = [
-                cellKind.UserNameCell.rawValue,
-                cellKind.TextCell.rawValue,
-                cellKind.TimeCell.rawValue
-                ]
-            case .voice: indenties = [cellKind.TimeCell.rawValue]}
-        }
+//        if messages.count > 1 {
+//            indenties = [cellKind.TimeCell.rawValue]
+//        }else{
+//            switch messages.first!.type {
+//            case .date: indenties = [cellKind.DateCell.rawValue]
+//            case .enter: indenties = [cellKind.TimeCell.rawValue]
+//            case .exit: indenties = [cellKind.TimeCell.rawValue]
+//            case .image: indenties = [cellKind.TimeCell.rawValue]
+//            case .text: indenties = [
+//                cellKind.UserNameCell.rawValue,
+//                cellKind.TextCell.rawValue,
+//                cellKind.TimeCell.rawValue
+//                ]
+//            case .voice: indenties = [cellKind.TimeCell.rawValue]}
+//        }
         return indenties
     }
     

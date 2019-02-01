@@ -29,20 +29,21 @@ class Message: Object,NSCopying {
         self.sendDate = sendDate
         self.messageText = messageText
     }
-
+    
     enum MessageType: String{
         case text
         case image
         case enter
         case exit
         case date
-        case voice
+        case call
+        case record
     }
     var type: MessageType{
         get { return MessageType(rawValue: _messageType)!}
         set { _messageType = newValue.rawValue }
     }
-
+    
     static func makeImageMessage(owner: User?, sendDate: Date, imageUrl: String) -> Message{
         let msg = Message()
         msg.owner = owner
@@ -72,6 +73,38 @@ class Message: Object,NSCopying {
         msg.type = .exit
         msg.owner = exit
         return msg
+    }
+    
+    func getIdent() -> String{
+        switch self.type {
+            
+        case .text:
+            if let isMe = owner?.isMe, isMe == true { return "textMe"}
+                
+            else{ return  "textAnother"}
+            
+        case .image:
+            if let isMe = owner?.isMe, isMe == true{
+                return "imageMe"
+            }
+            else { return  "imageAnother"}
+        case .enter:
+            return "invite"
+        case .exit:
+            return "exit"
+        case .date:
+            return "dateLine"
+        case .call:
+            if let isMe = owner?.isMe, isMe == true{
+                return "callMessageMe"
+            }
+            else { return  "callMessageAnother"}
+        case .record:
+            if let isMe = owner?.isMe, isMe == true{
+                return "recordMessageMe"
+            }
+            else { return  "recordMessageAnother"}
+        }
     }
     
     func copy(with zone: NSZone? = nil) -> Any {
