@@ -177,16 +177,9 @@ class ChatVC: UIViewController{
             tableView.addGestureRecognizer(tableviewGestureRecog)
             tableView.backgroundColor = UIColor.red
             
+        }
     }
-    }
-    
-//    lazy var tableView:ChatTableView = {
-//        let table = ChatTableView()
-//        table.dataSource = self
-//        table.delegate = self
-//        table.addGestureRecognizer(tableviewGestureRecog)
-//        return table
-//    }()
+
     
     func floatingButton(){
         editButton.setImage(UIImage(named: "editButton"), for: .normal)

@@ -11,11 +11,24 @@ class CharacterListVC: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        let bgImage = UIImage(named: "navBackground")
+//        
+//        if let navigationBar = self.navigationController?.navigationBar {
+//            let gradient = CAGradientLayer()
+//            var bounds = navigationBar.bounds
+//            bounds.size.height += UIApplication.shared.statusBarFrame.size.height
+//            gradient.frame = bounds
+//            gradient.colors = [UIColor.red.cgColor, UIColor.blue.cgColor]
+//            gradient.startPoint = CGPoint(x: 0, y: 0)
+//            gradient.endPoint = CGPoint(x: 1, y: 0)
+//        }
+        
         presets = Preset.all()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         token = presets?.observe{
             [weak tableView] changes in
             guard let tableView = tableView else { return }
@@ -31,6 +44,7 @@ class CharacterListVC: UITableViewController{
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         token?.invalidate()
+        
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

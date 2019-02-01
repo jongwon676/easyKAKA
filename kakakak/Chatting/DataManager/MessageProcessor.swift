@@ -160,6 +160,11 @@ class MessageProcessor{
     }
     func addLast(message: Message, tableView: UITableView){
         try! realm.write {
+            if let owner = message.owner{
+                
+                message.noReadUser = room.actviateUserExcepteMe(me: owner)
+            }
+            
             room.messages.append(message)
             messages.append(message)
             advanceLast(index: messages.count - 1, message: message)

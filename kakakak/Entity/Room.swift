@@ -101,4 +101,12 @@ class Room: Object{
         }
         return list
     }
+    func actviateUserExcepteMe(me: User) -> List<User>{
+        let list = List<User>()
+        for user in users{
+            if user.isExited == false && user.id != me.id { list.append(user) }
+            
+        }
+        return list
+    }
 }
