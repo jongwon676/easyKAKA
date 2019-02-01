@@ -16,6 +16,8 @@
 		AD2B39A721FC7F4B00BE6869 /* ChattingCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2B39A621FC7F4B00BE6869 /* ChattingCellProtocol.swift */; };
 		AD2B6A7E22045FE400DD563A /* CallMessageMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2B6A7D22045FE400DD563A /* CallMessageMe.swift */; };
 		AD2B6A80220465C000DD563A /* CallMessageAnother.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2B6A7F220465C000DD563A /* CallMessageAnother.swift */; };
+		AD2B6A8222046CDE00DD563A /* DeleteMessageMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2B6A8122046CDE00DD563A /* DeleteMessageMe.swift */; };
+		AD2B6A84220474CB00DD563A /* DeleteMessageAnother.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2B6A83220474CB00DD563A /* DeleteMessageAnother.swift */; };
 		AD50748121F28D9C003B50F5 /* TimeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD50748021F28D9C003B50F5 /* TimeInputView.swift */; };
 		AD50748421F2971D003B50F5 /* MiddleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD50748321F2971D003B50F5 /* MiddleView.swift */; };
 		AD50748621F29EEA003B50F5 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD50748521F29EEA003B50F5 /* EditView.swift */; };
@@ -97,6 +99,8 @@
 		AD2B39A621FC7F4B00BE6869 /* ChattingCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingCellProtocol.swift; sourceTree = "<group>"; };
 		AD2B6A7D22045FE400DD563A /* CallMessageMe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallMessageMe.swift; sourceTree = "<group>"; };
 		AD2B6A7F220465C000DD563A /* CallMessageAnother.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallMessageAnother.swift; sourceTree = "<group>"; };
+		AD2B6A8122046CDE00DD563A /* DeleteMessageMe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteMessageMe.swift; sourceTree = "<group>"; };
+		AD2B6A83220474CB00DD563A /* DeleteMessageAnother.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteMessageAnother.swift; sourceTree = "<group>"; };
 		AD50748021F28D9C003B50F5 /* TimeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInputView.swift; sourceTree = "<group>"; };
 		AD50748321F2971D003B50F5 /* MiddleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleView.swift; sourceTree = "<group>"; };
 		AD50748521F29EEA003B50F5 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
@@ -441,6 +445,8 @@
 				AD8C17BF22045CEA00B7C8F9 /* ImageAnother.swift */,
 				AD2B6A7D22045FE400DD563A /* CallMessageMe.swift */,
 				AD2B6A7F220465C000DD563A /* CallMessageAnother.swift */,
+				AD2B6A8122046CDE00DD563A /* DeleteMessageMe.swift */,
+				AD2B6A83220474CB00DD563A /* DeleteMessageAnother.swift */,
 			);
 			path = ChatCell;
 			sourceTree = "<group>";
@@ -585,6 +591,7 @@
 			files = (
 				ADC672C221E24F1F00D6D3F5 /* CharacterCell.swift in Sources */,
 				ADC672DC21E391B500D6D3F5 /* RoomCell.swift in Sources */,
+				AD2B6A8222046CDE00DD563A /* DeleteMessageMe.swift in Sources */,
 				ADDDF02B21E53E6E007E3D16 /* ChatVC+extension.swift in Sources */,
 				AD8CD4012200E70F0040AE81 /* UITableView+Extension.swift in Sources */,
 				AD95E6C921F43E65000450AB /* UIColor.swift in Sources */,
@@ -649,6 +656,7 @@
 				AD2B39A721FC7F4B00BE6869 /* ChattingCellProtocol.swift in Sources */,
 				ADFA306B22044AB000744C31 /* ImageMe.swift in Sources */,
 				AD27D18E21F1D422009E367A /* ChatTableView.swift in Sources */,
+				AD2B6A84220474CB00DD563A /* DeleteMessageAnother.swift in Sources */,
 				ADC672F021E3B0A000D6D3F5 /* Style.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

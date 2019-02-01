@@ -636,12 +636,13 @@
                                         <color key="backgroundColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
                                         <connections>
                                             <outlet property="bubble" destination="EUn-E0-gWM" id="rtn-ZV-WCw"/>
+                                            <outlet property="bubbleTop" destination="gIX-mS-Gum" id="Q1q-eT-quY"/>
                                             <outlet property="callImage" destination="Hlb-Xj-6In" id="CbL-mK-x38"/>
                                             <outlet property="callLabel" destination="ne7-q0-Hw9" id="dfc-zb-D5U"/>
                                             <outlet property="timeReadLabel" destination="nlm-oQ-Ivr" id="kkE-CG-8z0"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="deleteMessageMe" rowHeight="90" id="JNU-nd-NGh" userLabel="deleteMessageMe">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="deleteMessageMe" rowHeight="90" id="JNU-nd-NGh" userLabel="deleteMessageMe" customClass="DeleteMessageMe" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="717" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JNU-nd-NGh" id="NBW-KA-hcf">
@@ -709,6 +710,7 @@
                                                         <constraint firstAttribute="bottom" secondItem="MOM-uB-jrl" secondAttribute="bottom" id="3lW-4f-b0y"/>
                                                         <constraint firstItem="MOM-uB-jrl" firstAttribute="leading" secondItem="fng-iC-5HT" secondAttribute="trailing" constant="11.5" id="9Lu-AK-UMC"/>
                                                         <constraint firstItem="htd-28-gBq" firstAttribute="leading" secondItem="MOM-uB-jrl" secondAttribute="leading" id="Gxo-kX-iyh"/>
+                                                        <constraint firstItem="MOM-uB-jrl" firstAttribute="top" secondItem="9QK-po-uTi" secondAttribute="top" constant="4" id="OSm-FF-auy"/>
                                                         <constraint firstAttribute="bottom" secondItem="Yx4-MM-pTP" secondAttribute="bottom" constant="4" id="Tke-bB-RDX"/>
                                                         <constraint firstAttribute="bottom" secondItem="LPq-bI-OPk" secondAttribute="bottom" constant="4" id="eXi-dF-dLm"/>
                                                         <constraint firstItem="fng-iC-5HT" firstAttribute="leading" secondItem="9QK-po-uTi" secondAttribute="leading" constant="4" id="fa1-gI-Dd3"/>
@@ -718,6 +720,11 @@
                                                         <constraint firstItem="MOM-uB-jrl" firstAttribute="top" relation="greaterThanOrEqual" secondItem="htd-28-gBq" secondAttribute="bottom" constant="6" id="xaZ-gu-wcc"/>
                                                         <constraint firstItem="Yx4-MM-pTP" firstAttribute="leading" secondItem="MOM-uB-jrl" secondAttribute="trailing" constant="6" id="z98-H0-kBE"/>
                                                     </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="OSm-FF-auy"/>
+                                                        </mask>
+                                                    </variation>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -728,8 +735,20 @@
                                                 <constraint firstItem="9QK-po-uTi" firstAttribute="top" secondItem="NBW-KA-hcf" secondAttribute="top" id="kLu-kt-f2B"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="bubble" destination="MOM-uB-jrl" id="BdL-CP-DFN"/>
+                                            <outlet property="container" destination="9QK-po-uTi" id="a44-HO-QKi"/>
+                                            <outlet property="deleteLabel" destination="XjZ-xq-R2k" id="yFS-Mp-EyR"/>
+                                            <outlet property="failView" destination="LPq-bI-OPk" id="Z9K-2k-9JL"/>
+                                            <outlet property="first" destination="xaZ-gu-wcc" id="H5O-pS-Lo6"/>
+                                            <outlet property="nameLabel" destination="htd-28-gBq" id="uIc-zT-WUe"/>
+                                            <outlet property="profile" destination="fng-iC-5HT" id="Phn-aT-B60"/>
+                                            <outlet property="second" destination="OSm-FF-auy" id="pkf-g9-8dd"/>
+                                            <outlet property="timeReadLabel" destination="Yx4-MM-pTP" id="1cD-3d-NSC"/>
+                                            <outlet property="warningView" destination="c7L-LP-lW7" id="3rB-hL-Pfd"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="deleteMessageAnother" rowHeight="70" id="pmY-Cx-Hu0" userLabel="deleteMessageAnother">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="deleteMessageAnother" rowHeight="70" id="pmY-Cx-Hu0" userLabel="deleteMessageAnother" customClass="DeleteMessageAnother" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="807" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pmY-Cx-Hu0" id="dGs-fT-zgx">
@@ -782,6 +801,11 @@
                                                 <constraint firstAttribute="bottom" secondItem="EyA-0d-7LL" secondAttribute="bottom" constant="4" id="iEn-Jq-Uhh"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="timeReadLabel" destination="EyA-0d-7LL" id="vFy-bG-tcP"/>
+                                            <outlet property="topLayout" destination="KZz-PZ-eoe" id="bKh-qu-bMR"/>
+                                            <outlet property="warningVIew" destination="aaP-vw-DOc" id="tvY-ZC-1el"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordMessage" rowHeight="90" id="akn-19-Kv8" userLabel="recordMessage">
                                         <rect key="frame" x="0.0" y="877" width="375" height="90"/>

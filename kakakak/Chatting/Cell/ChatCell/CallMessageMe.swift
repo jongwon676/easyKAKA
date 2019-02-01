@@ -5,7 +5,7 @@ class CallMessageMe: BaseChat, ChattingCellProtocol{
     
     @IBOutlet var profile: ChatRadiusProfileView!
     @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var bubble: UIView!
+    
     @IBOutlet var callImage: UIImageView!
     @IBOutlet var callLabel: UILabel!
     @IBOutlet var timeReadLabel: UILabel!

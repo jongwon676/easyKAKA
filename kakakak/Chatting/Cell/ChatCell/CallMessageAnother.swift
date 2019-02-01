@@ -11,6 +11,9 @@ class CallMessageAnother: BaseChat,ChattingCellProtocol{
         return "callMessageAnother"
     }
     
+    
+    @IBOutlet var bubbleTop: NSLayoutConstraint!
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -18,11 +21,11 @@ class CallMessageAnother: BaseChat,ChattingCellProtocol{
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
     }
+    
     func configure(message: Message) {
-        
+        self.backgroundColor = UIColor.clear
+        bubbleTop.constant = message.isFirstMessage ? Style.firstMessageGap : Style.moreThanFirstMessageGap
+        updateConstraintsIfNeeded()
     }
-    
-    
 }
