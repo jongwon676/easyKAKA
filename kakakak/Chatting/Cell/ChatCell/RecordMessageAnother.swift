@@ -1,6 +1,6 @@
 import UIKit
 class RecordMessageAnother: BaseChat,ChattingCellProtocol{
-    @IBOutlet var timeReadLabel: UILabel!
+    @IBOutlet var timeReadLabel: TimeAndReadLabel!
     @IBOutlet var playRecordLabel: UILabel!
     static var reuseId: String{
         return "recordMessageAnother"

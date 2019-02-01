@@ -4,7 +4,7 @@ class TextAnother: BaseChat,ChattingCellProtocol{
   
     @IBOutlet var messageLabel: UILabel!
     @IBOutlet var bubble: UIView!
-    @IBOutlet var timeAndReadLabel: UILabel!
+    @IBOutlet var timeAndReadLabel: TimeAndReadLabel!
     
     
     
@@ -18,6 +18,8 @@ class TextAnother: BaseChat,ChattingCellProtocol{
     
     func configure(message: Message){
         self.backgroundColor = UIColor.clear
+        messageLabel.text = message.messageText
+        timeAndReadLabel.setUp(message: message)
         bubble.snp.updateConstraints { (mk) in
             if message.isFirstMessage{
                mk.top.equalTo(self.snp.top).offset(Style.firstMessageGap)

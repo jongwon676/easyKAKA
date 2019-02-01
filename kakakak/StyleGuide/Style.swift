@@ -37,4 +37,6 @@ class Style{
     static let messageLabelFont: UIFont = UIFont.systemFont(ofSize: 14)
     static let nameLabelFont: UIFont = UIFont.systemFont(ofSize: 14)
     
+    static let readLabelColor: UIColor = #colorLiteral(red: 0.9914963841, green: 0.9007859826, blue: 0, alpha: 1)
+    static let timeLabelColor: UIColor = #colorLiteral(red: 0.3982269764, green: 0.4544478655, blue: 0.4920632243, alpha: 1)
 }

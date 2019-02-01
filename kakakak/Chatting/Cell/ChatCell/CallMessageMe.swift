@@ -8,7 +8,7 @@ class CallMessageMe: BaseChat, ChattingCellProtocol{
     
     @IBOutlet var callImage: UIImageView!
     @IBOutlet var callLabel: UILabel!
-    @IBOutlet var timeReadLabel: UILabel!
+    @IBOutlet var timeReadLabel: TimeAndReadLabel!
     
     
     @IBOutlet var first: NSLayoutConstraint!

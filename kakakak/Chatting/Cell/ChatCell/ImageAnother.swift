@@ -5,7 +5,7 @@ class ImageAnother: BaseChat,ChattingCellProtocol{
         return "imageAnother"
     }
     
-    @IBOutlet var timeReadLabel: UILabel!
+    @IBOutlet var timeReadLabel: TimeAndReadLabel!
     @IBOutlet var bubbleGap: NSLayoutConstraint!
     @IBOutlet var messageImage: UIImageView!
     

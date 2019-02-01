@@ -4,7 +4,7 @@ import UIKit
 class CallMessageAnother: BaseChat,ChattingCellProtocol{
     @IBOutlet var bubble: UIView!
     
-    @IBOutlet var timeReadLabel: UILabel!
+    @IBOutlet var timeReadLabel: TimeAndReadLabel!
     @IBOutlet var callLabel: UILabel!
     @IBOutlet var callImage: UIImageView!
     static var reuseId: String{

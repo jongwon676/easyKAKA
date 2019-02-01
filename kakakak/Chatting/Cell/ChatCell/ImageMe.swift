@@ -6,7 +6,7 @@ class ImageMe: BaseChat,ChattingCellProtocol{
     @IBOutlet var messageImage: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var failView: UIImageView!
-    @IBOutlet var timeReadLabel: UILabel!
+    @IBOutlet var timeReadLabel: TimeAndReadLabel!
     @IBOutlet var containerView: UIView!
     
     @IBOutlet var first: NSLayoutConstraint!

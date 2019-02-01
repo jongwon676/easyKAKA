@@ -13,7 +13,7 @@ class DeleteMessageMe: BaseChat,ChattingCellProtocol {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var deleteLabel: UILabel!
     
-    @IBOutlet var timeReadLabel: UILabel!
+    @IBOutlet var timeReadLabel: TimeAndReadLabel!
     @IBOutlet var failView: UIImageView!
     @IBOutlet var warningView: UIImageView!
     @IBOutlet var bubble: UIView!

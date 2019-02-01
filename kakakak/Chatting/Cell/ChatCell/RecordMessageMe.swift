@@ -5,7 +5,7 @@ class RecordMessageMe: BaseChat,ChattingCellProtocol{
         return "recordMessageMe"
     }
     
-    @IBOutlet var timeReadLabel: UILabel!
+    @IBOutlet var timeReadLabel: TimeAndReadLabel!
     @IBOutlet var failView: UIImageView!
     @IBOutlet var profile: ChatRadiusProfileView!
     @IBOutlet var playTimeLabel: UILabel!
