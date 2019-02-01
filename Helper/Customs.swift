@@ -69,8 +69,9 @@ class ColorNavigationViewController: UINavigationController {
         changeGradientImage()
     }
     
-    let orangeGradient = [UIColor(rgb: 0xFC4761), UIColor(rgb: 0xFC5763), UIColor(rgb: 0xFD6C64), UIColor(rgb: 0xFD8667), UIColor(rgb: 0xFD9367)]
-    let orangeGradientLocation = [0.0, 0.25, 0.5, 0.75, 1.0]
+//    let orangeGradient = [UIColor(rgb: 0xFC4761), UIColor(rgb: 0xFC5763), UIColor(rgb: 0xFD6C64), UIColor(rgb: 0xFD8667), UIColor(rgb: 0xFD9367)]
+    let orangeGradient = [UIColor(rgb: 0xCFA3FF),UIColor(rgb: 0xFFAEE1)]
+    let orangeGradientLocation = [0.0, 1.0]
     
     lazy var colorView = { () -> UIView in
         let view = UIView()
