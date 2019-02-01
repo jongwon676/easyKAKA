@@ -262,7 +262,7 @@
                                                         <constraint firstItem="pTi-C0-N5k" firstAttribute="leading" secondItem="JaS-1Z-2jl" secondAttribute="trailing" constant="11.5" id="3kT-Qh-BUr"/>
                                                         <constraint firstItem="JaS-1Z-2jl" firstAttribute="leading" secondItem="Dpu-1Z-Nbo" secondAttribute="leading" constant="4" id="4jb-Ph-rF6"/>
                                                         <constraint firstItem="JaS-1Z-2jl" firstAttribute="top" secondItem="Dpu-1Z-Nbo" secondAttribute="top" constant="12" id="AEe-Qc-a5W"/>
-                                                        <constraint firstItem="pTi-C0-N5k" firstAttribute="top" secondItem="Dpu-1Z-Nbo" secondAttribute="top" constant="4" id="CjB-fU-ore"/>
+                                                        <constraint firstItem="pTi-C0-N5k" firstAttribute="top" secondItem="Dpu-1Z-Nbo" secondAttribute="top" constant="4" id="CjB-fU-ore" userLabel="세컨드"/>
                                                         <constraint firstAttribute="bottom" secondItem="pTi-C0-N5k" secondAttribute="bottom" id="FBU-rq-MR9"/>
                                                         <constraint firstItem="pTi-C0-N5k" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Oro-Y6-ST2" secondAttribute="bottom" constant="6" id="FV0-lu-Myf"/>
                                                         <constraint firstItem="sWW-Vf-ipP" firstAttribute="width" relation="lessThanOrEqual" secondItem="Dpu-1Z-Nbo" secondAttribute="width" multiplier="0.6" id="LHQ-8H-7ge"/>
@@ -420,21 +420,29 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="XM2-h3-Xeq" secondAttribute="bottom" id="IPX-EZ-e9J"/>
                                                 <constraint firstAttribute="trailing" secondItem="XM2-h3-Xeq" secondAttribute="trailing" id="N7i-LH-YTX"/>
+                                                <constraint firstItem="Ppt-sz-k8B" firstAttribute="top" secondItem="eQa-pO-blJ" secondAttribute="top" constant="4" id="bwm-Yi-onO" userLabel="세컨드"/>
                                                 <constraint firstItem="XM2-h3-Xeq" firstAttribute="top" secondItem="eQa-pO-blJ" secondAttribute="top" id="eF9-Dz-QnH"/>
                                                 <constraint firstItem="XM2-h3-Xeq" firstAttribute="leading" secondItem="eQa-pO-blJ" secondAttribute="leading" id="gdK-HT-cJz"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="bwm-Yi-onO"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="bubble" destination="Ppt-sz-k8B" id="hf7-ib-uQv"/>
                                             <outlet property="containerView" destination="eQa-pO-blJ" id="Gj3-Ph-j1X"/>
                                             <outlet property="failView" destination="ZrA-W7-2OF" id="EoN-ay-AXR"/>
+                                            <outlet property="first" destination="Jlr-PL-mtv" id="lPw-xu-gLf"/>
                                             <outlet property="messageImage" destination="8iB-zf-qEc" id="iER-Mx-ZO5"/>
                                             <outlet property="nameLabel" destination="q0g-Db-tDK" id="W2Q-fi-bm4"/>
                                             <outlet property="profile" destination="CM7-44-4VY" id="Obr-kg-VIj"/>
+                                            <outlet property="second" destination="bwm-Yi-onO" id="38V-sw-4Js"/>
                                             <outlet property="timeReadLabel" destination="b3u-b2-eSX" id="nFP-30-Pev"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="imageAnother" rowHeight="143" id="aPB-y1-QBc" userLabel="imageAnother">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="imageAnother" rowHeight="143" id="aPB-y1-QBc" userLabel="imageAnother" customClass="ImageAnother" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="428" width="375" height="143"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aPB-y1-QBc" id="BHJ-Qb-v1g">
@@ -474,8 +482,13 @@
                                                 <constraint firstAttribute="bottom" secondItem="yXF-fu-nqR" secondAttribute="bottom" id="zFX-mf-4Hb"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="bubbleGap" destination="d1y-OU-STz" id="qKH-Ab-pF0"/>
+                                            <outlet property="messageImage" destination="qtj-0f-3a7" id="0A4-FX-qnf"/>
+                                            <outlet property="timeReadLabel" destination="cAt-VX-pM5" id="8sl-Kw-Kzn"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="callMessageMe" rowHeight="86" id="F2x-zd-vse" userLabel="callMessageMe">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="callMessageMe" rowHeight="86" id="F2x-zd-vse" userLabel="callMessageMe" customClass="CallMessageMe" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="571" width="375" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F2x-zd-vse" id="QVi-vm-myt">
@@ -525,16 +538,30 @@
                                                                 <constraint firstItem="tde-RU-65y" firstAttribute="leading" secondItem="my1-lu-ihQ" secondAttribute="trailing" constant="9" id="vKL-kx-V2h"/>
                                                             </constraints>
                                                         </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwg-un-IE5">
+                                                            <rect key="frame" x="206.5" y="61" width="42" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="Q89-nX-y5B" firstAttribute="top" secondItem="JDx-Hf-z61" secondAttribute="top" id="20D-0g-dPJ"/>
                                                         <constraint firstItem="0mX-JI-gBt" firstAttribute="top" secondItem="Q89-nX-y5B" secondAttribute="bottom" constant="6" id="3fj-4M-C8p"/>
+                                                        <constraint firstItem="cwg-un-IE5" firstAttribute="leading" secondItem="0mX-JI-gBt" secondAttribute="trailing" constant="6" id="Mbd-RD-7od"/>
                                                         <constraint firstItem="0mX-JI-gBt" firstAttribute="leading" secondItem="JDx-Hf-z61" secondAttribute="trailing" constant="11.5" id="W3n-kd-jy6"/>
                                                         <constraint firstItem="Q89-nX-y5B" firstAttribute="leading" secondItem="0mX-JI-gBt" secondAttribute="leading" id="Zmb-Fu-5TC"/>
                                                         <constraint firstAttribute="bottom" secondItem="0mX-JI-gBt" secondAttribute="bottom" id="aGc-LT-mRU"/>
+                                                        <constraint firstAttribute="bottom" secondItem="cwg-un-IE5" secondAttribute="bottom" constant="4" id="nko-hl-Gl9"/>
+                                                        <constraint firstItem="0mX-JI-gBt" firstAttribute="top" secondItem="IzN-rk-uDz" secondAttribute="top" constant="4" id="pK9-RI-CCa" userLabel="second"/>
                                                         <constraint firstItem="JDx-Hf-z61" firstAttribute="leading" secondItem="IzN-rk-uDz" secondAttribute="leading" constant="4" id="vxG-AF-OMq"/>
                                                         <constraint firstItem="JDx-Hf-z61" firstAttribute="top" secondItem="IzN-rk-uDz" secondAttribute="top" constant="12" id="x50-Ty-5nx"/>
                                                     </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="pK9-RI-CCa"/>
+                                                        </mask>
+                                                    </variation>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -545,8 +572,19 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.94064695269999998" green="1" blue="0.15448186059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="bubb" destination="0mX-JI-gBt" id="QIz-f1-8v5"/>
+                                            <outlet property="callImage" destination="my1-lu-ihQ" id="nJX-mo-rdU"/>
+                                            <outlet property="callLabel" destination="tde-RU-65y" id="HKg-a4-aC2"/>
+                                            <outlet property="containerView" destination="IzN-rk-uDz" id="mDj-7x-KZK"/>
+                                            <outlet property="first" destination="3fj-4M-C8p" id="mvw-Bs-Njs"/>
+                                            <outlet property="nameLabel" destination="Q89-nX-y5B" id="SK3-8t-nws"/>
+                                            <outlet property="profile" destination="JDx-Hf-z61" id="CHx-Xu-4Yo"/>
+                                            <outlet property="second" destination="pK9-RI-CCa" id="6E9-8g-hcz"/>
+                                            <outlet property="timeReadLabel" destination="cwg-un-IE5" id="VZQ-Gp-JcY"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="callMessageAnother" rowHeight="60" id="NfC-Ed-3eJ" userLabel="callMessageAnother">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="callMessageAnother" rowHeight="60" id="NfC-Ed-3eJ" userLabel="callMessageAnother" customClass="CallMessageAnother" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="657" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NfC-Ed-3eJ" id="mrC-WB-EL0">
@@ -580,14 +618,28 @@
                                                         <constraint firstAttribute="height" constant="55" id="yWQ-Qf-PMk"/>
                                                     </constraints>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlm-oQ-Ivr">
+                                                    <rect key="frame" x="170.5" y="34" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="EUn-E0-gWM" secondAttribute="bottom" id="0Ns-0I-Dcj"/>
                                                 <constraint firstItem="EUn-E0-gWM" firstAttribute="top" secondItem="mrC-WB-EL0" secondAttribute="top" constant="4" id="gIX-mS-Gum"/>
+                                                <constraint firstAttribute="bottom" secondItem="nlm-oQ-Ivr" secondAttribute="bottom" constant="4" id="nh9-Ss-bkn"/>
                                                 <constraint firstAttribute="trailing" secondItem="EUn-E0-gWM" secondAttribute="trailing" constant="11.5" id="qh3-pI-h9Z"/>
+                                                <constraint firstItem="EUn-E0-gWM" firstAttribute="leading" secondItem="nlm-oQ-Ivr" secondAttribute="trailing" constant="6" id="qo8-Za-q3H"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                        <connections>
+                                            <outlet property="bubble" destination="EUn-E0-gWM" id="rtn-ZV-WCw"/>
+                                            <outlet property="callImage" destination="Hlb-Xj-6In" id="CbL-mK-x38"/>
+                                            <outlet property="callLabel" destination="ne7-q0-Hw9" id="dfc-zb-D5U"/>
+                                            <outlet property="timeReadLabel" destination="nlm-oQ-Ivr" id="kkE-CG-8z0"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="deleteMessageMe" rowHeight="90" id="JNU-nd-NGh" userLabel="deleteMessageMe">
                                         <rect key="frame" x="0.0" y="717" width="375" height="90"/>

@@ -1,40 +1,44 @@
 import UIKit
-class ImageMe: BaseChat,ChattingCellProtocol{
-    static var reuseId = "imageMe"
+class CallMessageMe: BaseChat, ChattingCellProtocol{
+    
+    static var reuseId: String{ return "callMessageMe" }
     
     @IBOutlet var profile: ChatRadiusProfileView!
-    @IBOutlet var messageImage: UIImageView!
     @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var failView: UIImageView!
+    @IBOutlet var bubble: UIView!
+    @IBOutlet var callImage: UIImageView!
+    @IBOutlet var callLabel: UILabel!
     @IBOutlet var timeReadLabel: UILabel!
-    @IBOutlet var containerView: UIView!
+    
     
     @IBOutlet var first: NSLayoutConstraint!
-    @IBOutlet var second: NSLayoutConstraint!
-    @IBOutlet var bubble: CornerRadiusView!
     
+    @IBOutlet var second: NSLayoutConstraint!
+    
+    @IBOutlet var containerView: UIView!
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        first.isActive = true
-        second.isActive = false
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
     }
     
     func configure(message: Message) {
+        first.isActive = message.isFirstMessage
+        second.isActive = !message.isFirstMessage
         self.backgroundColor = UIColor.clear
         self.containerView.backgroundColor = UIColor.clear
-        
+        guard let owner = message.owner else { return  }
         profile.isHidden = !message.isFirstMessage
-        nameLabel.isHidden = profile.isHidden
-        failView.isHidden = !message.isFail
-        timeReadLabel.isHidden = message.isFail
+        nameLabel.isHidden = !message.isFirstMessage
         
-        first.isActive =
-            message.isFirstMessage
-        second.isActive = !message.isFirstMessage
+        nameLabel.text = owner.name
+        //기본이미지가 셋팅 안된경우. 잘 처리하기
+        profile.image = UIImage.loadImageFromName(owner.profileImageUrl ?? "")
         
     }
 }
+
