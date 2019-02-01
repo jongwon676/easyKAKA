@@ -8,6 +8,7 @@ class ImageMe: BaseChat,ChattingCellProtocol{
     @IBOutlet var failView: UIImageView!
     @IBOutlet var timeReadLabel: TimeAndReadLabel!
     @IBOutlet var containerView: UIView!
+    @IBOutlet var leading: NSLayoutConstraint!
     
     @IBOutlet var first: NSLayoutConstraint!
     @IBOutlet var second: NSLayoutConstraint!
@@ -35,6 +36,6 @@ class ImageMe: BaseChat,ChattingCellProtocol{
         first.isActive =
             message.isFirstMessage
         second.isActive = !message.isFirstMessage
-        
+        leading.constant = editMode ? 30 : 0
     }
 }

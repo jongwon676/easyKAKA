@@ -10,6 +10,7 @@ class CallMessageMe: BaseChat, ChattingCellProtocol{
     @IBOutlet var callLabel: UILabel!
     @IBOutlet var timeReadLabel: TimeAndReadLabel!
     
+    @IBOutlet var leading: NSLayoutConstraint!
     
     @IBOutlet var first: NSLayoutConstraint!
     
@@ -38,7 +39,7 @@ class CallMessageMe: BaseChat, ChattingCellProtocol{
         nameLabel.text = owner.name
         //기본이미지가 셋팅 안된경우. 잘 처리하기
         profile.image = UIImage.loadImageFromName(owner.profileImageUrl ?? "")
-        
+        leading.constant = editMode ? 30 : 0
     }
 }
 

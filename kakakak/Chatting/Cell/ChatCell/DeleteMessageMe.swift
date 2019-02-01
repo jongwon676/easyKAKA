@@ -18,6 +18,7 @@ class DeleteMessageMe: BaseChat,ChattingCellProtocol {
     @IBOutlet var warningView: UIImageView!
     @IBOutlet var bubble: UIView!
     
+    @IBOutlet var leading: NSLayoutConstraint!
     @IBOutlet var container: UIView!
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -40,6 +41,6 @@ class DeleteMessageMe: BaseChat,ChattingCellProtocol {
         profile.image = UIImage.loadImageFromName(owner.profileImageUrl ?? "")
         nameLabel.text = owner.name
         
-        
+        leading.constant = editMode ? 30 : 0
     }
 }

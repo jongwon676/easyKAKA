@@ -39,4 +39,8 @@ class Style{
     
     static let readLabelColor: UIColor = #colorLiteral(red: 0.9914963841, green: 0.9007859826, blue: 0, alpha: 1)
     static let timeLabelColor: UIColor = #colorLiteral(red: 0.3982269764, green: 0.4544478655, blue: 0.4920632243, alpha: 1)
+    
+    
+    static let rightBubbleColor: UIColor = #colorLiteral(red: 0.9996673465, green: 0.8927946687, blue: 0.005554047879, alpha: 1)
+    static let leftBubbleColor: UIColor = #colorLiteral(red: 0.9998916984, green: 1, blue: 0.9998809695, alpha: 1)
 }

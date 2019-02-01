@@ -219,7 +219,7 @@
                                                                 <constraint firstAttribute="width" constant="40" id="njV-GV-asS"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pTi-C0-N5k" userLabel="bubble">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pTi-C0-N5k" userLabel="bubble" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
                                                             <rect key="frame" x="55.5" y="38.5" width="242" height="51.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="adsfjas;ldfjl;asjdfl;asjldf;jasl;dfjl;asdjfl;ajsdf;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWW-Vf-ipP">
@@ -292,6 +292,7 @@
                                         <connections>
                                             <outlet property="bubble" destination="pTi-C0-N5k" id="s8A-Mb-BDX"/>
                                             <outlet property="containerView" destination="Dpu-1Z-Nbo" id="Yv8-BC-1N8"/>
+                                            <outlet property="containerViewLeading" destination="nej-0F-SVw" id="X1z-53-WPj"/>
                                             <outlet property="failView" destination="9VE-Gr-EAF" id="bRL-Mg-H91"/>
                                             <outlet property="messageCellGap" destination="QBX-Xn-uXI" id="dOn-Hh-RwV"/>
                                             <outlet property="messageLabel" destination="sWW-Vf-ipP" id="UbG-tE-ZgJ"/>
@@ -308,7 +309,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6fX-Lp-BWX">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6fX-Lp-BWX" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
                                                     <rect key="frame" x="105.5" y="8" width="258" height="62"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="sdfak;jdsfl;ajdsk;fjl;asdfjlasjdkf;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4K-t9-zsO">
@@ -436,6 +437,7 @@
                                             <outlet property="containerView" destination="eQa-pO-blJ" id="Gj3-Ph-j1X"/>
                                             <outlet property="failView" destination="ZrA-W7-2OF" id="EoN-ay-AXR"/>
                                             <outlet property="first" destination="Jlr-PL-mtv" id="lPw-xu-gLf"/>
+                                            <outlet property="leading" destination="gdK-HT-cJz" id="orQ-7n-DGq"/>
                                             <outlet property="messageImage" destination="8iB-zf-qEc" id="iER-Mx-ZO5"/>
                                             <outlet property="nameLabel" destination="q0g-Db-tDK" id="W2Q-fi-bm4"/>
                                             <outlet property="profile" destination="CM7-44-4VY" id="Obr-kg-VIj"/>
@@ -450,7 +452,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="143"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yXF-fu-nqR">
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yXF-fu-nqR" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
                                                     <rect key="frame" x="138.5" y="8" width="225" height="135"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="abcd.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="qtj-0f-3a7">
@@ -512,7 +514,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0mX-JI-gBt">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0mX-JI-gBt" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
                                                             <rect key="frame" x="55.5" y="31" width="145" height="55"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="voiceOff" translatesAutoresizingMaskIntoConstraints="NO" id="my1-lu-ihQ">
@@ -579,6 +581,7 @@
                                             <outlet property="callLabel" destination="tde-RU-65y" id="HKg-a4-aC2"/>
                                             <outlet property="containerView" destination="IzN-rk-uDz" id="mDj-7x-KZK"/>
                                             <outlet property="first" destination="3fj-4M-C8p" id="mvw-Bs-Njs"/>
+                                            <outlet property="leading" destination="bDC-ym-5Cb" id="Qgl-Rw-I31"/>
                                             <outlet property="nameLabel" destination="Q89-nX-y5B" id="SK3-8t-nws"/>
                                             <outlet property="profile" destination="JDx-Hf-z61" id="CHx-Xu-4Yo"/>
                                             <outlet property="second" destination="pK9-RI-CCa" id="6E9-8g-hcz"/>
@@ -592,7 +595,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EUn-E0-gWM">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EUn-E0-gWM" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
                                                     <rect key="frame" x="218.5" y="4" width="145" height="55"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="voiceOff" translatesAutoresizingMaskIntoConstraints="NO" id="Hlb-Xj-6In">
@@ -660,7 +663,7 @@
                                                                 <constraint firstAttribute="width" constant="40" id="9pr-U7-pz4"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOM-uB-jrl" userLabel="bubble">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOM-uB-jrl" userLabel="bubble" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
                                                             <rect key="frame" x="55.5" y="49" width="180" height="41"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="warning" translatesAutoresizingMaskIntoConstraints="NO" id="c7L-LP-lW7">
@@ -742,6 +745,7 @@
                                             <outlet property="deleteLabel" destination="XjZ-xq-R2k" id="yFS-Mp-EyR"/>
                                             <outlet property="failView" destination="LPq-bI-OPk" id="Z9K-2k-9JL"/>
                                             <outlet property="first" destination="xaZ-gu-wcc" id="H5O-pS-Lo6"/>
+                                            <outlet property="leading" destination="h6Y-FU-Br8" id="xkF-Na-WeU"/>
                                             <outlet property="nameLabel" destination="htd-28-gBq" id="uIc-zT-WUe"/>
                                             <outlet property="profile" destination="fng-iC-5HT" id="Phn-aT-B60"/>
                                             <outlet property="second" destination="OSm-FF-auy" id="pkf-g9-8dd"/>
@@ -756,7 +760,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pcH-BZ-cAr">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pcH-BZ-cAr" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
                                                     <rect key="frame" x="182.5" y="8" width="181" height="62"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="warning" translatesAutoresizingMaskIntoConstraints="NO" id="aaP-vw-DOc">
@@ -825,7 +829,7 @@
                                                                 <constraint firstAttribute="height" constant="40" id="dfu-4h-egv"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C6w-ex-mbj" userLabel="bubble">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C6w-ex-mbj" userLabel="bubble" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
                                                             <rect key="frame" x="55.5" y="40" width="186" height="51"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play" translatesAutoresizingMaskIntoConstraints="NO" id="qM9-mM-n3V">
@@ -915,6 +919,7 @@
                                             <outlet property="containerView" destination="2V3-k9-v6D" id="Vfd-Y7-qx6"/>
                                             <outlet property="failView" destination="5dc-2e-A0H" id="ol0-t7-OwK"/>
                                             <outlet property="first" destination="vZE-bR-Y9V" id="Rfe-T2-xiy"/>
+                                            <outlet property="leading" destination="Wg9-Yo-MvR" id="5CH-eJ-ABQ"/>
                                             <outlet property="nameLabel" destination="CwK-RA-EwK" id="NOb-QE-ZJN"/>
                                             <outlet property="playTimeLabel" destination="Osb-Lf-JlK" id="gwS-Ql-UlY"/>
                                             <outlet property="profile" destination="F74-RH-Bxc" id="iWE-VU-HfW"/>
@@ -929,7 +934,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U66-E4-fTZ" userLabel="bubble">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U66-E4-fTZ" userLabel="bubble" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
                                                     <rect key="frame" x="178" y="8" width="185.5" height="51"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play" translatesAutoresizingMaskIntoConstraints="NO" id="a16-eC-QwK">

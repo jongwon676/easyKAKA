@@ -18,6 +18,8 @@ class TextAnother: BaseChat,ChattingCellProtocol{
     
     func configure(message: Message){
         self.backgroundColor = UIColor.clear
+        self.contentView.backgroundColor = UIColor.clear
+        self.bubble.backgroundColor = Style.rightBubbleColor
         messageLabel.text = message.messageText
         timeAndReadLabel.setUp(message: message)
         bubble.snp.updateConstraints { (mk) in

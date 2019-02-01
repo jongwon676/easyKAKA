@@ -23,24 +23,31 @@ class TextMe: BaseChat,ChattingCellProtocol{
         super.init(coder: aDecoder)
     }
     
+    @IBOutlet var containerViewLeading: NSLayoutConstraint!
     func configure(message: Message){
     
+        
+        
+
+        
+        
         self.backgroundColor = UIColor.clear
         self.containerView.backgroundColor = UIColor.clear
+        self.bubble.backgroundColor = Style.leftBubbleColor
+        
         profile.isHidden = !message.isFirstMessage
         nameLabel.isHidden = profile.isHidden
         failView.isHidden = !message.isFail
         timeReadLabel.isHidden = message.isFail
         timeReadLabel.setUp(message: message)
+        
+        
         messageLabel.text = message.messageText
-            if message.isFirstMessage{
-               messageNameLabelGap.isActive = true
-                messageCellGap.isActive = false
-            }else{
-                messageCellGap.isActive = true
-                messageNameLabelGap.isActive = false
-                
-            }
+        messageNameLabelGap.isActive = message.isFirstMessage
+        messageCellGap.isActive = !message.isFirstMessage
+        
+        containerViewLeading.constant = editMode ? 30 : 0
+        updateConstraintsIfNeeded()
         
     }
 }

@@ -79,15 +79,15 @@ class Message: Object,NSCopying {
         switch self.type {
             
         case .text:
-            if let isMe = owner?.isMe, isMe == true { return "textMe"}
+            if let isMe = owner?.isMe, isMe == true { return "textAnother"}
                 
-            else{ return  "textAnother"}
+            else{ return  "textMe"}
             
         case .image:
             if let isMe = owner?.isMe, isMe == true{
-                return "imageMe"
+                return "imageAnother"
             }
-            else { return  "imageAnother"}
+            else { return  "imageMe"}
         case .enter:
             return "invite"
         case .exit:
@@ -96,14 +96,14 @@ class Message: Object,NSCopying {
             return "dateLine"
         case .call:
             if let isMe = owner?.isMe, isMe == true{
-                return "callMessageMe"
+                return "callMessageAnother"
             }
-            else { return  "callMessageAnother"}
+            else { return  "callMessageMe"}
         case .record:
             if let isMe = owner?.isMe, isMe == true{
-                return "recordMessageMe"
+                return "recordMessageAnother"
             }
-            else { return  "recordMessageAnother"}
+            else { return  "recordMessageMe"}
         }
     }
     

@@ -4,6 +4,7 @@ class RecordMessageMe: BaseChat,ChattingCellProtocol{
     static var reuseId: String{
         return "recordMessageMe"
     }
+    @IBOutlet var leading: NSLayoutConstraint!
     
     @IBOutlet var timeReadLabel: TimeAndReadLabel!
     @IBOutlet var failView: UIImageView!
@@ -26,6 +27,7 @@ class RecordMessageMe: BaseChat,ChattingCellProtocol{
         guard let owner = message.owner else { return }
         nameLabel.text = owner.name
         profile.image = UIImage.loadImageFromName(owner.profileImageUrl ?? "")
+        leading.constant = editMode ? 30 : 0
     }
     
     

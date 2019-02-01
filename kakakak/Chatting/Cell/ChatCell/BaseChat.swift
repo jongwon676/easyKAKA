@@ -32,5 +32,14 @@ class BaseChat: UITableViewCell{
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        self.addSubview(checkBoxImage)
+        
+        checkBoxImage.image = UIImage(named: "unSelected")
+        checkBoxImage.isHidden = !editMode
+        checkBoxImage.snp.makeConstraints { (mk) in
+            mk.centerY.equalTo(self)
+            mk.width.height.equalTo(Style.checkBoxSize)
+            mk.left.equalTo(self).offset(Style.checkBoxOffset)
+        }
     }
 }

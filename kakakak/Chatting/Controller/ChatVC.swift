@@ -355,7 +355,7 @@ extension ChatVC{
             message.isSelected = true
         }
         tableView.visibleCells.forEach{
-            ($0 as? BaseChatCell)?.checkBoxImage.image = selectedImage
+            ($0 as? BaseChat)?.checkBoxImage.image = selectedImage
         }
         refreshEdit()
     }
@@ -364,7 +364,7 @@ extension ChatVC{
             message.isSelected = false
         }
         tableView.visibleCells.forEach{
-            ($0 as? BaseChatCell)?.checkBoxImage.image = unSelectedImage
+            ($0 as? BaseChat)?.checkBoxImage.image = unSelectedImage
         }
         refreshEdit()
     }
@@ -374,11 +374,10 @@ extension ChatVC{
         if let indexPath = tableView.indexPathForRow(at: position){
             let newSelected = !messageManager.messages[indexPath.row].isSelected
             messageManager.messages[indexPath.row].isSelected = newSelected
-            (tableView.cellForRow(at: indexPath) as? BaseChatCell)?.checkBoxImage.image =
+            (tableView.cellForRow(at: indexPath) as? BaseChat)?.checkBoxImage.image =
                 newSelected ? selectedImage : unSelectedImage
         }
         refreshEdit()
-        
     }
     @objc func handleBack(){
         self.navigationController?.popViewController(animated: true)
