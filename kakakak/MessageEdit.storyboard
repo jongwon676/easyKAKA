@@ -807,7 +807,7 @@
                                             <outlet property="warningVIew" destination="aaP-vw-DOc" id="tvY-ZC-1el"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordMessage" rowHeight="90" id="akn-19-Kv8" userLabel="recordMessage">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordMessageMe" rowHeight="90" id="akn-19-Kv8" userLabel="recordMessageMe" customClass="RecordMessageMe" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="877" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="akn-19-Kv8" id="ASd-tM-DK7">
@@ -888,12 +888,18 @@
                                                         <constraint firstItem="jbR-v3-Uxq" firstAttribute="leading" secondItem="C6w-ex-mbj" secondAttribute="trailing" constant="6" id="U3G-kX-3qc"/>
                                                         <constraint firstAttribute="bottom" secondItem="5dc-2e-A0H" secondAttribute="bottom" constant="4" id="Wxu-jv-zpl"/>
                                                         <constraint firstItem="CwK-RA-EwK" firstAttribute="top" secondItem="F74-RH-Bxc" secondAttribute="top" id="XDz-U7-Kz1"/>
+                                                        <constraint firstItem="C6w-ex-mbj" firstAttribute="top" secondItem="2V3-k9-v6D" secondAttribute="top" constant="4" id="XY7-p5-WfQ"/>
                                                         <constraint firstItem="F74-RH-Bxc" firstAttribute="leading" secondItem="2V3-k9-v6D" secondAttribute="leading" constant="4" id="emX-v8-uKx"/>
                                                         <constraint firstItem="C6w-ex-mbj" firstAttribute="leading" secondItem="F74-RH-Bxc" secondAttribute="trailing" constant="11.5" id="mEK-eb-9sb"/>
                                                         <constraint firstItem="F74-RH-Bxc" firstAttribute="top" secondItem="2V3-k9-v6D" secondAttribute="top" constant="12" id="qqj-QY-2an"/>
                                                         <constraint firstItem="C6w-ex-mbj" firstAttribute="top" relation="greaterThanOrEqual" secondItem="CwK-RA-EwK" secondAttribute="bottom" constant="6" id="vZE-bR-Y9V"/>
                                                         <constraint firstAttribute="bottom" secondItem="C6w-ex-mbj" secondAttribute="bottom" constant="-1" id="zhU-fZ-Hj8"/>
                                                     </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="XY7-p5-WfQ"/>
+                                                        </mask>
+                                                    </variation>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -904,8 +910,18 @@
                                                 <constraint firstItem="2V3-k9-v6D" firstAttribute="top" secondItem="ASd-tM-DK7" secondAttribute="top" id="x0z-cY-jln"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="containerView" destination="2V3-k9-v6D" id="Vfd-Y7-qx6"/>
+                                            <outlet property="failView" destination="5dc-2e-A0H" id="ol0-t7-OwK"/>
+                                            <outlet property="first" destination="vZE-bR-Y9V" id="Rfe-T2-xiy"/>
+                                            <outlet property="nameLabel" destination="CwK-RA-EwK" id="NOb-QE-ZJN"/>
+                                            <outlet property="playTimeLabel" destination="Osb-Lf-JlK" id="gwS-Ql-UlY"/>
+                                            <outlet property="profile" destination="F74-RH-Bxc" id="iWE-VU-HfW"/>
+                                            <outlet property="second" destination="XY7-p5-WfQ" id="Jko-sp-7ZL"/>
+                                            <outlet property="timeReadLabel" destination="jbR-v3-Uxq" id="8ia-np-9bX"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordMessageAnother" rowHeight="70" id="6is-Ru-bsW" userLabel="recordMessageAnother">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordMessageAnother" rowHeight="70" id="6is-Ru-bsW" userLabel="recordMessageAnother" customClass="RecordMessageAnother" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="967" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6is-Ru-bsW" id="0SI-ov-ECh">
@@ -965,6 +981,11 @@
                                                 <constraint firstAttribute="bottom" secondItem="U66-E4-fTZ" secondAttribute="bottom" id="wp6-Ct-1Yq"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="playRecordLabel" destination="p16-AP-Nq1" id="VAt-Ao-R5f"/>
+                                            <outlet property="timeReadLabel" destination="eNS-y6-6Oy" id="5AD-xI-BGt"/>
+                                            <outlet property="topLayout" destination="27z-tH-RsA" id="Qxm-W7-5f8"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="invite" rowHeight="58" id="Z2g-o8-70C" userLabel="invite">
                                         <rect key="frame" x="0.0" y="1037" width="375" height="58"/>

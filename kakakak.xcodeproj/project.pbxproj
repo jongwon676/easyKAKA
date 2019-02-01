@@ -18,6 +18,8 @@
 		AD2B6A80220465C000DD563A /* CallMessageAnother.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2B6A7F220465C000DD563A /* CallMessageAnother.swift */; };
 		AD2B6A8222046CDE00DD563A /* DeleteMessageMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2B6A8122046CDE00DD563A /* DeleteMessageMe.swift */; };
 		AD2B6A84220474CB00DD563A /* DeleteMessageAnother.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2B6A83220474CB00DD563A /* DeleteMessageAnother.swift */; };
+		AD2B6A862204760A00DD563A /* RecordMessageMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2B6A852204760A00DD563A /* RecordMessageMe.swift */; };
+		AD2B6A882204781B00DD563A /* RecordMessageAnother.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2B6A872204781B00DD563A /* RecordMessageAnother.swift */; };
 		AD50748121F28D9C003B50F5 /* TimeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD50748021F28D9C003B50F5 /* TimeInputView.swift */; };
 		AD50748421F2971D003B50F5 /* MiddleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD50748321F2971D003B50F5 /* MiddleView.swift */; };
 		AD50748621F29EEA003B50F5 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD50748521F29EEA003B50F5 /* EditView.swift */; };
@@ -101,6 +103,8 @@
 		AD2B6A7F220465C000DD563A /* CallMessageAnother.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallMessageAnother.swift; sourceTree = "<group>"; };
 		AD2B6A8122046CDE00DD563A /* DeleteMessageMe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteMessageMe.swift; sourceTree = "<group>"; };
 		AD2B6A83220474CB00DD563A /* DeleteMessageAnother.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteMessageAnother.swift; sourceTree = "<group>"; };
+		AD2B6A852204760A00DD563A /* RecordMessageMe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordMessageMe.swift; sourceTree = "<group>"; };
+		AD2B6A872204781B00DD563A /* RecordMessageAnother.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordMessageAnother.swift; sourceTree = "<group>"; };
 		AD50748021F28D9C003B50F5 /* TimeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInputView.swift; sourceTree = "<group>"; };
 		AD50748321F2971D003B50F5 /* MiddleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleView.swift; sourceTree = "<group>"; };
 		AD50748521F29EEA003B50F5 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
@@ -447,6 +451,8 @@
 				AD2B6A7F220465C000DD563A /* CallMessageAnother.swift */,
 				AD2B6A8122046CDE00DD563A /* DeleteMessageMe.swift */,
 				AD2B6A83220474CB00DD563A /* DeleteMessageAnother.swift */,
+				AD2B6A852204760A00DD563A /* RecordMessageMe.swift */,
+				AD2B6A872204781B00DD563A /* RecordMessageAnother.swift */,
 			);
 			path = ChatCell;
 			sourceTree = "<group>";
@@ -611,6 +617,7 @@
 				ADA7E02221FF769F00FCF517 /* TextEditcell.swift in Sources */,
 				ADA7E01021FED75D00FCF517 /* SpecailFeatureCell.swift in Sources */,
 				ADA7E02021FF768500FCF517 /* ImageEditCell.swift in Sources */,
+				AD2B6A862204760A00DD563A /* RecordMessageMe.swift in Sources */,
 				ADA7E01A21FF764E00FCF517 /* UserNameEditCell.swift in Sources */,
 				AD27D16721F07066009E367A /* UserCollectionCell.swift in Sources */,
 				AD9E3F242203113200F45BF9 /* Customs.swift in Sources */,
@@ -623,6 +630,7 @@
 				ADC672DE21E39FCB00D6D3F5 /* ChatVC.swift in Sources */,
 				ADC672D021E2A68B00D6D3F5 /* AddUserVC.swift in Sources */,
 				ADA7E01E21FF767300FCF517 /* DateEditCell.swift in Sources */,
+				AD2B6A882204781B00DD563A /* RecordMessageAnother.swift in Sources */,
 				AD8C17C022045CEA00B7C8F9 /* ImageAnother.swift in Sources */,
 				ADC672E121E3A52400D6D3F5 /* TextCell.swift in Sources */,
 				ADCB809F21F8ADAE00BE25D8 /* UserLayout.swift in Sources */,
