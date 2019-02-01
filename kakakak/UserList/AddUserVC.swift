@@ -21,6 +21,18 @@ class AddUserVC: UITableViewController, UIImagePickerControllerDelegate,UINaviga
         NotificationCenter.default.removeObserver(self)
     }
     
+    @IBAction func changeImage(_ sender: Any) {
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.allowsEditing = true
+        picker.delegate = self
+        self.present(picker, animated: true, completion: nil)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
     override func viewDidLoad() {
         
         NotificationCenter.default.addObserver(

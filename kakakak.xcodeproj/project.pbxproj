@@ -32,6 +32,7 @@
 		AD51D17C21E9996D00DA4B13 /* smileTemp.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = AD51D17B21E9996C00DA4B13 /* smileTemp.jpeg */; };
 		AD542CB621EC871A00656196 /* RoomAddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD542CB521EC871A00656196 /* RoomAddVC.swift */; };
 		AD542CB821EC8D8A00656196 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD542CB721EC8D8A00656196 /* UserCell.swift */; };
+		AD6911C32204E07D0045CEFF /* AddUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6911C22204E07D0045CEFF /* AddUserController.swift */; };
 		AD87909921EA048A0008177D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD87909821EA048A0008177D /* ViewController.swift */; };
 		AD8C17C022045CEA00B7C8F9 /* ImageAnother.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8C17BF22045CEA00B7C8F9 /* ImageAnother.swift */; };
 		AD8CD3FF2200D6BA0040AE81 /* xeicon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD8CD3FE2200D6BA0040AE81 /* xeicon.ttf */; };
@@ -121,6 +122,7 @@
 		AD51D17B21E9996C00DA4B13 /* smileTemp.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = smileTemp.jpeg; sourceTree = "<group>"; };
 		AD542CB521EC871A00656196 /* RoomAddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomAddVC.swift; sourceTree = "<group>"; };
 		AD542CB721EC8D8A00656196 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		AD6911C22204E07D0045CEFF /* AddUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserController.swift; sourceTree = "<group>"; };
 		AD87909821EA048A0008177D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AD8C17BF22045CEA00B7C8F9 /* ImageAnother.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnother.swift; sourceTree = "<group>"; };
 		AD8CD3FE2200D6BA0040AE81 /* xeicon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = xeicon.ttf; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 			children = (
 				ADC672CF21E2A68B00D6D3F5 /* AddUserVC.swift */,
 				ADC672BD21E24E2500D6D3F5 /* CharacterListVC.swift */,
+				AD6911C22204E07D0045CEFF /* AddUserController.swift */,
 			);
 			path = UserList;
 			sourceTree = "<group>";
@@ -624,6 +627,7 @@
 				ADC672CE21E29BC800D6D3F5 /* User.swift in Sources */,
 				ADFA3069220448B700744C31 /* TextAnother.swift in Sources */,
 				ADA5F29A21EF2F4A002C0F85 /* KeyBoardAreaController.swift in Sources */,
+				AD6911C32204E07D0045CEFF /* AddUserController.swift in Sources */,
 				AD542CB621EC871A00656196 /* RoomAddVC.swift in Sources */,
 				AD87909921EA048A0008177D /* ViewController.swift in Sources */,
 				ADA7E02221FF769F00FCF517 /* TextEditcell.swift in Sources */,

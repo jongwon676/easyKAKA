@@ -20,6 +20,7 @@ class CharacterListVC: UITableViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
         self.navigationItem.title = "친구 " + String(presets.count) + "명"
         token = presets?.observe{
             [weak tableView] changes in
@@ -55,6 +56,7 @@ class CharacterListVC: UITableViewController{
         
         return cell
     }
+    
     
     
     
