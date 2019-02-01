@@ -323,7 +323,7 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print(indexPath.row)
         let msg = messageManager.getMessage(idx: indexPath.row)
-        let cell2 = tableView.dequeueReusableCell(withIdentifier: RecordMessageAnother.reuseId) as? RecordMessageAnother
+        let cell2 = tableView.dequeueReusableCell(withIdentifier: DateLineCell.reuseId) as? DateLineCell
         cell2?.configure(message: msg)
         return cell2!
         

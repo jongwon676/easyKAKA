@@ -987,7 +987,7 @@
                                             <outlet property="topLayout" destination="27z-tH-RsA" id="Qxm-W7-5f8"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="invite" rowHeight="58" id="Z2g-o8-70C" userLabel="invite">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="invite" rowHeight="58" id="Z2g-o8-70C" userLabel="invite" customClass="InviteCell" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1037" width="375" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Z2g-o8-70C" id="eQ2-3L-tcm">
@@ -998,7 +998,7 @@
                                                     <rect key="frame" x="0.0" y="12" width="375" height="46"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김민성님이 김재준님을 초대했습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8u-wu-6UN">
-                                                            <rect key="frame" x="63" y="12.5" width="249" height="21"/>
+                                                            <rect key="frame" x="63" y="12" width="249" height="22"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1006,8 +1006,10 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.53104788064956665" green="0.60330396890640259" blue="0.65344202518463135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
+                                                        <constraint firstItem="z8u-wu-6UN" firstAttribute="top" secondItem="OWx-Sa-7fv" secondAttribute="top" constant="12" id="7D5-mj-j1U"/>
                                                         <constraint firstItem="z8u-wu-6UN" firstAttribute="centerY" secondItem="OWx-Sa-7fv" secondAttribute="centerY" id="OWr-Sb-EEI"/>
                                                         <constraint firstItem="z8u-wu-6UN" firstAttribute="centerX" secondItem="OWx-Sa-7fv" secondAttribute="centerX" id="UZV-bF-VDh"/>
+                                                        <constraint firstAttribute="bottom" secondItem="z8u-wu-6UN" secondAttribute="bottom" constant="12" id="tZ4-bk-Aq2"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -1019,8 +1021,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.66315305233001709" green="0.77142900228500366" blue="0.85490447282791138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="inviteLabel" destination="z8u-wu-6UN" id="UTT-K8-ehj"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="exit" rowHeight="58" id="Ltg-7w-SFE" userLabel="exit">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="exit" rowHeight="58" id="Ltg-7w-SFE" userLabel="exit" customClass="ExitCell" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1095" width="375" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ltg-7w-SFE" id="4XZ-de-lwG">
@@ -1031,7 +1036,7 @@
                                                     <rect key="frame" x="0.0" y="12" width="375" height="46"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김민성님이 퇴장했습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2g4-tG-Esy">
-                                                            <rect key="frame" x="102" y="12.5" width="171" height="21"/>
+                                                            <rect key="frame" x="102" y="12" width="171" height="22"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1041,6 +1046,8 @@
                                                     <constraints>
                                                         <constraint firstItem="2g4-tG-Esy" firstAttribute="centerY" secondItem="IDA-Ls-adN" secondAttribute="centerY" id="GAE-gH-JzW"/>
                                                         <constraint firstItem="2g4-tG-Esy" firstAttribute="centerX" secondItem="IDA-Ls-adN" secondAttribute="centerX" id="JF2-mF-j38"/>
+                                                        <constraint firstAttribute="bottom" secondItem="2g4-tG-Esy" secondAttribute="bottom" constant="12" id="fuN-X1-yt7"/>
+                                                        <constraint firstItem="2g4-tG-Esy" firstAttribute="top" secondItem="IDA-Ls-adN" secondAttribute="top" constant="12" id="ow2-pg-WC8"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -1052,8 +1059,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.66315305229999999" green="0.7714290023" blue="0.85490447280000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="exitLabel" destination="2g4-tG-Esy" id="mb3-pF-syU"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dateLine" rowHeight="100" id="Oc4-Ly-1TW" userLabel="dateLine">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dateLine" rowHeight="100" id="Oc4-Ly-1TW" userLabel="dateLine" customClass="DateLineCell" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1153" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Oc4-Ly-1TW" id="oqx-Ry-L7v">
@@ -1086,6 +1096,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                        <connections>
+                                            <outlet property="bgView" destination="Vwb-Vd-Buv" id="Z88-Bw-HdM"/>
+                                            <outlet property="dateLabel" destination="l4v-Mg-Asl" id="6Es-DK-t0c"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>

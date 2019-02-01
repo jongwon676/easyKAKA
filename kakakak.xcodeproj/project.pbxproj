@@ -20,6 +20,9 @@
 		AD2B6A84220474CB00DD563A /* DeleteMessageAnother.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2B6A83220474CB00DD563A /* DeleteMessageAnother.swift */; };
 		AD2B6A862204760A00DD563A /* RecordMessageMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2B6A852204760A00DD563A /* RecordMessageMe.swift */; };
 		AD2B6A882204781B00DD563A /* RecordMessageAnother.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2B6A872204781B00DD563A /* RecordMessageAnother.swift */; };
+		AD2B6A8A2204796700DD563A /* InviteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2B6A892204796700DD563A /* InviteCell.swift */; };
+		AD2B6A8C22047C9400DD563A /* ExitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2B6A8B22047C9400DD563A /* ExitCell.swift */; };
+		AD2B6A8E22047D5700DD563A /* DateLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2B6A8D22047D5700DD563A /* DateLineCell.swift */; };
 		AD50748121F28D9C003B50F5 /* TimeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD50748021F28D9C003B50F5 /* TimeInputView.swift */; };
 		AD50748421F2971D003B50F5 /* MiddleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD50748321F2971D003B50F5 /* MiddleView.swift */; };
 		AD50748621F29EEA003B50F5 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD50748521F29EEA003B50F5 /* EditView.swift */; };
@@ -105,6 +108,9 @@
 		AD2B6A83220474CB00DD563A /* DeleteMessageAnother.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteMessageAnother.swift; sourceTree = "<group>"; };
 		AD2B6A852204760A00DD563A /* RecordMessageMe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordMessageMe.swift; sourceTree = "<group>"; };
 		AD2B6A872204781B00DD563A /* RecordMessageAnother.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordMessageAnother.swift; sourceTree = "<group>"; };
+		AD2B6A892204796700DD563A /* InviteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteCell.swift; sourceTree = "<group>"; };
+		AD2B6A8B22047C9400DD563A /* ExitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitCell.swift; sourceTree = "<group>"; };
+		AD2B6A8D22047D5700DD563A /* DateLineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateLineCell.swift; sourceTree = "<group>"; };
 		AD50748021F28D9C003B50F5 /* TimeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInputView.swift; sourceTree = "<group>"; };
 		AD50748321F2971D003B50F5 /* MiddleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleView.swift; sourceTree = "<group>"; };
 		AD50748521F29EEA003B50F5 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
@@ -453,6 +459,9 @@
 				AD2B6A83220474CB00DD563A /* DeleteMessageAnother.swift */,
 				AD2B6A852204760A00DD563A /* RecordMessageMe.swift */,
 				AD2B6A872204781B00DD563A /* RecordMessageAnother.swift */,
+				AD2B6A892204796700DD563A /* InviteCell.swift */,
+				AD2B6A8B22047C9400DD563A /* ExitCell.swift */,
+				AD2B6A8D22047D5700DD563A /* DateLineCell.swift */,
 			);
 			path = ChatCell;
 			sourceTree = "<group>";
@@ -634,6 +643,7 @@
 				AD8C17C022045CEA00B7C8F9 /* ImageAnother.swift in Sources */,
 				ADC672E121E3A52400D6D3F5 /* TextCell.swift in Sources */,
 				ADCB809F21F8ADAE00BE25D8 /* UserLayout.swift in Sources */,
+				AD2B6A8E22047D5700DD563A /* DateLineCell.swift in Sources */,
 				ADC672D421E2C12F00D6D3F5 /* Date.swift in Sources */,
 				AD95E6C721F43393000450AB /* BackgroundCaptureImageCell.swift in Sources */,
 				AD2B6A7E22045FE400DD563A /* CallMessageMe.swift in Sources */,
@@ -645,10 +655,12 @@
 				ADFA306722043C5500744C31 /* TextMe.swift in Sources */,
 				ADA7E00821FECCE900FCF517 /* CustomFocusControl.swift in Sources */,
 				ADB8D83F21F88702001D88BD /* UserCollectionView.swift in Sources */,
+				AD2B6A8A2204796700DD563A /* InviteCell.swift in Sources */,
 				ADC672ED21E3AE3900D6D3F5 /* BaseChatCell.swift in Sources */,
 				AD50748121F28D9C003B50F5 /* TimeInputView.swift in Sources */,
 				AD50748621F29EEA003B50F5 /* EditView.swift in Sources */,
 				ADC672E321E3A56B00D6D3F5 /* ChattingImageCell.swift in Sources */,
+				AD2B6A8C22047C9400DD563A /* ExitCell.swift in Sources */,
 				ADA7E01621FF620F00FCF517 /* MessageEditController.swift in Sources */,
 				ADB8D83821F48D13001D88BD /* SizeCalculator.swift in Sources */,
 				AD27D19021F1E16C009E367A /* KeyBoardView.swift in Sources */,
