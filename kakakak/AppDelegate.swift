@@ -15,16 +15,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         GADMobileAds.configure(withApplicationID: "ca-app-pub-1497706702442314~7743899510")
         TimeZone.ReferenceType.default = TimeZone(abbreviation: "KST")!
+
+        UITabBar.appearance().tintColor = #colorLiteral(red: 0.8922857642, green: 0.5250218511, blue: 0.9140356183, alpha: 1)
+        UITabBar.appearance().layer.borderWidth = 0.5
+        UITabBar.appearance().layer.borderColor = UIColor.clear.cgColor
+        UITabBar.appearance().clipsToBounds = true
+//        UITabBar.appearance().layer.shadowColor = UIColor.gray.cgColor
+//        UITabBar.appearance().layer.shadowRadius = 2
         if let tbc = self.window?.rootViewController as? UITabBarController{
+            
+
             if let tbItems = tbc.tabBar.items{
                 
-                tbItems[0].image = UIImage(named: "back")
-                tbItems[1].image = UIImage(named: "back")
-                tbItems[2].image = UIImage(named: "back")
                 
-                tbItems[0].title = "등장인물"
-                tbItems[1].title = "대화"
-                tbItems[2].title = "설정"
+                tbItems[0].image = UIImage(named: "tabBar1")
+                tbItems[1].image = UIImage(named: "tabBar2")
+                tbItems[2].image = UIImage(named: "tabBar3")
+                
+//                tbItems[0].title = "등장인물"
+//                tbItems[1].title = "대화"
+//                tbItems[2].title = "설정"
             }
             
         }

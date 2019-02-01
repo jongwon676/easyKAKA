@@ -11,24 +11,16 @@ class CharacterListVC: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let bgImage = UIImage(named: "navBackground")
-//        
-//        if let navigationBar = self.navigationController?.navigationBar {
-//            let gradient = CAGradientLayer()
-//            var bounds = navigationBar.bounds
-//            bounds.size.height += UIApplication.shared.statusBarFrame.size.height
-//            gradient.frame = bounds
-//            gradient.colors = [UIColor.red.cgColor, UIColor.blue.cgColor]
-//            gradient.startPoint = CGPoint(x: 0, y: 0)
-//            gradient.endPoint = CGPoint(x: 1, y: 0)
-//        }
+
+        tableView.rowHeight = 70
         
         presets = Preset.all()
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.navigationItem.title = "친구 " + String(presets.count) + "명"
         token = presets?.observe{
             [weak tableView] changes in
             guard let tableView = tableView else { return }
