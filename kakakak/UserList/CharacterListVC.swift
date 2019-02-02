@@ -61,7 +61,7 @@ class CharacterListVC: UITableViewController{
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let editUserVc = storyboard?.instantiateViewController(withIdentifier: "UserEditVC") as? AddUserVC{
+        if let editUserVc = storyboard?.instantiateViewController(withIdentifier: "AddUserController") as? AddUserController{
             editUserVc.user = presets[indexPath.row]
             self.navigationController?.pushViewController(editUserVc, animated: true)
         }
