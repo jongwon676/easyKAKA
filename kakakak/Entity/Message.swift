@@ -17,7 +17,7 @@ class Message: Object,NSCopying {
     @objc dynamic var creationDate: Date = Date()
     @objc dynamic var isDelete: Bool = false
     @objc dynamic var isFail: Bool = false
-    
+    @objc dynamic var duration: Int = 0
     override static func ignoredProperties() -> [String] {
         return ["isFirstMessage","isLastMessage","isSelected"]
     }
@@ -73,6 +73,14 @@ class Message: Object,NSCopying {
         let msg = Message()
         msg.owner = from
         msg.type = .enter
+        return msg
+    }
+    
+    static func makeRecordMessage(duration: Int, owner: User) -> Message{
+        let msg = Message()
+        msg.type = .record
+        msg.owner = owner
+        msg.duration = duration
         return msg
     }
     

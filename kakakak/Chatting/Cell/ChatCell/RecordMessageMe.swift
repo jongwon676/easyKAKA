@@ -15,9 +15,10 @@ class RecordMessageMe: BaseChat,ChattingCellProtocol{
     @IBOutlet var second: NSLayoutConstraint!
     @IBOutlet var first: NSLayoutConstraint!
     func configure(message: Message) {
-        
-        self.backgroundColor = UIColor.clear
         self.containerView.backgroundColor = UIColor.clear
+        self.backgroundColor = UIColor.clear
+        self.contentView.backgroundColor = UIColor.clear
+        
         profile.isHidden = !message.isFirstMessage
         nameLabel.isHidden = profile.isHidden
         failView.isHidden = !message.isFail
@@ -25,9 +26,14 @@ class RecordMessageMe: BaseChat,ChattingCellProtocol{
         first.isActive = message.isFirstMessage
         second.isActive = !message.isFirstMessage
         guard let owner = message.owner else { return }
+        timeReadLabel.setUp(message: message)
         nameLabel.text = owner.name
         profile.image = UIImage.loadImageFromName(owner.profileImageUrl ?? "")
         leading.constant = editMode ? 30 : 0
+        playTimeLabel.text = ""
+        playTimeLabel.text! += String(message.duration / 60)
+        let secondString = String(message.duration % 60)
+        playTimeLabel.text! += secondString.count < 2 ? ":0" + secondString : ":" + secondString
     }
     
     

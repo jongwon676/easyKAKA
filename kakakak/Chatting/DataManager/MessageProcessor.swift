@@ -223,7 +223,27 @@ class MessageProcessor{
             self.vc?.tableView.scrollToBottom(animation: false)
         }
     }
-    
+    func addDateLine(sendDate: Date){
+        let msg = Message.makeDateMessage(date: sendDate)
+        try! realm.write {
+            self.messages.append(msg)
+            room.messages.append(msg)
+            self.vc?.messageManager.reload()
+            self.vc?.tableView.reloadData()
+            self.vc?.tableView.scrollToBottom(animation: false)
+            
+        }
+    }
+    func sendRecordMessage(owner: User, minute: Int, second: Int){
+        let msg = Message.makeRecordMessage(duration: minute * 60 + second, owner: owner)
+        try! realm.write {
+            self.messages.append(msg)
+            room.messages.append(msg)
+            self.vc?.messageManager.reload()
+            self.vc?.tableView.reloadData()
+            self.vc?.tableView.scrollToBottom(animation: false)
+        }
+    }
     // 알아야될것. 현재 유저가 누구인지
     
     

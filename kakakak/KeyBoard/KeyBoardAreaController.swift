@@ -248,6 +248,8 @@ extension KeyBoardAreaController: UICollectionViewDataSource{
 extension KeyBoardAreaController: UICollectionViewDelegateFlowLayout{
     
     
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if (collectionView as? UserCollectionView) != nil{ //유저 클릭
@@ -256,9 +258,10 @@ extension KeyBoardAreaController: UICollectionViewDelegateFlowLayout{
             
             switch indexPath.row{
             case 0: messageImageAlert()
-            case 1: ()
+            case 1: dateAlert()
+                
             case 2: ()
-            case 3: ()
+            case 3: recordAlert()
             case 4:
                 guard let user = selectedUser else { return }
                 messageManager?.sendDeleteMessage(owner: user)
@@ -434,6 +437,42 @@ extension KeyBoardAreaController: UIImagePickerControllerDelegate,UINavigationCo
         picker.dismiss(animated: true, completion: nil)
     }
     
+    
+    fileprivate func dateAlert() {
+        let alert = UIAlertController(style: .actionSheet, title: nil, message: "날짜선 추가")
+        var newDate = Date()
+        alert.addDatePicker(mode: .date, date: Date(), minimumDate: nil, maximumDate: nil) { date in
+            Log(date)
+            newDate = date
+        }
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action) in
+            self.messageManager?.addDateLine(sendDate: newDate)
+        }))
+        alert.addAction(title: "취소", style: .cancel)
+        alert.show()
+    }
+    fileprivate func recordAlert(){
+        let alert = UIAlertController(style: .alert, title: "Picker View", message: "Preferred Content Height")
+        
+        let frameSizes: [CGFloat] = (0...59).map { CGFloat($0) }
+        let pickerViewValues: [[String]] = [frameSizes.map { Int($0).description + "분" },frameSizes.map { Int($0).description + "초"}]
+        let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: 0)
+        
+        var row1: Int = 0
+        var row2: Int = 0
+        alert.addPickerView(values: pickerViewValues, initialSelection: pickerViewSelectedValue) { vc, picker, index, values in
+            
+            row1 = picker.selectedRow(inComponent: 0)
+            row2 = picker.selectedRow(inComponent: 1)
+ 
+        }
+        
+        alert.addAction(title: "취소", style: .cancel)
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (_) in
+            self.messageManager?.sendRecordMessage(owner: self.selectedUser!, minute: row1, second: row2)
+        }))
+        alert.show()
+    }
 }
 
 

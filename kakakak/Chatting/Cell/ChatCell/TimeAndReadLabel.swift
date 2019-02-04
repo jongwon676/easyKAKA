@@ -24,8 +24,8 @@ class TimeAndReadLabel: UILabel{
             .shadow: shadow,
             .paragraphStyle: paragraphStyle
         ]
-        let readString = NSAttributedString(string: String(message.noReadUser.count) + "\n" , attributes: readAtrributes)
-//            let readString = NSAttributedString(string: String(3) + "\n" , attributes: readAtrributes)
+        let readString = NSAttributedString(string: String(message.noReadUser.count) + (message.isLastMessage ? "\n" : "") , attributes: readAtrributes)
+        
         shadow = NSShadow()
         shadow.shadowColor = UIColor.clear
         let timeAttributes:  [NSAttributedString.Key: Any] = [
