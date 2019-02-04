@@ -9,7 +9,9 @@ class DeleteMessageAnother: BaseChat, ChattingCellProtocol{
     @IBOutlet var timeReadLabel: TimeAndReadLabel!
     @IBOutlet var warningVIew: UIImageView!
     func configure(message: Message) {
+        self.contentView.backgroundColor = UIColor.clear
         self.backgroundColor = UIColor.clear
+        timeReadLabel.setUp(message: message)
         topLayout.constant = message.isFirstMessage ? Style.firstMessageGap : Style.moreThanFirstMessageGap
         updateConstraintsIfNeeded()
         

@@ -259,7 +259,10 @@ extension KeyBoardAreaController: UICollectionViewDelegateFlowLayout{
             case 1: ()
             case 2: ()
             case 3: ()
-            case 4: ()
+            case 4:
+                guard let user = selectedUser else { return }
+                messageManager?.sendDeleteMessage(owner: user)
+//                messageManager.sendDeleteMessage(sele)
             case 5: ()
             default: ()
             }
@@ -429,8 +432,8 @@ extension KeyBoardAreaController: UIImagePickerControllerDelegate,UINavigationCo
             }
         }
         picker.dismiss(animated: true, completion: nil)
-        
     }
+    
 }
 
 

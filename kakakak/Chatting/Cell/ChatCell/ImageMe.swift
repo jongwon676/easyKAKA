@@ -37,5 +37,7 @@ class ImageMe: BaseChat,ChattingCellProtocol{
             message.isFirstMessage
         second.isActive = !message.isFirstMessage
         leading.constant = editMode ? 30 : 0
+        messageImage.image = UIImage.loadImageFromName(message.messageImageUrl)
+        timeReadLabel.setUp(message: message)
     }
 }

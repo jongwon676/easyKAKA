@@ -109,7 +109,7 @@ class MessageProcessor{
     
     func checkUserMessage(message: Message) -> Bool{
         switch message.type {
-            
+        case .delete: return true
         case .date: return false
         case .enter: return false
         case .exit: return false
@@ -199,14 +199,28 @@ class MessageProcessor{
         }
     }
     
+    func sendDeleteMessage(owner: User?){
+        let msg = Message.makeDeleteMessage(owner: owner, sendDate: room.currentDate)
+        msg.noReadUser = room.actviateUserExcepteMe(me: owner!)
+        try! self.realm.write {
+            messages.append(msg)
+            room.messages.append(msg)
+            self.vc?.messageManager.reload()
+            self.vc?.tableView.reloadData()
+            self.vc?.tableView.scrollToBottom(animation: false)
+        }
+    }
+    
     func sendMessaegImage(imageName: String,user: User){
         //보내는사람, 이미지 이름, 보내는날짜
         let msg = Message.makeImageMessage(owner: user, sendDate: room.currentDate, imageUrl: imageName)
+        msg.noReadUser = room.actviateUserExcepteMe(me: user)
         try! realm.write {
             self.messages.append(msg)
             room.messages.append(msg)
             self.vc?.messageManager.reload()
             self.vc?.tableView.reloadData()
+            self.vc?.tableView.scrollToBottom(animation: false)
         }
     }
     

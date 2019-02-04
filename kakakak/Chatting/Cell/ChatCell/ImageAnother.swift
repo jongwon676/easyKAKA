@@ -21,7 +21,7 @@ class ImageAnother: BaseChat,ChattingCellProtocol{
     }
     func configure(message: Message){
         self.backgroundColor = UIColor.clear
-
+        self.contentView.backgroundColor = UIColor.clear
         timeReadLabel.isHidden = message.isFail
         if message.isFirstMessage {
             bubbleGap.constant = Style.firstMessageGap
@@ -31,6 +31,7 @@ class ImageAnother: BaseChat,ChattingCellProtocol{
             bubbleGap.constant = Style.moreThanFirstMessageGap
 //            setNeedsUpdateConstraints()
         }
-        
+        messageImage.image = UIImage.loadImageFromName(message.messageImageUrl ?? "")
+        timeReadLabel.setUp(message: message)
     }
 }

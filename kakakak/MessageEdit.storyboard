@@ -310,11 +310,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6fX-Lp-BWX" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="105.5" y="8" width="258" height="62"/>
+                                                    <rect key="frame" x="153.5" y="8" width="210" height="62"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="sdfak;jdsfl;ajdsk;fjl;asdfjlasjdkf;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4K-t9-zsO">
                                                             <rect key="frame" x="12" y="9" width="238" height="42"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -328,7 +328,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6시30분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLm-ZY-eLw" userLabel="6시 30분" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="39" y="45" width="60.5" height="21"/>
+                                                    <rect key="frame" x="87" y="45" width="60.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -341,6 +341,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="6fX-Lp-BWX" secondAttribute="trailing" constant="11.5" id="oeB-IH-LAA"/>
                                                 <constraint firstItem="6fX-Lp-BWX" firstAttribute="leading" secondItem="xLm-ZY-eLw" secondAttribute="trailing" constant="6" id="rok-1y-NSN"/>
                                                 <constraint firstAttribute="bottom" secondItem="6fX-Lp-BWX" secondAttribute="bottom" id="rsm-1j-S3v"/>
+                                                <constraint firstItem="q4K-t9-zsO" firstAttribute="width" relation="lessThanOrEqual" secondItem="0sE-HA-ALu" secondAttribute="width" multiplier="0.6" id="sdY-1E-yGZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -664,18 +665,18 @@
                                                             </constraints>
                                                         </imageView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOM-uB-jrl" userLabel="bubble" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
-                                                            <rect key="frame" x="55.5" y="49" width="180" height="41"/>
+                                                            <rect key="frame" x="55.5" y="54" width="147" height="36"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="warning" translatesAutoresizingMaskIntoConstraints="NO" id="c7L-LP-lW7">
-                                                                    <rect key="frame" x="8" y="12.5" width="16" height="16"/>
+                                                                    <rect key="frame" x="8" y="10" width="16" height="16"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="16" id="BrV-q9-gjh"/>
                                                                         <constraint firstAttribute="width" constant="16" id="ttC-NU-yub"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="삭제된 메시지입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XjZ-xq-R2k">
-                                                                    <rect key="frame" x="28" y="10" width="142" height="21"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <rect key="frame" x="28" y="10" width="109" height="16"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -697,13 +698,13 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오전 11시 30분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yx4-MM-pTP" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                            <rect key="frame" x="241.5" y="74" width="63" height="12"/>
+                                                            <rect key="frame" x="208.5" y="74" width="63" height="12"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fail" translatesAutoresizingMaskIntoConstraints="NO" id="LPq-bI-OPk">
-                                                            <rect key="frame" x="241.5" y="66" width="41" height="20"/>
+                                                            <rect key="frame" x="208.5" y="66" width="41" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="Nl3-PO-Aim"/>
                                                                 <constraint firstAttribute="width" constant="41" id="cJB-zz-t5m"/>
@@ -761,7 +762,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pcH-BZ-cAr" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="182.5" y="8" width="181" height="62"/>
+                                                    <rect key="frame" x="215.5" y="8" width="148" height="62"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="warning" translatesAutoresizingMaskIntoConstraints="NO" id="aaP-vw-DOc">
                                                             <rect key="frame" x="8" y="23" width="16" height="16"/>
@@ -773,8 +774,8 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="삭제된 메시지입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Sc-ol-2uQ">
-                                                            <rect key="frame" x="28" y="10" width="142" height="42"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <rect key="frame" x="28" y="10" width="109" height="42"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -790,9 +791,9 @@
                                                         <constraint firstAttribute="trailing" secondItem="3Sc-ol-2uQ" secondAttribute="trailing" constant="11" id="tUn-z2-fhL"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6시30분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EyA-0d-7LL" userLabel="6시 30분">
-                                                    <rect key="frame" x="116" y="45" width="60.5" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6시30분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EyA-0d-7LL" userLabel="6시 30분" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
+                                                    <rect key="frame" x="172.5" y="54" width="37" height="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>

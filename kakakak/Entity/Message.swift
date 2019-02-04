@@ -38,6 +38,7 @@ class Message: Object,NSCopying {
         case date
         case call
         case record
+        case delete
     }
     var type: MessageType{
         get { return MessageType(rawValue: _messageType)!}
@@ -58,6 +59,13 @@ class Message: Object,NSCopying {
         msg.owner = nil
         msg.type = .date
         msg.sendDate = date
+        return msg
+    }
+    static func makeDeleteMessage(owner: User?,sendDate: Date) -> Message{
+        let msg = Message()
+        msg.type = .delete
+        msg.owner = owner
+        msg.sendDate = sendDate
         return msg
     }
     
@@ -104,6 +112,13 @@ class Message: Object,NSCopying {
                 return "recordMessageAnother"
             }
             else { return  "recordMessageMe"}
+            
+        case .delete:
+            if let isMe = owner?.isMe, isMe == true{
+                return "deleteMessageAnother"
+            }else{
+                return "deleteMessageMe"
+            }
         }
     }
     

@@ -19,7 +19,7 @@ class ChatVC: UIViewController{
     var editButton = UIButton(type: .custom)
     let selectedImage = UIImage(named: "selected")
     let unSelectedImage = UIImage(named: "unSelected")
-    var cacheHeight = [String: CGFloat]()
+    
     
     lazy var editView:EditView = {
         let eview = EditView()
@@ -308,16 +308,6 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messageManager?.messages.count ?? 0
     }
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        let msg = messageManager.messages[indexPath.row]
-        if msg.type == .text{
-            return cacheHeight[msg.messageText] ??   UITableView.automaticDimension
-        }
-        return UITableView.automaticDimension
-    }
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 70
-//    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print(indexPath.row)
@@ -383,7 +373,6 @@ extension ChatVC{
     }
     
     @objc func handleTap(_ sender: UITapGestureRecognizer){
-        
         guard !isEditMode else {
             return
         }

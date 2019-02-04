@@ -16,7 +16,7 @@ class TimeAndReadLabel: UILabel{
         
         guard let owner = message.owner else { return }
         
-        paragraphStyle.alignment = owner.isMe ? .left : .right
+        paragraphStyle.alignment = owner.isMe ? .right : .left
         paragraphStyle.lineSpacing = 1
         let readAtrributes: [NSAttributedString.Key: Any] = [
             .font: Style.readLabelFont,

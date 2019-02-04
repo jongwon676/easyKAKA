@@ -29,8 +29,10 @@ class DeleteMessageMe: BaseChat,ChattingCellProtocol {
     }
 
     func configure(message: Message) {
+        self.contentView.backgroundColor = UIColor.clear
         self.backgroundColor = UIColor.clear
         self.container.backgroundColor = UIColor.clear
+        timeReadLabel.setUp(message: message)
         profile.isHidden = !message.isFirstMessage
         nameLabel.isHidden = profile.isHidden
         failView.isHidden = !message.isFail
