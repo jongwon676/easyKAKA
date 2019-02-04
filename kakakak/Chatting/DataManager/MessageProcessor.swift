@@ -167,7 +167,9 @@ class MessageProcessor{
             
             room.messages.append(message)
             messages.append(message)
-            advanceLast(index: messages.count - 1, message: message)
+            reload()
+//            advanceLast(index: messages.count - 1, message: message)
+            
             tableView.reloadData()
             tableView.scrollToBottom(animation: false)
         }
@@ -205,7 +207,7 @@ class MessageProcessor{
         try! self.realm.write {
             messages.append(msg)
             room.messages.append(msg)
-            self.vc?.messageManager.reload()
+            reload()
             self.vc?.tableView.reloadData()
             self.vc?.tableView.scrollToBottom(animation: false)
         }
@@ -218,7 +220,7 @@ class MessageProcessor{
         try! realm.write {
             self.messages.append(msg)
             room.messages.append(msg)
-            self.vc?.messageManager.reload()
+            reload()
             self.vc?.tableView.reloadData()
             self.vc?.tableView.scrollToBottom(animation: false)
         }
@@ -228,7 +230,7 @@ class MessageProcessor{
         try! realm.write {
             self.messages.append(msg)
             room.messages.append(msg)
-            self.vc?.messageManager.reload()
+            reload()
             self.vc?.tableView.reloadData()
             self.vc?.tableView.scrollToBottom(animation: false)
             
@@ -240,10 +242,30 @@ class MessageProcessor{
         try! realm.write {
             self.messages.append(msg)
             room.messages.append(msg)
-            self.vc?.messageManager.reload()
+            reload()
             self.vc?.tableView.reloadData()
             self.vc?.tableView.scrollToBottom(animation: false)
             
+        }
+    }
+    
+    func userReadMessage(owner: User){
+        var change: Bool = false
+        try! realm.write {
+            for message in room.messages{
+                
+                for (idx,user) in message.noReadUser.enumerated(){
+                    if user.id == owner.id {
+                        message.noReadUser.remove(at: idx)
+                        change = true
+                        break
+                    }
+                }
+            }
+            if change {
+                reload()
+                self.vc?.tableView.reloadData()
+            }
         }
     }
     
@@ -252,7 +274,7 @@ class MessageProcessor{
         try! realm.write {
             self.messages.append(msg)
             room.messages.append(msg)
-            self.vc?.messageManager.reload()
+            reload()
             self.vc?.tableView.reloadData()
             self.vc?.tableView.scrollToBottom(animation: false)
             

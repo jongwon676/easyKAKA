@@ -133,12 +133,7 @@ class UserCollectionCell: UICollectionViewCell {
         
     }
 
-//    func setRadius(size: CGSize){
-//
-//        innerShadowView.layer.cornerRadius = innerShadowView.frame.height / 2.0
-//        outerShadowView.layer.cornerRadius = innerShadowView.frame.height / 2.0
-//        imageView.layer.cornerRadius = imageView.frame.height / 2.0
-//    }
+
     
     private struct StyleGuide{
         

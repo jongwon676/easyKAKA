@@ -182,12 +182,16 @@ class KeyBoardAreaController: UIViewController{
         stackView.addArrangedSubview(bottomView)
         
     }
-    
+    //
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        let middleIndexPath = IndexPath(item: users.count / 2, section: 0)
-        selectCell(for: middleIndexPath, animated: false)
+        /*
+         let middleIndexPath = IndexPath(item: users.count / 2, section: 0)
+         selectCell(for: middleIndexPath, animated: false)
+         */
+        //
+        
     }
     deinit {
         print("keyboardarea deinit")
@@ -341,6 +345,12 @@ extension KeyBoardAreaController: UIScrollViewDelegate{
     
     private func selectCell(for indexPath: IndexPath, animated: Bool) {
         userCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: animated)
+        
+        messageManager?.userReadMessage(owner: users[indexPath.row])
+        
+        
+//        messageManager
+        
     }
     
     //    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {

@@ -91,6 +91,8 @@ class ChatVC: UIViewController{
         tableView.addGestureRecognizer(tableViewEditGestureRecog)
         
         navigationController?.navigationBar.barTintColor = UIColor.white
+        
+        
         navigationItem.leftBarButtonItem = closeButton
         navigationItem.title = "항목 선택"
         navigationItem.rightBarButtonItems = [allSelectButton]
@@ -192,7 +194,9 @@ class ChatVC: UIViewController{
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
         self.view.backgroundColor = UIColor.white
+        
         self.view.addSubview(tableView)
         self.view.addSubview(bottomController.view)
         
@@ -311,7 +315,7 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print(indexPath.row)
-        
+       
         let msg = messageManager.getMessage(idx: indexPath.row)
         
         
