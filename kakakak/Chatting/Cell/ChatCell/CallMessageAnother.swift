@@ -27,5 +27,13 @@ class CallMessageAnother: BaseChat,ChattingCellProtocol{
         self.backgroundColor = UIColor.clear
         bubbleTop.constant = message.isFirstMessage ? Style.firstMessageGap : Style.moreThanFirstMessageGap
         updateConstraintsIfNeeded()
+        
+        
+        timeReadLabel.setUp(message: message)
+        
+        let callImageAndTitle: (title: String, image: UIImage) = message.getTitleAndCallImage()
+        
+        callImage.image = callImageAndTitle.image
+        callLabel.text = callImageAndTitle.title
     }
 }

@@ -260,7 +260,7 @@ extension KeyBoardAreaController: UICollectionViewDelegateFlowLayout{
             case 0: messageImageAlert()
             case 1: dateAlert()
                 
-            case 2: ()
+            case 2: voiceTalkAlert()
             case 3: recordAlert()
             case 4:
                 guard let user = selectedUser else { return }
@@ -452,7 +452,22 @@ extension KeyBoardAreaController: UIImagePickerControllerDelegate,UINavigationCo
         alert.show()
     }
     fileprivate func recordAlert(){
-        let alert = UIAlertController(style: .alert, title: "Picker View", message: "Preferred Content Height")
+        
+        
+        durationAlert(type: .record, ctype: nil)
+    }
+    
+    fileprivate func durationAlert(type: Message.MessageType, ctype: Message.callType?){
+        
+        guard let owner = self.selectedUser else { return  }
+        
+        var title = ""
+        if type == .record {
+            title = "녹음시간을 선택해주세요."
+        }else {
+            title = "통화시간을 선택해주세요."
+        }
+        let alert = UIAlertController(style: .alert, title: title, message: nil)
         
         let frameSizes: [CGFloat] = (0...59).map { CGFloat($0) }
         let pickerViewValues: [[String]] = [frameSizes.map { Int($0).description + "분" },frameSizes.map { Int($0).description + "초"}]
@@ -464,13 +479,72 @@ extension KeyBoardAreaController: UIImagePickerControllerDelegate,UINavigationCo
             
             row1 = picker.selectedRow(inComponent: 0)
             row2 = picker.selectedRow(inComponent: 1)
- 
+            
         }
         
         alert.addAction(title: "취소", style: .cancel)
         alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (_) in
-            self.messageManager?.sendRecordMessage(owner: self.selectedUser!, minute: row1, second: row2)
+            if type == .record{
+                self.messageManager?.sendRecordMessage(owner: owner, minute: row1, second: row2)
+            }else{
+                guard let callType = ctype else { return }
+                self.messageManager?.sendCallMessage(owner: owner, minute: row1, second: row2, callType: callType)
+            }
         }))
+        alert.show()
+        
+    }
+    
+    
+    
+    fileprivate func voiceTalkAlert(){
+        guard let owner = selectedUser else {
+            return
+        }
+        let alert = UIAlertController(title: "보이스톡 종류 선택", message: nil, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "보이스톡 해요", style: .default, handler: { (action) in
+            self.messageManager?.sendCallMessage(owner: owner, minute: 0, second: 0, callType: .voiceTry)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "보이스톡 취소", style: .default, handler: { (action) in
+            self.messageManager?.sendCallMessage(owner: owner, minute: 0, second: 0, callType: .voiceCancel)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "보이스톡 부재중", style: .default, handler: { (action) in
+            self.messageManager?.sendCallMessage(owner: owner, minute: 0, second: 0, callType: .voiceAbsent)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "보이스톡 통화", style: .default, handler: { (action) in
+            self.durationAlert(type: .call, ctype: .voiceSuccess)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+        alert.show()
+    }
+    fileprivate func faceTalkAlert(){
+        guard let owner = selectedUser else {
+            return
+        }
+        let alert = UIAlertController(title: "페이스톡 종류 선택", message: nil, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "페이스톡 해요", style: .default, handler: { (action) in
+            self.messageManager?.sendCallMessage(owner: owner, minute: 0, second: 0, callType: .faceTry)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "페이스톡 취소", style: .default, handler: { (action) in
+            self.messageManager?.sendCallMessage(owner: owner, minute: 0, second: 0, callType: .faceCancel)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "페이스톡 부재중", style: .default, handler: { (action) in
+            self.messageManager?.sendCallMessage(owner: owner, minute: 0, second: 0, callType: .faceAbsent)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "페이스톡 통화", style: .default, handler: { (action) in
+            self.durationAlert(type: .call, ctype: .faceSuccess)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
         alert.show()
     }
 }

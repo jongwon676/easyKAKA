@@ -6,6 +6,8 @@ class Message: Object,NSCopying {
     //채팅방 시간, [유저], [Message], id
     
     @objc dynamic private var _messageType = MessageType.text.rawValue
+    @objc dynamic private var _callType = callType.voiceTry.rawValue
+    
     @objc dynamic var owner: User?  // [fromUser, ExitUser]
     @objc dynamic var sendDate: Date = Date()
     @objc dynamic var messageText: String = ""
@@ -40,9 +42,48 @@ class Message: Object,NSCopying {
         case record
         case delete
     }
+    
+    enum callType: String{
+        case voiceTry
+        case voiceCancel
+        case voiceAbsent
+        case voiceSuccess
+        case faceTry
+        case faceCancel
+        case faceAbsent
+        case faceSuccess
+    }
+    var durtionString: String{
+        let minute = String(self.duration / 60)
+        var second = String(self.duration % 60)
+        if second.count < 2 { second = ":0" + second }
+        else{ second = ":" + second }
+        return minute + second
+    }
+    func getTitleAndCallImage() -> (title: String, image: UIImage){
+        switch ctype {
+            
+            
+            case .voiceTry: return ("보이스톡 해요",#imageLiteral(resourceName: "voiceOn"))
+            case .voiceCancel: return ("보이스톡 취소",#imageLiteral(resourceName: "voiceOff"))
+            case .voiceAbsent: return ("보이스톡 부재중",#imageLiteral(resourceName: "voiceOff"))
+            case .voiceSuccess: return ("보이스톡 " + durtionString,#imageLiteral(resourceName: "voiceOn"))
+            case .faceTry: return ("페이스톡 해요",#imageLiteral(resourceName: "faceOn"))
+            case .faceCancel: return ("페이스톡 취소",#imageLiteral(resourceName: "faceOff"))
+            case .faceAbsent: return ("페이스톡 부재중",#imageLiteral(resourceName: "faceOff"))
+            case .faceSuccess: return ("페이스톡 " + durtionString,#imageLiteral(resourceName: "faceOn"))
+            
+            
+        }
+    }
+    
     var type: MessageType{
         get { return MessageType(rawValue: _messageType)!}
         set { _messageType = newValue.rawValue }
+    }
+    var ctype: callType{
+        get { return callType(rawValue: _callType)!}
+        set { _callType = newValue.rawValue }
     }
     
     static func makeImageMessage(owner: User?, sendDate: Date, imageUrl: String) -> Message{
@@ -69,6 +110,7 @@ class Message: Object,NSCopying {
         return msg
     }
     
+    
     static func makeEnterMessage(from: User,to: List<User>) -> Message{
         let msg = Message()
         msg.owner = from
@@ -80,6 +122,13 @@ class Message: Object,NSCopying {
         let msg = Message()
         msg.type = .record
         msg.owner = owner
+        msg.duration = duration
+        return msg
+    }
+    static func makeCallMessage(duration: Int, owner: User, ctype: callType) -> Message{
+        let msg = Message()
+        msg.type = .call
+        msg.ctype = ctype
         msg.duration = duration
         return msg
     }

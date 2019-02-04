@@ -27,6 +27,8 @@ class CallMessageMe: BaseChat, ChattingCellProtocol{
         
     }
     
+    
+    
     func configure(message: Message) {
         first.isActive = message.isFirstMessage
         second.isActive = !message.isFirstMessage
@@ -40,6 +42,12 @@ class CallMessageMe: BaseChat, ChattingCellProtocol{
         //기본이미지가 셋팅 안된경우. 잘 처리하기
         profile.image = UIImage.loadImageFromName(owner.profileImageUrl ?? "")
         leading.constant = editMode ? 30 : 0
+        
+        let callImageAndTitle: (title: String, image: UIImage) = message.getTitleAndCallImage()
+        timeReadLabel.setUp(message: message)
+        callImage.image = callImageAndTitle.image
+        callLabel.text = callImageAndTitle.title
+        
     }
 }
 
