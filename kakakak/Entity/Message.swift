@@ -130,6 +130,7 @@ class Message: Object,NSCopying {
         msg.type = .call
         msg.ctype = ctype
         msg.duration = duration
+        msg.owner = owner
         return msg
     }
     

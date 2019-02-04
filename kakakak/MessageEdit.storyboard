@@ -577,7 +577,6 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.94064695269999998" green="1" blue="0.15448186059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <outlet property="bubb" destination="0mX-JI-gBt" id="QIz-f1-8v5"/>
                                             <outlet property="callImage" destination="my1-lu-ihQ" id="nJX-mo-rdU"/>
                                             <outlet property="callLabel" destination="tde-RU-65y" id="HKg-a4-aC2"/>
                                             <outlet property="containerView" destination="IzN-rk-uDz" id="mDj-7x-KZK"/>

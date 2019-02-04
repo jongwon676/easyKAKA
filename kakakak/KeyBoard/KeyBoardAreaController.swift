@@ -266,7 +266,7 @@ extension KeyBoardAreaController: UICollectionViewDelegateFlowLayout{
                 guard let user = selectedUser else { return }
                 messageManager?.sendDeleteMessage(owner: user)
 //                messageManager.sendDeleteMessage(sele)
-            case 5: ()
+            case 5: faceTalkAlert()
             default: ()
             }
         }
