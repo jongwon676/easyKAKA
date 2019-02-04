@@ -4,9 +4,10 @@ class UserCell: UITableViewCell {
 
     let checkString: String = "√"
     var checked: Bool = false
-    override var isSelected: Bool{
-        didSet{ checkMark.text = isSelected ? checkString : "" }
-    }
+    
+//    override var isSelected: Bool{
+//        didSet{ checkMark.text = isSelected ? checkString : "" }
+//    }
     
     var user: Preset?{
         didSet{

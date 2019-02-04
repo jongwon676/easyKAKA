@@ -1,8 +1,9 @@
 import UIKit
 import RealmSwift
 
-class RoomAddVC:UITableViewController{
+class RoomAddVC:UIViewController, UITableViewDataSource,UITableViewDelegate{
     
+    @IBOutlet var tableView: UITableView!
     @IBAction func cancelAction(_ sender: Any) {
         if let rootVC = self.presentingViewController{
             rootVC.dismiss(animated: true, completion: nil)
@@ -33,17 +34,18 @@ class RoomAddVC:UITableViewController{
         tableView.sectionIndexBackgroundColor = .clear
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+     func numberOfSections(in tableView: UITableView) -> Int {
+//        return 0
         return 1
     }
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users.count
     }
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "등장인물"
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell") as! UserCell
         cell.user = users[indexPath.row]
         if selectRows.contains(indexPath){
@@ -54,7 +56,7 @@ class RoomAddVC:UITableViewController{
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath){
             cell.accessoryType = .checkmark
         }
@@ -62,7 +64,7 @@ class RoomAddVC:UITableViewController{
     
     
     
-    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath){
             cell.accessoryType = .none
         }
