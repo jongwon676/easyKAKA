@@ -3,9 +3,22 @@ import UIKit
 class UserCell: UITableViewCell {
 
     let checkString: String = "√"
-    var checked: Bool = false
+    var checked: Bool = false {
+        didSet{
+            if checked{
+                checkIcon.image = #imageLiteral(resourceName: "userPick")
+            }else{
+                checkIcon.image = #imageLiteral(resourceName: "userAdd")
+            }
+        }
+    }
     
-//    override var isSelected: Bool{
+    override func prepareForReuse() {
+        checked = false
+    }
+    
+    @IBOutlet var checkIcon: UIImageView!
+    //    override var isSelected: Bool{
 //        didSet{ checkMark.text = isSelected ? checkString : "" }
 //    }
     
@@ -20,7 +33,12 @@ class UserCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var checkMark: UILabel!
-    @IBOutlet weak var profile: UIImageView!
+    @IBOutlet weak var profile: UIImageView!{
+        didSet{
+            profile.cornerRadius = 20.5
+            profile.maskToBounds = true
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

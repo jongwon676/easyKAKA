@@ -239,6 +239,8 @@ class GradientButton: UIButton {
         if let topGradientColor = topGradientColor, let bottomGradientColor = bottomGradientColor {
             gradientLayer.frame = bounds
             gradientLayer.colors = [topGradientColor.cgColor, bottomGradientColor.cgColor]
+            gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
+            gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
             gradientLayer.borderColor = layer.borderColor
             gradientLayer.borderWidth = layer.borderWidth
             gradientLayer.cornerRadius = layer.cornerRadius

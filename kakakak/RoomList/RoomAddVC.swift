@@ -3,13 +3,24 @@ import RealmSwift
 
 class RoomAddVC:UIViewController, UITableViewDataSource,UITableViewDelegate{
     
-    @IBOutlet var tableView: UITableView!
-    @IBAction func cancelAction(_ sender: Any) {
-        if let rootVC = self.presentingViewController{
-            rootVC.dismiss(animated: true, completion: nil)
-        }
+    var buttonTitle: String = "생성하기"
+    @IBAction func dismiss(_ sender: UIButton) {
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
+    func setUpTitleButton(){
+        let string = buttonTitle + " " + String(selectRows.count)
+        makeButton.setTitle(string, for: .normal)
+    }
+    
+    @IBOutlet var tableView: UITableView!
+    
+    
+    @IBOutlet var makeButton: GradientButton!{
+        didSet{
+            setUpTitleButton()
+        }
+    }
     @IBAction func okayAction(_ sender: Any){
         if selectRows.count == 0{
             let alert = UIAlertController(title: nil, message: "등장인물을 선택해주세요.", preferredStyle: .alert)
@@ -22,16 +33,17 @@ class RoomAddVC:UIViewController, UITableViewDataSource,UITableViewDelegate{
     
     var users = Preset.all()
     var selectRows: [IndexPath]{
-        guard let indexPaths = tableView.indexPathsForSelectedRows else { return  []}
+        guard let indexPaths = tableView?.indexPathsForSelectedRows else { return  []}
         return indexPaths
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .none
-        tableView.rowHeight = 50
+        
         tableView.allowsMultipleSelection = true
         tableView.sectionIndexBackgroundColor = .clear
+        tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
     }
     
      func numberOfSections(in tableView: UITableView) -> Int {
@@ -41,32 +53,48 @@ class RoomAddVC:UIViewController, UITableViewDataSource,UITableViewDelegate{
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users.count
     }
-     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "등장인물"
+
+    @IBOutlet var bottomView: UIView! {
+        didSet{
+            bottomView
+                .dropShadow(color: .gray, opacity: 0.3, offSet: CGSize(width: -1, height: 1), radius: 5, scale: true)
+        }
     }
+
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let first = tableView.indexPathsForSelectedRows?.filter{
+            $0 == indexPath
+        }.first
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell") as! UserCell
-        cell.user = users[indexPath.row]
-        if selectRows.contains(indexPath){
-            cell.accessoryType = .checkmark
+        cell.contentView.backgroundColor = UIColor.clear
+        if first == nil{
+            cell.checked = false
         }else{
-            cell.accessoryType = .none
+            cell.checked = true
         }
+        cell.selectionStyle = .none
+        cell.user = users[indexPath.row]
         return cell
     }
     
+    
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath){
-            cell.accessoryType = .checkmark
+        
+setUpTitleButton()
+        if let cell = tableView.cellForRow(at: indexPath) as? UserCell{
+            cell.checked =  true
         }
     }
     
     
     
      func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath){
-            cell.accessoryType = .none
+        setUpTitleButton()
+        if let cell = tableView.cellForRow(at: indexPath) as? UserCell{
+            cell.checked =  false
         }
     }
 }
@@ -125,3 +153,6 @@ extension RoomAddVC{
         Room.add(users: roomUsers, messages: roomMessages)
     }
 }
+
+
+
