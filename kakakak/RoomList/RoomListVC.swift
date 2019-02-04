@@ -33,6 +33,17 @@ class RoomListVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         self.tabBarController?.tabBar.isHidden = false
         tableView.reloadData()
+        
+        
+        let orangeGradient =  [UIColor(rgb: 0xCFA3FF),UIColor(rgb: 0xFFAEE1)]
+        let position = [0.0,1.0]
+        
+        
+        (self.navigationController as? ColorNavigationViewController)?.orangeGradientLocation = position
+        (self.navigationController as? ColorNavigationViewController)?.orangeGradient = orangeGradient
+        //
+        (self.navigationController as? ColorNavigationViewController)?.changeGradientImage(orangeGradient: orangeGradient, orangeGradientLocation: position)
+        
     }
     
      func numberOfSections(in tableView: UITableView) -> Int {
@@ -58,4 +69,6 @@ class RoomListVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
             self.navigationController?.pushViewController(chatvc, animated: true)
         }
     }
+    
+    
 }

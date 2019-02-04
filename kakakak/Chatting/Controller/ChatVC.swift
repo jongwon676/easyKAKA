@@ -197,6 +197,10 @@ class ChatVC: UIViewController{
         self.view.addSubview(bottomController.view)
         
 //        self.makeDummyCells()
+        (self.navigationController as? ColorNavigationViewController)?.orangeGradientLocation = [0.0,1.0]
+        (self.navigationController as? ColorNavigationViewController)?.orangeGradient = [UIColor.white,UIColor.white]
+//
+        (self.navigationController as? ColorNavigationViewController)?.changeGradientImage(orangeGradient: [UIColor.white,UIColor.white], orangeGradientLocation: [0.0,1.0])
         self.navigationItem.largeTitleDisplayMode = .never
         navigationController?.view.backgroundColor = UIColor.white
         
