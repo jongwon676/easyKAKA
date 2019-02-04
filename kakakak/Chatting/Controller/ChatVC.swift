@@ -197,6 +197,8 @@ class ChatVC: UIViewController{
         self.view.addSubview(bottomController.view)
         
 //        self.makeDummyCells()
+        self.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.view.backgroundColor = UIColor.white
         
         messageManager = MessageProcessor(room: room)
         bottomController.messageManager = self.messageManager

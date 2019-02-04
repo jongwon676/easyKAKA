@@ -1,16 +1,18 @@
 import UIKit
 import RealmSwift
 import GoogleMobileAds
-class RoomListVC: UITableViewController{
+class RoomListVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
+    @IBOutlet var tableView: UITableView!
     
     var rooms: Results<Room>!
     var bannerView: GADBannerView = GADBannerView(frame:  CGRect(x: 0, y: 0, width: 200, height: 200))
     override func viewDidLoad() {
         super.viewDidLoad()
         rooms = Room.all()
-        tableView.rowHeight = 77
-//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(roomAdd))
-        
+//        tableView.delegate = self
+//        tableView.rowHeight = 77
+        tableView.tableFooterView = UIView()
+        tableView.separatorStyle = .singleLine
         
         
     }
@@ -33,21 +35,21 @@ class RoomListVC: UITableViewController{
         tableView.reloadData()
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rooms.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: RoomCell.reuseId) as! RoomCell
         cell.room = rooms[indexPath.row]
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let storyboard = UIStoryboard.init(name: "MessageEdit", bundle: Bundle.main)
         
