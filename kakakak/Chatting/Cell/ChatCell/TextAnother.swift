@@ -30,4 +30,7 @@ class TextAnother: BaseChat,ChattingCellProtocol{
             }
         }
     }
+    override func prepareForReuse() {
+        
+    }
 }

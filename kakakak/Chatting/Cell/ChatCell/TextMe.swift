@@ -1,4 +1,5 @@
 import UIKit
+import SnapKit
 class TextMe: BaseChat,ChattingCellProtocol{
     static var reuseId = "textMe"
     
@@ -26,11 +27,6 @@ class TextMe: BaseChat,ChattingCellProtocol{
     @IBOutlet var containerViewLeading: NSLayoutConstraint!
     func configure(message: Message){
     
-        
-        
-
-        
-        
         self.backgroundColor = UIColor.clear
         self.containerView.backgroundColor = UIColor.clear
         self.bubble.backgroundColor = Style.leftBubbleColor
@@ -43,11 +39,34 @@ class TextMe: BaseChat,ChattingCellProtocol{
         
         
         messageLabel.text = message.messageText
-        messageNameLabelGap.isActive = message.isFirstMessage
-        messageCellGap.isActive = !message.isFirstMessage
+//        messageNameLabelGap.isActive = message.isFirstMessage
+//        messageCellGap.isActive = !message.isFirstMessage
+
+        
+        
+        if message.isFirstMessage{
+            profile.snp.updateConstraints { (mk) in
+                mk.height.equalTo(Style.profileImageSize)
+            }
+            
+            NSLayoutConstraint.activate([messageNameLabelGap])
+          NSLayoutConstraint.deactivate([messageCellGap])
+        }else{
+            profile.snp.updateConstraints { (mk) in
+                mk.height.equalTo(20)
+            }
+            
+            NSLayoutConstraint.activate([messageCellGap])
+            NSLayoutConstraint.deactivate([messageNameLabelGap])
+        }
+
         
         containerViewLeading.constant = editMode ? 30 : 0
         updateConstraintsIfNeeded()
         
+    }
+    override func prepareForReuse() {
+        messageNameLabelGap.isActive = false
+        messageCellGap.isActive = false
     }
 }

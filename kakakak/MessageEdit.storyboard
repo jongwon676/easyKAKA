@@ -414,9 +414,8 @@
                                                         <constraint firstItem="pTi-C0-N5k" firstAttribute="leading" secondItem="JaS-1Z-2jl" secondAttribute="trailing" constant="11.5" id="3kT-Qh-BUr"/>
                                                         <constraint firstItem="JaS-1Z-2jl" firstAttribute="leading" secondItem="Dpu-1Z-Nbo" secondAttribute="leading" constant="4" id="4jb-Ph-rF6"/>
                                                         <constraint firstItem="JaS-1Z-2jl" firstAttribute="top" secondItem="Dpu-1Z-Nbo" secondAttribute="top" constant="12" id="AEe-Qc-a5W"/>
-                                                        <constraint firstItem="pTi-C0-N5k" firstAttribute="top" secondItem="Dpu-1Z-Nbo" secondAttribute="top" constant="4" id="CjB-fU-ore" userLabel="세컨드"/>
                                                         <constraint firstAttribute="bottom" secondItem="pTi-C0-N5k" secondAttribute="bottom" id="FBU-rq-MR9"/>
-                                                        <constraint firstItem="pTi-C0-N5k" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Oro-Y6-ST2" secondAttribute="bottom" constant="6" id="FV0-lu-Myf"/>
+                                                        <constraint firstItem="pTi-C0-N5k" firstAttribute="top" secondItem="Oro-Y6-ST2" secondAttribute="bottom" constant="6" id="FV0-lu-Myf"/>
                                                         <constraint firstItem="sWW-Vf-ipP" firstAttribute="width" relation="lessThanOrEqual" secondItem="Dpu-1Z-Nbo" secondAttribute="width" multiplier="0.6" id="LHQ-8H-7ge"/>
                                                         <constraint firstItem="9VE-Gr-EAF" firstAttribute="leading" secondItem="pTi-C0-N5k" secondAttribute="trailing" constant="6" id="NcH-dy-N56"/>
                                                         <constraint firstItem="pTi-C0-N5k" firstAttribute="top" secondItem="Dpu-1Z-Nbo" secondAttribute="top" constant="4" id="QBX-Xn-uXI"/>
@@ -426,12 +425,6 @@
                                                         <constraint firstItem="Oro-Y6-ST2" firstAttribute="leading" secondItem="JaS-1Z-2jl" secondAttribute="trailing" constant="11.5" id="h7A-ak-ita"/>
                                                         <constraint firstItem="FWd-uL-kDm" firstAttribute="leading" secondItem="pTi-C0-N5k" secondAttribute="trailing" constant="6" id="oXZ-4V-ORh"/>
                                                     </constraints>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="CjB-fU-ore"/>
-                                                            <exclude reference="QBX-Xn-uXI"/>
-                                                        </mask>
-                                                    </variation>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -740,7 +733,7 @@
                                             <outlet property="timeReadLabel" destination="cwg-un-IE5" id="VZQ-Gp-JcY"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="callMessageAnother" rowHeight="60" id="NfC-Ed-3eJ" userLabel="callMessageAnother" customClass="CallMessageAnother" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="callMessageAnother" rowHeight="60" id="NfC-Ed-3eJ" userLabel="callMessageAnother" customClass="CallMessageAnother" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="657" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NfC-Ed-3eJ" id="mrC-WB-EL0">
@@ -748,7 +741,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EUn-E0-gWM" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="218.5" y="4" width="145" height="55"/>
+                                                    <rect key="frame" x="179.5" y="4" width="145" height="55"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="voiceOff" translatesAutoresizingMaskIntoConstraints="NO" id="Hlb-Xj-6In">
                                                             <rect key="frame" x="8" y="10" width="35" height="35"/>
@@ -775,7 +768,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlm-oQ-Ivr" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="170.5" y="32" width="42" height="21"/>
+                                                    <rect key="frame" x="131.5" y="32" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
