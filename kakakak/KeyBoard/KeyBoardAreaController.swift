@@ -23,6 +23,7 @@ class KeyBoardAreaController: UIViewController{
     
     var keyFrame: CGRect? = nil
     weak var messageManager: MessageProcessor?
+    var token: NotificationToken?
     
     func keyboardHide(){
 //        self.middleView.textView.resignFirstResponder()
@@ -152,6 +153,24 @@ class KeyBoardAreaController: UIViewController{
         }
         return view
     }()
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        token = users.observe{
+            [weak userCollectionView] changes in
+            guard let userCollectionView = userCollectionView else { return }
+            switch changes{
+            case .initial:
+                userCollectionView.reloadData()
+            case .update(_, let deletions, let insertions, let updates): userCollectionView.reloadData()
+            case .error: break
+            }
+        }
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        token?.invalidate()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

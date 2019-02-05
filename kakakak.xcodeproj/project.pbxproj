@@ -140,6 +140,7 @@
 		ADC672F221E3CE6200D6D3F5 /* UserChattingBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672F121E3CE6200D6D3F5 /* UserChattingBaseCell.swift */; };
 		ADCB809F21F8ADAE00BE25D8 /* UserLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCB809E21F8ADAE00BE25D8 /* UserLayout.swift */; };
 		ADCB80A121F9530A00BE25D8 /* UserCollectionLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCB80A021F9530A00BE25D8 /* UserCollectionLayoutAttributes.swift */; };
+		ADD271872209B65400DBD72C /* CSTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD271862209B65400DBD72C /* CSTabbarController.swift */; };
 		ADDDF02B21E53E6E007E3D16 /* ChatVC+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDDF02A21E53E6E007E3D16 /* ChatVC+extension.swift */; };
 		ADDFB86021E7037A003D5DF1 /* ChatVC+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDFB85F21E7037A003D5DF1 /* ChatVC+Alert.swift */; };
 		ADFA306522043C1100744C31 /* BaseChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFA306422043C1100744C31 /* BaseChat.swift */; };
@@ -285,6 +286,7 @@
 		ADC672F121E3CE6200D6D3F5 /* UserChattingBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChattingBaseCell.swift; sourceTree = "<group>"; };
 		ADCB809E21F8ADAE00BE25D8 /* UserLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLayout.swift; sourceTree = "<group>"; };
 		ADCB80A021F9530A00BE25D8 /* UserCollectionLayoutAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionLayoutAttributes.swift; sourceTree = "<group>"; };
+		ADD271862209B65400DBD72C /* CSTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSTabbarController.swift; sourceTree = "<group>"; };
 		ADDDF02A21E53E6E007E3D16 /* ChatVC+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatVC+extension.swift"; sourceTree = "<group>"; };
 		ADDFB85F21E7037A003D5DF1 /* ChatVC+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatVC+Alert.swift"; sourceTree = "<group>"; };
 		ADFA306422043C1100744C31 /* BaseChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseChat.swift; sourceTree = "<group>"; };
@@ -797,6 +799,7 @@
 				AD50748921F31635003B50F5 /* RealmProvider.swift */,
 				ADB8D83721F48D13001D88BD /* SizeCalculator.swift */,
 				AD9E3F232203113200F45BF9 /* Customs.swift */,
+				ADD271862209B65400DBD72C /* CSTabbarController.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1005,6 +1008,7 @@
 				ADB8D83A21F54886001D88BD /* MessageProcessor.swift in Sources */,
 				AD95E2452208712F00CD8451 /* Location.swift in Sources */,
 				ADC672D221E2B91300D6D3F5 /* UIImage+Extension.swift in Sources */,
+				ADD271872209B65400DBD72C /* CSTabbarController.swift in Sources */,
 				AD50748A21F31635003B50F5 /* RealmProvider.swift in Sources */,
 				AD95E6C021F3F9C1000450AB /* VoiceCell.swift in Sources */,
 				ADC672BE21E24E2500D6D3F5 /* CharacterListVC.swift in Sources */,

@@ -18,7 +18,7 @@ class User: Object,NSCopying{
     @objc dynamic var profileImageUrl: String? = ""
     @objc dynamic var isMe: Bool = false
     @objc dynamic var isExited: Bool = false
-    
+    @objc dynamic var presetId: String = ""
     @objc dynamic var isSelected: Bool = false
     
     enum Properties: String{
@@ -33,13 +33,14 @@ class User: Object,NSCopying{
         return [Properties.isSelected.rawValue]
     }
     
-    convenience init(name: String, url: String,isMe: Bool){
-        self.init()
-        self.name = name
-        self.profileImageUrl = url
-        self.id = UUID().uuidString
-        self.isMe = false
-    }
+//    convenience init(name: String, url: String,isMe: Bool){
+//        self.init()
+//        self.name = name
+//        self.profileImageUrl = url
+//        self.id = UUID().uuidString
+//        self.isMe = false
+//        
+//    }
     
     convenience init(preset: Preset,isMe: Bool = false){
         self.init()
@@ -47,5 +48,6 @@ class User: Object,NSCopying{
         self.profileImageUrl = preset.profileImageUrl
         self.id = UUID().uuidString
         self.isMe = isMe
+        self.presetId = preset.id
     }
 }

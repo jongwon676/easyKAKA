@@ -121,6 +121,7 @@ class RoomListVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
     
     @objc func addBtnClicked(_ sender: UIButton){
         if let roomAddVC = storyboard?.instantiateViewController(withIdentifier: "RoomAddVC") as? RoomAddVC{
+            roomAddVC.type = .create
             self.present(roomAddVC, animated: true, completion: nil)
 
         }

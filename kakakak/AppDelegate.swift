@@ -22,7 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().clipsToBounds = true
 //        UITabBar.appearance().layer.shadowColor = UIColor.gray.cgColor
 //        UITabBar.appearance().layer.shadowRadius = 2
-        if let tbc = self.window?.rootViewController as? UITabBarController{
+        if let tbc = self.window?.rootViewController as? CSTabbarController{
+            
             
 
             if let tbItems = tbc.tabBar.items{

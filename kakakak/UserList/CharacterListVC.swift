@@ -43,6 +43,7 @@ class CharacterListVC: UITableViewController{
         addButton.isHidden = true
     }
     
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

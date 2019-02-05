@@ -181,6 +181,37 @@ class MessageProcessor{
         }
     }
     
+    func eixtUser(presetId: String){
+        try! realm.write {
+            var dUser: User? = nil
+            for (idx,user) in room.users.enumerated(){
+                if user.presetId == presetId{
+                    dUser = user
+                    room.users.remove(at: idx)
+                    break
+                }
+            }
+            for msg in room.messages{
+                for (idx,user) in msg.noReadUser.enumerated(){
+                    if user.presetId == presetId{
+                        msg.noReadUser.remove(at: idx)
+                        break
+                    }
+                }
+            }
+            
+            guard let user = dUser else { return }
+            let msg = Message.makeExitMessage(exit: user)
+            
+            
+            room.messages.append(msg)
+            messages.append(msg)
+            reload()
+            self.vc?.tableView.reloadData()
+            self.vc?.tableView.scrollToBottom(animation: false)
+            
+        }
+    }
     
     func getMessage(idx: Int) -> Message{
         return messages[idx]

@@ -199,9 +199,11 @@ class GradientView: UIView
         setGradient()
     }
     
+    let gradientLayer = CAGradientLayer()
+    
     private func setGradient()
     {
-        let gradientLayer = CAGradientLayer()
+        
         gradientLayer.colors = [self.gradientColor1.cgColor, self.gradientColor2.cgColor]
         gradientLayer.startPoint = self.gradientStartPoint
         gradientLayer.endPoint = self.gradientEndPoint
@@ -212,6 +214,10 @@ class GradientView: UIView
         }
         self.layer.insertSublayer(gradientLayer, at: 0)
 //        self.layer.addSublayer(gradientLayer)
+    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        gradientLayer.frame = self.layer.bounds
     }
 }
 
@@ -248,6 +254,10 @@ class GradientButton: UIButton {
         } else {
             gradientLayer.removeFromSuperlayer()
         }
+    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        gradientLayer.frame = self.layer.bounds
     }
 }
 class AutoLayoutRadiusView: UIView{

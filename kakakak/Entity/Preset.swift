@@ -17,6 +17,27 @@ class Preset: Object{
         return Properties.id.rawValue
     }
     
+    static func all(in realm: Realm = try! Realm(), include: Set<String> ,exclude: Set<String>, type: RoomAddVC.ControllerType) -> List<Preset>{
+        var list = List<Preset>()
+        let objects = realm.objects(Preset.self).sorted(byKeyPath: Preset.Properties.creationDate.rawValue)
+        
+        for obj in objects{
+            if type == .create{
+                list.append(obj)
+            }else if type == .invite{
+                if !exclude.contains(obj.id){
+                    list.append(obj)
+                }
+            }else if type == .exit{ // 나는 퇴장 못 시킴.
+                if include.contains(obj.id){
+                    list.append(obj)
+                }
+            }
+        }
+        
+        return list
+    }
+    
     static func all(in realm: Realm = try! Realm()) -> Results<Preset>{
         return realm.objects(Preset.self).sorted(byKeyPath: Preset.Properties.creationDate.rawValue)
     }

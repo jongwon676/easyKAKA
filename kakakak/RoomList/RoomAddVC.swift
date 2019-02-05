@@ -3,6 +3,53 @@ import RealmSwift
 
 class RoomAddVC:UIViewController, UITableViewDataSource,UITableViewDelegate{
     
+    @IBOutlet var titleLabel: UILabel!
+    
+    enum ControllerType {
+        case invite
+        case exit
+        case create
+    }
+    
+    weak var messageManager: MessageProcessor?
+    
+    func veryfiy() -> Bool{
+        
+        var okay = true
+        var alertTitle = ""
+        
+        switch self.type {
+        case .create:
+            okay = selectRows.count >= 2
+            alertTitle = "채팅방을 만들려면 2명이상의 등장인물이 필요합니다"
+        case .invite:
+            okay = selectRows.count >= 1
+            alertTitle = "초대할 친구를 선택해주세요"
+        case .exit:
+            okay = selectRows.count == 1
+            alertTitle = "퇴장할 친구를 선택해주세요"
+        }
+        
+        if !okay{
+            let alert = UIAlertController(title: alertTitle, message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        return okay
+    }
+    
+    var type: ControllerType = .create
+        
+        
+        
+    
+    
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     var buttonTitle: String = "생성하기"
     @IBAction func dismiss(_ sender: UIButton) {
         self.presentingViewController?.dismiss(animated: true, completion: nil)
@@ -21,27 +68,40 @@ class RoomAddVC:UIViewController, UITableViewDataSource,UITableViewDelegate{
             setUpTitleButton()
         }
     }
-    @IBAction func okayAction(_ sender: Any){
-        if selectRows.count == 0{
-            let alert = UIAlertController(title: nil, message: "등장인물을 선택해주세요.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            return
-        }
+    
+    @objc func okayAction(_ sender: Any){
+        
         process()
     }
     
-    var users = Preset.all()
+    var users: List<Preset>!
+    var includeId = Set<String>()
+    var excludeId = Set<String>()
+    
     var selectRows: [IndexPath]{
         guard let indexPaths = tableView?.indexPathsForSelectedRows else { return  []}
         return indexPaths
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.separatorStyle = .none
+        users = Preset.all(include: includeId, exclude: excludeId, type: type)
+        switch type {
+            case .create:
+                titleLabel.text = "채팅방 생성"
+                tableView.allowsMultipleSelection = true
+            case .invite:
+                titleLabel.text = "친구 초대"
+                tableView.allowsMultipleSelection = true
+            case .exit:
+                titleLabel.text = "친구 퇴장"
+                tableView.allowsMultipleSelection = false
+        }
         
-        tableView.allowsMultipleSelection = true
+        
+        self.makeButton.addTarget(self, action: #selector(okayAction), for: .touchUpInside)
+        tableView.separatorStyle = .none
         tableView.sectionIndexBackgroundColor = .clear
         tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
     }
@@ -54,13 +114,13 @@ class RoomAddVC:UIViewController, UITableViewDataSource,UITableViewDelegate{
         return users.count
     }
 
-    @IBOutlet var bottomView: UIView! {
-        didSet{
-            bottomView
-                .dropShadow(color: .gray, opacity: 0.3, offSet: CGSize(width: -1, height: 1), radius: 5, scale: true)
-        }
+    @IBOutlet var bottomView: UIView!
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        bottomView
+            .dropShadow(color: .gray, opacity: 0.3, offSet: CGSize(width: -1, height: 1), radius: 5, scale: true)
+        
     }
-
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -70,6 +130,7 @@ class RoomAddVC:UIViewController, UITableViewDataSource,UITableViewDelegate{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell") as! UserCell
         cell.contentView.backgroundColor = UIColor.clear
+        
         if first == nil{
             cell.checked = false
         }else{
@@ -83,7 +144,7 @@ class RoomAddVC:UIViewController, UITableViewDataSource,UITableViewDelegate{
     
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-setUpTitleButton()
+        setUpTitleButton()
         if let cell = tableView.cellForRow(at: indexPath) as? UserCell{
             cell.checked =  true
         }
@@ -100,14 +161,14 @@ setUpTitleButton()
 }
 extension RoomAddVC{
     
-    func process(){
-        
+    
+    func createProcess(){
         let selectedUsers = selectRows.map { return users[$0.row] }
         let checkMeAlert = UIAlertController(title: nil, message: "나를 선택해주세요.", preferredStyle: .actionSheet)
         let inviteAlert = UIAlertController(title: nil, message: "초대자를 선택해주세요.",preferredStyle: .actionSheet)
         
         var me: Preset?
-
+        
         for user in selectedUsers{
             inviteAlert.addAction(UIAlertAction(title: user.name, style: .default, handler: { (action) in
                 guard let me = me else { return  }
@@ -118,8 +179,9 @@ extension RoomAddVC{
         
         for user in selectedUsers{
             checkMeAlert.addAction(UIAlertAction(title: user.name, style: .default, handler: { (action) in
+                
                 me = user
-                if selectedUsers.count == 0 { return }
+                
                 if selectedUsers.count <= 2{
                     self.makeRoom(me: user, inviter: nil, users: selectedUsers)
                     self.dismiss(animated: true, completion: nil)
@@ -131,6 +193,32 @@ extension RoomAddVC{
         }
         
         present(checkMeAlert, animated: true)
+    }
+    
+    func process(){
+        
+        guard self.veryfiy() else { return }
+        switch type {
+        case .create:
+            createProcess()
+        case .exit:
+            exitProcess()
+        case .invite:
+            inviteProcess()
+            
+        }
+    }
+    func inviteProcess(){
+        
+        //초대당하는 사람은 현재 없는 사람
+        //초대자를 결정해주세요....
+    }
+    func exitProcess(){
+        guard let exitUser = (selectRows.map { return users[$0.row] }).first else {
+            return
+        }
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+        messageManager?.eixtUser(presetId: exitUser.id)
     }
     
     
