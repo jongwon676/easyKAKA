@@ -68,6 +68,7 @@ class ChatVC: UIViewController{
         for message in messageManager.messages{
             if message.isSelected{
                 cnt += 1
+                editView.selectedMsgType = message.type
             }
         }
         editView.selectedChattingCount = cnt

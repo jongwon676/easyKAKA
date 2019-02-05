@@ -28,7 +28,21 @@ extension CGRect{
     var rightHalf: CGRect{
         return CGRect(x: self.midX, y: self.minY, width: self.width / 2, height: self.height)
     }
+    
+    func slice(num: Int, at: Int) -> CGRect{
+        if num == 0{
+            return .zero
+        }
+        assert(at < num)
+        let width = self.width / CGFloat(num)
+        let height = self.height
+        let xPos = CGFloat(at) * width
+        let yPos = self.minX
+        return CGRect(x: xPos, y: yPos, width: width , height: height)
+    }
+    
     var center: CGPoint{
         return CGPoint(x: self.midX, y: self.midY)
     }
+    
 }

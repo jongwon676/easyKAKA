@@ -25,11 +25,14 @@ class CallMessageAnother: BaseChat,ChattingCellProtocol{
     
     func configure(message: Message) {
         self.backgroundColor = UIColor.clear
+        self.contentView.backgroundColor = UIColor.clear
         bubbleTop.constant = message.isFirstMessage ? Style.firstMessageGap : Style.moreThanFirstMessageGap
         updateConstraintsIfNeeded()
         
         
-        timeReadLabel.setUp(message: message)
+            timeReadLabel.setUp(message: message)
+        
+//        timeReadLabel.setUp(message: message)
         
         let callImageAndTitle: (title: String, image: UIImage) = message.getTitleAndCallImage()
         

@@ -56,18 +56,25 @@ class RoomAddVC:UIViewController, UITableViewDataSource,UITableViewDelegate{
     }
     
     func setUpTitleButton(){
-        let string = buttonTitle + " " + String(selectRows.count)
-        makeButton.setTitle(string, for: .normal)
+        switch type {
+        case .create:
+            let string = buttonTitle + " " + String(selectRows.count)
+            makeButton.setTitle(string, for: .normal)
+        case .invite:
+            let string = buttonTitle + " " + String(selectRows.count)
+            makeButton.setTitle(string, for: .normal)
+        case .exit: ()
+            makeButton.setTitle(buttonTitle, for: .normal)
+            
+        
+        }
+        
     }
     
     @IBOutlet var tableView: UITableView!
     
     
-    @IBOutlet var makeButton: GradientButton!{
-        didSet{
-            setUpTitleButton()
-        }
-    }
+    @IBOutlet var makeButton: GradientButton!
     
     @objc func okayAction(_ sender: Any){
         
@@ -89,13 +96,16 @@ class RoomAddVC:UIViewController, UITableViewDataSource,UITableViewDelegate{
         users = Preset.all(include: includeId, exclude: excludeId, type: type)
         switch type {
             case .create:
+                buttonTitle = "생성하기"
                 titleLabel.text = "채팅방 생성"
                 tableView.allowsMultipleSelection = true
             case .invite:
+                buttonTitle = "초대하기"
                 titleLabel.text = "친구 초대"
                 tableView.allowsMultipleSelection = true
             
             case .exit:
+                buttonTitle = "퇴장하기"
                 titleLabel.text = "친구 퇴장"
                 tableView.allowsMultipleSelection = false
         }
@@ -104,6 +114,7 @@ class RoomAddVC:UIViewController, UITableViewDataSource,UITableViewDelegate{
         tableView.separatorStyle = .none
         tableView.sectionIndexBackgroundColor = .clear
         tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+        setUpTitleButton()
     }
     
      func numberOfSections(in tableView: UITableView) -> Int {
@@ -208,12 +219,7 @@ extension RoomAddVC{
         
         
         let invitedPreset = selectRows.map{ return users[$0.row]}
-//        var invitePresetId: String = ""
-        //
-        //inviterCand삽입해줘야됨
-        
-        
-        
+
         let alert = UIAlertController(title: "초대자를 선택해주세요.", message: nil, preferredStyle: .actionSheet)
         
         for inviteUserCand in canInviteUser{

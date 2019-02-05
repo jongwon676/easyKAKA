@@ -148,6 +148,10 @@ extension IndexPath{
 }
 
 extension ChatVC: EditChatting{
+    func excuteTimeEdit() {
+        
+    }
+    
     func excuteDelete() {
         showDeleteMessagesModal()
     }
@@ -169,6 +173,8 @@ extension ChatVC: EditChatting{
             self.present(nav, animated: true, completion: nil)
         }
     }
+
+    
     
     func excuteEsc() {
         isEditMode = false
