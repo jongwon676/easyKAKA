@@ -77,7 +77,7 @@ class RoomAddVC:UIViewController, UITableViewDataSource,UITableViewDelegate{
     var users: List<Preset>!
     var includeId = Set<String>()
     var excludeId = Set<String>()
-    
+    var canInviteUser = List<User>()
     var selectRows: [IndexPath]{
         guard let indexPaths = tableView?.indexPathsForSelectedRows else { return  []}
         return indexPaths
@@ -94,11 +94,11 @@ class RoomAddVC:UIViewController, UITableViewDataSource,UITableViewDelegate{
             case .invite:
                 titleLabel.text = "친구 초대"
                 tableView.allowsMultipleSelection = true
+            
             case .exit:
                 titleLabel.text = "친구 퇴장"
                 tableView.allowsMultipleSelection = false
         }
-        
         
         self.makeButton.addTarget(self, action: #selector(okayAction), for: .touchUpInside)
         tableView.separatorStyle = .none
@@ -149,10 +149,7 @@ class RoomAddVC:UIViewController, UITableViewDataSource,UITableViewDelegate{
             cell.checked =  true
         }
     }
-    
-    
-    
-     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         setUpTitleButton()
         if let cell = tableView.cellForRow(at: indexPath) as? UserCell{
             cell.checked =  false
@@ -191,7 +188,6 @@ extension RoomAddVC{
                 }
             }))
         }
-        
         present(checkMeAlert, animated: true)
     }
     
@@ -210,8 +206,26 @@ extension RoomAddVC{
     }
     func inviteProcess(){
         
-        //초대당하는 사람은 현재 없는 사람
-        //초대자를 결정해주세요....
+        
+        let invitedPreset = selectRows.map{ return users[$0.row]}
+//        var invitePresetId: String = ""
+        //
+        //inviterCand삽입해줘야됨
+        
+        
+        
+        let alert = UIAlertController(title: "초대자를 선택해주세요.", message: nil, preferredStyle: .actionSheet)
+        
+        for inviteUserCand in canInviteUser{
+            alert.addAction(UIAlertAction(title: inviteUserCand.name, style: .default, handler: { (action) in
+                self.messageManager?.enterUser(inviter: inviteUserCand, invitedUsers: invitedPreset)
+                self.dismiss(animated: true, completion: nil)
+            }))
+        }
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+        
     }
     func exitProcess(){
         guard let exitUser = (selectRows.map { return users[$0.row] }).first else {

@@ -6,7 +6,18 @@ extension ChatVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate
         self.bottomController.keyboardHide()
         
         let alert = UIAlertController(title: nil, message: "옵션", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "등장인물 초대", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "등장인물 초대", style: .default, handler: { (_) in
+            let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
+            if let roomAddVC = storyboard.instantiateViewController(withIdentifier: "RoomAddVC") as? RoomAddVC{
+                
+                roomAddVC.type = .invite
+                roomAddVC.excludeId = self.room.activeUserId(exceptMe: false)
+                roomAddVC.canInviteUser = self.room.activateUsers
+                roomAddVC.messageManager = self.messageManager
+                self.present(roomAddVC, animated: true, completion: nil)
+            }
+        }))
+        
         alert.addAction(UIAlertAction(title: "등장인물 퇴장", style: .default, handler: {
             (_) in
             let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)

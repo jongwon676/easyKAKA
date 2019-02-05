@@ -104,7 +104,6 @@ class MessageProcessor{
             }
             messages[idx].isLastMessage = false
         }
-        
     }
     
     func checkUserMessage(message: Message) -> Bool{
@@ -181,6 +180,35 @@ class MessageProcessor{
         }
     }
     
+    func enterUser(inviter: User, invitedUsers: [Preset]){
+        //invite가 찾아서 메시지 삽입해주기.
+        //room 에
+        
+        
+        var invitedList = List<User>()
+  
+       
+        
+        try! realm.write {
+            
+            for preset in invitedUsers{
+                let user = User(preset: preset)
+                invitedList.append(user)
+                
+            }
+            room.users.append(objectsIn: invitedList)
+            
+            
+            let msg = Message.makeEnterMessage(from: inviter, to: invitedList)
+            
+            messages.append(msg)
+            room.messages.append(msg)
+            reload()
+            self.vc?.tableView.reloadData()
+            self.vc?.tableView.scrollToBottom(animation: false)
+        }        
+    }
+    
     func eixtUser(presetId: String){
         try! realm.write {
             var dUser: User? = nil
@@ -212,6 +240,9 @@ class MessageProcessor{
             
         }
     }
+    
+    
+    
     
     func getMessage(idx: Int) -> Message{
         return messages[idx]
@@ -299,6 +330,7 @@ class MessageProcessor{
             }
         }
     }
+    
     
     func sendCallMessage(owner: User,minute: Int, second: Int, callType: Message.callType){
         let msg = Message.makeCallMessage(duration: minute * 60 + second, owner: owner, ctype: callType)
