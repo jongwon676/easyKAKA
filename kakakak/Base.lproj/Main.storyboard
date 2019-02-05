@@ -59,7 +59,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="abcd.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="FFp-zQ-YCa">
-                                            <rect key="frame" x="24" y="14.666666666666664" width="41" height="41"/>
+                                            <rect key="frame" x="24" y="10" width="41" height="41"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="41" id="HGz-sz-qf7"/>
                                                 <constraint firstAttribute="height" constant="41" id="dqI-Bl-FO8"/>
@@ -71,7 +71,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="강성용" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q9Z-rx-pCb">
-                                            <rect key="frame" x="75" y="26" width="295" height="18"/>
+                                            <rect key="frame" x="75" y="21.333333333333332" width="295" height="17.999999999999996"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -82,7 +82,9 @@
                                         <constraint firstItem="FFp-zQ-YCa" firstAttribute="leading" secondItem="jFh-ba-J4Y" secondAttribute="leading" constant="24" id="XIv-Ss-21b"/>
                                         <constraint firstItem="q9Z-rx-pCb" firstAttribute="centerY" secondItem="jFh-ba-J4Y" secondAttribute="centerY" id="oYf-Ze-Nwh"/>
                                         <constraint firstItem="FFp-zQ-YCa" firstAttribute="centerY" secondItem="jFh-ba-J4Y" secondAttribute="centerY" id="ouh-cf-ZAy"/>
+                                        <constraint firstItem="FFp-zQ-YCa" firstAttribute="top" secondItem="jFh-ba-J4Y" secondAttribute="top" constant="10" id="qKN-UN-DrH"/>
                                         <constraint firstItem="q9Z-rx-pCb" firstAttribute="leading" secondItem="FFp-zQ-YCa" secondAttribute="trailing" constant="10" id="t6U-Xg-ZMy"/>
+                                        <constraint firstAttribute="bottom" secondItem="FFp-zQ-YCa" secondAttribute="bottom" constant="10" id="yI2-jr-SY1"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -96,14 +98,7 @@
                             <outlet property="delegate" destination="vSF-GM-vdi" id="VEe-id-aTJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="친구" largeTitleDisplayMode="always" id="wuJ-nI-6Ag">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="MFG-uK-uKG">
-                            <connections>
-                                <action selector="userAdd:" destination="vSF-GM-vdi" id="0Cm-Yf-NbE"/>
-                                <segue destination="qjc-OB-QBd" kind="show" id="gfW-ad-UfH"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="친구" largeTitleDisplayMode="always" id="wuJ-nI-6Ag"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wIn-hb-86W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -118,17 +113,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dotBorder" translatesAutoresizingMaskIntoConstraints="NO" id="bVW-fb-9O6">
-                                <rect key="frame" x="18" y="165" width="339" height="313"/>
+                                <rect key="frame" x="18" y="69" width="339" height="313"/>
                             </imageView>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uploadDefault" translatesAutoresizingMaskIntoConstraints="NO" id="XxL-Ti-iYf">
-                                <rect key="frame" x="127.66666666666669" y="190" width="120" height="120"/>
+                                <rect key="frame" x="127.66666666666669" y="94" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="8Rn-kM-31G"/>
                                     <constraint firstAttribute="width" constant="120" id="WFc-hR-5rx"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sj7-lS-msm">
-                                <rect key="frame" x="0.0" y="643" width="375" height="86"/>
+                                <rect key="frame" x="0.0" y="692" width="375" height="86"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Dr-uO-KdN">
                                         <rect key="frame" x="18" y="18" width="339" height="50"/>
@@ -150,7 +145,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6tm-dl-NSa">
-                                <rect key="frame" x="111.66666666666669" y="345" width="152" height="54"/>
+                                <rect key="frame" x="111.66666666666669" y="249" width="152" height="54"/>
                                 <state key="normal" image="imageChange"/>
                                 <connections>
                                     <action selector="changeImage:" destination="COQ-WI-pEC" eventType="touchUpInside" id="C6L-M8-y1i"/>
@@ -158,13 +153,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xn7-3c-9ay">
-                                <rect key="frame" x="18" y="508.00000000000006" width="29.666666666666671" height="20.666666666666686"/>
+                                <rect key="frame" x="18" y="412" width="29.666666666666671" height="20.666666666666686"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이름을 입력해주세요" textAlignment="natural" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="ygO-I4-Lj3">
-                                <rect key="frame" x="18" y="540.66666666666663" width="339" height="50"/>
+                                <rect key="frame" x="18" y="444.66666666666669" width="339" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="2Jv-MA-SEZ"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="txn-6U-UC6"/>
@@ -178,7 +173,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10MB 미만의 jpg,png만 업로드 가능합니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bzw-IM-qWu">
-                                <rect key="frame" x="103.66666666666669" y="423" width="168" height="28.666666666666686"/>
+                                <rect key="frame" x="103.66666666666669" y="327" width="168" height="28.666666666666686"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="168" id="ozw-iT-QZS"/>
                                 </constraints>
@@ -724,13 +719,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qEB-7r-mDg"/>
                     </view>
-                    <navigationItem key="navigationItem" title="채팅" largeTitleDisplayMode="always" id="MjP-uZ-4qD">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="fOl-iX-PkA">
-                            <connections>
-                                <segue destination="pa8-zv-ZSc" kind="presentation" id="rbn-bD-G5D"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="채팅" largeTitleDisplayMode="always" id="MjP-uZ-4qD"/>
                     <connections>
                         <outlet property="tableView" destination="Imm-E7-U8Y" id="oSQ-fC-ukj"/>
                     </connections>
@@ -987,7 +976,7 @@
         <!--Room AddVC-->
         <scene sceneID="C9b-UZ-QeX">
             <objects>
-                <viewController id="pa8-zv-ZSc" customClass="RoomAddVC" customModule="kakakak" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RoomAddVC" id="pa8-zv-ZSc" customClass="RoomAddVC" customModule="kakakak" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kyt-jf-MXT" customClass="GradientView" customModule="kakakak" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
