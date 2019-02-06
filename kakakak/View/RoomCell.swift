@@ -14,20 +14,38 @@ class RoomCell: UITableViewCell{
     
     var room: Room?{
         didSet{
-//            let dateFormatter = DateFormatter()
-//            dateFormatter.dateFormat = "a hh시 mm분"
-//            dateFormatter.amSymbol = "오전"
-//            dateFormatter.pmSymbol = "오후"
-//            
-//            timeLabel.text = dateFormatter.string(from: room!.currentDate)
-//            //유저가 없을경우?
-//            let user = (room?.users.first)!
-//            userNameLabel.text = user.name
-//            if let imageUrl = user.profileImageUrl{
-//                userImage.image = UIImage.loadImageFromName(imageUrl)
-//            }
-//            desc.text = "test 중입니다."
+            guard let room = room else { return  }
+            var another: User?
+            var me: User?
+            for user in room.users{
+                if user.isMe {
+                    userImage.image = UIImage.loadImageFromName(user.profileImageUrl ?? "")
+                    me = user
+                    break
+                }else{
+                    another = user
+                }
+            }
+            if let title = room.title{
+                roomNameLabel.text = title
+            }else{
+                if room.isGroupChatting {
+                    roomNameLabel.text = "그룹채팅"
+                }else{
+                    if another != nil { roomNameLabel.text = another!.name}
+                    else{
+                        roomNameLabel.text = "대화상대 없음"
+                    }
+                }
+            }
+            userCountLabel.text = String(room.users.count)
+            userCountLabel.isHidden = room.users.count <= 1
+                
+                descLabel.text = "채팅방 시간 ∙ " + Date.timeToStringRoomDisPlay(date: room.currentDate)
+            let meName = me?.name ?? "홍길동"
+            mainUserLabel.setTitle(meName, for: .normal)
         }
+        
     }
     
     

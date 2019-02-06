@@ -5,6 +5,14 @@ extension Date{
         return String(self.timeIntervalSince1970)
     }
     
+    static func timeToStringRoomDisPlay(date: Date) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "a h시 mm분"
+        dateFormatter.amSymbol = "오전"
+        dateFormatter.pmSymbol = "오후"
+        return dateFormatter.string(from: date)
+    }
+    
     static func timeToStringMinuteVersion(date: Date) -> String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "a h:mm"

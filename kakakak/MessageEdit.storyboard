@@ -1875,8 +1875,8 @@
                                                     <rect key="frame" x="0.0" y="12" width="375" height="45.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김민성님이 김재준님을 초대했습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8u-wu-6UN">
-                                                            <rect key="frame" x="63" y="12" width="249" height="21.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <rect key="frame" x="92" y="12" width="191" height="21.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -1905,15 +1905,15 @@
                                         <rect key="frame" x="0.0" y="2104" width="375" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ltg-7w-SFE" id="4XZ-de-lwG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="57.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IDA-Ls-adN">
                                                     <rect key="frame" x="0.0" y="12" width="375" height="45.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김민성님이 퇴장했습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2g4-tG-Esy">
-                                                            <rect key="frame" x="102" y="12" width="171" height="21.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <rect key="frame" x="117" y="12" width="141.5" height="21.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -1938,35 +1938,55 @@
                                             <outlet property="exitLabel" destination="2g4-tG-Esy" id="mb3-pF-syU"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dateLine" rowHeight="100" id="Oc4-Ly-1TW" userLabel="dateLine" customClass="DateLineCell" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dateLine" rowHeight="100" id="Oc4-Ly-1TW" userLabel="dateLine" customClass="DateLineCell" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="2162" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Oc4-Ly-1TW" id="oqx-Ry-L7v">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vwb-Vd-Buv">
-                                                    <rect key="frame" x="0.0" y="30" width="336" height="40"/>
+                                                    <rect key="frame" x="0.0" y="15" width="375" height="69.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018년 4월 27일 금요일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4v-Mg-Asl">
-                                                            <rect key="frame" x="83" y="0.0" width="170" height="40"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <rect key="frame" x="117" y="0.0" width="141.5" height="69.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" red="0.28890964388847351" green="0.32896369695663452" blue="0.36234229803085327" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WZK-uD-Jg3">
+                                                            <rect key="frame" x="6" y="34.5" width="103" height="0.5"/>
+                                                            <color key="backgroundColor" red="0.53725490196078429" green="0.59215686274509804" blue="0.63137254901960782" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="0.5" id="fH3-l9-tMZ"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZtM-22-lpH">
+                                                            <rect key="frame" x="266.5" y="34.5" width="102.5" height="0.5"/>
+                                                            <color key="backgroundColor" red="0.53725490200000003" green="0.59215686270000001" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="0.5" id="Gt4-DC-QnC"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
+                                                        <constraint firstItem="WZK-uD-Jg3" firstAttribute="centerY" secondItem="Vwb-Vd-Buv" secondAttribute="centerY" id="78M-hD-738"/>
                                                         <constraint firstItem="l4v-Mg-Asl" firstAttribute="top" secondItem="Vwb-Vd-Buv" secondAttribute="top" id="8sJ-rZ-8U3"/>
+                                                        <constraint firstItem="l4v-Mg-Asl" firstAttribute="leading" secondItem="WZK-uD-Jg3" secondAttribute="trailing" constant="8" id="OaI-PZ-4Qf"/>
                                                         <constraint firstItem="l4v-Mg-Asl" firstAttribute="centerX" secondItem="Vwb-Vd-Buv" secondAttribute="centerX" id="PsD-ck-kxd"/>
                                                         <constraint firstAttribute="bottom" secondItem="l4v-Mg-Asl" secondAttribute="bottom" id="awL-re-1oN"/>
+                                                        <constraint firstItem="ZtM-22-lpH" firstAttribute="centerY" secondItem="Vwb-Vd-Buv" secondAttribute="centerY" id="kXa-3v-YOg"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ZtM-22-lpH" secondAttribute="trailing" constant="6" id="mf9-KM-ni9"/>
+                                                        <constraint firstItem="WZK-uD-Jg3" firstAttribute="leading" secondItem="Vwb-Vd-Buv" secondAttribute="leading" constant="6" id="qCy-7e-1vl"/>
+                                                        <constraint firstItem="ZtM-22-lpH" firstAttribute="leading" secondItem="l4v-Mg-Asl" secondAttribute="trailing" constant="8" id="t3M-Ld-2c2"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Vwb-Vd-Buv" firstAttribute="leading" secondItem="oqx-Ry-L7v" secondAttribute="leading" id="9Ja-0e-ecI"/>
-                                                <constraint firstItem="Vwb-Vd-Buv" firstAttribute="top" secondItem="oqx-Ry-L7v" secondAttribute="top" constant="30" id="IL7-Us-X0N"/>
-                                                <constraint firstAttribute="bottom" secondItem="Vwb-Vd-Buv" secondAttribute="bottom" constant="30" id="OzG-M5-XOC"/>
+                                                <constraint firstItem="Vwb-Vd-Buv" firstAttribute="top" secondItem="oqx-Ry-L7v" secondAttribute="top" constant="15" id="IL7-Us-X0N"/>
+                                                <constraint firstAttribute="bottom" secondItem="Vwb-Vd-Buv" secondAttribute="bottom" constant="15" id="OzG-M5-XOC"/>
                                                 <constraint firstAttribute="trailing" secondItem="Vwb-Vd-Buv" secondAttribute="trailing" id="UX5-Pa-RoW"/>
                                             </constraints>
                                         </tableViewCellContentView>
