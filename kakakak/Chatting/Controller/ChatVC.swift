@@ -352,14 +352,14 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
         }
         if let cell = tableView.dequeueReusableCell(withIdentifier: msg.getIdent()) as? BaseChat{
             print(msg.getIdent())
+            
             cell.selectionStyle = .none
             cell.editMode = self.isEditMode
             (cell as? ChattingCellProtocol)?.configure(message: msg)
             cell.checkBoxImage.image = msg.isSelected ? UIImage(named: "selected") : UIImage(named: "unSelected")
             cell.bringSubviewToFront(cell.checkBoxImage)
             
-            cell.contentView.setNeedsLayout()
-            cell.contentView.layoutIfNeeded()
+         
             
             return cell
         }

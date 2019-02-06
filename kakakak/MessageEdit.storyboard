@@ -365,7 +365,7 @@
             <objects>
                 <viewController storyboardIdentifier="ChatVC" id="xtO-1r-t5e" customClass="ChatVC" customModule="kakakak" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ib8-8h-QRp">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="3000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="5000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eaW-2a-jKM">
@@ -421,7 +421,6 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.66315305229999999" green="0.7714290023" blue="0.85490447280000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="pTi-C0-N5k" firstAttribute="leading" secondItem="JaS-1Z-2jl" secondAttribute="trailing" constant="11.5" id="3kT-Qh-BUr"/>
                                                         <constraint firstItem="JaS-1Z-2jl" firstAttribute="leading" secondItem="Dpu-1Z-Nbo" secondAttribute="leading" constant="4" id="4jb-Ph-rF6"/>
@@ -452,6 +451,7 @@
                                         <connections>
                                             <outlet property="bubble" destination="pTi-C0-N5k" id="SYB-89-Def"/>
                                             <outlet property="containerView" destination="Sse-3e-XiO" id="pNM-KU-ilF"/>
+                                            <outlet property="leading" destination="nej-0F-SVw" id="wtt-4W-tgy"/>
                                             <outlet property="messageLabel" destination="sWW-Vf-ipP" id="IdH-Or-Wca"/>
                                             <outlet property="nameLabel" destination="Oro-Y6-ST2" id="nTe-V3-7Ee"/>
                                             <outlet property="profile" destination="JaS-1Z-2jl" id="QNl-Oc-UEN"/>
@@ -506,7 +506,6 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.66315305229999999" green="0.7714290023" blue="0.85490447280000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="iAR-o0-2iS" firstAttribute="width" relation="lessThanOrEqual" secondItem="JLn-6I-j3E" secondAttribute="width" multiplier="0.6" id="1LL-ly-z1O"/>
                                                         <constraint firstItem="oHo-by-2lX" firstAttribute="top" secondItem="hyk-E1-1na" secondAttribute="bottom" constant="6" id="4Ku-d1-ajE"/>
@@ -537,6 +536,7 @@
                                         <connections>
                                             <outlet property="bubble" destination="oHo-by-2lX" id="lQX-69-CRe"/>
                                             <outlet property="containerView" destination="SDp-xl-vTB" id="oWT-MR-Pns"/>
+                                            <outlet property="leading" destination="y6K-NN-ZUq" id="1Ms-ic-s8p"/>
                                             <outlet property="messageLabel" destination="iAR-o0-2iS" id="wZy-Rl-1Yy"/>
                                             <outlet property="nameLabel" destination="hyk-E1-1na" id="stz-g8-Sew"/>
                                             <outlet property="profile" destination="6Yn-ix-tCI" id="gje-H5-QXa"/>
@@ -582,7 +582,6 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="xLm-ZY-eLw" secondAttribute="bottom" constant="4" id="EXl-a7-7Zh"/>
                                                 <constraint firstItem="6fX-Lp-BWX" firstAttribute="top" secondItem="0sE-HA-ALu" secondAttribute="top" constant="12" id="Eph-SZ-GyQ"/>
@@ -640,7 +639,6 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="Uue-ZU-8UM" secondAttribute="trailing" constant="11.5" id="2FF-Dd-BAj"/>
                                                 <constraint firstItem="Uue-ZU-8UM" firstAttribute="top" secondItem="7H5-TS-btn" secondAttribute="top" constant="4" id="4Y9-Sh-xfx"/>
@@ -719,7 +717,6 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.94064695269999998" green="1" blue="0.15448186059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="XM2-h3-Xeq" secondAttribute="bottom" id="IPX-EZ-e9J"/>
                                                 <constraint firstAttribute="trailing" secondItem="XM2-h3-Xeq" secondAttribute="trailing" id="N7i-LH-YTX"/>
@@ -736,6 +733,7 @@
                                         <connections>
                                             <outlet property="bubble" destination="Ppt-sz-k8B" id="Hz6-yj-0CB"/>
                                             <outlet property="containerView" destination="XM2-h3-Xeq" id="bhg-nu-13j"/>
+                                            <outlet property="leading" destination="gdK-HT-cJz" id="nNd-BR-8vN"/>
                                             <outlet property="messageImage" destination="8iB-zf-qEc" id="8El-2f-Cvd"/>
                                             <outlet property="nameLabel" destination="q0g-Db-tDK" id="kdy-Gf-9Qq"/>
                                             <outlet property="profile" destination="CM7-44-4VY" id="rmm-wF-XFF"/>
@@ -802,7 +800,6 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.94064695269999998" green="1" blue="0.15448186059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="5pg-68-hzX" secondAttribute="trailing" id="8WP-9t-CXX"/>
                                                 <constraint firstItem="3DH-3E-zhl" firstAttribute="top" secondItem="wfw-Ht-0kv" secondAttribute="top" constant="4" id="A9P-p8-3DN" userLabel="세컨드"/>
@@ -820,6 +817,7 @@
                                         <connections>
                                             <outlet property="bubble" destination="3DH-3E-zhl" id="Okw-Zx-llY"/>
                                             <outlet property="containerView" destination="5pg-68-hzX" id="HDg-PJ-jwn"/>
+                                            <outlet property="leading" destination="Kd1-Hl-OfW" id="X3B-UZ-38w"/>
                                             <outlet property="messageImage" destination="PQd-mz-3Bn" id="qn9-ax-o5C"/>
                                             <outlet property="nameLabel" destination="9iQ-JU-VCY" id="PoL-Vl-Ekm"/>
                                             <outlet property="profile" destination="Hnv-kV-z5A" id="0Gz-Cg-wpH"/>
@@ -863,7 +861,6 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
                                             <constraints>
                                                 <constraint firstItem="yXF-fu-nqR" firstAttribute="leading" secondItem="cAt-VX-pM5" secondAttribute="trailing" constant="6" id="6gC-sy-C0U"/>
                                                 <constraint firstItem="yXF-fu-nqR" firstAttribute="leading" secondItem="GYv-7W-bZ2" secondAttribute="trailing" constant="6" id="MG0-fc-nP8"/>
@@ -917,7 +914,6 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="NFb-kf-0lR" secondAttribute="bottom" constant="4" id="1sh-Wj-QHT"/>
                                                 <constraint firstItem="tcJ-f1-8jd" firstAttribute="leading" secondItem="EkA-vP-R1c" secondAttribute="trailing" constant="6" id="6f0-09-ncP"/>
@@ -934,7 +930,7 @@
                                             <outlet property="timeReadLabel" destination="NFb-kf-0lR" id="nSE-bh-74F"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="callMessageMe" rowHeight="86" id="F2x-zd-vse" userLabel="callMessageMe" customClass="CallMessageMe" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="callMessageMe" rowHeight="86" id="F2x-zd-vse" userLabel="callMessageMe" customClass="CallMessageMe" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1114" width="375" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F2x-zd-vse" id="QVi-vm-myt">
@@ -942,7 +938,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IzN-rk-uDz">
-                                                    <rect key="frame" x="0.0" y="0.0" width="336" height="86"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="86"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="abcd.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="JDx-Hf-z61" customClass="ChatRadiusProfileView" customModule="kakakak" customModuleProvider="target">
                                                             <rect key="frame" x="4" y="12" width="40" height="40"/>
@@ -1017,11 +1013,11 @@
                                                 <constraint firstItem="IzN-rk-uDz" firstAttribute="leading" secondItem="QVi-vm-myt" secondAttribute="leading" id="bDC-ym-5Cb"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.94064695269999998" green="1" blue="0.15448186059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="callImage" destination="my1-lu-ihQ" id="mA9-9L-oip"/>
                                             <outlet property="callLabel" destination="tde-RU-65y" id="Hen-X4-xId"/>
                                             <outlet property="containerView" destination="IzN-rk-uDz" id="15H-YZ-eCo"/>
+                                            <outlet property="leading" destination="bDC-ym-5Cb" id="1yL-EY-1Oa"/>
                                             <outlet property="nameLabel" destination="Q89-nX-y5B" id="Odx-dm-vpe"/>
                                             <outlet property="profile" destination="JDx-Hf-z61" id="vqK-HB-fkX"/>
                                             <outlet property="timeReadLabel" destination="cwg-un-IE5" id="ill-Oh-K7y"/>
@@ -1110,11 +1106,11 @@
                                                 <constraint firstAttribute="bottom" secondItem="CYe-Jq-lGf" secondAttribute="bottom" id="ehH-Wm-54u"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.94064695269999998" green="1" blue="0.15448186059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="callImage" destination="h3T-Ry-C6X" id="HiU-TY-ogi"/>
                                             <outlet property="callLabel" destination="Ta2-0l-rcI" id="IMC-dI-y3X"/>
                                             <outlet property="containerView" destination="CYe-Jq-lGf" id="e7K-ms-kRc"/>
+                                            <outlet property="leading" destination="KKJ-v3-CQ6" id="o6X-KI-MAd"/>
                                             <outlet property="nameLabel" destination="tju-fS-CPS" id="xSf-D4-3RH"/>
                                             <outlet property="profile" destination="dmh-op-GLt" id="h6f-0I-qdU"/>
                                             <outlet property="timeReadLabel" destination="Qf3-FC-xf1" id="asT-Hj-WLP"/>
@@ -1124,7 +1120,7 @@
                                         <rect key="frame" x="0.0" y="1286" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NfC-Ed-3eJ" id="mrC-WB-EL0">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EUn-E0-gWM" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
@@ -1169,7 +1165,6 @@
                                                 <constraint firstItem="EUn-E0-gWM" firstAttribute="leading" secondItem="nlm-oQ-Ivr" secondAttribute="trailing" constant="6" id="qo8-Za-q3H"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
                                         <connections>
                                             <outlet property="bubble" destination="EUn-E0-gWM" id="YCT-x0-vhQ"/>
                                             <outlet property="callImage" destination="Hlb-Xj-6In" id="M9G-pr-eul"/>
@@ -1181,7 +1176,7 @@
                                         <rect key="frame" x="0.0" y="1346" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pEu-ZS-X2e" id="K5D-dY-JbP">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NGg-2M-OIa" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
@@ -1226,7 +1221,6 @@
                                                 <constraint firstAttribute="trailing" secondItem="NGg-2M-OIa" secondAttribute="trailing" constant="11.5" id="ov5-CB-Lkl"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
                                         <connections>
                                             <outlet property="bubble" destination="NGg-2M-OIa" id="yo9-8b-r7l"/>
                                             <outlet property="callImage" destination="COt-KL-2fm" id="VcY-2u-yhr"/>
@@ -1238,11 +1232,11 @@
                                         <rect key="frame" x="0.0" y="1406" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JNU-nd-NGh" id="NBW-KA-hcf">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9QK-po-uTi">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="abcd.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="fng-iC-5HT" customClass="ChatRadiusProfileView" customModule="kakakak" customModuleProvider="target">
                                                             <rect key="frame" x="4" y="12" width="40" height="40"/>
@@ -1285,7 +1279,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오전 11시 30분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yx4-MM-pTP" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                            <rect key="frame" x="208.5" y="74" width="63" height="12"/>
+                                                            <rect key="frame" x="208.5" y="73.5" width="63" height="12"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1310,7 +1304,6 @@
                                                     </variation>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="9QK-po-uTi" secondAttribute="bottom" id="6bi-kg-2dc"/>
                                                 <constraint firstAttribute="trailing" secondItem="9QK-po-uTi" secondAttribute="trailing" id="6ex-Zt-0h5"/>
@@ -1322,6 +1315,7 @@
                                             <outlet property="bubble" destination="MOM-uB-jrl" id="twU-Qi-U09"/>
                                             <outlet property="containerView" destination="9QK-po-uTi" id="mai-jw-q7D"/>
                                             <outlet property="deleteLabel" destination="XjZ-xq-R2k" id="J8j-tL-ogP"/>
+                                            <outlet property="leading" destination="h6Y-FU-Br8" id="3rq-1s-d5J"/>
                                             <outlet property="nameLabel" destination="htd-28-gBq" id="U5Z-FT-zk7"/>
                                             <outlet property="profile" destination="fng-iC-5HT" id="mkj-Tx-Vio"/>
                                             <outlet property="timeReadLabel" destination="Yx4-MM-pTP" id="oob-PE-Pho"/>
@@ -1332,7 +1326,7 @@
                                         <rect key="frame" x="0.0" y="1496" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wzk-eE-bvq" id="ndi-7R-Mcr">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="03p-zA-qe3">
@@ -1404,7 +1398,6 @@
                                                     </variation>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="03p-zA-qe3" firstAttribute="leading" secondItem="ndi-7R-Mcr" secondAttribute="leading" id="Cf8-Re-fuG"/>
                                                 <constraint firstItem="03p-zA-qe3" firstAttribute="top" secondItem="ndi-7R-Mcr" secondAttribute="top" id="NFx-TO-Iby"/>
@@ -1416,6 +1409,7 @@
                                             <outlet property="bubble" destination="BQ1-FK-fwj" id="l1M-LB-IWI"/>
                                             <outlet property="containerView" destination="03p-zA-qe3" id="TH2-9q-1eU"/>
                                             <outlet property="deleteLabel" destination="gXA-1K-7Kl" id="FAF-5H-i7E"/>
+                                            <outlet property="leading" destination="Cf8-Re-fuG" id="lxW-ms-fAz"/>
                                             <outlet property="nameLabel" destination="nD3-5O-s3V" id="KV7-1f-day"/>
                                             <outlet property="profile" destination="OJb-lE-Sw9" id="OTg-B2-mlg"/>
                                             <outlet property="timeReadLabel" destination="btT-bC-tSj" id="ogj-af-OBH"/>
@@ -1426,7 +1420,7 @@
                                         <rect key="frame" x="0.0" y="1586" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pmY-Cx-Hu0" id="dGs-fT-zgx">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pcH-BZ-cAr" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
@@ -1466,7 +1460,6 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
                                             <constraints>
                                                 <constraint firstItem="pcH-BZ-cAr" firstAttribute="top" secondItem="dGs-fT-zgx" secondAttribute="top" constant="12" id="KZz-PZ-eoe"/>
                                                 <constraint firstAttribute="trailing" secondItem="pcH-BZ-cAr" secondAttribute="trailing" constant="11.5" id="OaL-m3-0iR"/>
@@ -1484,7 +1477,7 @@
                                         <rect key="frame" x="0.0" y="1656" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xDW-yp-WFf" id="dXq-uh-tdk">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZxJ-S0-Utn" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
@@ -1524,7 +1517,6 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="sm1-lG-k2P" secondAttribute="bottom" constant="4" id="jSf-MG-fLj"/>
                                                 <constraint firstItem="ZxJ-S0-Utn" firstAttribute="top" secondItem="dXq-uh-tdk" secondAttribute="top" constant="4" id="n1n-oy-qqM"/>
@@ -1542,11 +1534,11 @@
                                         <rect key="frame" x="0.0" y="1726" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="akn-19-Kv8" id="ASd-tM-DK7">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2V3-k9-v6D">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="abcd.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="F74-RH-Bxc" customClass="ChatRadiusProfileView" customModule="kakakak" customModuleProvider="target">
                                                             <rect key="frame" x="4" y="12" width="40" height="40"/>
@@ -1556,7 +1548,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C6w-ex-mbj" userLabel="bubble" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
-                                                            <rect key="frame" x="55.5" y="40" width="186" height="51"/>
+                                                            <rect key="frame" x="55.5" y="39.5" width="186" height="51"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play" translatesAutoresizingMaskIntoConstraints="NO" id="qM9-mM-n3V">
                                                                     <rect key="frame" x="8" y="8" width="35" height="35"/>
@@ -1593,13 +1585,13 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="adsfjadls;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CwK-RA-EwK">
-                                                            <rect key="frame" x="55.5" y="12" width="59" height="22"/>
+                                                            <rect key="frame" x="55.5" y="12" width="59" height="21.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오전 11시 30분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbR-v3-Uxq" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                            <rect key="frame" x="247.5" y="74" width="63" height="12"/>
+                                                            <rect key="frame" x="247.5" y="73.5" width="63" height="12"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1624,7 +1616,6 @@
                                                     </variation>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="2V3-k9-v6D" secondAttribute="bottom" id="BpD-qv-1z4"/>
                                                 <constraint firstAttribute="trailing" secondItem="2V3-k9-v6D" secondAttribute="trailing" id="Inf-ZA-Oxr"/>
@@ -1634,6 +1625,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="containerView" destination="2V3-k9-v6D" id="GBO-aB-ldI"/>
+                                            <outlet property="leading" destination="Wg9-Yo-MvR" id="JPR-iV-J6i"/>
                                             <outlet property="nameLabel" destination="CwK-RA-EwK" id="mKm-hD-CsO"/>
                                             <outlet property="playTimeLabel" destination="Osb-Lf-JlK" id="C5e-9e-d7l"/>
                                             <outlet property="profile" destination="F74-RH-Bxc" id="eWK-Z2-LNF"/>
@@ -1644,7 +1636,7 @@
                                         <rect key="frame" x="0.0" y="1816" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OQE-ec-A4A" id="FeF-oa-Y63">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KOr-q7-U2B">
@@ -1726,7 +1718,6 @@
                                                     </variation>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="KOr-q7-U2B" firstAttribute="top" secondItem="FeF-oa-Y63" secondAttribute="top" id="WHj-1S-sYL"/>
                                                 <constraint firstAttribute="bottom" secondItem="KOr-q7-U2B" secondAttribute="bottom" id="XyC-Hp-1Wq"/>
@@ -1736,6 +1727,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="containerView" destination="KOr-q7-U2B" id="6cy-UB-Lfc"/>
+                                            <outlet property="leading" destination="cBJ-RR-NYx" id="kq6-ns-YTf"/>
                                             <outlet property="nameLabel" destination="XSD-vJ-IYt" id="85a-6q-QAI"/>
                                             <outlet property="playTimeLabel" destination="qqp-xI-FFf" id="sk4-xb-hmI"/>
                                             <outlet property="profile" destination="S2Z-E6-fLc" id="Jq3-oV-nwo"/>
@@ -1746,7 +1738,7 @@
                                         <rect key="frame" x="0.0" y="1906" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6is-Ru-bsW" id="0SI-ov-ECh">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U66-E4-fTZ" userLabel="bubble" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
@@ -1793,7 +1785,6 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
                                             <constraints>
                                                 <constraint firstItem="U66-E4-fTZ" firstAttribute="top" secondItem="0SI-ov-ECh" secondAttribute="top" constant="12" id="27z-tH-RsA"/>
                                                 <constraint firstItem="eNS-y6-6Oy" firstAttribute="bottom" secondItem="0SI-ov-ECh" secondAttribute="bottomMargin" constant="4" id="Nhg-Vi-xU6"/>
@@ -1811,7 +1802,7 @@
                                         <rect key="frame" x="0.0" y="1976" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QWq-sP-FPD" id="fV6-Ud-Ozm">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FIJ-dG-sfn" userLabel="bubble" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
@@ -1858,7 +1849,6 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
                                             <constraints>
                                                 <constraint firstItem="FIJ-dG-sfn" firstAttribute="leading" secondItem="nXM-za-or5" secondAttribute="trailing" constant="6" id="57G-YM-ZgM"/>
                                                 <constraint firstAttribute="bottom" secondItem="FIJ-dG-sfn" secondAttribute="bottom" id="86g-XJ-cH8"/>
@@ -1872,24 +1862,23 @@
                                             <outlet property="timeReadLabel" destination="nXM-za-or5" id="4D4-k7-vtG"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="invite" rowHeight="58" id="Z2g-o8-70C" userLabel="invite" customClass="InviteCell" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="invite" rowHeight="58" id="Z2g-o8-70C" userLabel="invite" customClass="InviteCell" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="2046" width="375" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Z2g-o8-70C" id="eQ2-3L-tcm">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="57.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OWx-Sa-7fv">
-                                                    <rect key="frame" x="0.0" y="12" width="336" height="46"/>
+                                                    <rect key="frame" x="0.0" y="12" width="375" height="45.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김민성님이 김재준님을 초대했습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8u-wu-6UN">
-                                                            <rect key="frame" x="43.5" y="12" width="249" height="22"/>
+                                                            <rect key="frame" x="63" y="12" width="249" height="21.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.53104788064956665" green="0.60330396890640259" blue="0.65344202518463135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="z8u-wu-6UN" firstAttribute="top" secondItem="OWx-Sa-7fv" secondAttribute="top" constant="12" id="7D5-mj-j1U"/>
                                                         <constraint firstItem="z8u-wu-6UN" firstAttribute="centerY" secondItem="OWx-Sa-7fv" secondAttribute="centerY" id="OWr-Sb-EEI"/>
@@ -1910,24 +1899,23 @@
                                             <outlet property="inviteLabel" destination="z8u-wu-6UN" id="UTT-K8-ehj"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="exit" rowHeight="58" id="Ltg-7w-SFE" userLabel="exit" customClass="ExitCell" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="exit" rowHeight="58" id="Ltg-7w-SFE" userLabel="exit" customClass="ExitCell" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="2104" width="375" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ltg-7w-SFE" id="4XZ-de-lwG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="57.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IDA-Ls-adN">
-                                                    <rect key="frame" x="0.0" y="12" width="336" height="46"/>
+                                                    <rect key="frame" x="0.0" y="12" width="375" height="45.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김민성님이 퇴장했습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2g4-tG-Esy">
-                                                            <rect key="frame" x="82.5" y="12" width="171" height="22"/>
+                                                            <rect key="frame" x="102" y="12" width="171" height="21.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.53104788059999997" green="0.60330396890000004" blue="0.65344202520000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="2g4-tG-Esy" firstAttribute="centerY" secondItem="IDA-Ls-adN" secondAttribute="centerY" id="GAE-gH-JzW"/>
                                                         <constraint firstItem="2g4-tG-Esy" firstAttribute="centerX" secondItem="IDA-Ls-adN" secondAttribute="centerX" id="JF2-mF-j38"/>
@@ -1952,7 +1940,7 @@
                                         <rect key="frame" x="0.0" y="2162" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Oc4-Ly-1TW" id="oqx-Ry-L7v">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vwb-Vd-Buv">
@@ -1997,7 +1985,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="w3C-5o-alR"/>
                     </view>
-                    <size key="freeformSize" width="375" height="3000"/>
+                    <size key="freeformSize" width="375" height="5000"/>
                     <connections>
                         <outlet property="tableView" destination="eaW-2a-jKM" id="tGJ-zh-SZc"/>
                     </connections>

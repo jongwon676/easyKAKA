@@ -31,6 +31,8 @@ class RecordMessageMe: UserChattingBaseMeCell,ChattingCellProtocol{
         playTimeLabel.text! += String(message.duration / 60)
         let secondString = String(message.duration % 60)
         playTimeLabel.text! += secondString.count < 2 ? ":0" + secondString : ":" + secondString
+        
+        moveConstraint()
     }
     
     

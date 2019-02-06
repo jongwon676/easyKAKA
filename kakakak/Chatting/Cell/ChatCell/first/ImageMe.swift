@@ -30,5 +30,6 @@ class ImageMe: UserChattingBaseMeCell,ChattingCellProtocol{
         
         messageImage.image = UIImage.loadImageFromName(message.messageImageUrl)
         timeReadLabel.setUp(message: message)
+        moveConstraint()
     }
 }

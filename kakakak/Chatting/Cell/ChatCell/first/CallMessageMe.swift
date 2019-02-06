@@ -39,7 +39,7 @@ class CallMessageMe: UserChattingBaseMeCell, ChattingCellProtocol{
         timeReadLabel.setUp(message: message)
         callImage.image = callImageAndTitle.image
         callLabel.text = callImageAndTitle.title
-        
+        moveConstraint()
     }
     override func prepareForReuse() {
         super.prepareForReuse()

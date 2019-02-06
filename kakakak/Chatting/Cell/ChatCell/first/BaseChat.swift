@@ -19,6 +19,10 @@ class BaseChat: UITableViewCell{
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.backgroundColor = UIColor.clear
+        self.contentView.backgroundColor = UIColor.clear
+
+        
         self.addSubview(checkBoxImage)
         
         checkBoxImage.image = UIImage(named: "unSelected")

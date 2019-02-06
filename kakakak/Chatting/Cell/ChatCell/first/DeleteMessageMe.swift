@@ -31,7 +31,7 @@ class DeleteMessageMe: UserChattingBaseMeCell,ChattingCellProtocol {
         timeReadLabel.isHidden = message.isFail
         profile.isHidden = !message.isFirstMessage
         nameLabel.isHidden = profile.isHidden    
-
+moveConstraint()
         updateFocusIfNeeded()
         
     }

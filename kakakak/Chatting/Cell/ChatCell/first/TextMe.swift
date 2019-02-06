@@ -25,6 +25,7 @@ class TextMe: UserChattingBaseMeCell,ChattingCellProtocol{
     
         self.backgroundColor = UIColor.clear
         self.containerView.backgroundColor = UIColor.clear
+        
         self.bubble.backgroundColor = Style.leftBubbleColor
         
         profile.isHidden = !message.isFirstMessage
@@ -34,24 +35,9 @@ class TextMe: UserChattingBaseMeCell,ChattingCellProtocol{
         
         
         messageLabel.text = message.messageText
-//        messageNameLabelGap.isActive = message.isFirstMessage
-//        messageCellGap.isActive = !message.isFirstMessage
 
-        
-        
-        if message.isFirstMessage{
-            profile.snp.updateConstraints { (mk) in
-                mk.height.equalTo(Style.profileImageSize)
-            }
-            
-            
-        }else{
-            profile.snp.updateConstraints { (mk) in
-                mk.height.equalTo(20)
-            }
-            
-            
-        }
+
+        moveConstraint()
 
         
         
