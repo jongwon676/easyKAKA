@@ -2,6 +2,10 @@
 import UIKit
 
 class UserNameEditCell: UITableViewCell,EditCellProtocol {
+    func getEditContent() -> (MessageProcessor.EditContent)? {
+        return nil
+    }
+    
     
     
 

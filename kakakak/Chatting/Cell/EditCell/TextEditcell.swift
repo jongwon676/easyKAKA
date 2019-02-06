@@ -9,11 +9,13 @@
 import UIKit
 
 class TextEditCell: UITableViewCell,EditCellProtocol {
+    func getEditContent() -> (MessageProcessor.EditContent)? {
+        return MessageProcessor.EditContent.text(messageTextView.text)
+    }
     func configure(msg: Message) {
         messageTextView.text = msg.messageText
     }
     
-
     @IBOutlet var messageTextView: UITextView!
     override func awakeFromNib() {
         super.awakeFromNib()

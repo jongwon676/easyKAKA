@@ -21,6 +21,8 @@ class MessageEditController: UITableViewController {
     
     // 순서가 messageProcessor부터 삽입
     
+    
+    
     var messageIndex: Int!{
         didSet{
             guard let idx = messageIndex, let manager = messageManager else { return  }
@@ -50,14 +52,52 @@ class MessageEditController: UITableViewController {
             }
         }
     }
-    //
     
-    //
     
+    lazy var cancelButton: UIBarButtonItem = {
+        
+        let btn = UIButton(type: .custom)
+        btn.setImage(UIImage(named: "close"), for: .normal)
+        btn.addTarget(self, action: #selector(dismissController), for: .touchUpInside)
+        btn.snp.makeConstraints({ (mk) in
+            mk.width.height.equalTo(25)
+        })
+        return UIBarButtonItem(customView: btn)
+    }()
+    
+    lazy var okayButton: UIBarButtonItem = {
+       let btn = UIBarButtonItem()
+        btn.tintColor = UIColor.black
+        btn.title = "완료"
+        return btn
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundColor = .lightGray
+        tableView.backgroundColor = #colorLiteral(red: 0.9370916486, green: 0.9369438291, blue: 0.9575446248, alpha: 1)
+        navigationItem.leftBarButtonItem = cancelButton
+        navigationItem.rightBarButtonItem = okayButton
+        
+        okayButton.target = self
+        okayButton.action = #selector(okayButtonClicked)
+    }
+    
+    @objc func dismissController(){
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func okayButtonClicked(){
+        
+        var editContents = [MessageProcessor.EditContent?]()
+
+        for section in (0 ..< infos.count){
+            let cell = tableView.cellForRow(at: IndexPath(row: 0, section: section))
+            if let editProtocol = cell as? EditCellProtocol{
+                editContents.append(editProtocol.getEditContent())
+            }
+        }
+        messageManager?.modifyMessage(row: messageIndex, contents: editContents.compactMap{$0} )
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -67,27 +107,32 @@ class MessageEditController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 53
+    }
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = UIView()
-        view.snp.makeConstraints { (mk) in
-            mk.height.equalTo(53)
-        }
+
+        let view = UIView(frame: CGRect(x:0, y:0, width:tableView.frame.size.width, height:53))
         let label = UILabel()
-        view.addSubview(label)
-        label.snp.makeConstraints { (mk) in
-            mk.left.equalTo(view).offset(18)
-            mk.bottom.equalTo(view).offset(10)
-        }
+        label.font = UIFont.systemFont(ofSize: 13)
         label.text = infos[section].headerName
-        view.backgroundColor = .lightGray
+        label.textColor = UIColor.black
+        label.frame = CGRect(x: 18, y: 33, width: 300, height: 15)
+        view.addSubview(label)
+        view.backgroundColor = #colorLiteral(red: 0.9370916486, green: 0.9369438291, blue: 0.9575446248, alpha: 1)
+        
         return view
     }
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: infos[indexPath.section].reuseId)!
         (cell as? EditCellProtocol)?.configure(msg: messageManager!.getMessage(idx: messageIndex))
+        cell.selectionStyle = .none
         return cell
     }
 }
+
 protocol EditCellProtocol {
     func configure(msg: Message)
+    func getEditContent() -> (MessageProcessor.EditContent)?
 }

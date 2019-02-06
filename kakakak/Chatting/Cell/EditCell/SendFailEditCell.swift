@@ -9,6 +9,10 @@
 import UIKit
 
 class SendFailEditCell: UITableViewCell,EditCellProtocol {
+    func getEditContent() -> (MessageProcessor.EditContent)? {
+        return MessageProcessor.EditContent.sendFail(SendFailSwitch.isOn)
+    }
+    
     func configure(msg: Message) {
         SendFailSwitch.isOn = msg.isFail
     }

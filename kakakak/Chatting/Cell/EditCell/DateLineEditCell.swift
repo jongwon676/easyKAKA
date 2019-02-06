@@ -9,6 +9,11 @@
 import UIKit
 
 class DateLineEditCell: UITableViewCell,EditCellProtocol {
+    func getEditContent() -> (MessageProcessor.EditContent)? {
+        return MessageProcessor.EditContent.dateLine(datePicker.date)
+    }
+    
+    
     func configure(msg: Message) {
         datePicker.date = msg.sendDate
     }

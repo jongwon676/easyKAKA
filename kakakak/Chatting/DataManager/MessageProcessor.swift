@@ -9,6 +9,15 @@ class MessageProcessor{
     weak var vc: ChatVC?
     
     
+    enum EditContent{
+        case text(String)
+        case image(String)
+        case sendFail(Bool)
+        case dateLine(Date)
+        case dateTime(Date)
+        case duration(Int)
+    }
+    
     init(room: Room) {
         self.room = room
         self.messages = Array(self.room.messages)
@@ -149,14 +158,47 @@ class MessageProcessor{
         }
     }
     
-    func modifyMessage(row: Int, tableView: UITableView, message: Message){
+    func modifyMessage(row: Int, contents: [EditContent]){
         try! realm.write {
-            messages[row] = message
-            room.messages[row] = message
+            // tableview에서도 수정하고, manger에서도 수정하고 2번 일처리.
+            
+            for editContnet in contents{
+                switch editContnet{
+                case .dateLine(let date):
+                    messages[row].sendDate = date
+                    room.messages[row].sendDate = date
+                case .dateTime(let time):
+                    messages[row].sendDate = time
+                    room.messages[row].sendDate = time
+                case .duration(let duration):
+                    messages[row].duration = duration
+                    room.messages[row].duration = duration
+                case .image(let imgName):
+                    messages[row].messageImageUrl = imgName
+                     room.messages[row].messageImageUrl = imgName
+                case .sendFail(let isFail):
+                    messages[row].isFail = isFail
+                    room.messages[row].isFail = isFail
+                case .text(let string):
+                    messages[row].messageText = string
+                    room.messages[row].messageText = string
+                }
+            }
+            
             reload()
-            tableView.reloadData()
+            vc?.tableView.reloadData()
         }
+        
     }
+    
+//    func modifyMessage(row: Int, tableView: UITableView, message: Message){
+//        try! realm.write {
+//            messages[row] = message
+//            room.messages[row] = message
+//            reload()
+//            tableView.reloadData()
+//        }
+//    }
     func addLast(message: Message, tableView: UITableView){
         try! realm.write {
             if let owner = message.owner{
@@ -178,6 +220,15 @@ class MessageProcessor{
         return self.messages.filter{
             $0.isSelected
         }
+    }
+    func getSelectedMessaegIndexes() -> [Int]{
+        var indexes = [Int]()
+        for (idx,msg) in self.messages.enumerated(){
+            if msg.isSelected {
+                indexes.append(idx)
+            }
+        }
+        return indexes
     }
     
     func enterUser(inviter: User, invitedUsers: [Preset]){
@@ -274,6 +325,8 @@ class MessageProcessor{
             self.vc?.tableView.scrollToBottom(animation: false)
         }
     }
+    
+    
     
     func sendMessaegImage(imageName: String,user: User){
         //보내는사람, 이미지 이름, 보내는날짜
