@@ -86,6 +86,7 @@ class ChatVC: UIViewController{
         self.tableView.allowsMultipleSelection = true
         bottomController.view.isHidden = true
         bottomController.keyboardHide()
+        
         editView.isHidden = false
         tableView.reloadData()
         tableView.removeGestureRecognizer(tableviewGestureRecog)
@@ -199,6 +200,18 @@ class ChatVC: UIViewController{
         
         self.view.addSubview(tableView)
         self.view.addSubview(bottomController.view)
+        if #available(iOS 11.0, *) {
+            let window = UIApplication.shared.keyWindow
+            let bottomPadding = window?.safeAreaInsets.bottom
+            let dummyView = UIView()
+            self.view.addSubview(dummyView)
+            dummyView.backgroundColor = UIColor.white
+            dummyView.snp.makeConstraints { (mk) in
+                mk.left.right.equalTo(self.view)
+                mk.bottom.equalTo(self.view.snp.bottom)
+mk.top.equalTo(self.bottomController.view.snp.bottom)                
+            }
+        }
         
 //        tableView.rowHeight = UITableView.automaticDimension
 //        tableView.estimatedRowHeight = 50
@@ -288,6 +301,7 @@ class ChatVC: UIViewController{
             tableView.backgroundColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
             tableView.backgroundView = nil
         }
+        self.view.backgroundColor = tableView.backgroundColor
         self.tabBarController?.tabBar.isHidden = true
 
         setTimer()

@@ -80,6 +80,7 @@ class EditView: UIView{
         self.addSubview(editButton)
         self.addSubview(deleteButton)
         self.addSubview(timeEditButton)
+        
     }
     override func layoutSubviews() {
         let firstArea = self.bounds.slice(num: 3, at: 0)
