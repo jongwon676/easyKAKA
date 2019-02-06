@@ -30,6 +30,7 @@
 		AD2B6A8C22047C9400DD563A /* ExitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2B6A8B22047C9400DD563A /* ExitCell.swift */; };
 		AD2B6A8E22047D5700DD563A /* DateLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2B6A8D22047D5700DD563A /* DateLineCell.swift */; };
 		AD2B6A90220486C900DD563A /* TimeAndReadLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2B6A8F220486C900DD563A /* TimeAndReadLabel.swift */; };
+		AD3566BF220B322D00BB3141 /* TimeEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3566BE220B322D00BB3141 /* TimeEditCell.swift */; };
 		AD50748121F28D9C003B50F5 /* TimeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD50748021F28D9C003B50F5 /* TimeInputView.swift */; };
 		AD50748421F2971D003B50F5 /* MiddleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD50748321F2971D003B50F5 /* MiddleView.swift */; };
 		AD50748621F29EEA003B50F5 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD50748521F29EEA003B50F5 /* EditView.swift */; };
@@ -175,6 +176,7 @@
 		AD2B6A8B22047C9400DD563A /* ExitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitCell.swift; sourceTree = "<group>"; };
 		AD2B6A8D22047D5700DD563A /* DateLineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateLineCell.swift; sourceTree = "<group>"; };
 		AD2B6A8F220486C900DD563A /* TimeAndReadLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeAndReadLabel.swift; sourceTree = "<group>"; };
+		AD3566BE220B322D00BB3141 /* TimeEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEditCell.swift; sourceTree = "<group>"; };
 		AD50748021F28D9C003B50F5 /* TimeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInputView.swift; sourceTree = "<group>"; };
 		AD50748321F2971D003B50F5 /* MiddleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleView.swift; sourceTree = "<group>"; };
 		AD50748521F29EEA003B50F5 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 				AD0D4802220B167900FFAC7D /* DateLineEditCell.swift */,
 				AD0D4804220B169C00FFAC7D /* SendFailEditCell.swift */,
 				AD0D4806220B170F00FFAC7D /* RecordEditCell.swift */,
+				AD3566BE220B322D00BB3141 /* TimeEditCell.swift */,
 			);
 			path = EditCell;
 			sourceTree = "<group>";
@@ -1028,6 +1031,7 @@
 				ADCB80A121F9530A00BE25D8 /* UserCollectionLayoutAttributes.swift in Sources */,
 				ADDFB86021E7037A003D5DF1 /* ChatVC+Alert.swift in Sources */,
 				ADC672CE21E29BC800D6D3F5 /* User.swift in Sources */,
+				AD3566BF220B322D00BB3141 /* TimeEditCell.swift in Sources */,
 				ADFA3069220448B700744C31 /* TextAnother.swift in Sources */,
 				AD95E24B2208712F00CD8451 /* ContactCell.swift in Sources */,
 				ADA5F29A21EF2F4A002C0F85 /* KeyBoardAreaController.swift in Sources */,

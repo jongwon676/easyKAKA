@@ -149,7 +149,17 @@ extension IndexPath{
 
 extension ChatVC: EditChatting{
     func excuteTimeEdit() {
+        let storyboard = UIStoryboard.init(name: "MessageEdit", bundle: Bundle.main)
         
+        if let nav = storyboard.instantiateViewController(withIdentifier: "MessageEditNav") as? UINavigationController{
+            
+            ((nav.viewControllers[0]) as? MessageEditController)?.messageManager = self.messageManager
+            ((nav.viewControllers[0]) as? MessageEditController)?.isTimeEdit = true
+            ((nav.viewControllers[0]) as? MessageEditController)?.messageIndex = messageManager.getSelectedMessaegIndexes()
+            
+            
+            self.present(nav, animated: true, completion: nil)
+        }
     }
     
     func excuteDelete() {
@@ -167,12 +177,11 @@ extension ChatVC: EditChatting{
         let storyboard = UIStoryboard.init(name: "MessageEdit", bundle: Bundle.main)
         
         if let nav = storyboard.instantiateViewController(withIdentifier: "MessageEditNav") as? UINavigationController{
-            guard let selectedIndex = messageManager.getSelectedMessaegIndexes().first else {
-                return
-            }
             
             ((nav.viewControllers[0]) as? MessageEditController)?.messageManager = self.messageManager
-            ((nav.viewControllers[0]) as? MessageEditController)?.messageIndex = selectedIndex
+            ((nav.viewControllers[0]) as? MessageEditController)?.isTimeEdit = false
+            ((nav.viewControllers[0]) as? MessageEditController)?.messageIndex = messageManager.getSelectedMessaegIndexes()
+            
             self.present(nav, animated: true, completion: nil)
         }
     }

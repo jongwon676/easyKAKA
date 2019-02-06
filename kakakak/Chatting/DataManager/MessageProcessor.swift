@@ -190,6 +190,20 @@ class MessageProcessor{
         }
         
     }
+    func modifyTimes(rows: [Int], contents: EditContent){
+        try! realm.write {
+            switch contents {
+            case .dateTime(let time):
+                for row in rows{
+                    messages[row].sendDate = time
+                    self.room.messages[row].sendDate = time
+                }
+            default: break
+            }
+            reload()
+            vc?.tableView.reloadData()
+        }
+    }
     
 //    func modifyMessage(row: Int, tableView: UITableView, message: Message){
 //        try! realm.write {

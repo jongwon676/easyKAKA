@@ -9,12 +9,17 @@ class MessageEditController: UITableViewController {
     //
     
     // userNameEdit
+    
+    var isTimeEdit: Bool = false
+    
     let userNameCellInfo : (headerName: String, reuseId: String) = ("이름","userNameEdit")
     let textCellInfo: (headerName: String,reuseId: String) = ("내용","textEdit")
     let imageCellInfo: (headerName: String,reuseId: String) = ("이미지","")
     let dateLineCellInfo: (headerName: String,reuseId: String) = ("날짜선","dateLineEdit")
     let recordCellInfo: (headerName: String, reuseId: String) = ("녹음 시간","recordCellEdit")
     let sendFailCellInfo: (headerName: String, reuseId: String) = ("전송 실패","sendFailEdit")
+    let timeCellInfo: (headerName: String, reuseId: String) = ("","timeEditCell")
+    
     
     var infos: [(headerName: String, reuseId: String)] = []
     
@@ -23,32 +28,37 @@ class MessageEditController: UITableViewController {
     
     
     
-    var messageIndex: Int!{
+    var messageIndex: [Int]!{
         didSet{
-            guard let idx = messageIndex, let manager = messageManager else { return  }
-            let msg = manager.getMessage(idx: idx)
-            switch msg.type {
-            case .date: infos = [dateLineCellInfo]
-            case .text:
-                if msg.owner!.isMe {
-                    infos = [userNameCellInfo,textCellInfo,sendFailCellInfo]
-                }else{
-                    infos = [userNameCellInfo,textCellInfo]
+            guard let idxes = messageIndex, let manager = messageManager else { return  }
+            if !isTimeEdit{
+                let idx = idxes[0]
+                let msg = manager.getMessage(idx: idx)
+                switch msg.type {
+                case .date: infos = [dateLineCellInfo]
+                case .text:
+                    if msg.owner!.isMe {
+                        infos = [userNameCellInfo,textCellInfo,sendFailCellInfo]
+                    }else{
+                        infos = [userNameCellInfo,textCellInfo]
+                    }
+                case .image:
+                    if msg.owner!.isMe {
+                        infos = [userNameCellInfo,imageCellInfo,sendFailCellInfo]
+                    }else{
+                        infos = [userNameCellInfo,imageCellInfo]
+                    }
+                case .record:
+                    if msg.owner!.isMe {
+                        infos = [userNameCellInfo,recordCellInfo,sendFailCellInfo]
+                    }else{
+                        infos = [userNameCellInfo,recordCellInfo]
+                    }
+                default: ()
+                    
                 }
-            case .image:
-            if msg.owner!.isMe {
-                infos = [userNameCellInfo,imageCellInfo,sendFailCellInfo]
             }else{
-                infos = [userNameCellInfo,imageCellInfo]
-            }
-            case .record:
-                if msg.owner!.isMe {
-                    infos = [userNameCellInfo,recordCellInfo,sendFailCellInfo]
-                }else{
-                    infos = [userNameCellInfo,recordCellInfo]
-                }
-            default: ()
-            
+                infos = [timeCellInfo]
             }
         }
     }
@@ -74,12 +84,17 @@ class MessageEditController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.backgroundColor = #colorLiteral(red: 0.9370916486, green: 0.9369438291, blue: 0.9575446248, alpha: 1)
         navigationItem.leftBarButtonItem = cancelButton
         navigationItem.rightBarButtonItem = okayButton
-        
         okayButton.target = self
         okayButton.action = #selector(okayButtonClicked)
+        if isTimeEdit{
+            navigationItem.title = "시간 수정"
+        }else{
+            navigationItem.title = "내용 수정"
+        }
     }
     
     @objc func dismissController(){
@@ -89,14 +104,22 @@ class MessageEditController: UITableViewController {
     @objc func okayButtonClicked(){
         
         var editContents = [MessageProcessor.EditContent?]()
-
         for section in (0 ..< infos.count){
             let cell = tableView.cellForRow(at: IndexPath(row: 0, section: section))
             if let editProtocol = cell as? EditCellProtocol{
                 editContents.append(editProtocol.getEditContent())
             }
         }
-        messageManager?.modifyMessage(row: messageIndex, contents: editContents.compactMap{$0} )
+        
+        if !isTimeEdit{
+            messageManager?.modifyMessage(row: messageIndex[0], contents: editContents.compactMap{$0} )
+        }else{
+            if let editContent = (editContents.compactMap{$0}).first{
+                messageManager?.modifyTimes(rows: messageIndex, contents: editContent)
+            }
+            
+        }
+        
         self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
@@ -112,6 +135,10 @@ class MessageEditController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
+        guard !isTimeEdit else {
+            return nil
+        }
+        
         let view = UIView(frame: CGRect(x:0, y:0, width:tableView.frame.size.width, height:53))
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 13)
@@ -126,7 +153,17 @@ class MessageEditController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: infos[indexPath.section].reuseId)!
-        (cell as? EditCellProtocol)?.configure(msg: messageManager!.getMessage(idx: messageIndex))
+        
+        if !isTimeEdit{
+            (cell as? EditCellProtocol)?.configure(msg: messageManager!.getMessage(idx: messageIndex[0]))
+        }else{
+            guard let last = messageIndex.last else {
+                return cell
+            }
+            (cell as? EditCellProtocol)?.configure(msg: messageManager!.getMessage(idx: last))
+        }
+        
+
         cell.selectionStyle = .none
         return cell
     }

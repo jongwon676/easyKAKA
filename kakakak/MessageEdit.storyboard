@@ -20,7 +20,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="BFH-98-NeT">
-                            <rect key="frame" x="0.0" y="648" width="414" height="44"/>
+                            <rect key="frame" x="0.0" y="878" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
@@ -147,6 +147,31 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="timeEditCell" rowHeight="230" id="4Fr-YJ-lo8" customClass="TimeEditCell" customModule="kakakak" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="648" width="414" height="230"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Fr-YJ-lo8" id="F75-Q3-YcN">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="229.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="4f3-0h-Ta8">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="229.5"/>
+                                            <date key="date" timeIntervalSinceReferenceDate="571159024.06777096">
+                                                <!--2019-02-06 15:17:04 +0000-->
+                                            </date>
+                                        </datePicker>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="4f3-0h-Ta8" secondAttribute="trailing" id="1Qg-L4-AEl"/>
+                                        <constraint firstAttribute="bottom" secondItem="4f3-0h-Ta8" secondAttribute="bottom" id="NTD-KD-Fgr"/>
+                                        <constraint firstItem="4f3-0h-Ta8" firstAttribute="top" secondItem="F75-Q3-YcN" secondAttribute="top" id="b6o-na-xbu"/>
+                                        <constraint firstItem="4f3-0h-Ta8" firstAttribute="leading" secondItem="F75-Q3-YcN" secondAttribute="leading" id="kWE-vl-Xic"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="timerPicker" destination="4f3-0h-Ta8" id="2K0-pW-daw"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="0eq-iq-QE4" id="mpC-te-1v2"/>
@@ -157,7 +182,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J1N-4w-Qa7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3099" y="-2975"/>
+            <point key="canvasLocation" x="-3670" y="-2874"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="oor-JH-0Zk">
