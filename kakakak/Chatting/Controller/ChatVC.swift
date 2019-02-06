@@ -351,6 +351,7 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
             
         }
         if let cell = tableView.dequeueReusableCell(withIdentifier: msg.getIdent()) as? BaseChat{
+            print(msg.getIdent())
             cell.selectionStyle = .none
             cell.editMode = self.isEditMode
             (cell as? ChattingCellProtocol)?.configure(message: msg)

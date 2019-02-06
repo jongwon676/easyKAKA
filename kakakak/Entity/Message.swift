@@ -145,15 +145,32 @@ class Message: Object,NSCopying {
         switch self.type {
             
         case .text:
-            if let isMe = owner?.isMe, isMe == true { return "textAnother"}
+            if let isMe = owner?.isMe, isMe == true {
+                if isFirstMessage { return  "textAnother" }
+                else { return "textAnotherSecond" }
+            }
                 
-            else{ return  "textMe"}
+            else{
+                if isFirstMessage { return "textMe"}
+                else { return  "textMeSecond"}
+            }
             
         case .image:
             if let isMe = owner?.isMe, isMe == true{
-                return "imageAnother"
+                if isFirstMessage {
+                    return "imageAnother"
+                }else{
+                    return "imageAnotherSecond"
+                }
+                
             }
-            else { return  "imageMe"}
+            else {
+                if isFirstMessage{
+                    return  "imageMe"
+                }else{
+                    return "imageMeSecond"
+                }
+            }
         case .enter:
             return "invite"
         case .exit:
@@ -162,20 +179,31 @@ class Message: Object,NSCopying {
             return "dateLine"
         case .call:
             if let isMe = owner?.isMe, isMe == true{
-                return "callMessageAnother"
+                if isFirstMessage { return "callMessageAnother" }
+                else { return "callMessageAnotherSecond"}
             }
-            else { return  "callMessageMe"}
+            else {
+                if isFirstMessage { return  "callMessageMe" }
+                else { return "callMessageMeSecond"}
+            }
         case .record:
             if let isMe = owner?.isMe, isMe == true{
-                return "recordMessageAnother"
+                if isFirstMessage { return "recordMessageAnother"}
+                else { return  "recordMessageAnotherSecond"}
             }
-            else { return  "recordMessageMe"}
+            else {
+                if isFirstMessage { return  "recordMessageMe"}
+                else { return "recordMessageMeSecond"}
+                
+            }
             
         case .delete:
             if let isMe = owner?.isMe, isMe == true{
-                return "deleteMessageAnother"
+                if isFirstMessage { return "deleteMessageAnother"}
+                else { return  "deleteMessageAnotherSecond"}
             }else{
-                return "deleteMessageMe"
+                if isFirstMessage { return "deleteMessageMe"}
+                else { return "deleteMessageMeSecond" }
             }
         }
     }

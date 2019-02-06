@@ -1,10 +1,10 @@
 
 import Foundation
 import UIKit
-class CallMessageAnother: BaseChat,ChattingCellProtocol{
+class CallMessageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
     @IBOutlet var bubble: UIView!
     
-    @IBOutlet var timeReadLabel: TimeAndReadLabel!
+    
     @IBOutlet var callLabel: UILabel!
     @IBOutlet var callImage: UIImageView!
     static var reuseId: String{
@@ -12,7 +12,7 @@ class CallMessageAnother: BaseChat,ChattingCellProtocol{
     }
     
     
-    @IBOutlet var bubbleTop: NSLayoutConstraint!
+    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -26,7 +26,7 @@ class CallMessageAnother: BaseChat,ChattingCellProtocol{
     func configure(message: Message) {
         self.backgroundColor = UIColor.clear
         self.contentView.backgroundColor = UIColor.clear
-        bubbleTop.constant = message.isFirstMessage ? Style.firstMessageGap : Style.moreThanFirstMessageGap
+        
         updateConstraintsIfNeeded()
         
         

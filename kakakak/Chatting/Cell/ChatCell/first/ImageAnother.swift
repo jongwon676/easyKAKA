@@ -1,12 +1,12 @@
 import UIKit
-class ImageAnother: BaseChat,ChattingCellProtocol{
+class ImageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
     static var reuseId: String
     {
         return "imageAnother"
     }
     
-    @IBOutlet var timeReadLabel: TimeAndReadLabel!
-    @IBOutlet var bubbleGap: NSLayoutConstraint!
+    
+    
     @IBOutlet var messageImage: UIImageView!
     
     
@@ -23,14 +23,6 @@ class ImageAnother: BaseChat,ChattingCellProtocol{
         self.backgroundColor = UIColor.clear
         self.contentView.backgroundColor = UIColor.clear
         timeReadLabel.isHidden = message.isFail
-        if message.isFirstMessage {
-            bubbleGap.constant = Style.firstMessageGap
-//            setNeedsUpdateConstraints()
-            
-        }else{
-            bubbleGap.constant = Style.moreThanFirstMessageGap
-//            setNeedsUpdateConstraints()
-        }
         messageImage.image = UIImage.loadImageFromName(message.messageImageUrl ?? "")
         timeReadLabel.setUp(message: message)
     }

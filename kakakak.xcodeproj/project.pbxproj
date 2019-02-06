@@ -44,6 +44,8 @@
 		AD8C17C022045CEA00B7C8F9 /* ImageAnother.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8C17BF22045CEA00B7C8F9 /* ImageAnother.swift */; };
 		AD8CD3FF2200D6BA0040AE81 /* xeicon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD8CD3FE2200D6BA0040AE81 /* xeicon.ttf */; };
 		AD8CD4012200E70F0040AE81 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8CD4002200E70F0040AE81 /* UITableView+Extension.swift */; };
+		AD8D17F0220B60E1002034FF /* UserChattingBaseMeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8D17EF220B60E1002034FF /* UserChattingBaseMeCell.swift */; };
+		AD8D17F2220B623F002034FF /* UserChattingBaseAnotherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8D17F1220B623F002034FF /* UserChattingBaseAnotherCell.swift */; };
 		AD95E2242208712F00CD8451 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95E1D52208712F00CD8451 /* Array+Extensions.swift */; };
 		AD95E2252208712F00CD8451 /* UISegmentedControl+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95E1D62208712F00CD8451 /* UISegmentedControl+Extensions.swift */; };
 		AD95E2262208712F00CD8451 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95E1D72208712F00CD8451 /* UIImageView+Extensions.swift */; };
@@ -190,6 +192,8 @@
 		AD8C17BF22045CEA00B7C8F9 /* ImageAnother.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnother.swift; sourceTree = "<group>"; };
 		AD8CD3FE2200D6BA0040AE81 /* xeicon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = xeicon.ttf; sourceTree = "<group>"; };
 		AD8CD4002200E70F0040AE81 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		AD8D17EF220B60E1002034FF /* UserChattingBaseMeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChattingBaseMeCell.swift; sourceTree = "<group>"; };
+		AD8D17F1220B623F002034FF /* UserChattingBaseAnotherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChattingBaseAnotherCell.swift; sourceTree = "<group>"; };
 		AD95E1D52208712F00CD8451 /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		AD95E1D62208712F00CD8451 /* UISegmentedControl+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl+Extensions.swift"; sourceTree = "<group>"; };
 		AD95E1D72208712F00CD8451 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
@@ -406,6 +410,31 @@
 				ADA7E01121FEF44800FCF517 /* TimeChangeButton.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		AD8D17ED220B608D002034FF /* first */ = {
+			isa = PBXGroup;
+			children = (
+				ADFA306422043C1100744C31 /* BaseChat.swift */,
+				ADFA306622043C5500744C31 /* TextMe.swift */,
+				ADFA3068220448B700744C31 /* TextAnother.swift */,
+				ADFA306A22044AB000744C31 /* ImageMe.swift */,
+				AD8C17BF22045CEA00B7C8F9 /* ImageAnother.swift */,
+				AD2B6A7D22045FE400DD563A /* CallMessageMe.swift */,
+				AD2B6A7F220465C000DD563A /* CallMessageAnother.swift */,
+				AD2B6A8122046CDE00DD563A /* DeleteMessageMe.swift */,
+				AD2B6A83220474CB00DD563A /* DeleteMessageAnother.swift */,
+				AD2B6A852204760A00DD563A /* RecordMessageMe.swift */,
+				AD2B6A872204781B00DD563A /* RecordMessageAnother.swift */,
+			);
+			path = first;
+			sourceTree = "<group>";
+		};
+		AD8D17EE220B60AA002034FF /* second */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = second;
 			sourceTree = "<group>";
 		};
 		AD95E1D32208712F00CD8451 /* Source */ = {
@@ -853,21 +882,14 @@
 		ADFA306322043C0200744C31 /* ChatCell */ = {
 			isa = PBXGroup;
 			children = (
-				ADFA306422043C1100744C31 /* BaseChat.swift */,
-				ADFA306622043C5500744C31 /* TextMe.swift */,
-				ADFA3068220448B700744C31 /* TextAnother.swift */,
-				ADFA306A22044AB000744C31 /* ImageMe.swift */,
-				AD8C17BF22045CEA00B7C8F9 /* ImageAnother.swift */,
-				AD2B6A7D22045FE400DD563A /* CallMessageMe.swift */,
-				AD2B6A7F220465C000DD563A /* CallMessageAnother.swift */,
-				AD2B6A8122046CDE00DD563A /* DeleteMessageMe.swift */,
-				AD2B6A83220474CB00DD563A /* DeleteMessageAnother.swift */,
-				AD2B6A852204760A00DD563A /* RecordMessageMe.swift */,
-				AD2B6A872204781B00DD563A /* RecordMessageAnother.swift */,
+				AD8D17EE220B60AA002034FF /* second */,
+				AD8D17ED220B608D002034FF /* first */,
 				AD2B6A892204796700DD563A /* InviteCell.swift */,
 				AD2B6A8B22047C9400DD563A /* ExitCell.swift */,
 				AD2B6A8D22047D5700DD563A /* DateLineCell.swift */,
 				AD2B6A8F220486C900DD563A /* TimeAndReadLabel.swift */,
+				AD8D17EF220B60E1002034FF /* UserChattingBaseMeCell.swift */,
+				AD8D17F1220B623F002034FF /* UserChattingBaseAnotherCell.swift */,
 			);
 			path = ChatCell;
 			sourceTree = "<group>";
@@ -1068,6 +1090,7 @@
 				AD0D47FD220B165100FFAC7D /* UserNameEditCell.swift in Sources */,
 				AD2B6A882204781B00DD563A /* RecordMessageAnother.swift in Sources */,
 				AD95E22B2208712F00CD8451 /* UITextView+Extensions.swift in Sources */,
+				AD8D17F0220B60E1002034FF /* UserChattingBaseMeCell.swift in Sources */,
 				AD8C17C022045CEA00B7C8F9 /* ImageAnother.swift in Sources */,
 				AD95E2572208712F00CD8451 /* TextField.swift in Sources */,
 				ADC672E121E3A52400D6D3F5 /* TextCell.swift in Sources */,
@@ -1142,6 +1165,7 @@
 				AD0D4803220B167900FFAC7D /* DateLineEditCell.swift in Sources */,
 				AD95E2552208712F00CD8451 /* SegmentedControl.swift in Sources */,
 				ADC672F021E3B0A000D6D3F5 /* Style.swift in Sources */,
+				AD8D17F2220B623F002034FF /* UserChattingBaseAnotherCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

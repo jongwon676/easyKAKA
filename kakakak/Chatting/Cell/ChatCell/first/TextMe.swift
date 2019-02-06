@@ -1,21 +1,17 @@
 import UIKit
 import SnapKit
-class TextMe: BaseChat,ChattingCellProtocol{
+class TextMe: UserChattingBaseMeCell,ChattingCellProtocol{
     static var reuseId = "textMe"
     
     
     //
-    @IBOutlet var profile: ChatRadiusProfileView!
-    @IBOutlet var nameLabel: UILabel!
+    
     @IBOutlet var bubble: UIView!
     @IBOutlet var messageLabel: UILabel!
-    @IBOutlet var failView: UIImageView!
-    @IBOutlet var timeReadLabel: TimeAndReadLabel!
     
-    @IBOutlet var messageNameLabelGap: NSLayoutConstraint!
     
-    @IBOutlet var messageCellGap: NSLayoutConstraint!
-    @IBOutlet var containerView: UIView!
+    
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -24,7 +20,7 @@ class TextMe: BaseChat,ChattingCellProtocol{
         super.init(coder: aDecoder)
     }
     
-    @IBOutlet var containerViewLeading: NSLayoutConstraint!
+    
     func configure(message: Message){
     
         self.backgroundColor = UIColor.clear
@@ -33,7 +29,6 @@ class TextMe: BaseChat,ChattingCellProtocol{
         
         profile.isHidden = !message.isFirstMessage
         nameLabel.isHidden = profile.isHidden
-        failView.isHidden = !message.isFail
         timeReadLabel.isHidden = message.isFail
         timeReadLabel.setUp(message: message)
         
@@ -49,24 +44,19 @@ class TextMe: BaseChat,ChattingCellProtocol{
                 mk.height.equalTo(Style.profileImageSize)
             }
             
-            NSLayoutConstraint.activate([messageNameLabelGap])
-          NSLayoutConstraint.deactivate([messageCellGap])
+            
         }else{
             profile.snp.updateConstraints { (mk) in
                 mk.height.equalTo(20)
             }
             
-            NSLayoutConstraint.activate([messageCellGap])
-            NSLayoutConstraint.deactivate([messageNameLabelGap])
+            
         }
 
         
-        containerViewLeading.constant = editMode ? 30 : 0
+        
         updateConstraintsIfNeeded()
         
     }
-    override func prepareForReuse() {
-        messageNameLabelGap.isActive = false
-        messageCellGap.isActive = false
-    }
+    
 }

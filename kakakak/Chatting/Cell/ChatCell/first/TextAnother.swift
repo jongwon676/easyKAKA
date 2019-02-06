@@ -1,12 +1,14 @@
 import UIKit
-class TextAnother: BaseChat,ChattingCellProtocol{
+class TextAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
     static var reuseId = "textAnother"
   
     @IBOutlet var messageLabel: UILabel!
-    @IBOutlet var bubble: UIView!
-    @IBOutlet var timeAndReadLabel: TimeAndReadLabel!
     
     
+    @IBOutlet var failView: UIImageView!
+    
+    
+    @IBOutlet var bubble: CornerRadiusView!
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -21,7 +23,8 @@ class TextAnother: BaseChat,ChattingCellProtocol{
         self.contentView.backgroundColor = UIColor.clear
         self.bubble.backgroundColor = Style.rightBubbleColor
         messageLabel.text = message.messageText
-        timeAndReadLabel.setUp(message: message)
+        timeReadLabel.setUp(message: message)
+
         bubble.snp.updateConstraints { (mk) in
             if message.isFirstMessage{
                mk.top.equalTo(self.snp.top).offset(Style.firstMessageGap)

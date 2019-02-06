@@ -13,9 +13,7 @@ class MiddleView: UIView{
         btn.setImage(#imageLiteral(resourceName: "middleViewTimeOff"), for: .normal)
         return btn
     }()
-    
-    
-    
+
     let specailFeatureButton = SpecailFeatureButton()
     
     lazy var textView: customTextView = {
