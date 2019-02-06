@@ -23,15 +23,11 @@ class DeleteMessageMe: UserChattingBaseMeCell,ChattingCellProtocol {
     }
 
     func configure(message: Message) {
+        self.message = message
         self.contentView.backgroundColor = UIColor.clear
         self.backgroundColor = UIColor.clear
         containerView.backgroundColor = UIColor.clear
-        timeReadLabel.setUp(message: message)
-        nameLabel.isHidden = profile.isHidden
-        timeReadLabel.isHidden = message.isFail
-        profile.isHidden = !message.isFirstMessage
-        nameLabel.isHidden = profile.isHidden    
-moveConstraint()
+        moveConstraint()
         updateFocusIfNeeded()
         
     }

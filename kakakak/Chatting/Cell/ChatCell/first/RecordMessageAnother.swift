@@ -9,9 +9,16 @@ class RecordMessageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
 
     func configure(message: Message) {
         self.contentView.backgroundColor = UIColor.clear
-        
+        self.message = message
         self.backgroundColor = UIColor.clear
-        timeReadLabel.setUp(message: message)
+        
+        if message.isLastMessage{
+            timeReadLabel.setUp(message: message)
+            timeReadLabel.isHidden = false
+        }else{
+            timeReadLabel.isHidden = true
+        }
+        
         updateConstraintsIfNeeded()
         playRecordLabel.text = ""
         playRecordLabel.text! += String(message.duration / 60)

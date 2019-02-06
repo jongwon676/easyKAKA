@@ -11,8 +11,13 @@ class DeleteMessageAnother: UserChattingBaseAnotherCell, ChattingCellProtocol{
     func configure(message: Message) {
         self.contentView.backgroundColor = UIColor.clear
         self.backgroundColor = UIColor.clear
-        
-        timeReadLabel.setUp(message: message)
+        self.message = message
+        if message.isLastMessage{
+            timeReadLabel.setUp(message: message)
+            timeReadLabel.isHidden = false
+        }else{
+            timeReadLabel.isHidden = true
+        }
         
         
         updateConstraintsIfNeeded()

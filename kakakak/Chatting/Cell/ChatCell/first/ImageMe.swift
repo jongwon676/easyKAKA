@@ -22,12 +22,7 @@ class ImageMe: UserChattingBaseMeCell,ChattingCellProtocol{
     func configure(message: Message) {
         self.backgroundColor = UIColor.clear
         containerView.backgroundColor = UIColor.clear
-        
-        profile.isHidden = !message.isFirstMessage
-        nameLabel.isHidden = profile.isHidden
-        
-        timeReadLabel.isHidden = message.isFail
-        
+        self.message = message
         messageImage.image = UIImage.loadImageFromName(message.messageImageUrl)
         timeReadLabel.setUp(message: message)
         moveConstraint()

@@ -7,6 +7,7 @@ class DateLineCell: BaseChat,ChattingCellProtocol{
     @IBOutlet var dateLabel: UILabel!
     
     func configure(message: Message) {
+        self.message = message
         self.backgroundColor = UIColor.clear
         self.bgView.backgroundColor = UIColor.clear
     }

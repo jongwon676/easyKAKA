@@ -7,6 +7,7 @@ class InviteCell: BaseChat,ChattingCellProtocol{
     @IBOutlet var inviteLabel: UILabel!
     
     func configure(message: Message) {
+        self.message = message
         self.backgroundColor = UIColor.clear
     }
     

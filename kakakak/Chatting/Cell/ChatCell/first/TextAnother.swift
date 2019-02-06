@@ -23,17 +23,14 @@ class TextAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
         self.contentView.backgroundColor = UIColor.clear
         self.bubble.backgroundColor = Style.rightBubbleColor
         messageLabel.text = message.messageText
-        timeReadLabel.setUp(message: message)
+        failView.isHidden = !message.isFail
+        if message.isLastMessage{
 
-        bubble.snp.updateConstraints { (mk) in
-            if message.isFirstMessage{
-               mk.top.equalTo(self.snp.top).offset(Style.firstMessageGap)
-            }else{
-                mk.top.equalTo(self.snp.top).offset(Style.moreThanFirstMessageGap)
-            }
+            timeReadLabel.setUp(message: message)
+            timeReadLabel.isHidden = false
+            timeReadLabel.isHidden = !failView.isHidden
+        }else{
+            timeReadLabel.isHidden = true
         }
-    }
-    override func prepareForReuse() {
-        
     }
 }

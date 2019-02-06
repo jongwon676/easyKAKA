@@ -853,8 +853,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fail" translatesAutoresizingMaskIntoConstraints="NO" id="GYv-7W-bZ2">
-                                                    <rect key="frame" x="91.5" y="119" width="41" height="20"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="fail" translatesAutoresizingMaskIntoConstraints="NO" id="GYv-7W-bZ2">
+                                                    <rect key="frame" x="92" y="118" width="41" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="41" id="W3S-gW-ZVI"/>
                                                         <constraint firstAttribute="height" constant="20" id="mEk-Ei-byq"/>
@@ -873,6 +873,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="failView" destination="GYv-7W-bZ2" id="Dl5-bO-pQm"/>
                                             <outlet property="messageImage" destination="qtj-0f-3a7" id="ByZ-kL-ZMx"/>
                                             <outlet property="timeReadLabel" destination="cAt-VX-pM5" id="ZJx-Yq-0Yu"/>
                                         </connections>
@@ -926,6 +927,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="failView" destination="EkA-vP-R1c" id="Zu8-OC-D5x"/>
                                             <outlet property="messageImage" destination="gdB-8z-zw4" id="86Q-TC-pfj"/>
                                             <outlet property="timeReadLabel" destination="NFb-kf-0lR" id="nSE-bh-74F"/>
                                         </connections>
@@ -1903,7 +1905,7 @@
                                         <rect key="frame" x="0.0" y="2104" width="375" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ltg-7w-SFE" id="4XZ-de-lwG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="57.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IDA-Ls-adN">
@@ -1940,7 +1942,7 @@
                                         <rect key="frame" x="0.0" y="2162" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Oc4-Ly-1TW" id="oqx-Ry-L7v">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vwb-Vd-Buv">

@@ -6,6 +6,7 @@ class ExitCell: BaseChat,ChattingCellProtocol{
     
     @IBOutlet var exitLabel: UILabel!
     func configure(message: Message) {
+        self.message = message
         self.backgroundColor = UIColor.clear
     }
     

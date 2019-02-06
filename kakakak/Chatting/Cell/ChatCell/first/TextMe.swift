@@ -22,18 +22,11 @@ class TextMe: UserChattingBaseMeCell,ChattingCellProtocol{
     
     
     func configure(message: Message){
-    
+        self.message = message
         self.backgroundColor = UIColor.clear
         self.containerView.backgroundColor = UIColor.clear
         
         self.bubble.backgroundColor = Style.leftBubbleColor
-        
-        profile.isHidden = !message.isFirstMessage
-        nameLabel.isHidden = profile.isHidden
-        timeReadLabel.isHidden = message.isFail
-        timeReadLabel.setUp(message: message)
-        
-        
         messageLabel.text = message.messageText
 
 

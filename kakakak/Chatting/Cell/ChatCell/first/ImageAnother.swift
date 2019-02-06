@@ -8,7 +8,7 @@ class ImageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
     
     
     @IBOutlet var messageImage: UIImageView!
-    
+    @IBOutlet var failView: UIImageView!
     
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -22,8 +22,16 @@ class ImageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
     func configure(message: Message){
         self.backgroundColor = UIColor.clear
         self.contentView.backgroundColor = UIColor.clear
-        timeReadLabel.isHidden = message.isFail
-        messageImage.image = UIImage.loadImageFromName(message.messageImageUrl ?? "")
+        failView.isHidden = !message.isFail
+        self.message = message
+        if message.isLastMessage{
+            timeReadLabel.setUp(message: message)
+            timeReadLabel.isHidden = false
+            timeReadLabel.isHidden = !failView.isHidden
+        }else{
+            timeReadLabel.isHidden = true
+        }
+        messageImage.image = UIImage.loadImageFromName(message.messageImageUrl)
         timeReadLabel.setUp(message: message)
     }
 }
