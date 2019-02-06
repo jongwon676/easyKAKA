@@ -1,12 +1,15 @@
+//
+//  RecordEditCell.swift
+//  kakakak
+//
+//  Created by 성용강 on 06/02/2019.
+//  Copyright © 2019 성용강. All rights reserved.
+//
 
 import UIKit
 
-class UserNameEditCell: UITableViewCell,EditCellProtocol {
-    
-    
+class RecordEditCell: UITableViewCell {
 
-    @IBOutlet var userNameLabel: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -17,9 +20,5 @@ class UserNameEditCell: UITableViewCell,EditCellProtocol {
 
         // Configure the view for the selected state
     }
-    func configure(msg: Message) {
-        if let owner = msg.owner{
-            userNameLabel.text = owner.name
-        }
-    }
+
 }

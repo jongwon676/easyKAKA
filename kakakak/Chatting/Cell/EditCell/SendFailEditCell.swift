@@ -1,5 +1,5 @@
 //
-//  TextEditCell.swift
+//  SendFailEditCell.swift
 //  kakakak
 //
 //  Created by 성용강 on 06/02/2019.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-class TextEditCell: UITableViewCell,EditCellProtocol {
+class SendFailEditCell: UITableViewCell,EditCellProtocol {
     func configure(msg: Message) {
-        messageTextView.text = msg.messageText
+        SendFailSwitch.isOn = msg.isFail
     }
     
-
-    @IBOutlet var messageTextView: UITextView!
+    @IBOutlet var SendFailSwitch: UISwitch!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

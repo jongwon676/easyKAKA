@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		2201941D9767FC1EB65D0802 /* Pods_kakakak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31166B9B380F3B955A1AACD7 /* Pods_kakakak.framework */; };
 		AD0AA03221EA00D000B45EF5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD0AA03121EA00D000B45EF5 /* GoogleService-Info.plist */; };
+		AD0D47FD220B165100FFAC7D /* UserNameEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D47FC220B165100FFAC7D /* UserNameEditCell.swift */; };
+		AD0D47FF220B166400FFAC7D /* TextEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D47FE220B166400FFAC7D /* TextEditCell.swift */; };
+		AD0D4801220B166D00FFAC7D /* ImageEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D4800220B166D00FFAC7D /* ImageEditCell.swift */; };
+		AD0D4803220B167900FFAC7D /* DateLineEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D4802220B167900FFAC7D /* DateLineEditCell.swift */; };
+		AD0D4805220B169C00FFAC7D /* SendFailEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D4804220B169C00FFAC7D /* SendFailEditCell.swift */; };
+		AD0D4807220B170F00FFAC7D /* RecordEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D4806220B170F00FFAC7D /* RecordEditCell.swift */; };
 		AD27D16721F07066009E367A /* UserCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD27D16621F07066009E367A /* UserCollectionCell.swift */; };
 		AD27D16921F14B9D009E367A /* icon in Resources */ = {isa = PBXBuildFile; fileRef = AD27D16821F14B9D009E367A /* icon */; };
 		AD27D18E21F1D422009E367A /* ChatTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD27D18D21F1D422009E367A /* ChatTableView.swift */; };
@@ -104,11 +110,6 @@
 		ADA7E01221FEF44800FCF517 /* TimeChangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA7E01121FEF44800FCF517 /* TimeChangeButton.swift */; };
 		ADA7E01421FF596300FCF517 /* MessageEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADA7E01321FF596300FCF517 /* MessageEdit.storyboard */; };
 		ADA7E01621FF620F00FCF517 /* MessageEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA7E01521FF620F00FCF517 /* MessageEditController.swift */; };
-		ADA7E01A21FF764E00FCF517 /* UserNameEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA7E01921FF764E00FCF517 /* UserNameEditCell.swift */; };
-		ADA7E01C21FF766900FCF517 /* TimeEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA7E01B21FF766900FCF517 /* TimeEditCell.swift */; };
-		ADA7E01E21FF767300FCF517 /* DateEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA7E01D21FF767300FCF517 /* DateEditCell.swift */; };
-		ADA7E02021FF768500FCF517 /* ImageEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA7E01F21FF768500FCF517 /* ImageEditCell.swift */; };
-		ADA7E02221FF769F00FCF517 /* TextEditcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA7E02121FF769F00FCF517 /* TextEditcell.swift */; };
 		ADB8D83821F48D13001D88BD /* SizeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB8D83721F48D13001D88BD /* SizeCalculator.swift */; };
 		ADB8D83A21F54886001D88BD /* MessageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB8D83921F54886001D88BD /* MessageProcessor.swift */; };
 		ADB8D83F21F88702001D88BD /* UserCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB8D83E21F88702001D88BD /* UserCollectionView.swift */; };
@@ -153,6 +154,12 @@
 		31166B9B380F3B955A1AACD7 /* Pods_kakakak.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kakakak.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DCAA90BC1391044DF37135F /* Pods-kakakak.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kakakak.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kakakak/Pods-kakakak.debug.xcconfig"; sourceTree = "<group>"; };
 		AD0AA03121EA00D000B45EF5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AD0D47FC220B165100FFAC7D /* UserNameEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameEditCell.swift; sourceTree = "<group>"; };
+		AD0D47FE220B166400FFAC7D /* TextEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditCell.swift; sourceTree = "<group>"; };
+		AD0D4800220B166D00FFAC7D /* ImageEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditCell.swift; sourceTree = "<group>"; };
+		AD0D4802220B167900FFAC7D /* DateLineEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateLineEditCell.swift; sourceTree = "<group>"; };
+		AD0D4804220B169C00FFAC7D /* SendFailEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendFailEditCell.swift; sourceTree = "<group>"; };
+		AD0D4806220B170F00FFAC7D /* RecordEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordEditCell.swift; sourceTree = "<group>"; };
 		AD27D16621F07066009E367A /* UserCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionCell.swift; sourceTree = "<group>"; };
 		AD27D16821F14B9D009E367A /* icon */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icon; sourceTree = "<group>"; };
 		AD27D18D21F1D422009E367A /* ChatTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableView.swift; sourceTree = "<group>"; };
@@ -248,11 +255,6 @@
 		ADA7E01121FEF44800FCF517 /* TimeChangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeChangeButton.swift; sourceTree = "<group>"; };
 		ADA7E01321FF596300FCF517 /* MessageEdit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MessageEdit.storyboard; sourceTree = "<group>"; };
 		ADA7E01521FF620F00FCF517 /* MessageEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageEditController.swift; sourceTree = "<group>"; };
-		ADA7E01921FF764E00FCF517 /* UserNameEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameEditCell.swift; sourceTree = "<group>"; };
-		ADA7E01B21FF766900FCF517 /* TimeEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEditCell.swift; sourceTree = "<group>"; };
-		ADA7E01D21FF767300FCF517 /* DateEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateEditCell.swift; sourceTree = "<group>"; };
-		ADA7E01F21FF768500FCF517 /* ImageEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditCell.swift; sourceTree = "<group>"; };
-		ADA7E02121FF769F00FCF517 /* TextEditcell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditcell.swift; sourceTree = "<group>"; };
 		ADB8D83721F48D13001D88BD /* SizeCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeCalculator.swift; sourceTree = "<group>"; };
 		ADB8D83921F54886001D88BD /* MessageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageProcessor.swift; sourceTree = "<group>"; };
 		ADB8D83E21F88702001D88BD /* UserCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionView.swift; sourceTree = "<group>"; };
@@ -315,6 +317,26 @@
 				DD4718A9C835A6A90A2808AA /* Pods-kakakak.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		AD0D47FA220B159100FFAC7D /* EditCell */ = {
+			isa = PBXGroup;
+			children = (
+				AD0D47FC220B165100FFAC7D /* UserNameEditCell.swift */,
+				AD0D47FE220B166400FFAC7D /* TextEditCell.swift */,
+				AD0D4800220B166D00FFAC7D /* ImageEditCell.swift */,
+				AD0D4802220B167900FFAC7D /* DateLineEditCell.swift */,
+				AD0D4804220B169C00FFAC7D /* SendFailEditCell.swift */,
+				AD0D4806220B170F00FFAC7D /* RecordEditCell.swift */,
+			);
+			path = EditCell;
+			sourceTree = "<group>";
+		};
+		AD0D47FB220B159900FFAC7D /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		AD27D16A21F1855A009E367A /* KeyBoard */ = {
@@ -673,39 +695,27 @@
 		ADA7E01721FF757200FCF517 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				AD0D47FA220B159100FFAC7D /* EditCell */,
 				ADFA306322043C0200744C31 /* ChatCell */,
-				ADA7E01821FF758B00FCF517 /* EditCell */,
 				ADC672DF21E3A51700D6D3F5 /* ChattingCell */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		ADA7E01821FF758B00FCF517 /* EditCell */ = {
-			isa = PBXGroup;
-			children = (
-				ADA7E01921FF764E00FCF517 /* UserNameEditCell.swift */,
-				ADA7E01B21FF766900FCF517 /* TimeEditCell.swift */,
-				ADA7E01D21FF767300FCF517 /* DateEditCell.swift */,
-				ADA7E01F21FF768500FCF517 /* ImageEditCell.swift */,
-				ADA7E02121FF769F00FCF517 /* TextEditcell.swift */,
-			);
-			path = EditCell;
-			sourceTree = "<group>";
-		};
 		ADC6729C21E2260700D6D3F5 = {
 			isa = PBXGroup;
 			children = (
-				AD27D16821F14B9D009E367A /* icon */,
-				AD0AA03121EA00D000B45EF5 /* GoogleService-Info.plist */,
-				AD8CD3FE2200D6BA0040AE81 /* xeicon.ttf */,
-				ADC672CA21E28FCD00D6D3F5 /* Helper */,
 				ADC672C721E28F5C00D6D3F5 /* Extension */,
-				ADC672BA21E22B6700D6D3F5 /* Resources */,
-				ADC672A721E2260700D6D3F5 /* kakakak */,
-				ADC672A621E2260700D6D3F5 /* Products */,
-				5D3D1859C17D2D711D00B788 /* Pods */,
-				AD95E1D32208712F00CD8451 /* Source */,
 				BDF41DCEDCC41CE23ED099A0 /* Frameworks */,
+				AD0AA03121EA00D000B45EF5 /* GoogleService-Info.plist */,
+				ADC672CA21E28FCD00D6D3F5 /* Helper */,
+				AD27D16821F14B9D009E367A /* icon */,
+				ADC672A721E2260700D6D3F5 /* kakakak */,
+				5D3D1859C17D2D711D00B788 /* Pods */,
+				ADC672A621E2260700D6D3F5 /* Products */,
+				ADC672BA21E22B6700D6D3F5 /* Resources */,
+				AD95E1D32208712F00CD8451 /* Source */,
+				AD8CD3FE2200D6BA0040AE81 /* xeicon.ttf */,
 			);
 			sourceTree = "<group>";
 		};
@@ -750,6 +760,7 @@
 		ADC672BF21E24E2A00D6D3F5 /* Chatting */ = {
 			isa = PBXGroup;
 			children = (
+				AD0D47FB220B159900FFAC7D /* New Group */,
 				ADA7E01721FF757200FCF517 /* Cell */,
 				AD2B397921FB5C6A00BE6869 /* DataManager */,
 				AD2B397821FB5C2800BE6869 /* View */,
@@ -1027,16 +1038,14 @@
 				AD95E2252208712F00CD8451 /* UISegmentedControl+Extensions.swift in Sources */,
 				AD87909921EA048A0008177D /* ViewController.swift in Sources */,
 				AD95E2332208712F00CD8451 /* Locale+Extensions.swift in Sources */,
-				ADA7E02221FF769F00FCF517 /* TextEditcell.swift in Sources */,
 				ADA7E01021FED75D00FCF517 /* SpecailFeatureCell.swift in Sources */,
 				AD95E2352208712F00CD8451 /* AttributedTextBlock.swift in Sources */,
 				AD95E24E2208712F00CD8451 /* ImagePickerViewController.swift in Sources */,
 				AD2B6A90220486C900DD563A /* TimeAndReadLabel.swift in Sources */,
-				ADA7E02021FF768500FCF517 /* ImageEditCell.swift in Sources */,
 				AD2B6A862204760A00DD563A /* RecordMessageMe.swift in Sources */,
 				AD95E2502208712F00CD8451 /* PhotoLayout.swift in Sources */,
+				AD0D4807220B170F00FFAC7D /* RecordEditCell.swift in Sources */,
 				AD95E2262208712F00CD8451 /* UIImageView+Extensions.swift in Sources */,
-				ADA7E01A21FF764E00FCF517 /* UserNameEditCell.swift in Sources */,
 				AD95E2492208712F00CD8451 /* Contacts.swift in Sources */,
 				AD95E2402208712F00CD8451 /* Assets.swift in Sources */,
 				AD95E24F2208712F00CD8451 /* ItemWithImage.swift in Sources */,
@@ -1052,7 +1061,7 @@
 				AD95E2282208712F00CD8451 /* UIView+Extensions.swift in Sources */,
 				AD95E2322208712F00CD8451 /* Common+Extensions.swift in Sources */,
 				ADC672D021E2A68B00D6D3F5 /* AddUserVC.swift in Sources */,
-				ADA7E01E21FF767300FCF517 /* DateEditCell.swift in Sources */,
+				AD0D47FD220B165100FFAC7D /* UserNameEditCell.swift in Sources */,
 				AD2B6A882204781B00DD563A /* RecordMessageAnother.swift in Sources */,
 				AD95E22B2208712F00CD8451 /* UITextView+Extensions.swift in Sources */,
 				AD8C17C022045CEA00B7C8F9 /* ImageAnother.swift in Sources */,
@@ -1082,6 +1091,7 @@
 				AD95E2532208712F00CD8451 /* LikeButtonCell.swift in Sources */,
 				ADB8D83F21F88702001D88BD /* UserCollectionView.swift in Sources */,
 				AD2B6A8A2204796700DD563A /* InviteCell.swift in Sources */,
+				AD0D4801220B166D00FFAC7D /* ImageEditCell.swift in Sources */,
 				ADC672ED21E3AE3900D6D3F5 /* BaseChatCell.swift in Sources */,
 				AD50748121F28D9C003B50F5 /* TimeInputView.swift in Sources */,
 				AD50748621F29EEA003B50F5 /* EditView.swift in Sources */,
@@ -1104,9 +1114,10 @@
 				AD95E2482208712F00CD8451 /* ContactsPickerViewController.swift in Sources */,
 				ADC672E721E3A59000D6D3F5 /* UserEnterCell.swift in Sources */,
 				AD95E24A2208712F00CD8451 /* Contact.swift in Sources */,
-				ADA7E01C21FF766900FCF517 /* TimeEditCell.swift in Sources */,
+				AD0D4805220B169C00FFAC7D /* SendFailEditCell.swift in Sources */,
 				AD95E23D2208712F00CD8451 /* CountryCell.swift in Sources */,
 				ADC672A921E2260700D6D3F5 /* AppDelegate.swift in Sources */,
+				AD0D47FF220B166400FFAC7D /* TextEditCell.swift in Sources */,
 				AD50748421F2971D003B50F5 /* MiddleView.swift in Sources */,
 				ADA7E00E21FED65500FCF517 /* SpeacialFeatureInputView.swift in Sources */,
 				AD95E2512208712F00CD8451 /* TelegramPickerViewController.swift in Sources */,
@@ -1124,6 +1135,7 @@
 				AD27D18E21F1D422009E367A /* ChatTableView.swift in Sources */,
 				AD2B6A84220474CB00DD563A /* DeleteMessageAnother.swift in Sources */,
 				AD95E2422208712F00CD8451 /* LocationSearchResultsViewController.swift in Sources */,
+				AD0D4803220B167900FFAC7D /* DateLineEditCell.swift in Sources */,
 				AD95E2552208712F00CD8451 /* SegmentedControl.swift in Sources */,
 				ADC672F021E3B0A000D6D3F5 /* Style.swift in Sources */,
 			);

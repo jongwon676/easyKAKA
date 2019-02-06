@@ -166,12 +166,12 @@ extension ChatVC: EditChatting{
         
         let storyboard = UIStoryboard.init(name: "MessageEdit", bundle: Bundle.main)
         
-        if let nav = storyboard.instantiateViewController(withIdentifier: "MessageEditNav") as? UINavigationController{
-            ((nav.viewControllers[0]) as? MessageEditController)?.messages = messageManager.getSelectedMessages()
-            ((nav.viewControllers[0]) as? MessageEditController)?.chatVc = self
-            
-            self.present(nav, animated: true, completion: nil)
-        }
+//        if let nav = storyboard.instantiateViewController(withIdentifier: "MessageEditNav") as? UINavigationController{
+//            ((nav.viewControllers[0]) as? MessageEditController)?.messages = messageManager.getSelectedMessages()
+//            ((nav.viewControllers[0]) as? MessageEditController)?.chatVc = self
+//            
+//            self.present(nav, animated: true, completion: nil)
+//        }
     }
 
     

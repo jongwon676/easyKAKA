@@ -1,5 +1,5 @@
 //
-//  TextEditCell.swift
+//  DateLineEditCell.swift
 //  kakakak
 //
 //  Created by 성용강 on 06/02/2019.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-class TextEditCell: UITableViewCell,EditCellProtocol {
+class DateLineEditCell: UITableViewCell,EditCellProtocol {
     func configure(msg: Message) {
-        messageTextView.text = msg.messageText
+        datePicker.date = msg.sendDate
     }
     
-
-    @IBOutlet var messageTextView: UITextView!
+    @IBOutlet var datePicker: UIDatePicker!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

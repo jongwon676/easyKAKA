@@ -199,12 +199,16 @@ class ChatVC: UIViewController{
         
         self.view.addSubview(tableView)
         self.view.addSubview(bottomController.view)
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 50
+        
+//        tableView.rowHeight = UITableView.automaticDimension
+//        tableView.estimatedRowHeight = 50
 //        self.makeDummyCells()
+        
+        
         (self.navigationController as? ColorNavigationViewController)?.orangeGradientLocation = [0.0,1.0]
         (self.navigationController as? ColorNavigationViewController)?.orangeGradient = [UIColor.white,UIColor.white]
 //
+        
         (self.navigationController as? ColorNavigationViewController)?.changeGradientImage(orangeGradient: [UIColor.white,UIColor.white], orangeGradientLocation: [0.0,1.0])
         self.navigationItem.largeTitleDisplayMode = .never
         navigationController?.view.backgroundColor = UIColor.white
