@@ -202,22 +202,17 @@ class ChatVC: UIViewController{
         self.view.addSubview(bottomController.view)
         if #available(iOS 11.0, *) {
             let window = UIApplication.shared.keyWindow
-            let bottomPadding = window?.safeAreaInsets.bottom
+            
             let dummyView = UIView()
             self.view.addSubview(dummyView)
             dummyView.backgroundColor = UIColor.white
             dummyView.snp.makeConstraints { (mk) in
                 mk.left.right.equalTo(self.view)
                 mk.bottom.equalTo(self.view.snp.bottom)
-mk.top.equalTo(self.bottomController.view.snp.bottom)                
+                mk.top.equalTo(self.bottomController.view.snp.bottom)
             }
         }
-        
-//        tableView.rowHeight = UITableView.automaticDimension
-//        tableView.estimatedRowHeight = 50
-//        self.makeDummyCells()
-        
-        
+
         (self.navigationController as? ColorNavigationViewController)?.orangeGradientLocation = [0.0,1.0]
         (self.navigationController as? ColorNavigationViewController)?.orangeGradient = [UIColor.white,UIColor.white]
 //

@@ -35,8 +35,9 @@ extension ChatVC: UITextViewDelegate{
         }
         
         
-        let bHeight = bottomController.getKeyBoardHeight()
+        
         if show {
+            self.bottomController.mode = .chatting
             self.bottomController.view.snp.updateConstraints({ (mk) in
                 mk.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-offset)
             })
@@ -128,6 +129,14 @@ extension ChatVC: UITextViewDelegate{
 }
 
 extension ChatVC: bottomInfoReceiver{
+    func captureModeCalled() {
+        editButton.isHidden = true
+    }
+    
+    func chattingModeCalled() {
+        editButton.isHidden = false
+    }
+    
     func sendMessage(text: String) {
         guard let currentUser = bottomController.selectedUser else { return }
         messageManager.addLast(message: Message(owner: currentUser, sendDate: room.currentDate, messageText: text), tableView: self.tableView)

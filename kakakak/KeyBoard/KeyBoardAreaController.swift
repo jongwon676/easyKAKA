@@ -12,6 +12,8 @@ enum chatState{
 protocol bottomInfoReceiver: class {
     func addMinute(minute: Int)
     func sendMessage(text: String)
+    func captureModeCalled()
+    func chattingModeCalled()
 }
 
 enum ChatMode{
@@ -36,23 +38,25 @@ class KeyBoardAreaController: UIViewController{
     
     var mode: ChatMode = .chatting{
         didSet{
-//            
-//            if mode == .chatting{
-//                [topView,bottomView].forEach{
-//                    $0.snp.updateConstraints({ (mk) in
-//                        mk.height.equalTo(elementHeight)
-//                    })
-//                }
-//                
-//            }else{
-//                [topView,bottomView].forEach{
-//                    $0.snp.updateConstraints({ (mk) in
-//                        mk.height.equalTo(0)
-//                    })
-//                }
-//                self.keyboardHide()
-//            }
-//            self.view.layoutIfNeeded()
+            if mode == .chatting{
+                topView.snp.updateConstraints { (mk) in
+                    mk.height.equalTo(90)
+                }
+                receiver?.chattingModeCalled()
+                bottomView.snp.updateConstraints { (mk) in
+                    mk.height.equalTo(elementHeight)
+                }
+                
+            }else{
+                [topView,bottomView].forEach{
+                    $0.snp.updateConstraints({ (mk) in
+                        mk.height.equalTo(0)
+                    })
+                }
+                receiver?.captureModeCalled()
+                self.keyboardHide()
+            }
+            self.view.layoutIfNeeded()
         }
     }
     
