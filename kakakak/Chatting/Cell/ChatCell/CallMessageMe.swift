@@ -30,8 +30,15 @@ class CallMessageMe: BaseChat, ChattingCellProtocol{
     
     
     func configure(message: Message) {
-        first.isActive = message.isFirstMessage
-        second.isActive = !message.isFirstMessage
+        if message.isFirstMessage{
+            NSLayoutConstraint.activate([first])
+            NSLayoutConstraint.deactivate([second])
+        }else{
+            NSLayoutConstraint.activate([second])
+            NSLayoutConstraint.deactivate([first])
+        }
+        
+        
         self.backgroundColor = UIColor.clear
         self.containerView.backgroundColor = UIColor.clear
         guard let owner = message.owner else { return  }
@@ -48,6 +55,10 @@ class CallMessageMe: BaseChat, ChattingCellProtocol{
         callImage.image = callImageAndTitle.image
         callLabel.text = callImageAndTitle.title
         
+    }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        NSLayoutConstraint.deactivate([first,second])
     }
 }
 

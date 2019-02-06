@@ -20,7 +20,6 @@ class ReplayController: UIViewController {
             mk.left.right.top.equalTo(self.view)
             mk.bottom.equalTo(self.middleView.snp.top)
         })
-        
         return tableView
     }()
     
@@ -101,7 +100,7 @@ extension ReplayController: UITableViewDelegate,UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: msg.type.rawValue)
         cell?.selectionStyle = .none
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: msg.type.rawValue) as? BaseChatCell{
+        if let cell = tableView.dequeueReusableCell(withIdentifier: msg.type.rawValue) as? BaseChat{
             cell.selectionStyle = .none
             cell.editMode = false
             (cell as? ChattingCellProtocol)?.configure(message: msg)

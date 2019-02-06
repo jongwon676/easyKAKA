@@ -171,14 +171,13 @@ class ChatVC: UIViewController{
         controller.mode = .chatting
         return controller
     }()
-    
+
     lazy var tableviewGestureRecog = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
     lazy var tableViewEditGestureRecog = UITapGestureRecognizer(target: self, action: #selector(handleTapEdit(_:)))
     
     @IBOutlet var tableView: UITableView! {
         didSet{
             tableView.addGestureRecognizer(tableviewGestureRecog)
-            tableView.backgroundColor = UIColor.red
             
         }
     }
@@ -200,7 +199,8 @@ class ChatVC: UIViewController{
         
         self.view.addSubview(tableView)
         self.view.addSubview(bottomController.view)
-        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 50
 //        self.makeDummyCells()
         (self.navigationController as? ColorNavigationViewController)?.orangeGradientLocation = [0.0,1.0]
         (self.navigationController as? ColorNavigationViewController)?.orangeGradient = [UIColor.white,UIColor.white]
@@ -313,25 +313,43 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messageManager?.messages.count ?? 0
     }
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        let msg = messageManager.getMessage(idx: indexPath.row)
+//
+//        if let cell = tableView.dequeueReusableCell(withIdentifier: msg.getIdent()) as? BaseChat{
+//            cell.selectionStyle = .none
+//            cell.editMode = self.isEditMode
+//            (cell as? ChattingCellProtocol)?.configure(message: msg)
+//            cell.checkBoxImage.image = msg.isSelected ? UIImage(named: "selected") : UIImage(named: "unSelected")
+//            cell.bringSubviewToFront(cell.checkBoxImage)
+//        }
+//    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print(indexPath.row)
+        
        
         let msg = messageManager.getMessage(idx: indexPath.row)
         
         
 //        let cell = tableView.dequeueReusableCell(withIdentifier: msg.getIdent())
 //        cell?.selectionStyle = .none
-        
+        if indexPath.row == 114{
+            var abc = 3
+            
+        }
         if let cell = tableView.dequeueReusableCell(withIdentifier: msg.getIdent()) as? BaseChat{
             cell.selectionStyle = .none
             cell.editMode = self.isEditMode
             (cell as? ChattingCellProtocol)?.configure(message: msg)
             cell.checkBoxImage.image = msg.isSelected ? UIImage(named: "selected") : UIImage(named: "unSelected")
             cell.bringSubviewToFront(cell.checkBoxImage)
-         
+            
+            cell.contentView.setNeedsLayout()
+            cell.contentView.layoutIfNeeded()
+            
             return cell
         }
+        
         return UITableViewCell()
     }
     
