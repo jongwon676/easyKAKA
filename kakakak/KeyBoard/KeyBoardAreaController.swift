@@ -46,8 +46,10 @@ class KeyBoardAreaController: UIViewController{
                 bottomView.snp.updateConstraints { (mk) in
                     mk.height.equalTo(elementHeight)
                 }
+                middleView.smileButton.setImage(#imageLiteral(resourceName: "middleViewTimeOff"), for: .normal)
                 
             }else{
+            middleView.smileButton.setImage(UIImage(named: "emoji_origin"), for: .normal)
                 [topView,bottomView].forEach{
                     $0.snp.updateConstraints({ (mk) in
                         mk.height.equalTo(0)
@@ -72,7 +74,8 @@ class KeyBoardAreaController: UIViewController{
     
     var hasText: Bool = false{
         didSet{
-            middleView.sendButton.setImage(UIImage(named: hasText ? "enter" : "sharp"), for: .normal)
+            hasText ? middleView.onSendButton() : middleView.onSharpButton()
+            
         }
     }
     

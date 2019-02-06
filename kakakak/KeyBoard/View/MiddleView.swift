@@ -9,7 +9,8 @@ class MiddleView: UIView{
     
     lazy var smileButton: CustomFocusControl = {
         let btn = CustomFocusControl(type: .custom)
-        btn.setImage(UIImage(named: "emoji_origin"), for: .normal)
+//        btn.setImage(UIImage(named: "emoji_origin"), for: .normal)
+        btn.setImage(#imageLiteral(resourceName: "middleViewTimeOff"), for: .normal)
         return btn
     }()
     
@@ -33,7 +34,29 @@ class MiddleView: UIView{
         return textView
     }()
     
-    let textViewInset: UIEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 62)
+    let textViewInset: UIEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 68)
+    
+    
+    func onSendButton(){
+        sendButton.setImage(#imageLiteral(resourceName: "enter"), for: .normal)
+        sendButton.snp.remakeConstraints { (mk) in
+            mk.width.equalTo(30)
+            mk.height.equalTo(30)
+            mk.right.equalTo(textView.snp.right).inset(2)
+            mk.bottom.equalTo(textView).inset(3)
+        }
+    }
+    
+    func onSharpButton(){
+        sendButton.setImage(#imageLiteral(resourceName: "sharp"), for: .normal)
+        sendButton.snp.remakeConstraints { (mk) in
+            mk.width.equalTo(14)
+            mk.height.equalTo(16)
+            mk.right.equalTo(textView.snp.right).inset(14)
+            mk.bottom.equalTo(textView).inset(8.5)
+        }
+    }
+    
     
     
     func setup(){
@@ -52,18 +75,13 @@ class MiddleView: UIView{
         
         smileButton.snp.makeConstraints { (mk) in
             mk.width.height.equalTo(20)
-            mk.right.equalTo(sendButton.snp.left).offset(-22)
+            mk.right.equalTo(textView.snp.right).offset(-45)
+//            mk.right.equalTo(customTextView).of mk.right.equalTo(sendButton.snp.left).offset(-22)
 //            mk.centerY.equalTo(textView)
             mk.bottom.equalTo(textView).inset(7.5)
         }
         
-        sendButton.snp.makeConstraints { (mk) in
-            mk.width.equalTo(14)
-            mk.height.equalTo(16)
-            mk.right.equalTo(textView.snp.right).inset(14)
-//            mk.centerY.equalTo(textView)
-            mk.bottom.equalTo(textView).inset(8.5)
-        }
+        onSharpButton()
         
         
         
