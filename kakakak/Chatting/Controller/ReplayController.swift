@@ -7,21 +7,22 @@ class ReplayController: UIViewController {
     var messageManager: MessageProcessor!
     
     var room: Room!
-    
-    
-    
-    lazy var tableView: UITableView = {
-       let tableView = ChatTableView()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addNextMessage)))
-        self.view.addSubview(tableView)
-        tableView.snp.makeConstraints({ (mk) in
-            mk.left.right.top.equalTo(self.view)
-            mk.bottom.equalTo(self.middleView.snp.top)
-        })
-        return tableView
-    }()
+
+    var tableView: UITableView!{
+        didSet{
+            tableView.delegate = self
+            tableView.dataSource = self
+            
+            self.tableView.keyboardDismissMode = .interactive
+            self.tableView.allowsSelection = false
+            self.tableView.tableFooterView = UIView()
+            self.tableView.separatorStyle = .none
+            self.tableView.isUserInteractionEnabled = true
+            tableView.bounces = false
+            
+            self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addNextMessage)))
+        }
+    }
     
     lazy var middleView: MiddleView = {
        let middleView = MiddleView()
@@ -59,17 +60,27 @@ class ReplayController: UIViewController {
         }
     }
    
+    @IBOutlet var childView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.bounces = false
-        self.tableView.layer.removeAllAnimations()
+        messageManager = MessageProcessor(room: self.room)
+        messageManager.clear()
+        self.tableView = (children[0] as! ChatBaseVC).tableView
+        
+        
+        
+        tableView.snp.makeConstraints({ (mk) in
+            mk.left.right.top.equalTo(self.view)
+            mk.bottom.equalTo(self.middleView.snp.top)
+        })
+        
+        
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: #selector(backButtonClick)) 
         
-        messageManager = MessageProcessor(room: room)
-        messageManager.clear()
+        
     
-}
+   }
     
     @objc func backButtonClick(){
         self.navigationController?.presentingViewController?.dismiss(animated: true, completion: nil)
@@ -82,28 +93,19 @@ class ReplayController: UIViewController {
 }
 
 extension ReplayController: UITableViewDelegate,UITableViewDataSource{
-    
-    
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {        
         return messageManager.messages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let msg = messageManager.getMessage(idx: indexPath.row)
-        let cell = tableView.dequeueReusableCell(withIdentifier: msg.type.rawValue)
-        cell?.selectionStyle = .none
-        
-        if let cell = tableView.dequeueReusableCell(withIdentifier: msg.type.rawValue) as? BaseChat{
+        if let cell = tableView.dequeueReusableCell(withIdentifier: msg.getIdent()) as? BaseChat{
             cell.selectionStyle = .none
             cell.editMode = false
             (cell as? ChattingCellProtocol)?.configure(message: msg)
             return cell
         }
         return UITableViewCell()
-
-    
     }
-    
-    
 }

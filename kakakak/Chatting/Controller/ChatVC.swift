@@ -11,6 +11,8 @@ protocol CellConfigurator: class{
 class ChatVC: UIViewController{
     var realm = try! Realm()
     private weak var timer: Timer?
+    
+    @IBOutlet var childView: UIView!
     var room: Room!
     private var token: NotificationToken?
     var messageManager: MessageProcessor!
@@ -176,12 +178,8 @@ class ChatVC: UIViewController{
     lazy var tableviewGestureRecog = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
     lazy var tableViewEditGestureRecog = UITapGestureRecognizer(target: self, action: #selector(handleTapEdit(_:)))
     
-    @IBOutlet var tableView: UITableView! {
-        didSet{
-            tableView.addGestureRecognizer(tableviewGestureRecog)
-            
-        }
-    }
+    var tableView: UITableView!
+  
 
     
     func floatingButton(){
@@ -192,14 +190,17 @@ class ChatVC: UIViewController{
         }
     }
     
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
         self.view.backgroundColor = UIColor.white
-        
-        self.view.addSubview(tableView)
+        self.tableView = (self.children[0] as! ChatBaseVC).tableView
+        self.tableView.addGestureRecognizer(tableviewGestureRecog)
+       self.tableView.delegate = self
+       self.tableView.dataSource = self
         self.view.addSubview(bottomController.view)
+        
         if #available(iOS 11.0, *) {
             let window = UIApplication.shared.keyWindow
             
@@ -315,6 +316,7 @@ class ChatVC: UIViewController{
     }
     
     deinit {
+        print("tableview deinit 됫다말구")
         NotificationCenter.default.removeObserver(self)
         token?.invalidate()
     }

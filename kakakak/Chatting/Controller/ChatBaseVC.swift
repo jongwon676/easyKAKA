@@ -10,9 +10,14 @@ import UIKit
 
 class ChatBaseVC: UIViewController {
 
+    @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+    }
+    override func loadView() {
+        super.loadView()
+        self.view = tableView
     }
 
 }
