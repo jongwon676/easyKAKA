@@ -3,7 +3,13 @@ import SnapKit
 import RealmSwift
 
 class BaseChat: UITableViewCell{
-    var message: Message!
+    var message: Message!{
+        didSet{
+            if message.isFirstMessage{
+                setNeedsDisplay()
+            }
+        }
+    }
     var editMode: Bool = false{
         didSet{
             checkBoxImage.isHidden = !editMode

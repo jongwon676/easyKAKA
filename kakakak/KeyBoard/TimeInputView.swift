@@ -44,5 +44,17 @@ extension CGRect{
     var center: CGPoint{
         return CGPoint(x: self.midX, y: self.midY)
     }
+    var leftTopCorner: CGPoint{
+        return CGPoint(x: self.minX, y: self.minY)
+    }
+    var rightTopCorner: CGPoint{
+        return CGPoint(x: self.maxX, y: self.minY)
+    }
     
+}
+
+extension CGPoint{
+    func div(num: CGFloat) -> CGPoint{
+        return CGPoint(x: self.x / num, y: self.y / num)
+    }
 }

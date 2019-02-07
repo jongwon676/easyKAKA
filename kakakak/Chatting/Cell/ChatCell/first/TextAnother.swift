@@ -9,7 +9,22 @@ class TextAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
     
     
     @IBOutlet var bubble: CornerRadiusView!
-    
+    override func draw(_ rect: CGRect) {
+
+        
+        if self.message.isFirstMessage{
+            let path = UIBezierPath()
+            let points = DrawHelper.drawTail(dir: .right, cornerPoint: bubble.frame.rightTopCorner)
+            path.move(to: points[0])
+            path.addLine(to: points[1])
+            path.addLine(to: points[2])
+            path.addLine(to: points[3])
+            path.close()
+            
+            bubble.backgroundColor?.setFill()
+            path.fill()
+        }
+    }
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -19,6 +34,7 @@ class TextAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
     }
     
     func configure(message: Message){
+        self.message = message
         self.backgroundColor = UIColor.clear
         self.contentView.backgroundColor = UIColor.clear
         self.bubble.backgroundColor = Style.rightBubbleColor

@@ -201,6 +201,12 @@ class ChatVC: UIViewController{
        self.tableView.dataSource = self
         self.view.addSubview(bottomController.view)
         
+        self.childView.snp.makeConstraints { (mk) in
+            mk.left.right.bottom.top.equalTo(tableView)
+        }
+        
+        
+        
         if #available(iOS 11.0, *) {
             let window = UIApplication.shared.keyWindow
             

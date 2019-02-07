@@ -73,7 +73,9 @@ class ReplayController: UIViewController {
             mk.left.right.top.equalTo(self.view)
             mk.bottom.equalTo(self.middleView.snp.top)
         })
-        
+        childView.snp.makeConstraints { (mk) in
+            mk.left.right.bottom.top.equalTo(tableView)
+        }
         
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: #selector(backButtonClick)) 

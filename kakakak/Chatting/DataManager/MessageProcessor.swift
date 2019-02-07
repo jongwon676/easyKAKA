@@ -31,7 +31,7 @@ class MessageProcessor{
         let left = messages.count
         var right = left
         
-        while right <= room.messages.count && room.messages[right].type == .date{
+        while right < room.messages.count && room.messages[right].type == .date{
             right += 1
         }
         
