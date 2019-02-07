@@ -45,7 +45,6 @@ class RoomListVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
             case .initial:
                 tableView.reloadData()
             case .update(_, let deletions, let insertions, let updates):
-                print("tableView updates")
                 if deletions.count > 0 {
                     let paths = deletions.map{IndexPath.row(row: $0)}
                     tableView.deleteRows(at: paths, with: .fade)

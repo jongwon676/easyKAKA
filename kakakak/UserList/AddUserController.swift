@@ -78,7 +78,6 @@ class AddUserController: UIViewController, UITableViewDelegate, UITableViewDataS
         picker.dismiss(animated: true, completion: nil)
     }
     @IBAction func editChanged(_ sender: UITextField) {
-        print(sender.text)
         if (sender.text?.isEmpty)!{
             
         }else{

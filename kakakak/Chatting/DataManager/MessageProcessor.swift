@@ -148,7 +148,6 @@ class MessageProcessor{
     func deleteMessages(rows: [Int],tableview: UITableView){
         try! realm.write {
             for row in Array(rows.sorted{ $0 > $1 }){
-                print("delete message row\(row)")
                 // primary key로 지우는게 안전할듯한데
                 messages.remove(at: row) // atomic으로 지우는게 안전할듯.
                 room.messages.remove(at: row)

@@ -218,6 +218,7 @@ class ChatVC: UIViewController{
 //
         
         (self.navigationController as? ColorNavigationViewController)?.changeGradientImage(orangeGradient: [UIColor.white,UIColor.white], orangeGradientLocation: [0.0,1.0])
+        
         self.navigationItem.largeTitleDisplayMode = .never
         navigationController?.view.backgroundColor = UIColor.white
         
@@ -226,6 +227,7 @@ class ChatVC: UIViewController{
         messageManager.vc = self
         
         messageManager.reload()
+        
         tableView.snp.makeConstraints { (mk) in
             mk.left.right.top.equalTo(self.view)
 //            mk.bottom.equalTo(self.view.safeAreaLayoutGuide)
@@ -325,33 +327,13 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messageManager?.messages.count ?? 0
-    }
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        let msg = messageManager.getMessage(idx: indexPath.row)
-//
-//        if let cell = tableView.dequeueReusableCell(withIdentifier: msg.getIdent()) as? BaseChat{
-//            cell.selectionStyle = .none
-//            cell.editMode = self.isEditMode
-//            (cell as? ChattingCellProtocol)?.configure(message: msg)
-//            cell.checkBoxImage.image = msg.isSelected ? UIImage(named: "selected") : UIImage(named: "unSelected")
-//            cell.bringSubviewToFront(cell.checkBoxImage)
-//        }
-//    }
-    
+    }    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
        
         let msg = messageManager.getMessage(idx: indexPath.row)
-        
-        
-//        let cell = tableView.dequeueReusableCell(withIdentifier: msg.getIdent())
-//        cell?.selectionStyle = .none
-        if indexPath.row == 114{
-            var abc = 3
-            
-        }
+
         if let cell = tableView.dequeueReusableCell(withIdentifier: msg.getIdent()) as? BaseChat{
-            print(msg.getIdent())
             
             cell.selectionStyle = .none
             cell.editMode = self.isEditMode

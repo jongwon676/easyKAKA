@@ -42,7 +42,6 @@ class SpecailFeatureCell: UICollectionViewCell{
         imageContainer.layer.shadowRadius = 2
         imageContainer.layer.shadowOffset = CGSize(width: 0, height: 1)
         
-        print(imageContainer.bounds)
         
         
         

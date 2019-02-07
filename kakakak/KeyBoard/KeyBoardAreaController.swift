@@ -64,7 +64,6 @@ class KeyBoardAreaController: UIViewController{
     
     var users = List<User>() {
         didSet{
-            print("set user")
             userCollectionView.reloadData()
         }
     }
@@ -133,7 +132,6 @@ class KeyBoardAreaController: UIViewController{
     }()
     @objc func checker(){
         middleView.smileButton.becomeFirstResponder()
-        print(middleView.smileButton.isFirstResponder)
     }
     
     lazy var bottomView: UIView = {
@@ -229,7 +227,6 @@ class KeyBoardAreaController: UIViewController{
         middleView.text = ""
         textViewDidChange(middleView.textView)
 
-        print(stackView.frame.height)
         //        textViewDidChange(_ middleView.textView: UITextView)
     }
     

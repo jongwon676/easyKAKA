@@ -170,7 +170,7 @@ extension BackgroundSelectController:UICollectionViewDelegateFlowLayout{
         }
     }
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("select \(indexPath)")
+
         
         if indexPath.item == 0{
             imagePickerControllerPresent()

@@ -116,6 +116,8 @@
 		ADB8D83821F48D13001D88BD /* SizeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB8D83721F48D13001D88BD /* SizeCalculator.swift */; };
 		ADB8D83A21F54886001D88BD /* MessageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB8D83921F54886001D88BD /* MessageProcessor.swift */; };
 		ADB8D83F21F88702001D88BD /* UserCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB8D83E21F88702001D88BD /* UserCollectionView.swift */; };
+		ADB8E577220BD64C006628F2 /* Replay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADB8E576220BD64C006628F2 /* Replay.storyboard */; };
+		ADB8E579220BD7B7006628F2 /* ChatBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB8E578220BD7B7006628F2 /* ChatBaseVC.swift */; };
 		ADC672A921E2260700D6D3F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672A821E2260700D6D3F5 /* AppDelegate.swift */; };
 		ADC672AE21E2260700D6D3F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADC672AC21E2260700D6D3F5 /* Main.storyboard */; };
 		ADC672B021E2260800D6D3F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADC672AF21E2260800D6D3F5 /* Assets.xcassets */; };
@@ -264,6 +266,8 @@
 		ADB8D83721F48D13001D88BD /* SizeCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeCalculator.swift; sourceTree = "<group>"; };
 		ADB8D83921F54886001D88BD /* MessageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageProcessor.swift; sourceTree = "<group>"; };
 		ADB8D83E21F88702001D88BD /* UserCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionView.swift; sourceTree = "<group>"; };
+		ADB8E576220BD64C006628F2 /* Replay.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Replay.storyboard; sourceTree = "<group>"; };
+		ADB8E578220BD7B7006628F2 /* ChatBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBaseVC.swift; sourceTree = "<group>"; };
 		ADC672A521E2260700D6D3F5 /* kakakak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kakakak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADC672A821E2260700D6D3F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADC672AD21E2260700D6D3F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -720,6 +724,7 @@
 				AD50748721F30471003B50F5 /* ReplayController.swift */,
 				AD95E6C221F422FD000450AB /* BackgroundSelectController.swift */,
 				ADA7E01521FF620F00FCF517 /* MessageEditController.swift */,
+				ADB8E578220BD7B7006628F2 /* ChatBaseVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -776,6 +781,7 @@
 				ADC672B121E2260800D6D3F5 /* LaunchScreen.storyboard */,
 				ADA7E01321FF596300FCF517 /* MessageEdit.storyboard */,
 				ADC672B421E2260800D6D3F5 /* Info.plist */,
+				ADB8E576220BD64C006628F2 /* Replay.storyboard */,
 			);
 			path = kakakak;
 			sourceTree = "<group>";
@@ -964,6 +970,7 @@
 			files = (
 				ADA7E01421FF596300FCF517 /* MessageEdit.storyboard in Resources */,
 				AD8CD3FF2200D6BA0040AE81 /* xeicon.ttf in Resources */,
+				ADB8E577220BD64C006628F2 /* Replay.storyboard in Resources */,
 				ADC672B321E2260800D6D3F5 /* LaunchScreen.storyboard in Resources */,
 				ADC672B021E2260800D6D3F5 /* Assets.xcassets in Resources */,
 				AD27D16921F14B9D009E367A /* icon in Resources */,
@@ -1102,6 +1109,7 @@
 				AD95E2472208712F00CD8451 /* PickerViewViewController.swift in Sources */,
 				AD95E2362208712F00CD8451 /* TextViewController.swift in Sources */,
 				AD2B6A7E22045FE400DD563A /* CallMessageMe.swift in Sources */,
+				ADB8E579220BD7B7006628F2 /* ChatBaseVC.swift in Sources */,
 				ADC672DA21E2C8F800D6D3F5 /* Message.swift in Sources */,
 				AD50748821F30471003B50F5 /* ReplayController.swift in Sources */,
 				ADA7E01221FEF44800FCF517 /* TimeChangeButton.swift in Sources */,

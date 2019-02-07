@@ -142,10 +142,6 @@ extension ChatVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate
     @objc func dateSelected(datePicker:UIDatePicker) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy년 MMM월 d일 EEE"
-        let currentDate = datePicker.date
-//        print(dateFormatter.string(from: currentDate))
-        // "yyyy년 MMM월 d일 EEE"
-        // 2018년 4월 27일 금요일
     }
     
     func showDeleteMessagesModal(){

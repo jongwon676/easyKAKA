@@ -9,7 +9,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        print(try! Path.documents().absoluteString)
         SyncManager.shared.logLevel = .off
 //        Firebase.configure()
         FirebaseApp.configure()

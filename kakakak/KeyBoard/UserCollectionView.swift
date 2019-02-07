@@ -5,7 +5,6 @@ class UserCollectionView: UICollectionView{
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        print("rect draw")
         dump(rect)
         let horRadius: CGFloat = 333
         let verRadius: CGFloat = 225 // 타원의 세로 반지름

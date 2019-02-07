@@ -4,7 +4,7 @@ import RealmSwift
 extension ChatVC: UITextViewDelegate{
 
     func textViewDidBeginEditing(_ textView: UITextView) {
-        print("textview begin edit")
+        
     }
     
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
@@ -24,7 +24,7 @@ extension ChatVC: UITextViewDelegate{
         let show = (notification.name == UIResponder.keyboardWillShowNotification)
             ? true
             : false
-        print("show\(show)")
+        
 
         var offset:CGFloat = 0
         
