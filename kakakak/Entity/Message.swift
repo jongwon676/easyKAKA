@@ -111,12 +111,7 @@ class Message: Object,NSCopying {
     }
     
     
-    static func makeEnterMessage(from: User,to: List<User>) -> Message{
-        let msg = Message()
-        msg.owner = from
-        msg.type = .enter
-        return msg
-    }
+    
     
     static func makeRecordMessage(duration: Int, owner: User) -> Message{
         let msg = Message()
@@ -133,11 +128,27 @@ class Message: Object,NSCopying {
         msg.owner = owner
         return msg
     }
+    static func makeEnterMessage(from: User,to: List<User>) -> Message{
+        let msg = Message()
+        msg.owner = from
+        msg.type = .enter
+        var string: String = from.name + "님이 "
+        for (idx,user) in to.enumerated(){
+            if idx == to.count - 1 {
+                string += user.name + "님을 초대했습니다."
+            }else{
+                string += user.name + "님과 "
+            }
+        }
+        msg.messageText = string
+        return msg
+    }
     
     static func makeExitMessage(exit: User) -> Message{
         let msg = Message()
         msg.type = .exit
         msg.owner = exit
+        msg.messageText = exit.name + "님이 나갔습니다."
         return msg
     }
     

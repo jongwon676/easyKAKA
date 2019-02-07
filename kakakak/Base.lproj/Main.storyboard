@@ -1062,7 +1062,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="강성용" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Lw-rp-mA4">
-                                                            <rect key="frame" x="79" y="16" width="45" height="21"/>
+                                                            <rect key="frame" x="79" y="16" width="254" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1082,6 +1082,7 @@
                                                         <constraint firstItem="n8h-zm-Vja" firstAttribute="leading" secondItem="Z0b-jb-aTv" secondAttribute="leading" constant="25" id="Kqk-mb-yqf"/>
                                                         <constraint firstItem="SqN-Ng-rDB" firstAttribute="centerY" secondItem="n8h-zm-Vja" secondAttribute="centerY" id="R9W-59-p5d"/>
                                                         <constraint firstItem="6Lw-rp-mA4" firstAttribute="leading" secondItem="n8h-zm-Vja" secondAttribute="trailing" constant="13" id="T4h-RA-rEu"/>
+                                                        <constraint firstItem="SqN-Ng-rDB" firstAttribute="leading" secondItem="6Lw-rp-mA4" secondAttribute="trailing" constant="10" id="tD7-9U-cA8"/>
                                                         <constraint firstItem="n8h-zm-Vja" firstAttribute="top" secondItem="Z0b-jb-aTv" secondAttribute="top" constant="10" id="tZq-Jo-kqH"/>
                                                     </constraints>
                                                 </tableViewCellContentView>

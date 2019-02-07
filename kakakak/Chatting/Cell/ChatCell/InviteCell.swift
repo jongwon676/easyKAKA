@@ -9,6 +9,7 @@ class InviteCell: BaseChat,ChattingCellProtocol{
     func configure(message: Message) {
         self.message = message
         self.backgroundColor = UIColor.clear
+        inviteLabel.text = message.messageText
     }
     
     
