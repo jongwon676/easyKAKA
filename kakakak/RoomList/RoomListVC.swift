@@ -3,19 +3,15 @@ import RealmSwift
 import GoogleMobileAds
 class RoomListVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
     @IBOutlet var tableView: UITableView!
-    
+    var token: NotificationToken?
     var rooms: Results<Room>!
     var bannerView: GADBannerView = GADBannerView(frame:  CGRect(x: 0, y: 0, width: 200, height: 200))
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         rooms = Room.all()
-//        tableView.delegate = self
-//        tableView.rowHeight = 77
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .singleLine
-        
-        
     }
     
     @objc func roomAdd(){
@@ -31,14 +27,35 @@ class RoomListVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         addButton.isHidden = true
+        token?.invalidate()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-       addButton.isHidden = false
+        addButton.isHidden = false
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         self.tabBarController?.tabBar.isHidden = false
+        
+        token = rooms.observe{
+            [weak tableView] changes in
+            guard let tableView = tableView else { return }
+            switch changes{
+            case .initial:
+                tableView.reloadData()
+            case .update(_, let deletions, let insertions, let updates):
+                print("tableView updates")
+                if deletions.count > 0 {
+                    let paths = deletions.map{IndexPath.row(row: $0)}
+                    tableView.deleteRows(at: paths, with: .fade)
+                }else{
+                    tableView.applyChanges(deletions: deletions, insertions: insertions, updates: updates)
+                }
+            case .error: break
+            }
+        }
+        
         tableView.reloadData()
         
         
@@ -76,6 +93,34 @@ class RoomListVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
             self.navigationController?.pushViewController(chatvc, animated: true)
         }
     }
+     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        
+        let alert = UIAlertController(title: "삭제된 데이터는 복구 할 수 없습니다.", message: nil, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "삭제", style: .destructive, handler: { (action) in
+            self.rooms[indexPath.row].remove()
+        }))
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+
+        let deleteAction = UIContextualAction(style: .normal, title: "Delete") { (action, sourceView, completionHandler) in
+            
+            self.present(alert, animated: true, completion: nil)
+            
+                        
+            completionHandler(true)
+        }
+        
+
+        deleteAction.backgroundColor = UIColor(red: 231.0/255.0, green: 76.0/255.0, blue: 60.0/255.0, alpha: 1.0)
+        deleteAction.image = UIImage(named: "bomb")
+        
+        
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction])
+        
+        return swipeConfiguration
+    }
+    
     
     
     

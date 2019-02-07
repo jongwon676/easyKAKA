@@ -121,4 +121,12 @@ class Room: Object{
         }
         return list
     }
+    func remove(){
+        
+        try! realm?.write {
+            realm?.delete(users)
+            realm?.delete(messages)
+            realm?.delete(self)
+        }
+    }
 }
