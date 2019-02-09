@@ -96,12 +96,11 @@ class TimeButton: UIView{
         minusButton.setTitle("-", for: .normal)
         plusButton.setTitle("+", for: .normal)
         
-//        minusButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleMinus)))
-//        plusButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handlePlus)))
+
         
         
         [minusButton,plusButton].forEach { (btn) in
-            btn.titleLabel?.font = UIFont.systemFont(ofSize: 40)
+            btn.titleLabel?.font = UIFont.systemFont(ofSize: 43)
             btn.titleLabel?.textColor = #colorLiteral(red: 0.9237803817, green: 0.654075861, blue: 0.2584527731, alpha: 1)
             btn.tintColor = #colorLiteral(red: 0.9237803817, green: 0.654075861, blue: 0.2584527731, alpha: 1)
         }
@@ -131,13 +130,14 @@ class TimeButton: UIView{
     }
     
     init(frame: CGRect,type: TimeButtonType) {
-        super.init(frame: frame)
         self.type = type
+        super.init(frame: frame)
         setupView()
         
     }
     
     required init?(coder aDecoder: NSCoder) {
+        self.type = .hour
         super.init(coder: aDecoder)
         setupView()
     }
