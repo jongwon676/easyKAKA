@@ -151,6 +151,9 @@
 		ADDDF02B21E53E6E007E3D16 /* ChatVC+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDDF02A21E53E6E007E3D16 /* ChatVC+extension.swift */; };
 		ADDFB86021E7037A003D5DF1 /* ChatVC+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDFB85F21E7037A003D5DF1 /* ChatVC+Alert.swift */; };
 		ADE54866220E81FC0096AB96 /* UITabbar+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE54865220E81FC0096AB96 /* UITabbar+extension.swift */; };
+		ADE54868220F23060096AB96 /* UIImageView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE54867220F23060096AB96 /* UIImageView+extension.swift */; };
+		ADE5486A220F30300096AB96 /* AspectImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE54869220F30300096AB96 /* AspectImageView.swift */; };
+		ADE5486C220F483A0096AB96 /* ImagePickerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE5486B220F483A0096AB96 /* ImagePickerHelper.swift */; };
 		ADEC85DC220E561E005F3C6A /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEC85DB220E561E005F3C6A /* ViewController+Extension.swift */; };
 		ADFA306522043C1100744C31 /* BaseChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFA306422043C1100744C31 /* BaseChat.swift */; };
 		ADFA306722043C5500744C31 /* TextMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFA306622043C5500744C31 /* TextMe.swift */; };
@@ -306,6 +309,9 @@
 		ADDDF02A21E53E6E007E3D16 /* ChatVC+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatVC+extension.swift"; sourceTree = "<group>"; };
 		ADDFB85F21E7037A003D5DF1 /* ChatVC+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatVC+Alert.swift"; sourceTree = "<group>"; };
 		ADE54865220E81FC0096AB96 /* UITabbar+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabbar+extension.swift"; sourceTree = "<group>"; };
+		ADE54867220F23060096AB96 /* UIImageView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+extension.swift"; sourceTree = "<group>"; };
+		ADE54869220F30300096AB96 /* AspectImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectImageView.swift; sourceTree = "<group>"; };
+		ADE5486B220F483A0096AB96 /* ImagePickerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerHelper.swift; sourceTree = "<group>"; };
 		ADEC85DB220E561E005F3C6A /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 		ADFA306422043C1100744C31 /* BaseChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseChat.swift; sourceTree = "<group>"; };
 		ADFA306622043C5500744C31 /* TextMe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMe.swift; sourceTree = "<group>"; };
@@ -846,6 +852,9 @@
 				AD8CD4002200E70F0040AE81 /* UITableView+Extension.swift */,
 				ADEC85DB220E561E005F3C6A /* ViewController+Extension.swift */,
 				ADE54865220E81FC0096AB96 /* UITabbar+extension.swift */,
+				ADE54867220F23060096AB96 /* UIImageView+extension.swift */,
+				ADE54869220F30300096AB96 /* AspectImageView.swift */,
+				ADE5486B220F483A0096AB96 /* ImagePickerHelper.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1119,9 +1128,11 @@
 				AD95E6C721F43393000450AB /* BackgroundCaptureImageCell.swift in Sources */,
 				AD95E2472208712F00CD8451 /* PickerViewViewController.swift in Sources */,
 				AD95E2362208712F00CD8451 /* TextViewController.swift in Sources */,
+				ADE54868220F23060096AB96 /* UIImageView+extension.swift in Sources */,
 				AD2B6A7E22045FE400DD563A /* CallMessageMe.swift in Sources */,
 				ADB8E579220BD7B7006628F2 /* ChatBaseVC.swift in Sources */,
 				ADC672DA21E2C8F800D6D3F5 /* Message.swift in Sources */,
+				ADE5486A220F30300096AB96 /* AspectImageView.swift in Sources */,
 				AD50748821F30471003B50F5 /* ReplayController.swift in Sources */,
 				ADA7E01221FEF44800FCF517 /* TimeChangeButton.swift in Sources */,
 				AD95E2462208712F00CD8451 /* Address.swift in Sources */,
@@ -1170,6 +1181,7 @@
 				AD95E2512208712F00CD8451 /* TelegramPickerViewController.swift in Sources */,
 				AD95E2542208712F00CD8451 /* Label.swift in Sources */,
 				AD95E22A2208712F00CD8451 /* String+Extensions.swift in Sources */,
+				ADE5486C220F483A0096AB96 /* ImagePickerHelper.swift in Sources */,
 				ADC672E921E3A5A000D6D3F5 /* UserExitCell.swift in Sources */,
 				AD95E2392208712F00CD8451 /* LocaleInfo.swift in Sources */,
 				ADA7E00A21FECDBF00FCF517 /* SpecailFeatureButton.swift in Sources */,

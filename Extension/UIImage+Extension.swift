@@ -11,12 +11,14 @@ extension UIImage{
     
     static func loadImageFromName(_ imgName: String) -> UIImage?{
         do{
-            if cache[imgName] != nil{
-                return cache[imgName]
-            }
             let path = try Path.inDocuments(imgName)
-            cache[imgName] = UIImage(contentsOfFile: path.path)
-            return cache[imgName]
+            return UIImage(contentsOfFile: path.path)
+//            if cache[imgName] != nil{
+//                return cache[imgName]
+//            }
+//            
+//            cache[imgName] = UIImage(contentsOfFile: path.path)
+//            return cache[imgName]
         }catch _{
             return nil
         }
@@ -43,4 +45,6 @@ extension UIImage{
         UIGraphicsEndImageContext()
         self.init(cgImage: image!.cgImage!)
     }
+    
+    
 }

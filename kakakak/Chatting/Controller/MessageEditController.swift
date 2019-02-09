@@ -2,7 +2,7 @@ import UIKit
 import SnapKit
 import RealmSwift
 
-class MessageEditController: UITableViewController {
+class MessageEditController: UITableViewController,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
     
     // messageManager
     weak var messageManager: MessageProcessor? // index를 넘기자.
@@ -14,7 +14,7 @@ class MessageEditController: UITableViewController {
     
     let userNameCellInfo : (headerName: String, reuseId: String) = ("이름","userNameEdit")
     let textCellInfo: (headerName: String,reuseId: String) = ("내용","textEdit")
-    let imageCellInfo: (headerName: String,reuseId: String) = ("사진","")
+    let imageCellInfo: (headerName: String,reuseId: String) = ("사진","imageEditCell")
     let dateLineCellInfo: (headerName: String,reuseId: String) = ("날짜선","dateLineEdit")
     let recordCellInfo: (headerName: String, reuseId: String) = ("녹음 시간","recordCellEdit")
     let sendFailCellInfo: (headerName: String, reuseId: String) = ("상태","sendFailEdit")
@@ -153,6 +153,10 @@ class MessageEditController: UITableViewController {
         return view
     }
 
+    @IBAction func editButtonClicked(_ sender: Any) {
+        ImagePickerHelper.addAction(titleString: nil, messageString: "사진을 가져올 곳을 선택해주세요.", vc: self)
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: infos[indexPath.section].reuseId)!
         
@@ -169,7 +173,24 @@ class MessageEditController: UITableViewController {
         cell.selectionStyle = .none
         return cell
     }
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let img = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
+            for section in (0 ..< tableView.numberOfSections){
+                var indexPath = IndexPath(row: 0, section: section)
+                if let cell = tableView.cellForRow(at: indexPath) as? ImageEditCell{
+                    cell.messageImage = img
+                }
+            }            
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
 }
+
+
+
 
 protocol EditCellProtocol {
     func configure(msg: Message)
