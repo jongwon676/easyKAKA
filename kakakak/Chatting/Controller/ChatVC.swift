@@ -314,8 +314,9 @@ class ChatVC: UIViewController{
             tableView.backgroundView = nil
         }
         (self.navigationController as? ColorNavigationViewController)?.setChattingNAv(color: tableView.backgroundColor ?? #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1))
+        bottomController.topView.backgroundColor = tableView.backgroundColor
         
-        view.backgroundColor = .red
+        
         tabBarController?.tabBar.isHidden = true
         
         

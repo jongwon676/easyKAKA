@@ -19,7 +19,7 @@ class UserEnterCell: BaseChatCell,ChattingCellProtocol{
         inviteLabel.text = "\(fromName)님이 \(toName)님을 초대했습니다."
         inviteLabel.sizeToFit()
     }
-    
+    //black 0.05 op
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
