@@ -14,10 +14,10 @@ class MessageEditController: UITableViewController {
     
     let userNameCellInfo : (headerName: String, reuseId: String) = ("이름","userNameEdit")
     let textCellInfo: (headerName: String,reuseId: String) = ("내용","textEdit")
-    let imageCellInfo: (headerName: String,reuseId: String) = ("이미지","")
+    let imageCellInfo: (headerName: String,reuseId: String) = ("사진","")
     let dateLineCellInfo: (headerName: String,reuseId: String) = ("날짜선","dateLineEdit")
     let recordCellInfo: (headerName: String, reuseId: String) = ("녹음 시간","recordCellEdit")
-    let sendFailCellInfo: (headerName: String, reuseId: String) = ("전송 실패","sendFailEdit")
+    let sendFailCellInfo: (headerName: String, reuseId: String) = ("상태","sendFailEdit")
     let timeCellInfo: (headerName: String, reuseId: String) = ("","timeEditCell")
     
     
@@ -86,10 +86,12 @@ class MessageEditController: UITableViewController {
         super.viewDidLoad()
         
         tableView.backgroundColor = #colorLiteral(red: 0.9370916486, green: 0.9369438291, blue: 0.9575446248, alpha: 1)
+        tableView.tableFooterView?.backgroundColor = tableView.backgroundColor
         navigationItem.leftBarButtonItem = cancelButton
         navigationItem.rightBarButtonItem = okayButton
         okayButton.target = self
         okayButton.action = #selector(okayButtonClicked)
+        
         if isTimeEdit{
             navigationItem.title = "시간 수정"
         }else{
@@ -131,7 +133,7 @@ class MessageEditController: UITableViewController {
         return 1
     }
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 53
+        return isTimeEdit ? 0 : 53
     }
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
@@ -143,8 +145,8 @@ class MessageEditController: UITableViewController {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 13)
         label.text = infos[section].headerName
-        label.textColor = UIColor.black
-        label.frame = CGRect(x: 18, y: 33, width: 300, height: 15)
+        label.textColor = #colorLiteral(red: 0.4273391664, green: 0.4271043539, blue: 0.4477867484, alpha: 1)
+        label.frame = CGRect(x: 18, y: 27, width: 300, height: 15)
         view.addSubview(label)
         view.backgroundColor = #colorLiteral(red: 0.9370916486, green: 0.9369438291, blue: 0.9575446248, alpha: 1)
         
