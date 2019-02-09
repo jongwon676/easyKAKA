@@ -54,6 +54,7 @@ class MessageEditController: UITableViewController,UINavigationControllerDelegat
                     }else{
                         infos = [userNameCellInfo,recordCellInfo]
                     }
+                    
                 default: ()
                     
                 }
@@ -182,7 +183,7 @@ class MessageEditController: UITableViewController,UINavigationControllerDelegat
                 if let cell = tableView.cellForRow(at: indexPath) as? ImageEditCell{
                     cell.messageImage = img
                 }
-            }            
+            }
         }
         picker.dismiss(animated: true, completion: nil)
     }

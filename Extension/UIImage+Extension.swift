@@ -16,7 +16,7 @@ extension UIImage{
 //            if cache[imgName] != nil{
 //                return cache[imgName]
 //            }
-//            
+//
 //            cache[imgName] = UIImage(contentsOfFile: path.path)
 //            return cache[imgName]
         }catch _{
