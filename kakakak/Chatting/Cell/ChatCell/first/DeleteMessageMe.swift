@@ -31,6 +31,23 @@ class DeleteMessageMe: UserChattingBaseMeCell,ChattingCellProtocol {
         updateFocusIfNeeded()
         
     }
+    
+    override func draw(_ rect: CGRect) {
+        
+        
+        if self.message.isFirstMessage{
+            let path = UIBezierPath()
+            let points = DrawHelper.drawTail(dir: .left, cornerPoint: bubble.frame.origin)
+            path.move(to: points[0])
+            path.addLine(to: points[1])
+            path.addLine(to: points[2])
+            path.addLine(to: points[3])
+            path.close()
+            bubble.backgroundColor?.setFill()
+            path.fill()
+        }
+        
+    }
     override func prepareForReuse() {
         super.prepareForReuse()
         

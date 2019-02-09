@@ -150,6 +150,7 @@
 		ADD271872209B65400DBD72C /* CSTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD271862209B65400DBD72C /* CSTabbarController.swift */; };
 		ADDDF02B21E53E6E007E3D16 /* ChatVC+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDDF02A21E53E6E007E3D16 /* ChatVC+extension.swift */; };
 		ADDFB86021E7037A003D5DF1 /* ChatVC+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDFB85F21E7037A003D5DF1 /* ChatVC+Alert.swift */; };
+		ADE54866220E81FC0096AB96 /* UITabbar+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE54865220E81FC0096AB96 /* UITabbar+extension.swift */; };
 		ADEC85DC220E561E005F3C6A /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEC85DB220E561E005F3C6A /* ViewController+Extension.swift */; };
 		ADFA306522043C1100744C31 /* BaseChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFA306422043C1100744C31 /* BaseChat.swift */; };
 		ADFA306722043C5500744C31 /* TextMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFA306622043C5500744C31 /* TextMe.swift */; };
@@ -304,6 +305,7 @@
 		ADD271862209B65400DBD72C /* CSTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSTabbarController.swift; sourceTree = "<group>"; };
 		ADDDF02A21E53E6E007E3D16 /* ChatVC+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatVC+extension.swift"; sourceTree = "<group>"; };
 		ADDFB85F21E7037A003D5DF1 /* ChatVC+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatVC+Alert.swift"; sourceTree = "<group>"; };
+		ADE54865220E81FC0096AB96 /* UITabbar+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabbar+extension.swift"; sourceTree = "<group>"; };
 		ADEC85DB220E561E005F3C6A /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 		ADFA306422043C1100744C31 /* BaseChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseChat.swift; sourceTree = "<group>"; };
 		ADFA306622043C5500744C31 /* TextMe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMe.swift; sourceTree = "<group>"; };
@@ -843,6 +845,7 @@
 				AD95E6C821F43E65000450AB /* UIColor.swift */,
 				AD8CD4002200E70F0040AE81 /* UITableView+Extension.swift */,
 				ADEC85DB220E561E005F3C6A /* ViewController+Extension.swift */,
+				ADE54865220E81FC0096AB96 /* UITabbar+extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1156,6 +1159,7 @@
 				AD27D19021F1E16C009E367A /* KeyBoardView.swift in Sources */,
 				AD95E2482208712F00CD8451 /* ContactsPickerViewController.swift in Sources */,
 				ADC672E721E3A59000D6D3F5 /* UserEnterCell.swift in Sources */,
+				ADE54866220E81FC0096AB96 /* UITabbar+extension.swift in Sources */,
 				AD95E24A2208712F00CD8451 /* Contact.swift in Sources */,
 				AD0D4805220B169C00FFAC7D /* SendFailEditCell.swift in Sources */,
 				AD95E23D2208712F00CD8451 /* CountryCell.swift in Sources */,

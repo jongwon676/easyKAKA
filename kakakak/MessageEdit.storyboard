@@ -1525,6 +1525,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="bubble" destination="pcH-BZ-cAr" id="gle-AQ-036"/>
                                             <outlet property="timeReadLabel" destination="EyA-0d-7LL" id="VdZ-un-3jg"/>
                                             <outlet property="warningVIew" destination="aaP-vw-DOc" id="Y74-aJ-M9m"/>
                                         </connections>
@@ -1582,6 +1583,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="bubble" destination="ZxJ-S0-Utn" id="ptl-In-pGX"/>
                                             <outlet property="timeReadLabel" destination="sm1-lG-k2P" id="b4H-VI-Eda"/>
                                             <outlet property="warningVIew" destination="Xjz-RJ-juA" id="PWu-db-JRf"/>
                                         </connections>
@@ -1590,7 +1592,7 @@
                                         <rect key="frame" x="0.0" y="1726" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="akn-19-Kv8" id="ASd-tM-DK7">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2V3-k9-v6D">
@@ -1692,7 +1694,7 @@
                                         <rect key="frame" x="0.0" y="1816" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OQE-ec-A4A" id="FeF-oa-Y63">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KOr-q7-U2B">
@@ -1794,7 +1796,7 @@
                                         <rect key="frame" x="0.0" y="1906" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6is-Ru-bsW" id="0SI-ov-ECh">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U66-E4-fTZ" userLabel="bubble" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
@@ -1858,7 +1860,7 @@
                                         <rect key="frame" x="0.0" y="1976" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QWq-sP-FPD" id="fV6-Ud-Ozm">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FIJ-dG-sfn" userLabel="bubble" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
@@ -1918,18 +1920,18 @@
                                             <outlet property="timeReadLabel" destination="nXM-za-or5" id="4D4-k7-vtG"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="invite" rowHeight="58" id="Z2g-o8-70C" userLabel="invite" customClass="InviteCell" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="invite" rowHeight="58" id="Z2g-o8-70C" userLabel="invite" customClass="InviteCell" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="2046" width="375" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Z2g-o8-70C" id="eQ2-3L-tcm">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="57.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OWx-Sa-7fv">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="57.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="336" height="58"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김민성님이 김재준님을 초대했습니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8u-wu-6UN">
-                                                            <rect key="frame" x="92" y="12" width="191" height="33.5"/>
+                                                            <rect key="frame" x="72.5" y="12" width="191" height="34"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1956,18 +1958,18 @@
                                             <outlet property="inviteLabel" destination="z8u-wu-6UN" id="UTT-K8-ehj"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="exit" rowHeight="58" id="Ltg-7w-SFE" userLabel="exit" customClass="ExitCell" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="exit" rowHeight="58" id="Ltg-7w-SFE" userLabel="exit" customClass="ExitCell" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="2104" width="375" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ltg-7w-SFE" id="4XZ-de-lwG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="57.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IDA-Ls-adN">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="57.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="336" height="58"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김민성님이 퇴장했습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2g4-tG-Esy">
-                                                            <rect key="frame" x="117" y="12" width="141.5" height="33.5"/>
+                                                            <rect key="frame" x="97.5" y="12" width="141.5" height="34"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1998,7 +2000,7 @@
                                         <rect key="frame" x="0.0" y="2162" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Oc4-Ly-1TW" id="oqx-Ry-L7v">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vwb-Vd-Buv">

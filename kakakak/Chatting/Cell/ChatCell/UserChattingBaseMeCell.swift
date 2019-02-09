@@ -31,6 +31,7 @@ class UserChattingBaseMeCell: BaseChat{
             profile.isHidden = true
             nameLabel.isHidden = true
         }
+        self.nameLabel.text = owner.name
     }
 }
 
