@@ -17,11 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         TimeZone.ReferenceType.default = TimeZone(abbreviation: "KST")!
 
         UITabBar.appearance().tintColor = #colorLiteral(red: 0.8922857642, green: 0.5250218511, blue: 0.9140356183, alpha: 1)
-        UITabBar.appearance().layer.borderWidth = 0.5
-        UITabBar.appearance().layer.borderColor = UIColor.clear.cgColor
-        UITabBar.appearance().clipsToBounds = true
-//        UITabBar.appearance().layer.shadowColor = UIColor.gray.cgColor
-//        UITabBar.appearance().layer.shadowRadius = 2
+        UITabBar.appearance().unselectedItemTintColor = #colorLiteral(red: 0.8594388366, green: 0.8221279979, blue: 0.892310679, alpha: 1)
+
+//
         
      
         

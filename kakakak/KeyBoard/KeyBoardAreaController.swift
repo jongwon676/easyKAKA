@@ -376,9 +376,9 @@ extension KeyBoardAreaController: UIScrollViewDelegate{
         
     }
     
-        func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-            scrollViewDidEndDecelerating(scrollView)
-        }
+//        func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+//            scrollViewDidEndDecelerating(scrollView)
+//        }
     //
         func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
             if !decelerate {
