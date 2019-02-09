@@ -123,6 +123,17 @@ class ColorNavigationViewController: UINavigationController {
         return UIImage.image(from: gradient) ?? UIImage()
     }
     
+    func setRoomListNav(){
+        orangeGradient = [UIColor(rgb: 0xCFA3FF),UIColor(rgb: 0xFFAEE1)]
+        orangeGradientLocation = [0.0, 1.0]
+        self.changeGradientImage(orangeGradient: orangeGradient, orangeGradientLocation: orangeGradientLocation)
+    }
+    func setChattingNAv(color: UIColor){
+        
+        self.orangeGradientLocation = [0.0,1.0]
+        self.orangeGradient = [color,color]
+        self.changeGradientImage(orangeGradient: [color,color], orangeGradientLocation: [0.0,1.0])
+    }
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -259,6 +270,10 @@ class GradientButton: UIButton {
         super.layoutSubviews()
         gradientLayer.frame = self.layer.bounds
     }
+    
+    
+    
+    
 }
 class AutoLayoutRadiusView: UIView{
     override func layoutSubviews() {

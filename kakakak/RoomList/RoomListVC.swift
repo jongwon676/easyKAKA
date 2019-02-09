@@ -89,6 +89,7 @@ class RoomListVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
         
         if let chatvc = storyboard.instantiateViewController(withIdentifier: "ChatVC") as? ChatVC{
            chatvc.room = rooms[indexPath.row]
+            chatvc.navigationItem.largeTitleDisplayMode = .never
             self.navigationController?.pushViewController(chatvc, animated: true)
         }
     }

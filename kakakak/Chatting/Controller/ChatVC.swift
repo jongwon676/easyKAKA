@@ -23,6 +23,10 @@ class ChatVC: UIViewController{
     let unSelectedImage = UIImage(named: "unSelected")
     
     
+    var tableView: UITableView!
+    var normalModeTableViewConstraint: Constraint?
+    var editModeTableViewConstraint: Constraint?
+    
     lazy var editView:EditView = {
         let eview = EditView()
         eview.delegate = self
@@ -33,6 +37,7 @@ class ChatVC: UIViewController{
     
     lazy var hamburgerButton = UIBarButtonItem(image: #imageLiteral(resourceName: "hamburger"), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(handleHamburger))
     lazy var backButton = UIBarButtonItem(image: UIImage(named: "back"), style: .plain, target: self, action: #selector(handleBack))
+    
     lazy var closeButton:UIBarButtonItem = {
         let btn = UIButton(type: .custom)
         btn.setImage(UIImage(named: "close"), for: .normal)
@@ -81,32 +86,10 @@ class ChatVC: UIViewController{
     
     
     
-    func setEditMode(){
-        
-        timer?.invalidate()
-        self.tableView.allowsSelection = true
-        self.tableView.allowsMultipleSelection = true
-        bottomController.view.isHidden = true
-        bottomController.keyboardHide()
-        
-        editView.isHidden = false
-        tableView.reloadData()
-        tableView.removeGestureRecognizer(tableviewGestureRecog)
-        tableView.addGestureRecognizer(tableViewEditGestureRecog)
-        
-        navigationController?.navigationBar.barTintColor = UIColor.white
-        
-        
-        navigationItem.leftBarButtonItem = closeButton
-        navigationItem.title = "항목 선택"
-        navigationItem.rightBarButtonItems = [allSelectButton]
-        
-        
-        
-    }
+    
     func setNavTitle(){
         let label = UILabel()
-        var attributedString = NSMutableAttributedString()
+        let attributedString = NSMutableAttributedString()
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = .center
         
@@ -124,7 +107,7 @@ class ChatVC: UIViewController{
         )
         
         attributedString.append(NSAttributedString(string:
-            "대화방 시간 " + Date.timeToString(date: self.room.currentDate), attributes:
+            Date.timeToString(date: self.room.currentDate), attributes:
             [NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0.4180841446, green: 0.4661870003, blue: 0.5037575364, alpha: 1),.font: UIFont.systemFont(ofSize: 14),.paragraphStyle:paragraph])
         )
         
@@ -132,6 +115,33 @@ class ChatVC: UIViewController{
         label.numberOfLines = 2
         self.navigationItem.titleView = label
     }
+    
+    
+    func setEditMode(){
+        
+        timer?.invalidate()
+        self.tableView.allowsSelection = true
+        self.tableView.allowsMultipleSelection = true
+        bottomController.view.isHidden = true
+        bottomController.keyboardHide()
+        
+        editView.isHidden = false
+        tableView.reloadData()
+        tableView.removeGestureRecognizer(tableviewGestureRecog)
+        tableView.addGestureRecognizer(tableViewEditGestureRecog)
+        
+        
+        
+        
+        navigationItem.leftBarButtonItem = closeButton
+        navigationItem.title = "항목 선택"
+        navigationItem.rightBarButtonItems = [allSelectButton]
+        
+        
+        normalModeTableViewConstraint?.deactivate()
+        editModeTableViewConstraint?.activate()
+    }
+    
     
     func setNoEditMode(){
         self.tableView.allowsSelection = false
@@ -150,6 +160,8 @@ class ChatVC: UIViewController{
         self.navigationController?.navigationBar.tintColor = UIColor.black
         
         setTimer()
+        normalModeTableViewConstraint?.activate()
+        editModeTableViewConstraint?.deactivate()
     }
     
     var isEditMode: Bool = false{
@@ -158,6 +170,7 @@ class ChatVC: UIViewController{
                 editButton.isHidden = false
                 allDeselct()
                 setNoEditMode()
+                
             }else{
                 editButton.isHidden = true
                 setEditMode()
@@ -178,7 +191,7 @@ class ChatVC: UIViewController{
     lazy var tableviewGestureRecog = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
     lazy var tableViewEditGestureRecog = UITapGestureRecognizer(target: self, action: #selector(handleTapEdit(_:)))
     
-    var tableView: UITableView!
+    
   
 
     
@@ -194,12 +207,19 @@ class ChatVC: UIViewController{
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.white
-        self.tableView = (self.children[0] as! ChatBaseVC).tableView
-        self.tableView.addGestureRecognizer(tableviewGestureRecog)
-       self.tableView.delegate = self
-       self.tableView.dataSource = self
-        self.view.addSubview(bottomController.view)
+        
+        tableView = (self.children[0] as! ChatBaseVC).tableView
+        tableView.addGestureRecognizer(tableviewGestureRecog)
+        tableView.delegate = self
+        tableView.dataSource = self
+        view.addSubview(bottomController.view)
+        
+        tableView.snp.makeConstraints { (mk) in
+            mk.left.right.top.equalTo(self.view)
+            normalModeTableViewConstraint = mk.bottom.equalTo(self.bottomController.view.snp.top).constraint
+            editModeTableViewConstraint = mk.bottom.equalTo(self.editView.snp.top).constraint
+        }
+        editModeTableViewConstraint?.deactivate()
         
         self.childView.snp.makeConstraints { (mk) in
             mk.left.right.bottom.top.equalTo(tableView)
@@ -208,8 +228,6 @@ class ChatVC: UIViewController{
         
         
         if #available(iOS 11.0, *) {
-            let window = UIApplication.shared.keyWindow
-            
             let dummyView = UIView()
             self.view.addSubview(dummyView)
             dummyView.backgroundColor = UIColor.white
@@ -219,27 +237,18 @@ class ChatVC: UIViewController{
                 mk.top.equalTo(self.bottomController.view.snp.bottom)
             }
         }
+        
 
-        (self.navigationController as? ColorNavigationViewController)?.orangeGradientLocation = [0.0,1.0]
-        (self.navigationController as? ColorNavigationViewController)?.orangeGradient = [UIColor.white,UIColor.white]
-//
         
-        (self.navigationController as? ColorNavigationViewController)?.changeGradientImage(orangeGradient: [UIColor.white,UIColor.white], orangeGradientLocation: [0.0,1.0])
-        
-        self.navigationItem.largeTitleDisplayMode = .never
-        navigationController?.view.backgroundColor = UIColor.white
-        
+
         messageManager = MessageProcessor(room: room)
         bottomController.messageManager = self.messageManager
         messageManager.vc = self
-        
         messageManager.reload()
         
-        tableView.snp.makeConstraints { (mk) in
-            mk.left.right.top.equalTo(self.view)
-//            mk.bottom.equalTo(self.view.safeAreaLayoutGuide)
-            mk.bottom.equalTo(self.bottomController.view.snp.top)
-        }
+        
+        
+        
         bottomController.view?.snp.makeConstraints({ (mk) in
             mk.left.right.equalTo(self.view)
             mk.bottom.equalTo(self.view.safeAreaLayoutGuide)
@@ -264,6 +273,7 @@ class ChatVC: UIViewController{
         tableView.reloadData()
         isEditMode = false
     }
+    
     override func viewWillLayoutSubviews() {
         
         let offset: CGFloat = 5.0
@@ -276,6 +286,8 @@ class ChatVC: UIViewController{
         editButton.frame = CGRect(x: UIScreen.main.bounds.width - btnWidth - offset, y: navHeight + offset, width: btnWidth, height: btnHeight)
         
     }
+    
+    
     func setTimer(){
         
         timer = Timer.scheduledTimer(withTimeInterval: 60.0,
@@ -287,17 +299,13 @@ class ChatVC: UIViewController{
                                         self.setNavTitle()
         }
         self.setNavTitle()
-        
     }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let backgroundUrl = room.backgroundImageName, let backgroundImage = UIImage.loadImageFromName(backgroundUrl){
-            let imageView = UIImageView(image: backgroundImage)
-            imageView.contentMode = .scaleAspectFill
-            imageView.layer.masksToBounds = true
-            tableView.backgroundView = UIImageView(image: backgroundImage)
-            tableView.backgroundColor = nil
-        }else if let colorHex = room.backgroundColorHex{
+
+        if let colorHex = room.backgroundColorHex{
             tableView.backgroundColor = UIColor.init(hexString: colorHex)
             tableView.backgroundView = nil
         }else{
@@ -305,14 +313,25 @@ class ChatVC: UIViewController{
             tableView.backgroundColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
             tableView.backgroundView = nil
         }
-        self.view.backgroundColor = tableView.backgroundColor
-        self.tabBarController?.tabBar.isHidden = true
-
+        (self.navigationController as? ColorNavigationViewController)?.setChattingNAv(color: tableView.backgroundColor ?? #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1))
+        
+        view.backgroundColor = .red
+        tabBarController?.tabBar.isHidden = true
+        
+        
+        
         setTimer()
         floatingButton()
-        
-    
         RunLoop.current.add(self.timer!, forMode: RunLoop.Mode.common)
+        
+        
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        // Sets shadow (line below the bar) to a blank image
+        UINavigationBar.appearance().shadowImage = UIImage()
+        // Sets the translucent background color
+        UINavigationBar.appearance().backgroundColor = .clear
+        // Set translucent. (Default value is already true, so this can be removed if desired.)
+        UINavigationBar.appearance().isTranslucent = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -327,6 +346,8 @@ class ChatVC: UIViewController{
         token?.invalidate()
     }
 }
+
+
 
 
 extension ChatVC: UITableViewDataSource,UITableViewDelegate {
