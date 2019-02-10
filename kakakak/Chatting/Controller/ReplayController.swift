@@ -171,10 +171,10 @@ extension ReplayController: UITableViewDelegate,UITableViewDataSource{
     func setUpRecordIndicationWindow() {
         
         recordButton = UIButton(type: .system)
-        if let window = UIApplication.shared.keyWindow {
-            window.addSubview(recordButton)
-        }
-        
+//        if let window = UIApplication.shared.keyWindow {
+//            window.addSubview(recordButton)
+//        }
+//
         
         
         
@@ -185,13 +185,13 @@ extension ReplayController: UITableViewDelegate,UITableViewDataSource{
         self.recordButton.setImage(#imageLiteral(resourceName: "ic_camera"), for: .normal)
         
         
-//        window = CustomWindow(frame: view.bounds)
-//
-//        window?.backgroundColor = UIColor.clear
-//        window?.isUserInteractionEnabled = true
-//
-//        window?.addSubview(recordButton)
-//        window?.makeKeyAndVisible()
+        window = CustomWindow(frame: view.bounds)
+
+        window?.backgroundColor = UIColor.clear
+        window?.isUserInteractionEnabled = true
+
+        window?.addSubview(recordButton)
+        window?.makeKeyAndVisible()
         
     }
     
