@@ -27,6 +27,10 @@ class ChatVC: UIViewController{
     var normalModeTableViewConstraint: Constraint?
     var editModeTableViewConstraint: Constraint?
     
+    
+    
+    
+    
     lazy var editView:EditView = {
         let eview = EditView()
         eview.delegate = self
@@ -208,6 +212,19 @@ class ChatVC: UIViewController{
         
         super.viewDidLoad()
         
+        token = room.observe({ [weak self] (change)  in
+            guard let `self` = self else { return }
+            switch change{
+            case .change:
+                self.setNavTitle()
+                self.bottomController.timeInputView.date = self.room.currentDate
+            case .error(_):
+                ()
+            case .deleted:
+                ()
+            }
+        })
+        
         tableView = (self.children[0] as! ChatBaseVC).tableView
         tableView.addGestureRecognizer(tableviewGestureRecog)
         tableView.delegate = self
@@ -242,7 +259,9 @@ class ChatVC: UIViewController{
         
 
         messageManager = MessageProcessor(room: room)
+        
         bottomController.messageManager = self.messageManager
+        bottomController.timeInputView.room = room
         messageManager.vc = self
         messageManager.reload()
         

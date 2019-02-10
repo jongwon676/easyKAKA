@@ -73,6 +73,11 @@ class Room: Object{
             self.backgroundImageName = nil
         }
     }
+    func setDate(date: Date){
+        try! realm?.write {
+            currentDate = date
+        }
+    }
     
     func getRoomTitleName() -> String{
         if title != nil { return title! }

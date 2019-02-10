@@ -1,19 +1,59 @@
 import UIKit
-class TimeInputView: UIView{
+protocol DemandTimeProtocol {
+    func addTimeAndWriteDate(second: TimeInterval)
+}
+class TimeInputView: UIView,DemandTimeProtocol{
     let orangeColor = #colorLiteral(red: 0.9237803817, green: 0.654075861, blue: 0.2584527731, alpha: 1)
-    
+    var date: Date?{
+        didSet{
+            if let date = date{
+                ampmControl.selectedSegmentIndex = (date.hour < 12) ? 0 : 1
+                
+                var hour = date.hour % 12
+                if hour == 0 { hour = 12 }
+                let minute = date.minute
+                
+                hourBtn.setNumberText(hour)
+                minuteBtn.setNumberText(minute)
+            }
+        }
+    }
+    func addTimeAndWriteDate(second: TimeInterval){
+        guard let newDate = date?.addingTimeInterval(second) else { return }
+        room?.setDate(date: newDate)
+    }
     var room: Room?{
         didSet{
             guard let room = self.room else { return }
-            let date = room.currentDate
+            self.date = room.currentDate
         }
     }
+    lazy var hourBtn: TimeButton = {
+       let btn = TimeButton(frame: .zero, type: .hour)
+        btn.delegate = self
+        return btn
+    }()
+    lazy var minuteBtn: TimeButton = {
+        let btn = TimeButton(frame: .zero, type: .minute)
+        btn.delegate = self
+        return btn
+    }()
     
-    var hourBtn = TimeButton(frame: .zero, type: .hour)
-    var minuteBtn = TimeButton(frame: .zero, type: .minute)
+
     var containerView = UIStackView()
     var ampmControl = UISegmentedControl(items: ["오전","오후"])
-    
+    @objc func handleAmPm(_ sender: UISegmentedControl){
+        guard let date = self.date else { return }
+        if sender.selectedSegmentIndex == 0{
+            if date.hour >= 12 {
+                addTimeAndWriteDate(second: -3600 * 12)
+            }
+        }else{
+            if date.hour < 12 {
+                addTimeAndWriteDate(second: 3600 * 12)
+            }
+        }
+    }
     init() {
         
         super.init(frame: CGRect.zero)
@@ -24,6 +64,7 @@ class TimeInputView: UIView{
             mk.top.equalTo(self).offset(15)
             mk.height.equalTo(30)
         }
+        ampmControl.addTarget(self, action: #selector(handleAmPm), for: .valueChanged)
         ampmControl.tintColor = orangeColor
         [hourBtn,minuteBtn].forEach { (btn) in
             containerView.addArrangedSubview(btn)
@@ -63,12 +104,21 @@ class TimeButton: UIView{
     let minusButton = UIButton(type: UIButton.ButtonType.system)
     let numberLabel = UILabel()
     var type: TimeButtonType
+    var delegate: DemandTimeProtocol?
+
     
     @objc func handleMinus(){
-        print("minus clicked")
+        switch type {
+            case .hour: delegate?.addTimeAndWriteDate(second: -3600)
+            case .minute: delegate?.addTimeAndWriteDate(second: -60)
+        }
+        
     }
     @objc func handlePlus(){
-        print("plus clicked")
+        switch type {
+        case .hour: delegate?.addTimeAndWriteDate(second: 3600)
+        case .minute: delegate?.addTimeAndWriteDate(second: 60)
+        }
     }
     
     enum TimeButtonType{
@@ -76,10 +126,9 @@ class TimeButton: UIView{
         case minute
     }
     
-    func setNumberText(){
-        let num = 0
+    func setNumberText(_ time: Int){
         let timeString = type == .hour ? "시" : "분"
-        var attributedString = NSMutableAttributedString(string: "\(num)", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 45, weight: .regular)])
+        var attributedString = NSMutableAttributedString(string: "\(time)", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 45, weight: .regular)])
         attributedString.append(NSAttributedString(string: timeString, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .regular)]))
         numberLabel.attributedText = attributedString
     }
@@ -108,7 +157,7 @@ class TimeButton: UIView{
     
         
         
-        setNumberText()
+        setNumberText(0)
         containerView.axis = .horizontal
         containerView.distribution = .equalCentering
         
