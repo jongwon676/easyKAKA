@@ -102,8 +102,7 @@ class ColorNavigationViewController: UINavigationController {
     
     func configNavigationBar() {
         navigationBar.barStyle = .default
-        navigationBar.shadowImage = UIImage()
-        navigationBar.isTranslucent = false
+        navigationBar.isTranslucent = true
         navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
         

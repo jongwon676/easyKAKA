@@ -39,8 +39,13 @@ class ChatVC: UIViewController{
         return eview
     }()
     
-    lazy var hamburgerButton = UIBarButtonItem(image: #imageLiteral(resourceName: "hamburger"), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(handleHamburger))
-    lazy var backButton = UIBarButtonItem(image: UIImage(named: "back"), style: .plain, target: self, action: #selector(handleBack))
+    
+        
+        
+    
+    
+   
+    
     
     lazy var closeButton:UIBarButtonItem = {
         let btn = UIButton(type: .custom)
@@ -52,11 +57,45 @@ class ChatVC: UIViewController{
         return UIBarButtonItem(customView: btn)
     }()
     
+    lazy var backButton: UIBarButtonItem = {
+        let btn = UIButton(type: .system)
+        btn.setImage(#imageLiteral(resourceName: "back").withRenderingMode(.alwaysOriginal), for: .normal)
+        btn.addTarget(self, action: #selector(handleBack), for: .touchUpInside)
+        btn.snp.makeConstraints({ (mk) in
+            mk.width.equalTo(32/3)
+            mk.height.equalTo(55/3)
+        })
+        
+        return UIBarButtonItem(customView: btn)
+        
+    }()
+    
+    lazy var fixedSpace:UIBarButtonItem =
+        {
+            let space =
+                UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.fixedSpace, target: nil, action: nil)
+            space.width = 20
+            return space
+            
+    }()
+    lazy var hamburgerButton: UIBarButtonItem = {
+        let btn = UIButton(type: .system)
+        btn.setImage(#imageLiteral(resourceName: "menu").withRenderingMode(.alwaysOriginal), for: .normal)
+        btn.addTarget(self, action: #selector(handleHamburger), for: .touchUpInside)
+        
+        btn.snp.makeConstraints({ (mk) in
+            mk.width.equalTo(60/3)
+            mk.height.equalTo(44/3)
+        })
+        return UIBarButtonItem(customView: btn)
+    }()
+    
     lazy var searchButton:UIBarButtonItem = {
         let btn = UIButton()
-        btn.setImage(UIImage(named: "search"), for: .normal)
+        btn.setImage(UIImage(named: "searchCopy")!.withRenderingMode(.alwaysOriginal), for: .normal)
+//        btn.setImage(#imageLiteral(resourceName: "search"), for: .normal)
         btn.snp.makeConstraints({ (mk) in
-            mk.width.height.equalTo(25)
+            mk.width.height.equalTo(53 / 3)
         })
         return UIBarButtonItem(customView: btn)
     }()
@@ -157,8 +196,9 @@ class ChatVC: UIViewController{
         tableView.addGestureRecognizer(tableviewGestureRecog)
         tableView.removeGestureRecognizer(tableViewEditGestureRecog)
         navigationController?.navigationBar.barTintColor = tableView.backgroundColor
+        
         self.navigationItem.rightBarButtonItems = [
-            hamburgerButton, searchButton
+            hamburgerButton,fixedSpace, searchButton
         ]
         self.navigationItem.leftBarButtonItem = backButton
         self.navigationController?.navigationBar.tintColor = UIColor.black
