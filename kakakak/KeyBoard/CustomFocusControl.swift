@@ -35,7 +35,22 @@ class CustomFocusControl: UIButton, UIKeyInput {
     func deleteBackward() {
         self.delegate?.firstResponderControlDidDeleteBackwards(self)
     }
+}
+
+
+class SmileFocusControl: CustomFocusControl{
+    var image: UIImage?
     
+    override func becomeFirstResponder() -> Bool {
+        let first = super.becomeFirstResponder()
+        self.setImage(#imageLiteral(resourceName: "time_selected"), for: .normal)
+        return first
+    }
+    override func resignFirstResponder() -> Bool {
+        let resign = super.resignFirstResponder()
+        self.setImage(#imageLiteral(resourceName: "middleViewTimeOff"), for: .normal)
+        return resign
+    }
 }
 
 

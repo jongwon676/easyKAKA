@@ -28,10 +28,8 @@ class KeyBoardAreaController: UIViewController{
     var token: NotificationToken?
     
     func keyboardHide(){
-//        self.middleView.textView.resignFirstResponder()
-//        self.middleView.smileButton.resignFirstResponder()
-//        self.middleView.specailFeatureButton.resignFirstResponder()
         self.view.endEditing(true)
+        
     }
     
     

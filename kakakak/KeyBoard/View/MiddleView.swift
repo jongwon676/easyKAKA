@@ -7,9 +7,8 @@ class MiddleView: UIView{
         return btn
     }()
     
-    lazy var smileButton: CustomFocusControl = {
-        let btn = CustomFocusControl(type: .custom)
-//        btn.setImage(UIImage(named: "emoji_origin"), for: .normal)
+    lazy var smileButton: SmileFocusControl = {
+        let btn = SmileFocusControl(type: .custom)
         btn.setImage(#imageLiteral(resourceName: "middleViewTimeOff"), for: .normal)
         return btn
     }()

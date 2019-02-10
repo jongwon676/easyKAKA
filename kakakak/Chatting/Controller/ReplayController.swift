@@ -1,11 +1,14 @@
 import UIKit
 import RealmSwift
 import ReplayKit
+import SpriteKit
+
 
 class ReplayController: UIViewController {
     
     var messageManager: MessageProcessor!
-    
+    var window: UIWindow?
+    var recordButton: UIButton!
     var room: Room!
 
     var tableView: UITableView!{
@@ -61,11 +64,26 @@ class ReplayController: UIViewController {
     }
    
     @IBOutlet var childView: UIView!
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        recordButton.isHidden = true
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        recordButton.removeFromSuperview()
+//        window?.removeFromSuperview()
+//        window = nil
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         messageManager = MessageProcessor(room: self.room)
         messageManager.clear()
         self.tableView = (children[0] as! ChatBaseVC).tableView
+        
+        
+
         
         
         
@@ -79,7 +97,7 @@ class ReplayController: UIViewController {
         
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: #selector(backButtonClick)) 
-        
+        setUpRecordIndicationWindow()
         
     
    }
@@ -91,7 +109,16 @@ class ReplayController: UIViewController {
     @objc func addNextMessage(){
         messageManager.update(tableView: self.tableView)
     }
-    
+}
+
+class CustomWindow: UIWindow{
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        let view = super.hitTest(point, with: event)
+        if ((view as? UIButton) != nil){
+            return view
+        }
+        else { return nil  }
+    }
 }
 
 extension ReplayController: UITableViewDelegate,UITableViewDataSource{
@@ -109,5 +136,68 @@ extension ReplayController: UITableViewDelegate,UITableViewDataSource{
             return cell
         }
         return UITableViewCell()
+    }
+    
+    
+    
+    
+    
+    @objc fileprivate func processTouchRecord() {
+        let recorder = RPScreenRecorder.shared()
+        if !recorder.isRecording {
+            recorder.startRecording { (error) in
+                guard error == nil else {
+                    print("Failed to start recording")
+                    return
+                }
+                self.recordButton.setImage(#imageLiteral(resourceName: "close"), for: .normal)
+            }
+        } else {
+            recorder.stopRecording(handler: { (previewController, error) in
+                guard error == nil else {
+                    print("Failed to stop recording")
+                    return
+                }
+                
+                previewController?.previewControllerDelegate = self
+                self.present(previewController!, animated: true)
+
+                
+                self.recordButton.setImage(#imageLiteral(resourceName: "ic_camera"), for: .normal)
+            })
+        }
+    }
+
+    func setUpRecordIndicationWindow() {
+        
+        recordButton = UIButton(type: .system)
+        if let window = UIApplication.shared.keyWindow {
+            window.addSubview(recordButton)
+        }
+        
+        
+        
+        
+        
+        recordButton.addTarget(self, action: #selector(processTouchRecord), for: .touchUpInside)
+        
+        recordButton.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
+        self.recordButton.setImage(#imageLiteral(resourceName: "ic_camera"), for: .normal)
+        
+        
+//        window = CustomWindow(frame: view.bounds)
+//
+//        window?.backgroundColor = UIColor.clear
+//        window?.isUserInteractionEnabled = true
+//
+//        window?.addSubview(recordButton)
+//        window?.makeKeyAndVisible()
+        
+    }
+    
+}
+extension ReplayController: RPPreviewViewControllerDelegate {
+    func previewControllerDidFinish(_ previewController: RPPreviewViewController) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

@@ -323,7 +323,7 @@ class ChatVC: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        floatingButton()
         if let colorHex = room.backgroundColorHex{
             tableView.backgroundColor = UIColor.init(hexString: colorHex)
             tableView.backgroundView = nil
