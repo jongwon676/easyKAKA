@@ -9,7 +9,12 @@ class ReplayController: UIViewController {
     
     var messageManager: MessageProcessor!
     var window: UIWindow?
-    var recordButton: UIButton!
+    lazy var recordButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setImage(#imageLiteral(resourceName: "recordStart").withRenderingMode(.alwaysOriginal), for: .normal)
+        btn.addTarget(self, action: #selector(processTouchRecord), for: .touchUpInside)
+        return btn
+    }()
     var room: Room!
 
     var tableView: UITableView!{
@@ -166,15 +171,25 @@ class ReplayController: UIViewController {
         screenView.frame.size = CGSize(width: 394 / 3, height: 40)
         screenView.center.x = UIScreen.main.bounds.center.x
         screenView.frame.origin.y = statusHeight
-        screenView.currentMessageNumbr = 0
-        screenView.totalMessageCount = 0
+        
+        var recordButtonYMargin:CGFloat = 10
+        if #available(iOS 11.0, *) {
+            let window = UIApplication.shared.keyWindow
+            let bottomPadding = window?.safeAreaInsets.bottom
+            recordButtonYMargin += bottomPadding ?? 0
+        }
+        recordButtonYMargin += middleView.frame.height
+        let recordButtonSize:CGFloat = 50
+        
+        recordButton.frame = CGRect(x: UIScreen.main.bounds.center.x - recordButtonSize / 2, y: UIScreen.main.bounds.height - recordButtonYMargin - recordButtonSize, width: recordButtonSize, height: recordButtonSize)
+        
     }
     @objc func backButtonClick(){
         self.navigationController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     @objc func addNextMessage(){
-        messageManager.update(tableView: self.tableView)
+        messageManager.update(tableView: tableView, liveView: screenView)
     }
 }
 
@@ -212,44 +227,37 @@ extension ReplayController: UITableViewDelegate,UITableViewDataSource{
     @objc fileprivate func processTouchRecord() {
         let recorder = RPScreenRecorder.shared()
         if !recorder.isRecording {
-            recorder.startRecording { (error) in
+            recordButton.setImage(#imageLiteral(resourceName: "recordStop").withRenderingMode(.alwaysOriginal), for: .normal)
+            recorder.startRecording { [weak self] (error) in
+                self?.screenView.isRecord = true
                 guard error == nil else {
                     print("Failed to start recording")
                     return
                 }
-                self.recordButton.setImage(#imageLiteral(resourceName: "close"), for: .normal)
             }
         } else {
+            
             recorder.stopRecording(handler: { (previewController, error) in
                 guard error == nil else {
                     print("Failed to stop recording")
                     return
                 }
-                
                 previewController?.previewControllerDelegate = self
                 self.present(previewController!, animated: true)
 
+                self.recordButton.isHidden = true
                 
-                self.recordButton.setImage(#imageLiteral(resourceName: "ic_camera"), for: .normal)
             })
         }
     }
 
     func setUpRecordIndicationWindow() {
         
-        recordButton = UIButton(type: .system)
-//        if let window = UIApplication.shared.keyWindow {
-//            window.addSubview(recordButton)
-//        }
-//
         
         
         
         
-        recordButton.addTarget(self, action: #selector(processTouchRecord), for: .touchUpInside)
         
-        recordButton.frame = CGRect(x: 100, y: UIApplication.shared.statusBarFrame.height, width: 100, height: 100)
-        self.recordButton.setImage(#imageLiteral(resourceName: "ic_camera"), for: .normal)
         
         
         window = CustomWindow(frame: view.bounds)
@@ -261,6 +269,9 @@ extension ReplayController: UITableViewDelegate,UITableViewDataSource{
         window?.addSubview(closeButotn)
         window?.addSubview(downloadBUtton)
         window?.addSubview(screenView)
+        
+        screenView.totalMessageCount = messageManager.room.messages.count
+        screenView.currentMessageNumbr = 0
         
         window?.makeKeyAndVisible()
         
@@ -282,7 +293,12 @@ class LiveScreenView: UIView{
         return label
     }()
     
-    var currentMessageNumbr = 0{ didSet { setupText() } }
+    var currentMessageNumbr = 0{
+        didSet {
+            print("currentMessgaeNumber \(currentMessageNumbr)")
+            setupText()
+        }
+    }
     var totalMessageCount = 0 { didSet { setupText() }}
     
     func setupText(){
@@ -300,7 +316,7 @@ class LiveScreenView: UIView{
         attrText.append(NSAttributedString(string: "\(currentMessageNumbr)/\(totalMessageCount)", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 10, weight: .regular),.foregroundColor: UIColor.white,.paragraphStyle: paragraphStyle,NSAttributedString.Key.baselineOffset : 0]))
         
         titleLabel.attributedText = attrText
-        
+        setNeedsDisplay()
         
     }
     var isRecord: Bool = false{

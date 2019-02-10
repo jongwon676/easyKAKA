@@ -25,7 +25,8 @@ class MessageProcessor{
     func clear(){ self.messages.removeAll() }
     
     
-    func update(tableView: UITableView){
+    func update(tableView: UITableView,liveView: LiveScreenView){
+        
         if messages.count >= room.messages.count{ return }
         
         let left = messages.count
@@ -41,6 +42,9 @@ class MessageProcessor{
         
         tableView.reloadData()
         tableView.scrollToRow(at: IndexPath.row(row: messages.count - 1), at: .bottom, animated: false)
+        
+        liveView.currentMessageNumbr = messages.count
+        liveView.totalMessageCount = room.messages.count
     }
     
     func checkFirst(index: Int,message: Message) -> Bool{
