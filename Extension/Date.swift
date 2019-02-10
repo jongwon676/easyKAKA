@@ -23,7 +23,7 @@ extension Date{
     
     static func timeToString(date: Date)->String{
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "a h:mm"
+        dateFormatter.dateFormat = "a h:mm:ss"
         dateFormatter.amSymbol = "오전"
         dateFormatter.pmSymbol = "오후"
         return dateFormatter.string(from: date)

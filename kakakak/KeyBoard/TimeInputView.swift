@@ -172,7 +172,7 @@ class TimeButton: UIView{
     }
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.layer.cornerRadius = CGFloat(100) / CGFloat(989) * frame.width
+        self.layer.cornerRadius = frame.height / 2
         self.layer.masksToBounds = true
         self.layer.borderColor = #colorLiteral(red: 0.9097049236, green: 0.909860909, blue: 0.9096950889, alpha: 1)
         self.layer.borderWidth = 1

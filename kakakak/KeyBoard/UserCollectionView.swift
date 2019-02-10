@@ -54,11 +54,9 @@ extension CGRect{
         let midY = self.midY
         return CGPoint(x: midX, y: midY)
     }
-    
     static func centeredRect(mid: CGPoint, width: CGFloat, height: CGFloat) -> CGRect{
         return CGRect(x: mid.x - width / 2, y: mid.y - height / 2, width: width, height: height)
     }
-    
 }
 
 extension CALayer {

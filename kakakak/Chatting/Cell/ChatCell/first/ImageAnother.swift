@@ -6,6 +6,7 @@ class ImageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
     }
     
     
+    @IBOutlet var imageRatio: NSLayoutConstraint!
     
     @IBOutlet var messageImage: UIImageView!
     @IBOutlet var failView: UIImageView!
@@ -15,6 +16,30 @@ class ImageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
     }
+    
+    fileprivate func setupImage(){
+        
+        imageRatio.isActive = false
+        
+        guard let image = messageImage else { return }
+        let ratio = image.size.width / image.size.height
+        imageRatio = NSLayoutConstraint(item: messageImage, attribute: .width,
+                                        relatedBy: .equal,
+                                        toItem: messageImage, attribute: .height,
+                                        multiplier: ratio, constant: 0)
+        imageRatio.isActive = true
+        updateConstraints()
+    }
+    
+    
+    
+    var mImage: UIImage?{
+        didSet{
+            setupImage()
+        }
+    }
+    
+    
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -31,7 +56,7 @@ class ImageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
         }else{
             timeReadLabel.isHidden = true
         }
-        messageImage.image = UIImage.loadImageFromName(message.messageImageUrl)
+        mImage = UIImage.loadImageFromName(message.messageImageUrl)
         timeReadLabel.setUp(message: message)
     }
 }

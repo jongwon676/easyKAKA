@@ -57,23 +57,19 @@ class ReplayController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let backgroundUrl = room.backgroundImageName, let backgroundImage = UIImage.loadImageFromName(backgroundUrl){
-            
-            let imageView = UIImageView(image: backgroundImage)
-            imageView.contentMode = .scaleAspectFill
-            imageView.layer.masksToBounds = true
-            
-            tableView.backgroundView = UIImageView(image: backgroundImage)
-            tableView.backgroundColor = nil
-        }else if let colorHex = room.backgroundColorHex{
+        
+        if let colorHex = room.backgroundColorHex{
             tableView.backgroundColor = UIColor.init(hexString: colorHex)
             tableView.backgroundView = nil
-            
+            navigationController?.navigationBar.barTintColor = tableView.backgroundColor
+            navigationController?.navigationBar.backgroundColor = tableView.backgroundColor
         }else{
-            navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
             tableView.backgroundColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
             tableView.backgroundView = nil
+            navigationController?.navigationBar.barTintColor = tableView.backgroundColor
+            navigationController?.navigationBar.backgroundColor = tableView.backgroundColor
         }
+        
         
         
         
@@ -139,6 +135,7 @@ class ReplayController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         messageManager = MessageProcessor(room: self.room)
         messageManager.clear()
         self.tableView = (children[0] as! ChatBaseVC).tableView
@@ -155,6 +152,7 @@ class ReplayController: UIViewController {
         self.navigationItem.leftBarButtonItem = backButton
         self.navigationItem.rightBarButtonItems = [searchButton,fixedSpace,hamburgerButton]
         setUpRecordIndicationWindow()
+        tableView.showsVerticalScrollIndicator = false
         
     
    }
@@ -240,8 +238,9 @@ extension ReplayController: UITableViewDelegate,UITableViewDataSource{
     @objc fileprivate func processTouchRecord() {
         let recorder = RPScreenRecorder.shared()
         if !recorder.isRecording {
-            recordButton.setImage(#imageLiteral(resourceName: "recordStop").withRenderingMode(.alwaysOriginal), for: .normal)
+            
             recorder.startRecording { [weak self] (error) in
+                self?.recordButton.setImage(#imageLiteral(resourceName: "recordStop").withRenderingMode(.alwaysOriginal), for: .normal)
                 self?.screenView.isRecord = true
                 guard error == nil else {
                     print("Failed to start recording")

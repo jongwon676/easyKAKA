@@ -203,7 +203,7 @@ class ChatVC: UIViewController{
         self.navigationItem.leftBarButtonItem = backButton
         self.navigationController?.navigationBar.tintColor = UIColor.black
         
-        setTimer()
+//        setTimer()
         normalModeTableViewConstraint?.activate()
         editModeTableViewConstraint?.deactivate()
     }
@@ -330,6 +330,7 @@ class ChatVC: UIViewController{
             object: nil)
         
         tableView.reloadData()
+        tableView.showsVerticalScrollIndicator = false
         isEditMode = false
     }
     
@@ -349,11 +350,11 @@ class ChatVC: UIViewController{
     
     func setTimer(){
         
-        timer = Timer.scheduledTimer(withTimeInterval: 60.0,
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0,
                                      repeats: true) { [weak self] _ in
                                         guard let `self` = self else { return }
                                         try! self.realm.write {
-                                            self.room.currentDate = self.room.currentDate.addingTimeInterval(60.0)
+                                            self.room.currentDate = self.room.currentDate.addingTimeInterval(1.0)
                                         }
                                         self.setNavTitle()
         }
@@ -385,13 +386,10 @@ class ChatVC: UIViewController{
         RunLoop.current.add(self.timer!, forMode: RunLoop.Mode.common)
         
         
-        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
-        // Sets shadow (line below the bar) to a blank image
-        UINavigationBar.appearance().shadowImage = UIImage()
-        // Sets the translucent background color
-        UINavigationBar.appearance().backgroundColor = .clear
-        // Set translucent. (Default value is already true, so this can be removed if desired.)
-        UINavigationBar.appearance().isTranslucent = true
+//        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+//        UINavigationBar.appearance().shadowImage = UIImage()
+//        UINavigationBar.appearance().backgroundColor = .clear
+//        UINavigationBar.appearance().isTranslucent = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {

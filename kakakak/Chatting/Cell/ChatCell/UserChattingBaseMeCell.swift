@@ -23,10 +23,10 @@ class UserChattingBaseMeCell: BaseChat{
             timeReadLabel.isHidden = true
         }
         if message.isFirstMessage{
+            profile.image = UIImage.loadImageFromName(owner.profileImageUrl ?? "")
             profile.isHidden = false
             nameLabel.isHidden = false
         }else{
-            profile.image = UIImage.loadImageFromName(owner.profileImageUrl ?? "")
             nameLabel.text = owner.name
             profile.isHidden = true
             nameLabel.isHidden = true

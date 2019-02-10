@@ -85,6 +85,8 @@ class KeyBoardAreaController: UIViewController{
         return collection
     }()
     
+    var isFirstLoad:Bool = true
+    
     lazy var bannerView: GADBannerView = {
         let bv = GADBannerView()
         bv.rootViewController = self
@@ -159,20 +161,28 @@ class KeyBoardAreaController: UIViewController{
     
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        super.viewWillAppear(animated)
         token = users.observe{
-            [weak userCollectionView] changes in
+            [weak userCollectionView,weak self] changes in
             guard let userCollectionView = userCollectionView else { return }
+            guard let `self` = self else { return }
             switch changes{
             case .initial:
                 userCollectionView.reloadData()
+                let middleIndexPath = IndexPath(item: self.users.count / 2, section: 0)
+                self.selectCell(for: middleIndexPath, animated: false)
             case .update(_, let deletions, let insertions, let updates): userCollectionView.reloadData()
             case .error: break
             }
         }
+        
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        token?.invalidate()
     }
     override func viewDidAppear(_ animated: Bool) {
-        token?.invalidate()
+        super.viewDidDisappear(animated)
     }
     
     override func viewDidLoad() {
@@ -207,12 +217,6 @@ class KeyBoardAreaController: UIViewController{
     //
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-        /*
-         let middleIndexPath = IndexPath(item: users.count / 2, section: 0)
-         selectCell(for: middleIndexPath, animated: false)
-         */
-        //
         
     }
     deinit {

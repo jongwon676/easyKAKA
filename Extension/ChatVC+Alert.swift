@@ -35,7 +35,7 @@ extension ChatVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate
             
         }))
         alert.addAction(UIAlertAction(title: "대화방 시간 변경", style: .default, handler: { (_) in
-            
+            self.bottomController.middleView.smileButton.becomeFirstResponder()
             
         }))
         

@@ -60,18 +60,16 @@ class ColorNavigationViewController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        changeGradientImage(orangeGradient: orangeGradient, orangeGradientLocation: orangeGradientLocation)
+        changeGradientImage(orangeGradient: orangeGradient, orangeGradientLocation: orangeGradientLocation)
         configNavigationBar()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        changeGradientImage(orangeGradient: orangeGradient, orangeGradientLocation: orangeGradientLocation)
+//        changeGradientImage(orangeGradient: orangeGradient, orangeGradientLocation: orangeGradientLocation)
     }
     
-    
-//    let orangeGradient = [UIColor(rgb: 0xFC4761), UIColor(rgb: 0xFC5763), UIColor(rgb: 0xFD6C64), UIColor(rgb: 0xFD8667), UIColor(rgb: 0xFD9367)]
     let whiteGradient = [UIColor.white,UIColor.white]
     let whitelocation = [0.0,1.0]
     
@@ -85,6 +83,7 @@ class ColorNavigationViewController: UINavigationController {
         navigationBar.sendSubviewToBack(view)
         return view
     }()
+    
     
     func changeGradientImage(orangeGradient: [UIColor],orangeGradientLocation: [Double] ) {
         // 1 status bar
