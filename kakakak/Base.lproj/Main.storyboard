@@ -98,7 +98,7 @@
                             <outlet property="delegate" destination="vSF-GM-vdi" id="VEe-id-aTJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="친구" largeTitleDisplayMode="always" id="wuJ-nI-6Ag"/>
+                    <navigationItem key="navigationItem" title="친구" id="wuJ-nI-6Ag"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wIn-hb-86W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -854,7 +854,7 @@
                                 <rect key="frame" x="49" y="390" width="261" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="m7J-Zg-q50">
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="m7J-Zg-q50">
                                         <rect key="frame" x="111" y="32" width="150" height="2"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </progressView>
@@ -887,7 +887,7 @@
                                 </constraints>
                                 <state key="normal" title="asdfjas;ldjfl;asjdfl;jasd;fj;alsdfajsd;fljasldfjl;asdfasdfkjas;dfasjkdlfkjas;dfj;asdjfl;"/>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2DZ-qG-jNK">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2DZ-qG-jNK">
                                 <rect key="frame" x="125" y="179" width="121" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>

@@ -240,12 +240,12 @@ extension ReplayController: UITableViewDelegate,UITableViewDataSource{
         if !recorder.isRecording {
             
             recorder.startRecording { [weak self] (error) in
-                self?.recordButton.setImage(#imageLiteral(resourceName: "recordStop").withRenderingMode(.alwaysOriginal), for: .normal)
-                self?.screenView.isRecord = true
                 guard error == nil else {
                     print("Failed to start recording")
                     return
                 }
+                self?.recordButton.setImage(#imageLiteral(resourceName: "recordStop").withRenderingMode(.alwaysOriginal), for: .normal)
+                self?.screenView.isRecord = true
             }
         } else {
             recorder.stopRecording(handler: { [weak self] (previewController, error) in

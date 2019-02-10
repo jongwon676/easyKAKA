@@ -15,6 +15,7 @@ class CharacterListVC: UITableViewController{
         
         setupUI()
         presets = Preset.all()
+        tableView.bounces = true
     }
     
     
@@ -35,6 +36,7 @@ class CharacterListVC: UITableViewController{
             }
         }
         addButton.isHidden = false
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -98,6 +100,8 @@ class CharacterListVC: UITableViewController{
     }
     
     var addButton = UIButton(type: .custom)
+    
+    
     private func setupUI() {
         navigationController?.navigationBar.prefersLargeTitles = true
         
@@ -115,7 +119,7 @@ class CharacterListVC: UITableViewController{
             addButton.bottomAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: -Const.ImageBottomMarginForLargeState),
             addButton.heightAnchor.constraint(equalToConstant: Const.ImageSizeForLargeState),
             addButton.widthAnchor.constraint(equalTo: addButton.heightAnchor)
-            ])
+        ])
     }
 }
 

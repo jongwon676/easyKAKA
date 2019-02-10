@@ -60,7 +60,7 @@ class ColorNavigationViewController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        changeGradientImage(orangeGradient: orangeGradient, orangeGradientLocation: orangeGradientLocation)
+        setRoomListNav()
         configNavigationBar()
     }
     
@@ -123,6 +123,9 @@ class ColorNavigationViewController: UINavigationController {
     
     func setRoomListNav(){
         orangeGradient = [UIColor(rgb: 0xCFA3FF),UIColor(rgb: 0xFFAEE1)]
+        navigationBar.shadowImage = UIImage()
+        
+        
         orangeGradientLocation = [0.0, 1.0]
         self.changeGradientImage(orangeGradient: orangeGradient, orangeGradientLocation: orangeGradientLocation)
     }

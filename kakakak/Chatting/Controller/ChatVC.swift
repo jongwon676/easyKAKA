@@ -39,14 +39,7 @@ class ChatVC: UIViewController{
         return eview
     }()
     
-    
-        
-        
-    
-    
-   
-    
-    
+
     lazy var closeButton:UIBarButtonItem = {
         let btn = UIButton(type: .custom)
         btn.setImage(UIImage(named: "close"), for: .normal)
@@ -201,7 +194,7 @@ class ChatVC: UIViewController{
             hamburgerButton,fixedSpace, searchButton
         ]
         self.navigationItem.leftBarButtonItem = backButton
-        self.navigationController?.navigationBar.tintColor = UIColor.black
+        
         
 //        setTimer()
         normalModeTableViewConstraint?.activate()
@@ -247,6 +240,20 @@ class ChatVC: UIViewController{
         }
     }
     
+    
+    fileprivate func addKeyboardObserver() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(adjustInsetForKeyboard(_:)),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(adjustInsetForKeyboard(_:)),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil)
+    }
     
     override func viewDidLoad() {
         
@@ -317,17 +324,7 @@ class ChatVC: UIViewController{
             mk.height.equalTo(60)
         }
         
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(adjustInsetForKeyboard(_:)),
-            name: UIResponder.keyboardWillHideNotification,
-            object: nil
-        )
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(adjustInsetForKeyboard(_:)),
-            name: UIResponder.keyboardWillShowNotification,
-            object: nil)
+        addKeyboardObserver()
         
         tableView.reloadData()
         tableView.showsVerticalScrollIndicator = false
@@ -364,7 +361,6 @@ class ChatVC: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        floatingButton()
         if let colorHex = room.backgroundColorHex{
             tableView.backgroundColor = UIColor.init(hexString: colorHex)
             tableView.backgroundView = nil
