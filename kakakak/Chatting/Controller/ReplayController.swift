@@ -9,6 +9,15 @@ class ReplayController: UIViewController {
     
     var messageManager: MessageProcessor!
     var window: UIWindow?
+    var pvController: RPPreviewViewController?{
+        didSet{
+            if pvController != nil{
+                downloadBUtton.isHidden = false
+                self.present(pvController!, animated: true)
+            }
+        }
+    }
+    
     lazy var recordButton: UIButton = {
         let btn = UIButton(type: .system)
         btn.setImage(#imageLiteral(resourceName: "recordStart").withRenderingMode(.alwaysOriginal), for: .normal)
@@ -21,14 +30,12 @@ class ReplayController: UIViewController {
         didSet{
             tableView.delegate = self
             tableView.dataSource = self
-            
             self.tableView.keyboardDismissMode = .interactive
             self.tableView.allowsSelection = false
             self.tableView.tableFooterView = UIView()
             self.tableView.separatorStyle = .none
             self.tableView.isUserInteractionEnabled = true
             tableView.bounces = false
-            
             self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addNextMessage)))
         }
     }
@@ -76,6 +83,9 @@ class ReplayController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         recordButton.isHidden = true
+        downloadBUtton.isHidden = true
+        closeButotn.isHidden = true
+        screenView.isHidden = true
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
@@ -158,11 +168,14 @@ class ReplayController: UIViewController {
     lazy var downloadBUtton: UIButton = {
         let btn = UIButton()
         btn.setImage(#imageLiteral(resourceName: "recordDownload").withRenderingMode(.alwaysOriginal), for: .normal)
-//        btn.addTarget(self,, for: .touchUpInside)
+        btn.addTarget(self, action: #selector(downloadButtonClicked), for: .touchUpInside)
+        btn.isHidden = true
         return btn
     }()
     
-    
+    @objc func downloadButtonClicked(){
+        
+    }
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         let statusHeight = UIApplication.shared.statusBarFrame.height
@@ -236,16 +249,19 @@ extension ReplayController: UITableViewDelegate,UITableViewDataSource{
                 }
             }
         } else {
-            
-            recorder.stopRecording(handler: { (previewController, error) in
+            recorder.stopRecording(handler: { [weak self] (previewController, error) in
+                guard let `self` = self else { return }
                 guard error == nil else {
                     print("Failed to stop recording")
                     return
                 }
+                self.pvController = previewController
+                
                 previewController?.previewControllerDelegate = self
-                self.present(previewController!, animated: true)
-
+                
+                self.screenView.isRecord = false
                 self.recordButton.isHidden = true
+                
                 
             })
         }
