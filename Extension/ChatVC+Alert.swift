@@ -49,9 +49,9 @@ extension ChatVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate
             let replayControlelr = self.storyboard?.instantiateViewController(withIdentifier: "ReplayController") as! ReplayController
             
                 replayControlelr.room = self.room
-            
-                let nav = UINavigationController(rootViewController: replayControlelr)
-                
+                replayControlelr.bgType = self.bgType
+                let nav = CustomNavigationController(rootViewController: replayControlelr)
+                nav.type = self.bgType
                 self.present(nav, animated: true, completion: nil)
         }))
         

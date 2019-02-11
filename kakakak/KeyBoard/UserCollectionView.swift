@@ -2,7 +2,7 @@ import UIKit
 class UserCollectionView: UICollectionView{
     
     //cache화 해놓고 계속 그리자.
-    
+    var bgType: BgType?
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         let horRadius: CGFloat = 333
@@ -28,8 +28,13 @@ class UserCollectionView: UICollectionView{
             }
         }
         
+        if let bg = bgType {
+            bg.getNavUserCountColor().setStroke()
+        }else{
+            UIColor.gray.setStroke()
+        }
         path.lineWidth = 0.5
-        UIColor.gray.setStroke()
+        
         path.stroke()
     }
     override func layoutSubviews() {

@@ -385,6 +385,7 @@ class ChatVC: UIViewController{
         tableView.backgroundView = nil
         navigationController?.navigationBar.barTintColor = Style.allColors[colorIndex]
         
+        (bottomController.topView as? UserCollectionView)?.bgType = self.bgType
         
         
         bottomController.topView.backgroundColor = tableView.backgroundColor
@@ -498,4 +499,23 @@ extension ChatVC{
         bottomController.keyboardHide()
     }
     @objc func editButtonTap(){ isEditMode = true }
+}
+
+class CustomNavigationController: UINavigationController{
+    
+    var type: BgType = .dark{
+        didSet{
+            setNeedsStatusBarAppearanceUpdate()
+            self.navigationBar.tintColor = type.barTintColor()
+        }
+    }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+        switch type {
+            
+        case .dark: return .lightContent
+        case .light: return .default
+        }
+    }
+    
 }

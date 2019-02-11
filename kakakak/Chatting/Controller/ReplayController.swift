@@ -6,7 +6,13 @@ import SnapKit
 
 
 class ReplayController: UIViewController {
-    var bgType: BgType = .dark
+    var bgType: BgType = .dark{
+        didSet{
+            setNeedsStatusBarAppearanceUpdate()
+            self.navigationController?.navigationBar.tintColor = bgType.barTintColor()
+        }
+    }
+    
     var messageManager: MessageProcessor!
     var window: UIWindow?
     var pvController: RPPreviewViewController?{
@@ -54,7 +60,6 @@ class ReplayController: UIViewController {
     }()
     
 
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
@@ -64,6 +69,7 @@ class ReplayController: UIViewController {
         navigationController?.navigationBar.barTintColor = Style.allColors[colorIndex]
         setupNavBar()
         
+        bgType = Style.getBgType(color: tableView.backgroundColor!)
         
     }
     
@@ -107,7 +113,7 @@ class ReplayController: UIViewController {
     
     lazy var backButton: UIBarButtonItem = {
         let btn = UIButton(type: .system)
-        btn.setImage(#imageLiteral(resourceName: "back").withRenderingMode(.alwaysOriginal), for: .normal)
+        btn.setImage(#imageLiteral(resourceName: "back"), for: .normal)
         btn.snp.makeConstraints({ (mk) in
             mk.width.equalTo(32/3)
             mk.height.equalTo(55/3)
@@ -127,7 +133,7 @@ class ReplayController: UIViewController {
     }()
     lazy var hamburgerButton: UIBarButtonItem = {
         let btn = UIButton(type: .system)
-        btn.setImage(#imageLiteral(resourceName: "menu").withRenderingMode(.alwaysOriginal), for: .normal)
+        btn.setImage(#imageLiteral(resourceName: "menu"), for: .normal)
         btn.snp.makeConstraints({ (mk) in
             mk.width.equalTo(60/3)
             mk.height.equalTo(44/3)
@@ -137,7 +143,7 @@ class ReplayController: UIViewController {
     
     lazy var searchButton:UIBarButtonItem = {
         let btn = UIButton()
-        btn.setImage(UIImage(named: "searchCopy")!.withRenderingMode(.alwaysOriginal), for: .normal)
+        btn.setImage(UIImage(named: "searchCopy")!.withRenderingMode(.alwaysTemplate), for: .normal)
         btn.snp.makeConstraints({ (mk) in
             mk.width.height.equalTo(53 / 3)
         })
@@ -237,9 +243,9 @@ extension ReplayController: UITableViewDelegate,UITableViewDataSource{
         let msg = messageManager.getMessage(idx: indexPath.row)
         if let cell = tableView.dequeueReusableCell(withIdentifier: msg.getIdent()) as? BaseChat{
             cell.selectionStyle = .none
-            
             cell.editMode = false
             cell.bgType = bgType
+            
             (cell as? ChattingCellProtocol)?.configure(message: msg, bgType: bgType)
             return cell
         }
