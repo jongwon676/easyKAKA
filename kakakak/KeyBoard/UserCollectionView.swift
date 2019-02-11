@@ -5,7 +5,6 @@ class UserCollectionView: UICollectionView{
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        dump(rect)
         let horRadius: CGFloat = 333
         let verRadius: CGFloat = 225 // 타원의 세로 반지름
         let offset: CGFloat = 5
@@ -20,6 +19,7 @@ class UserCollectionView: UICollectionView{
             points.append(CGPoint(x: translateX + rect.minX , y: translateY + rect.minY))
         }
         let path = UIBezierPath()
+        
         for idx in 0 ..< points.count{
             if idx == 0{
                 path.move(to: points[idx])
@@ -27,24 +27,23 @@ class UserCollectionView: UICollectionView{
                 path.addLine(to: points[idx])
             }
         }
+        
         path.lineWidth = 0.5
         UIColor.gray.setStroke()
         path.stroke()
-        
-        
-        
     }
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.layer.cornerRadius = 2.0
-        self.layer.borderWidth = 1.0
-        self.layer.borderColor = UIColor.clear.cgColor        
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-        self.layer.shadowRadius = 2.0
-        self.layer.shadowOpacity = 0.3
-        self.layer.masksToBounds = false  // false해야지 그림자가 보임.
-        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.layer.cornerRadius).cgPath
+        self.layer.masksToBounds = false
+//        self.layer.cornerRadius = 2.0
+//        self.layer.borderWidth = 1.0
+//        self.layer.borderColor = UIColor.clear.cgColor
+//        self.layer.shadowColor = UIColor.black.cgColor
+//        self.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+//        self.layer.shadowRadius = 2.0
+//        self.layer.shadowOpacity = 0.3
+//        self.layer.masksToBounds = false  // false해야지 그림자가 보임.
+//        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.layer.cornerRadius).cgPath
     }
 }
 extension CGRect{

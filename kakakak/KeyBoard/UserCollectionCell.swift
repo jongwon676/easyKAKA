@@ -145,8 +145,8 @@ class UserCollectionCell: UICollectionViewCell {
         
         
         static let shadowOffset:CGFloat = 5
-        static let innerShadowSize = StyleGuide.imageSize + StyleGuide.shadowOffset
-        static let outerShadowSize = StyleGuide.imageSize + 2 * StyleGuide.shadowOffset
+        static let innerShadowSize = StyleGuide.imageSize + 2  * StyleGuide.shadowOffset
+        static let outerShadowSize = StyleGuide.imageSize + 4  * StyleGuide.shadowOffset
         
         
         static let imageWidthToNameBackgroundLabelWidth:CGFloat = 0.8

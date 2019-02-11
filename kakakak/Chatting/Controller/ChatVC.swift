@@ -156,7 +156,7 @@ class ChatVC: UIViewController{
             )
         }
         
-        dump(attributedString)
+
         
         
         navLabel.attributedText = attributedString
