@@ -42,12 +42,14 @@ class KeyBoardAreaController: UIViewController{
                     mk.height.equalTo(90)
                 }
                 receiver?.chattingModeCalled()
+                middleView.layer.borderWidth = 1
                 bottomView.snp.updateConstraints { (mk) in
                     mk.height.equalTo(elementHeight)
                 }
                 middleView.smileButton.setImage(#imageLiteral(resourceName: "middleViewTimeOff"), for: .normal)
             }else{
             middleView.smileButton.setImage(UIImage(named: "emoji_origin"), for: .normal)
+                middleView.layer.borderWidth = 0
                 [topView,bottomView].forEach{
                     $0.snp.updateConstraints({ (mk) in
                         mk.height.equalTo(0)
