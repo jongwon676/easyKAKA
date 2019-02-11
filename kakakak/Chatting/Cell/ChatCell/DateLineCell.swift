@@ -10,5 +10,7 @@ class DateLineCell: BaseChat,ChattingCellProtocol{
         self.message = message
         self.backgroundColor = UIColor.clear
         self.bgView.backgroundColor = UIColor.clear
+        dateLabel.text = Date.timeToStringDateLineVersion(date: message.sendDate)
+        
     }
 }

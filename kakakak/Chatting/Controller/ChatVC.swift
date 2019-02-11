@@ -155,10 +155,7 @@ class ChatVC: UIViewController{
                 [NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0.4180841446, green: 0.4661870003, blue: 0.5037575364, alpha: 1),.font: UIFont.systemFont(ofSize: 14),.paragraphStyle:paragraph])
             )
         }
-        
 
-        
-        
         navLabel.attributedText = attributedString
         navLabel.numberOfLines = 2
         self.navigationItem.titleView = navLabel
@@ -250,9 +247,10 @@ class ChatVC: UIViewController{
     func floatingButton(){
         editButton.setImage(UIImage(named: "editButton"), for: .normal)
         editButton.addTarget(self,action: #selector(editButtonTap), for: .touchUpInside)
-        if let window = UIApplication.shared.keyWindow {
-            window.addSubview(editButton)
-        }
+        view.addSubview(editButton)
+//        if let window = UIApplication.shared.keyWindow {
+//            window.addSubview(editButton)
+//        }
     }
     
     
@@ -358,24 +356,21 @@ class ChatVC: UIViewController{
         let btnHeight: CGFloat = 114 / 3
         editButton.frame = CGRect(x: UIScreen.main.bounds.width - btnWidth - offset, y: navHeight + offset, width: btnWidth, height: btnHeight)
         setNeedsStatusBarAppearanceUpdate()
+        
     }
-    
-    
     func setTimer(){
         timer?.invalidate()
-        
         timer = nil
-        
         timer = Timer.scheduledTimer(withTimeInterval: 1.0,
                                      repeats: true) { [weak self] _ in
                                         guard let `self` = self else { return }
                                         try! self.realm.write {
                                             self.room.currentDate = self.room.currentDate.addingTimeInterval(1.0)
                                         }
-                       
         }
+        
         RunLoop.current.add(self.timer!, forMode: RunLoop.Mode.common)
-
+        
         self.setNavTitle()
     }
     
@@ -392,22 +387,12 @@ class ChatVC: UIViewController{
         }
         (self.navigationController as? ColorNavigationViewController)?.setChattingNAv(color: tableView.backgroundColor ?? #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1))
         bottomController.topView.backgroundColor = tableView.backgroundColor
-        
-        
         tabBarController?.tabBar.isHidden = true
-        
-        
         
         setTimer()
         floatingButton()
-        
-        
-        
-//        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
-//        UINavigationBar.appearance().shadowImage = UIImage()
-//        UINavigationBar.appearance().backgroundColor = .clear
-//        UINavigationBar.appearance().isTranslucent = true
     }
+
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)

@@ -34,7 +34,7 @@ class DateCell: BaseChatCell,ChattingCellProtocol{
     }
     
     func configure(message: Message){
-        // dateText설정하고, sizeToFit ㄱ ㄱ
+        
         
         
     }
@@ -48,7 +48,6 @@ class DateCell: BaseChatCell,ChattingCellProtocol{
         
         self.addSubview(dateLabel)
         self.addSubview(containerView)
-//        self.addSubview(topView)
         
         
         dateLabel.text = "2018년 4월 27일 금요일"

@@ -103,6 +103,7 @@ class ReplayController: UIViewController {
         super.viewDidDisappear(animated)
         
         recordButton.removeFromSuperview()
+        
 //        window?.removeFromSuperview()
 //        window = nil
         
@@ -296,19 +297,14 @@ extension ReplayController: UITableViewDelegate,UITableViewDataSource{
 
         window?.backgroundColor = UIColor.clear
         window?.isUserInteractionEnabled = true
-
         window?.addSubview(recordButton)
         window?.addSubview(closeButotn)
         window?.addSubview(downloadBUtton)
         window?.addSubview(screenView)
-        
         screenView.totalMessageCount = messageManager.room.messages.count
         screenView.currentMessageNumbr = 0
-        
         window?.makeKeyAndVisible()
-        
     }
-    
 }
 
 

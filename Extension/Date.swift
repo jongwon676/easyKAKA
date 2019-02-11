@@ -5,6 +5,25 @@ extension Date{
         return String(self.timeIntervalSince1970)
     }
     
+    static func timeToStringDateLineVersion(date: Date) -> String{
+        let cal = Calendar(identifier: .gregorian)
+        let comps = cal.dateComponents([.weekday], from: date)
+        let DateDict: [Int:String] = [
+            1:"일요일",
+            2:"월요일",
+            3:"화요일",
+            4:"수요일",
+            5:"목요일",
+            6:"금요일",
+            7:"토요일",
+        ]
+        
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy년 M월 d일 \(DateDict[comps.weekday!]!)"
+        return dateFormatter.string(from: date)
+    }
+    
     static func timeToStringRoomDisPlay(date: Date) -> String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "a h시 mm분"
