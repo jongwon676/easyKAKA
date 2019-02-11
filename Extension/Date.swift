@@ -47,6 +47,11 @@ extension Date{
         dateFormatter.pmSymbol = "오후"
         return dateFormatter.string(from: date)
     }
+    static func isSameDateInChatRoom(date1: Date,date2: Date)->Bool{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "a h:mm"
+        return  dateFormatter.string(from: date1) == dateFormatter.string(from: date2)
+    }
     
     static func getNavTitle(date: Date) -> String{
         

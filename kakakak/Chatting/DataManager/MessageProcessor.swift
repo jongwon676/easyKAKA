@@ -55,8 +55,7 @@ class MessageProcessor{
             if !checkUserMessage(message: message){
                 return true
             }
-            
-            if Date.timeToString(date: messages[idx].sendDate) != Date.timeToString(date: message.sendDate) {
+            if Date.isSameDateInChatRoom(date1: messages[idx].sendDate, date2:  message.sendDate) == false{
                 return true
             }
             
@@ -73,7 +72,7 @@ class MessageProcessor{
             if !checkUserMessage(message: message){
                 return true
             }
-            if Date.timeToString(date: messages[idx].sendDate) != Date.timeToString(date: message.sendDate) {
+            if Date.isSameDateInChatRoom(date1: messages[idx].sendDate, date2: message.sendDate) == false{
                 return true
             }
             return false
@@ -92,7 +91,7 @@ class MessageProcessor{
             if messages[idx].isFirstMessage == false{
                 break
             }
-            if Date.timeToString(date: messages[idx].sendDate) != Date.timeToString(date: message.sendDate) {
+            if Date.isSameDateInChatRoom(date1: messages[idx].sendDate, date2: message.sendDate) == false{
                 break
             }
             messages[idx].isFirstMessage = false
@@ -112,7 +111,7 @@ class MessageProcessor{
             if messages[idx].isLastMessage == false{
                 break
             }
-            if Date.timeToString(date: messages[idx].sendDate) != Date.timeToString(date: message.sendDate) {
+            if Date.isSameDateInChatRoom(date1: messages[idx].sendDate, date2: message.sendDate) == false{
                 break
             }
             messages[idx].isLastMessage = false
