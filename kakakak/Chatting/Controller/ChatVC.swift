@@ -381,11 +381,12 @@ class ChatVC: UIViewController{
             tableView.backgroundColor = UIColor.init(hexString: colorHex)
             tableView.backgroundView = nil
         }else{
-            navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
-            tableView.backgroundColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
+            
+            navigationController?.navigationBar.barTintColor =  Style.allColors[0]
+            tableView.backgroundColor =  Style.allColors[0]
             tableView.backgroundView = nil
         }
-        (self.navigationController as? ColorNavigationViewController)?.setChattingNAv(color: tableView.backgroundColor ?? #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1))
+        (self.navigationController as? ColorNavigationViewController)?.setChattingNAv(color: tableView.backgroundColor ??  Style.allColors[0])
         bottomController.topView.backgroundColor = tableView.backgroundColor
         tabBarController?.tabBar.isHidden = true
         

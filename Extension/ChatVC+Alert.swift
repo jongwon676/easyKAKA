@@ -44,7 +44,7 @@ extension ChatVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate
             self.setNavTitle()
         }))
         
-        alert.addAction(UIAlertAction(title: "미리보기", style: .default, handler: { (action) in
+        alert.addAction(UIAlertAction(title: "녹화하기", style: .default, handler: { (action) in
             
             let replayControlelr = self.storyboard?.instantiateViewController(withIdentifier: "ReplayController") as! ReplayController
             
