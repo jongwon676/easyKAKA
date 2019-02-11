@@ -96,7 +96,7 @@ class Room: Object{
         if isGroupChatting {
             return " " + String(users.count)
         }
-        return "\n"
+        return ""
     }
     
     func activeUserId(exceptMe: Bool = true) -> Set<String>{
