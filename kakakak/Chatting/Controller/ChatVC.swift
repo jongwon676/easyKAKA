@@ -149,13 +149,13 @@ class ChatVC: UIViewController{
         )
         
         if !(bottomController.mode == .capture) {
-            print(Date.timeToString(date: self.room.currentDate))
+            
             attributedString.append(NSAttributedString(string:
                 "\n" + Date.timeToString(date: self.room.currentDate), attributes:
                 [NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0.4180841446, green: 0.4661870003, blue: 0.5037575364, alpha: 1),.font: UIFont.systemFont(ofSize: 14),.paragraphStyle:paragraph])
             )
         }
-        print(attributedString)
+        
         dump(attributedString)
         
         
