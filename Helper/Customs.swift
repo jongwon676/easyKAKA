@@ -66,8 +66,8 @@ class ColorNavigationViewController: UINavigationController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-//        changeGradientImage(orangeGradient: orangeGradient, orangeGradientLocation: orangeGradientLocation)
+//        changeGradientImage(orangeGradient: <#T##[UIColor]#>, orangeGradientLocation: <#T##[Double]#>)
+        changeGradientImage(orangeGradient: orangeGradient, orangeGradientLocation: orangeGradientLocation)
     }
     
     let whiteGradient = [UIColor.white,UIColor.white]
@@ -75,6 +75,9 @@ class ColorNavigationViewController: UINavigationController {
     
     var orangeGradient = [UIColor(rgb: 0xCFA3FF),UIColor(rgb: 0xFFAEE1)]
     var orangeGradientLocation = [0.0, 1.0]
+    
+    var isChattingMode: Bool = false
+    
     
     lazy var colorView = { () -> UIView in
         let view = UIView()
@@ -87,6 +90,8 @@ class ColorNavigationViewController: UINavigationController {
     
     func changeGradientImage(orangeGradient: [UIColor],orangeGradientLocation: [Double] ) {
         // 1 status bar
+        
+        print("gradient image")
         colorView.frame = CGRect(x: 0, y: -UIApplication.shared.statusBarFrame.height, width: navigationBar.frame.width, height: UIApplication.shared.statusBarFrame.height)
         
         // 2
@@ -94,9 +99,13 @@ class ColorNavigationViewController: UINavigationController {
         
         // 3 small title background
         navigationBar.setBackgroundImage(gradientImage(withColours: orangeGradient, location: orangeGradientLocation, view: navigationBar), for: .default)
-        
-        // 4 large title background
-        navigationBar.layer.backgroundColor = UIColor(patternImage: gradientImage(withColours: orangeGradient, location: orangeGradientLocation, view: navigationBar).resizableImage(withCapInsets: UIEdgeInsets(top: 0, left: navigationBar.frame.size.width/2, bottom: 10, right: navigationBar.frame.size.width/2), resizingMode: .stretch)).cgColor
+
+        // 4 large title background  // 이거 없애면 완벽
+        if !isChattingMode {
+            navigationBar.layer.backgroundColor = UIColor(patternImage: gradientImage(withColours: orangeGradient, location: orangeGradientLocation, view: navigationBar).resizableImage(withCapInsets: UIEdgeInsets(top: 0, left: navigationBar.frame.size.width/2, bottom: 10, right: navigationBar.frame.size.width/2), resizingMode: .stretch)).cgColor
+        }else{
+            navigationBar.layer.backgroundColor = nil
+        }
     }
     
     func configNavigationBar() {
@@ -122,22 +131,25 @@ class ColorNavigationViewController: UINavigationController {
     }
     
     func setRoomListNav(){
+        isChattingMode = false
         orangeGradient = [UIColor(rgb: 0xCFA3FF),UIColor(rgb: 0xFFAEE1)]
-        navigationBar.shadowImage = UIImage()
-        
-        
         orangeGradientLocation = [0.0, 1.0]
         self.changeGradientImage(orangeGradient: orangeGradient, orangeGradientLocation: orangeGradientLocation)
+        navigationBar.isTranslucent = false
     }
     func setChattingNAv(color: UIColor){
         
+        isChattingMode = true
         self.orangeGradientLocation = [0.0,1.0]
         self.orangeGradient = [color,color]
         self.changeGradientImage(orangeGradient: [color,color], orangeGradientLocation: [0.0,1.0])
+        
+        navigationBar.isTranslucent = true
     }
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        print("statusbarstyle")
+//        return .lightContent
+//    }
 }
 
 extension UIColor {

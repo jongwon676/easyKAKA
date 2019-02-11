@@ -62,17 +62,33 @@ class ReplayController: UIViewController {
             tableView.backgroundColor = UIColor.init(hexString: colorHex)
             tableView.backgroundView = nil
             navigationController?.navigationBar.barTintColor = tableView.backgroundColor
-            navigationController?.navigationBar.backgroundColor = tableView.backgroundColor
         }else{
             tableView.backgroundColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
             tableView.backgroundView = nil
             navigationController?.navigationBar.barTintColor = tableView.backgroundColor
-            navigationController?.navigationBar.backgroundColor = tableView.backgroundColor
         }
+        setupNavBar()
         
         
+    }
+    
+    func setupNavBar(){
+        let tableColor = tableView.backgroundColor
+        self.navigationController?.navigationBar.layer.backgroundColor = nil
+        self.navigationController?.navigationBar.backgroundColor = nil
+        self.navigationController?.navigationBar.isTranslucent = true
         
-        
+        self.navigationController?.navigationBar.setBackgroundImage(gradientImage(withColours: [tableColor! ,tableColor!], location: [0,1], view: (self.navigationController?.navigationBar)! ), for: .default)
+    }
+    func gradientImage(withColours colours: [UIColor], location: [Double], view: UIView) -> UIImage {
+        let gradient = CAGradientLayer()
+        gradient.frame = view.bounds
+        gradient.colors = colours.map { $0.cgColor }
+        gradient.startPoint = (CGPoint(x: 0.0,y: 0.5), CGPoint(x: 1.0,y: 0.5)).0
+        gradient.endPoint = (CGPoint(x: 0.0,y: 0.5), CGPoint(x: 1.0,y: 0.5)).1
+        gradient.locations = location as [NSNumber]
+        gradient.cornerRadius = view.layer.cornerRadius
+        return UIImage.image(from: gradient) ?? UIImage()
     }
    
     @IBOutlet var childView: UIView!
@@ -153,7 +169,7 @@ class ReplayController: UIViewController {
         self.navigationItem.rightBarButtonItems = [searchButton,fixedSpace,hamburgerButton]
         setUpRecordIndicationWindow()
         tableView.showsVerticalScrollIndicator = false
-        
+        tableView.isScrollEnabled = false
     
    }
     lazy var closeButotn: UIButton = {
@@ -193,6 +209,7 @@ class ReplayController: UIViewController {
         let recordButtonSize:CGFloat = 50
         
         recordButton.frame = CGRect(x: UIScreen.main.bounds.center.x - recordButtonSize / 2, y: UIScreen.main.bounds.height - recordButtonYMargin - recordButtonSize, width: recordButtonSize, height: recordButtonSize)
+        setupNavBar()
         
     }
     @objc func backButtonClick(){

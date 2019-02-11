@@ -41,15 +41,17 @@ extension ChatVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate
         
         alert.addAction(UIAlertAction(title: "사진찍기", style: .default, handler: { (action) in
             self.bottomController.mode = .capture
+            self.setNavTitle()
         }))
         
         alert.addAction(UIAlertAction(title: "미리보기", style: .default, handler: { (action) in
             
             let replayControlelr = self.storyboard?.instantiateViewController(withIdentifier: "ReplayController") as! ReplayController
-
+            
                 replayControlelr.room = self.room
             
                 let nav = UINavigationController(rootViewController: replayControlelr)
+                
                 self.present(nav, animated: true, completion: nil)
         }))
         

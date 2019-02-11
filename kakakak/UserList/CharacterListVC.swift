@@ -36,7 +36,7 @@ class CharacterListVC: UITableViewController{
             }
         }
         addButton.isHidden = false
-        
+        setNeedsStatusBarAppearanceUpdate()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

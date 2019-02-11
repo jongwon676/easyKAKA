@@ -14,6 +14,7 @@ protocol bottomInfoReceiver: class {
     func sendMessage(text: String)
     func captureModeCalled()
     func chattingModeCalled()
+    func needSetupNavTitle()
 }
 
 enum ChatMode{
@@ -45,7 +46,6 @@ class KeyBoardAreaController: UIViewController{
                     mk.height.equalTo(elementHeight)
                 }
                 middleView.smileButton.setImage(#imageLiteral(resourceName: "middleViewTimeOff"), for: .normal)
-                
             }else{
             middleView.smileButton.setImage(UIImage(named: "emoji_origin"), for: .normal)
                 [topView,bottomView].forEach{
@@ -58,6 +58,7 @@ class KeyBoardAreaController: UIViewController{
             }
             self.view.layoutIfNeeded()
         }
+        
     }
     
     var users = List<User>() {

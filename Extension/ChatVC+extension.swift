@@ -25,6 +25,7 @@ extension ChatVC: UITextViewDelegate{
             ? true
             : false
         
+    
 
         var offset:CGFloat = 0
         

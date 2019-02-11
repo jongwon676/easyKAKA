@@ -30,6 +30,7 @@ class RoomListVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
         super.viewWillDisappear(animated)
         addButton.isHidden = true
         token?.invalidate()
+        shadowImageView?.isHidden = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,17 +59,35 @@ class RoomListVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
         tableView.reloadData()
         
         
-        let orangeGradient =  [UIColor(rgb: 0xCFA3FF),UIColor(rgb: 0xFFAEE1)]
-        let position = [0.0,1.0]
         
         
-        (self.navigationController as? ColorNavigationViewController)?.orangeGradientLocation = position
-        (self.navigationController as? ColorNavigationViewController)?.orangeGradient = orangeGradient
-        //
-        (self.navigationController as? ColorNavigationViewController)?.changeGradientImage(orangeGradient: orangeGradient, orangeGradientLocation: position)
+        (self.navigationController as? ColorNavigationViewController)?.setRoomListNav()
+        
+        
+            
+            if shadowImageView == nil {
+                shadowImageView = findShadowImage(under: navigationController!.navigationBar)
+            }
+            shadowImageView?.isHidden = true
+        
+        
+
         
     }
-    
+    private var shadowImageView: UIImageView?
+    private func findShadowImage(under view: UIView) -> UIImageView? {
+        if view is UIImageView && view.bounds.size.height <= 1 {
+            return (view as! UIImageView)
+        }
+        
+        for subview in view.subviews {
+            if let imageView = findShadowImage(under: subview) {
+                return imageView
+            }
+        }
+        return nil
+    }
+
      func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

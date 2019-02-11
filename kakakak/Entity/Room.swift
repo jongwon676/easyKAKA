@@ -94,7 +94,7 @@ class Room: Object{
     }
     func getUserNumber() -> String {
         if isGroupChatting {
-            return " " + String(users.count) + "\n"
+            return " " + String(users.count)
         }
         return "\n"
     }

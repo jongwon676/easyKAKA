@@ -10,7 +10,11 @@ protocol CellConfigurator: class{
 
 class ChatVC: UIViewController{
     var realm = try! Realm()
-    private weak var timer: Timer?
+    private weak var timer: Timer?{
+        didSet{
+            print("timer set")
+        }
+    }
     
     @IBOutlet var childView: UIView!
     var room: Room!
@@ -120,11 +124,13 @@ class ChatVC: UIViewController{
     }
     
     
+    var navLabel = UILabel()
     
-    
-    
+    func needSetupNavTitle() {
+        setNavTitle()
+    }
     func setNavTitle(){
-        let label = UILabel()
+        
         let attributedString = NSMutableAttributedString()
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = .center
@@ -142,14 +148,20 @@ class ChatVC: UIViewController{
             )
         )
         
-        attributedString.append(NSAttributedString(string:
-            Date.timeToString(date: self.room.currentDate), attributes:
-            [NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0.4180841446, green: 0.4661870003, blue: 0.5037575364, alpha: 1),.font: UIFont.systemFont(ofSize: 14),.paragraphStyle:paragraph])
-        )
+        if !(bottomController.mode == .capture) {
+            print(Date.timeToString(date: self.room.currentDate))
+            attributedString.append(NSAttributedString(string:
+                "\n" + Date.timeToString(date: self.room.currentDate), attributes:
+                [NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0.4180841446, green: 0.4661870003, blue: 0.5037575364, alpha: 1),.font: UIFont.systemFont(ofSize: 14),.paragraphStyle:paragraph])
+            )
+        }
+        print(attributedString)
+        dump(attributedString)
         
-        label.attributedText = attributedString
-        label.numberOfLines = 2
-        self.navigationItem.titleView = label
+        
+        navLabel.attributedText = attributedString
+        navLabel.numberOfLines = 2
+        self.navigationItem.titleView = navLabel
     }
     
     
@@ -196,7 +208,7 @@ class ChatVC: UIViewController{
         self.navigationItem.leftBarButtonItem = backButton
         
         
-//        setTimer()
+
         normalModeTableViewConstraint?.activate()
         editModeTableViewConstraint?.deactivate()
     }
@@ -207,10 +219,13 @@ class ChatVC: UIViewController{
                 editButton.isHidden = false
                 allDeselct()
                 setNoEditMode()
+                setTimer()
                 
             }else{
                 editButton.isHidden = true
                 setEditMode()
+                setTimer()
+            
             }
         }
     }
@@ -314,6 +329,7 @@ class ChatVC: UIViewController{
         
         
         
+        //오전 12:56분에서 자꾸 버그 발생
         
         bottomController.view?.snp.makeConstraints({ (mk) in
             mk.left.right.equalTo(self.view)
@@ -341,11 +357,14 @@ class ChatVC: UIViewController{
         let btnWidth: CGFloat = 259 / 3
         let btnHeight: CGFloat = 114 / 3
         editButton.frame = CGRect(x: UIScreen.main.bounds.width - btnWidth - offset, y: navHeight + offset, width: btnWidth, height: btnHeight)
-        
+        setNeedsStatusBarAppearanceUpdate()
     }
     
     
     func setTimer(){
+        timer?.invalidate()
+        
+        timer = nil
         
         timer = Timer.scheduledTimer(withTimeInterval: 1.0,
                                      repeats: true) { [weak self] _ in
@@ -353,8 +372,10 @@ class ChatVC: UIViewController{
                                         try! self.realm.write {
                                             self.room.currentDate = self.room.currentDate.addingTimeInterval(1.0)
                                         }
-                                        self.setNavTitle()
+                       
         }
+        RunLoop.current.add(self.timer!, forMode: RunLoop.Mode.common)
+
         self.setNavTitle()
     }
     
@@ -379,7 +400,7 @@ class ChatVC: UIViewController{
         
         setTimer()
         floatingButton()
-        RunLoop.current.add(self.timer!, forMode: RunLoop.Mode.common)
+        
         
         
 //        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
