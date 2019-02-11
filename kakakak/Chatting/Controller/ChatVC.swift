@@ -435,7 +435,8 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
             
             cell.selectionStyle = .none
             cell.editMode = self.isEditMode
-            (cell as? ChattingCellProtocol)?.configure(message: msg)
+            cell.bgType = bgType
+            (cell as? ChattingCellProtocol)?.configure(message: msg, bgType: bgType)
             cell.checkBoxImage.image = msg.isSelected ? UIImage(named: "selected") : UIImage(named: "unSelected")
             cell.bringSubviewToFront(cell.checkBoxImage)
             

@@ -99,7 +99,6 @@
 		AD95E2562208712F00CD8451 /* GradientSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95E2212208712F00CD8451 /* GradientSlider.swift */; };
 		AD95E2572208712F00CD8451 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95E2222208712F00CD8451 /* TextField.swift */; };
 		AD95E2582208712F00CD8451 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95E2232208712F00CD8451 /* Button.swift */; };
-		AD95E6C021F3F9C1000450AB /* VoiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95E6BF21F3F9C1000450AB /* VoiceCell.swift */; };
 		AD95E6C321F422FD000450AB /* BackgroundSelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95E6C221F422FD000450AB /* BackgroundSelectController.swift */; };
 		AD95E6C521F425B4000450AB /* BackgroundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95E6C421F425B4000450AB /* BackgroundCell.swift */; };
 		AD95E6C721F43393000450AB /* BackgroundCaptureImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95E6C621F43393000450AB /* BackgroundCaptureImageCell.swift */; };
@@ -137,14 +136,7 @@
 		ADC672DA21E2C8F800D6D3F5 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672D921E2C8F800D6D3F5 /* Message.swift */; };
 		ADC672DC21E391B500D6D3F5 /* RoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672DB21E391B500D6D3F5 /* RoomCell.swift */; };
 		ADC672DE21E39FCB00D6D3F5 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672DD21E39FCB00D6D3F5 /* ChatVC.swift */; };
-		ADC672E121E3A52400D6D3F5 /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672E021E3A52400D6D3F5 /* TextCell.swift */; };
-		ADC672E321E3A56B00D6D3F5 /* ChattingImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672E221E3A56B00D6D3F5 /* ChattingImageCell.swift */; };
-		ADC672E521E3A57900D6D3F5 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672E421E3A57900D6D3F5 /* DateCell.swift */; };
-		ADC672E721E3A59000D6D3F5 /* UserEnterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672E621E3A59000D6D3F5 /* UserEnterCell.swift */; };
-		ADC672E921E3A5A000D6D3F5 /* UserExitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672E821E3A5A000D6D3F5 /* UserExitCell.swift */; };
-		ADC672ED21E3AE3900D6D3F5 /* BaseChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672EC21E3AE3900D6D3F5 /* BaseChatCell.swift */; };
 		ADC672F021E3B0A000D6D3F5 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672EF21E3B0A000D6D3F5 /* Style.swift */; };
-		ADC672F221E3CE6200D6D3F5 /* UserChattingBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC672F121E3CE6200D6D3F5 /* UserChattingBaseCell.swift */; };
 		ADCB809F21F8ADAE00BE25D8 /* UserLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCB809E21F8ADAE00BE25D8 /* UserLayout.swift */; };
 		ADCB80A121F9530A00BE25D8 /* UserCollectionLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCB80A021F9530A00BE25D8 /* UserCollectionLayoutAttributes.swift */; };
 		ADD271872209B65400DBD72C /* CSTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD271862209B65400DBD72C /* CSTabbarController.swift */; };
@@ -255,7 +247,6 @@
 		AD95E2212208712F00CD8451 /* GradientSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientSlider.swift; sourceTree = "<group>"; };
 		AD95E2222208712F00CD8451 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		AD95E2232208712F00CD8451 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
-		AD95E6BF21F3F9C1000450AB /* VoiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceCell.swift; sourceTree = "<group>"; };
 		AD95E6C221F422FD000450AB /* BackgroundSelectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundSelectController.swift; sourceTree = "<group>"; };
 		AD95E6C421F425B4000450AB /* BackgroundCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCell.swift; sourceTree = "<group>"; };
 		AD95E6C621F43393000450AB /* BackgroundCaptureImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCaptureImageCell.swift; sourceTree = "<group>"; };
@@ -295,14 +286,7 @@
 		ADC672D921E2C8F800D6D3F5 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		ADC672DB21E391B500D6D3F5 /* RoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCell.swift; sourceTree = "<group>"; };
 		ADC672DD21E39FCB00D6D3F5 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
-		ADC672E021E3A52400D6D3F5 /* TextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
-		ADC672E221E3A56B00D6D3F5 /* ChattingImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingImageCell.swift; sourceTree = "<group>"; };
-		ADC672E421E3A57900D6D3F5 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
-		ADC672E621E3A59000D6D3F5 /* UserEnterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEnterCell.swift; sourceTree = "<group>"; };
-		ADC672E821E3A5A000D6D3F5 /* UserExitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserExitCell.swift; sourceTree = "<group>"; };
-		ADC672EC21E3AE3900D6D3F5 /* BaseChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseChatCell.swift; sourceTree = "<group>"; };
 		ADC672EF21E3B0A000D6D3F5 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
-		ADC672F121E3CE6200D6D3F5 /* UserChattingBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChattingBaseCell.swift; sourceTree = "<group>"; };
 		ADCB809E21F8ADAE00BE25D8 /* UserLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLayout.swift; sourceTree = "<group>"; };
 		ADCB80A021F9530A00BE25D8 /* UserCollectionLayoutAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionLayoutAttributes.swift; sourceTree = "<group>"; };
 		ADD271862209B65400DBD72C /* CSTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSTabbarController.swift; sourceTree = "<group>"; };
@@ -746,7 +730,6 @@
 			children = (
 				AD0D47FA220B159100FFAC7D /* EditCell */,
 				ADFA306322043C0200744C31 /* ChatCell */,
-				ADC672DF21E3A51700D6D3F5 /* ChattingCell */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -871,22 +854,6 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
-		ADC672DF21E3A51700D6D3F5 /* ChattingCell */ = {
-			isa = PBXGroup;
-			children = (
-				ADC672E021E3A52400D6D3F5 /* TextCell.swift */,
-				ADC672E221E3A56B00D6D3F5 /* ChattingImageCell.swift */,
-				ADC672E421E3A57900D6D3F5 /* DateCell.swift */,
-				ADC672E621E3A59000D6D3F5 /* UserEnterCell.swift */,
-				ADC672E821E3A5A000D6D3F5 /* UserExitCell.swift */,
-				ADC672EC21E3AE3900D6D3F5 /* BaseChatCell.swift */,
-				ADC672F121E3CE6200D6D3F5 /* UserChattingBaseCell.swift */,
-				AD95E6BF21F3F9C1000450AB /* VoiceCell.swift */,
-				AD2B39A621FC7F4B00BE6869 /* ChattingCellProtocol.swift */,
-			);
-			path = ChattingCell;
-			sourceTree = "<group>";
-		};
 		ADC672EE21E3B09500D6D3F5 /* StyleGuide */ = {
 			isa = PBXGroup;
 			children = (
@@ -906,6 +873,7 @@
 		ADFA306322043C0200744C31 /* ChatCell */ = {
 			isa = PBXGroup;
 			children = (
+				AD2B39A621FC7F4B00BE6869 /* ChattingCellProtocol.swift */,
 				AD8D17EE220B60AA002034FF /* second */,
 				AD8D17ED220B608D002034FF /* first */,
 				AD2B6A892204796700DD563A /* InviteCell.swift */,
@@ -1073,7 +1041,6 @@
 				ADD271872209B65400DBD72C /* CSTabbarController.swift in Sources */,
 				ADB8E57B220C6D65006628F2 /* DrawHelper.swift in Sources */,
 				AD50748A21F31635003B50F5 /* RealmProvider.swift in Sources */,
-				AD95E6C021F3F9C1000450AB /* VoiceCell.swift in Sources */,
 				ADC672BE21E24E2500D6D3F5 /* CharacterListVC.swift in Sources */,
 				AD95E2272208712F00CD8451 /* UIViewController+Extensions.swift in Sources */,
 				ADC672D621E2C67F00D6D3F5 /* RoomListVC.swift in Sources */,
@@ -1105,7 +1072,6 @@
 				AD27D16721F07066009E367A /* UserCollectionCell.swift in Sources */,
 				AD9E3F242203113200F45BF9 /* Customs.swift in Sources */,
 				ADC672C521E2517700D6D3F5 /* Preset.swift in Sources */,
-				ADC672E521E3A57900D6D3F5 /* DateCell.swift in Sources */,
 				ADC672C921E28F6500D6D3F5 /* Path.swift in Sources */,
 				AD2B6A80220465C000DD563A /* CallMessageAnother.swift in Sources */,
 				AD95E6C321F422FD000450AB /* BackgroundSelectController.swift in Sources */,
@@ -1120,7 +1086,6 @@
 				AD8D17F0220B60E1002034FF /* UserChattingBaseMeCell.swift in Sources */,
 				AD8C17C022045CEA00B7C8F9 /* ImageAnother.swift in Sources */,
 				AD95E2572208712F00CD8451 /* TextField.swift in Sources */,
-				ADC672E121E3A52400D6D3F5 /* TextCell.swift in Sources */,
 				ADCB809F21F8ADAE00BE25D8 /* UserLayout.swift in Sources */,
 				AD2B6A8E22047D5700DD563A /* DateLineCell.swift in Sources */,
 				AD95E2432208712F00CD8451 /* LocationPickerViewController.swift in Sources */,
@@ -1149,11 +1114,9 @@
 				ADB8D83F21F88702001D88BD /* UserCollectionView.swift in Sources */,
 				AD2B6A8A2204796700DD563A /* InviteCell.swift in Sources */,
 				AD0D4801220B166D00FFAC7D /* ImageEditCell.swift in Sources */,
-				ADC672ED21E3AE3900D6D3F5 /* BaseChatCell.swift in Sources */,
 				AD50748121F28D9C003B50F5 /* TimeInputView.swift in Sources */,
 				AD50748621F29EEA003B50F5 /* EditView.swift in Sources */,
 				AD95E2342208712F00CD8451 /* UITextField+Extensions.swift in Sources */,
-				ADC672E321E3A56B00D6D3F5 /* ChattingImageCell.swift in Sources */,
 				AD95E2382208712F00CD8451 /* LocaleStore.swift in Sources */,
 				AD95E23B2208712F00CD8451 /* PhoneCodeCell.swift in Sources */,
 				AD95E22D2208712F00CD8451 /* UIImage+Extensions.swift in Sources */,
@@ -1169,7 +1132,6 @@
 				ADB8D83821F48D13001D88BD /* SizeCalculator.swift in Sources */,
 				AD27D19021F1E16C009E367A /* KeyBoardView.swift in Sources */,
 				AD95E2482208712F00CD8451 /* ContactsPickerViewController.swift in Sources */,
-				ADC672E721E3A59000D6D3F5 /* UserEnterCell.swift in Sources */,
 				ADE54866220E81FC0096AB96 /* UITabbar+extension.swift in Sources */,
 				AD95E24A2208712F00CD8451 /* Contact.swift in Sources */,
 				AD0D4805220B169C00FFAC7D /* SendFailEditCell.swift in Sources */,
@@ -1182,11 +1144,9 @@
 				AD95E2542208712F00CD8451 /* Label.swift in Sources */,
 				AD95E22A2208712F00CD8451 /* String+Extensions.swift in Sources */,
 				ADE5486C220F483A0096AB96 /* ImagePickerHelper.swift in Sources */,
-				ADC672E921E3A5A000D6D3F5 /* UserExitCell.swift in Sources */,
 				AD95E2392208712F00CD8451 /* LocaleInfo.swift in Sources */,
 				ADA7E00A21FECDBF00FCF517 /* SpecailFeatureButton.swift in Sources */,
 				ADC672D821E2C71B00D6D3F5 /* Room.swift in Sources */,
-				ADC672F221E3CE6200D6D3F5 /* UserChattingBaseCell.swift in Sources */,
 				AD2B39A721FC7F4B00BE6869 /* ChattingCellProtocol.swift in Sources */,
 				AD95E2562208712F00CD8451 /* GradientSlider.swift in Sources */,
 				ADFA306B22044AB000744C31 /* ImageMe.swift in Sources */,

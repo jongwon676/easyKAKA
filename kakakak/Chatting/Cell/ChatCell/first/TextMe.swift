@@ -1,6 +1,22 @@
 import UIKit
 import SnapKit
 class TextMe: UserChattingBaseMeCell,ChattingCellProtocol{
+    func configure(message: Message, bgType: BgType) {
+        self.message = message
+        self.backgroundColor = UIColor.clear
+        self.containerView.backgroundColor = UIColor.clear
+        
+        self.bubble.backgroundColor = Style.leftBubbleColor
+        messageLabel.text = message.messageText
+        moveConstraint()
+        
+        
+        
+        updateConstraintsIfNeeded()
+    }
+    
+    
+    
     static var reuseId = "textMe"
     
     
@@ -34,20 +50,7 @@ class TextMe: UserChattingBaseMeCell,ChattingCellProtocol{
         
     }
     
-    func configure(message: Message){
-        self.message = message
-        self.backgroundColor = UIColor.clear
-        self.containerView.backgroundColor = UIColor.clear
-        
-        self.bubble.backgroundColor = Style.leftBubbleColor
-        messageLabel.text = message.messageText
-        moveConstraint()
-
-        
-        
-        updateConstraintsIfNeeded()
-        
-    }
+    
     
 }
 

@@ -1,18 +1,7 @@
 
 import UIKit
 class RecordMessageMe: UserChattingBaseMeCell,ChattingCellProtocol{
-    static var reuseId: String{
-        return "recordMessageMe"
-    }
-    
-    
-    
-    
-    
-    @IBOutlet var playTimeLabel: UILabel!
-
-    
-    func configure(message: Message) {
+    func configure(message: Message, bgType: BgType) {
         self.message = message
         self.containerView.backgroundColor = UIColor.clear
         self.backgroundColor = UIColor.clear
@@ -25,6 +14,21 @@ class RecordMessageMe: UserChattingBaseMeCell,ChattingCellProtocol{
         
         moveConstraint()
     }
+    
+    
+    
+    static var reuseId: String{
+        return "recordMessageMe"
+    }
+    
+    
+    
+    
+    
+    @IBOutlet var playTimeLabel: UILabel!
+
+    
+    
     
     
 }

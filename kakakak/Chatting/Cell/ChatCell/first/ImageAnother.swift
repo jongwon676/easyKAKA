@@ -1,5 +1,9 @@
 import UIKit
 class ImageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
+    
+    
+    
+    
     static var reuseId: String
     {
         return "imageAnother"
@@ -44,19 +48,20 @@ class ImageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    func configure(message: Message){
+
+    func configure(message: Message, bgType: BgType) {
         self.backgroundColor = UIColor.clear
         self.contentView.backgroundColor = UIColor.clear
         failView.isHidden = !message.isFail
         self.message = message
         if message.isLastMessage{
-            timeReadLabel.setUp(message: message)
             timeReadLabel.isHidden = false
             timeReadLabel.isHidden = !failView.isHidden
         }else{
             timeReadLabel.isHidden = true
         }
         mImage = UIImage.loadImageFromName(message.messageImageUrl)
-        timeReadLabel.setUp(message: message)
+        
+        timeReadLabel.setUp(message: message, timeColor: bgType.getNavUserCountColor())
     }
 }

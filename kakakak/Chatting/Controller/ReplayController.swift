@@ -6,7 +6,7 @@ import SnapKit
 
 
 class ReplayController: UIViewController {
-    
+    var bgType: BgType = .dark
     var messageManager: MessageProcessor!
     var window: UIWindow?
     var pvController: RPPreviewViewController?{
@@ -237,8 +237,10 @@ extension ReplayController: UITableViewDelegate,UITableViewDataSource{
         let msg = messageManager.getMessage(idx: indexPath.row)
         if let cell = tableView.dequeueReusableCell(withIdentifier: msg.getIdent()) as? BaseChat{
             cell.selectionStyle = .none
+            
             cell.editMode = false
-            (cell as? ChattingCellProtocol)?.configure(message: msg)
+            cell.bgType = bgType
+            (cell as? ChattingCellProtocol)?.configure(message: msg, bgType: bgType)
             return cell
         }
         return UITableViewCell()

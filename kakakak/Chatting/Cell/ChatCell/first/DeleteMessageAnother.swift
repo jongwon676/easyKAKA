@@ -1,6 +1,9 @@
 import UIKit
 class DeleteMessageAnother: UserChattingBaseAnotherCell, ChattingCellProtocol{
     
+    
+    
+    
     static var reuseId: String{
         return "deleteMessageAnother"
     }
@@ -30,12 +33,13 @@ class DeleteMessageAnother: UserChattingBaseAnotherCell, ChattingCellProtocol{
     }
     
     @IBOutlet var warningVIew: UIImageView!
-    func configure(message: Message) {
+  
+    func configure(message: Message, bgType: BgType) {
         self.contentView.backgroundColor = UIColor.clear
         self.backgroundColor = UIColor.clear
         self.message = message
         if message.isLastMessage{
-            timeReadLabel.setUp(message: message)
+            timeReadLabel.setUp(message: message, timeColor: bgType.getNavUserCountColor())
             timeReadLabel.isHidden = false
         }else{
             timeReadLabel.isHidden = true
@@ -43,8 +47,6 @@ class DeleteMessageAnother: UserChattingBaseAnotherCell, ChattingCellProtocol{
         
         
         updateConstraintsIfNeeded()
-        
-        
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

@@ -1,19 +1,12 @@
 import UIKit
 class RecordMessageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
-    
-    @IBOutlet var playRecordLabel: UILabel!
-    static var reuseId: String{
-        return "recordMessageAnother"
-    }
-    
-
-    func configure(message: Message) {
+    func configure(message: Message, bgType: BgType) {
         self.contentView.backgroundColor = UIColor.clear
         self.message = message
         self.backgroundColor = UIColor.clear
         
         if message.isLastMessage{
-            timeReadLabel.setUp(message: message)
+            timeReadLabel.setUp(message: message, timeColor: bgType.getNavUserCountColor())
             timeReadLabel.isHidden = false
         }else{
             timeReadLabel.isHidden = true
@@ -25,6 +18,17 @@ class RecordMessageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
         let secondString = String(message.duration % 60)
         playRecordLabel.text! += secondString.count < 2 ? ":0" + secondString : ":" + secondString
     }
+    
+    
+    
+    
+    @IBOutlet var playRecordLabel: UILabel!
+    static var reuseId: String{
+        return "recordMessageAnother"
+    }
+    
+
+    
     
     
 }

@@ -25,11 +25,6 @@ class ChatTableView: UITableView {
     
 
     private func registerCells(){
-        self.register(TextCell.self, forCellReuseIdentifier: TextCell.reuseId)
-        self.register(ChattingImageCell.self, forCellReuseIdentifier: ChattingImageCell.reuseId)
-        self.register(DateCell.self, forCellReuseIdentifier: DateCell.reuseId)
-        self.register(UserEnterCell.self, forCellReuseIdentifier: UserEnterCell.reuseId)
-        self.register(UserExitCell.self, forCellReuseIdentifier: UserExitCell.reuseId)
-        self.register(VoiceCell.self, forCellReuseIdentifier: VoiceCell.reuseId)
+        
     }
 }

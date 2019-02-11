@@ -2,6 +2,10 @@
 import UIKit
 import SnapKit
 class DeleteMessageMe: UserChattingBaseMeCell,ChattingCellProtocol {
+    
+    
+    
+    
     static var reuseId: String{
         return "deleteMessageMe"
     }
@@ -22,16 +26,15 @@ class DeleteMessageMe: UserChattingBaseMeCell,ChattingCellProtocol {
         super.init(coder: aDecoder)
     }
 
-    func configure(message: Message) {
+    
+    func configure(message: Message, bgType: BgType) {
         self.message = message
         self.contentView.backgroundColor = UIColor.clear
         self.backgroundColor = UIColor.clear
         containerView.backgroundColor = UIColor.clear
         moveConstraint()
         updateFocusIfNeeded()
-        
     }
-    
     override func draw(_ rect: CGRect) {
         
         

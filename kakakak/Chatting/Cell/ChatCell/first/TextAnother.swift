@@ -1,5 +1,24 @@
 import UIKit
 class TextAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
+    func configure(message: Message, bgType: BgType) {
+        self.message = message
+        self.backgroundColor = UIColor.clear
+        self.contentView.backgroundColor = UIColor.clear
+        self.bubble.backgroundColor = Style.rightBubbleColor
+        messageLabel.text = message.messageText
+        failView.isHidden = !message.isFail
+        if message.isLastMessage{
+            
+            timeReadLabel.setUp(message: message, timeColor: bgType.getNavUserCountColor())
+            timeReadLabel.isHidden = false
+            timeReadLabel.isHidden = !failView.isHidden
+        }else{
+            timeReadLabel.isHidden = true
+        }
+    }
+    
+    
+    
     static var reuseId = "textAnother"
   
     @IBOutlet var messageLabel: UILabel!
@@ -33,20 +52,5 @@ class TextAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
         super.init(coder: aDecoder)
     }
     
-    func configure(message: Message){
-        self.message = message
-        self.backgroundColor = UIColor.clear
-        self.contentView.backgroundColor = UIColor.clear
-        self.bubble.backgroundColor = Style.rightBubbleColor
-        messageLabel.text = message.messageText
-        failView.isHidden = !message.isFail
-        if message.isLastMessage{
-
-            timeReadLabel.setUp(message: message)
-            timeReadLabel.isHidden = false
-            timeReadLabel.isHidden = !failView.isHidden
-        }else{
-            timeReadLabel.isHidden = true
-        }
-    }
+    
 }

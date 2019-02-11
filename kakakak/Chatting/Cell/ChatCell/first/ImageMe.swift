@@ -1,5 +1,16 @@
 import UIKit
 class ImageMe: UserChattingBaseMeCell,ChattingCellProtocol{
+    func configure(message: Message, bgType: BgType) {
+        self.backgroundColor = UIColor.clear
+        containerView.backgroundColor = UIColor.clear
+        self.message = message
+        mImage = UIImage.loadImageFromName(message.messageImageUrl)
+        
+        timeReadLabel.setUp(message: message, timeColor: bgType.getNavUserCountColor())
+        moveConstraint()
+    }
+    
+    
     static var reuseId = "imageMe"
     
     @IBOutlet var messageImage: UIImageView!
@@ -40,12 +51,4 @@ class ImageMe: UserChattingBaseMeCell,ChattingCellProtocol{
         super.init(coder: aDecoder)
     }
     
-    func configure(message: Message) {
-        self.backgroundColor = UIColor.clear
-        containerView.backgroundColor = UIColor.clear
-        self.message = message
-        mImage = UIImage.loadImageFromName(message.messageImageUrl)
-        timeReadLabel.setUp(message: message)
-        moveConstraint()
-    }
 }

@@ -6,7 +6,7 @@ class TimeAndReadLabel: UILabel{
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    func setUp(message: Message){
+    func setUp(message: Message,timeColor: UIColor){
         self.numberOfLines = 0
         var shadow = NSShadow()
         shadow.shadowColor = #colorLiteral(red: 0.5343024731, green: 0.6267417073, blue: 0.6852725148, alpha: 1)
@@ -30,7 +30,7 @@ class TimeAndReadLabel: UILabel{
         shadow.shadowColor = UIColor.clear
         let timeAttributes:  [NSAttributedString.Key: Any] = [
             .font: Style.timeLabelFont,
-            .foregroundColor: Style.timeLabelColor,
+            .foregroundColor: timeColor,
             .paragraphStyle: paragraphStyle,
             .shadow: shadow
         ]

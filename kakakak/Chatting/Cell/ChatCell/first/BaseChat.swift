@@ -3,6 +3,9 @@ import SnapKit
 import RealmSwift
 
 class BaseChat: UITableViewCell{
+    
+    var bgType: BgType?
+    
     var message: Message!{
         didSet{
             if message.isFirstMessage{

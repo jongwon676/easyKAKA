@@ -17,7 +17,9 @@ class UserChattingBaseMeCell: BaseChat{
         guard let owner = message.owner else { return }
         leading.constant = editMode ? 30 : 0
         if message.isLastMessage{
-            timeReadLabel.setUp(message: message)
+            if let bgType = self.bgType{
+                timeReadLabel.setUp(message: message, timeColor: bgType.getNavUserCountColor())
+            }
             timeReadLabel.isHidden = false            
         }else{
             timeReadLabel.isHidden = true

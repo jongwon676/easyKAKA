@@ -2,6 +2,30 @@
 import Foundation
 import UIKit
 class CallMessageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
+    func configure(message: Message, bgType: BgType) {
+        self.backgroundColor = UIColor.clear
+        self.contentView.backgroundColor = UIColor.clear
+        self.message = message
+        
+        
+        if message.isLastMessage{
+            timeReadLabel.setUp(message: message, timeColor: bgType.getNavUserCountColor())
+            timeReadLabel.isHidden = false
+        }else{
+            timeReadLabel.isHidden = true
+        }
+        
+        
+        //        timeReadLabel.setUp(message: message)
+        
+        let callImageAndTitle: (title: String, image: UIImage) = message.getTitleAndCallImage()
+        
+        callImage.image = callImageAndTitle.image
+        callLabel.text = callImageAndTitle.title
+    }
+    
+    
+    
     @IBOutlet var bubble: UIView!
     
     
@@ -23,25 +47,4 @@ class CallMessageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
         super.init(coder: aDecoder)
     }
     
-    func configure(message: Message) {
-        self.backgroundColor = UIColor.clear
-        self.contentView.backgroundColor = UIColor.clear
-        self.message = message
-        
-        
-        if message.isLastMessage{
-            timeReadLabel.setUp(message: message)
-            timeReadLabel.isHidden = false
-        }else{
-            timeReadLabel.isHidden = true
-        }
-        
-        
-//        timeReadLabel.setUp(message: message)
-        
-        let callImageAndTitle: (title: String, image: UIImage) = message.getTitleAndCallImage()
-        
-        callImage.image = callImageAndTitle.image
-        callLabel.text = callImageAndTitle.title
-    }
 }
