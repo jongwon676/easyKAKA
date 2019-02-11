@@ -220,7 +220,6 @@ class KeyBoardAreaController: UIViewController{
     //
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
     }
     deinit {
         print("keyboardarea deinit")

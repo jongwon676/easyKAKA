@@ -43,12 +43,12 @@ class ReplayController: UIViewController {
     lazy var middleView: MiddleView = {
        let middleView = MiddleView()
         middleView.textView.isEditable = false
-        middleView.sendButton.setImage(UIImage(named: "enter"), for: .normal)
+        middleView.sendButton.setImage(#imageLiteral(resourceName: "sharp").withRenderingMode(.alwaysOriginal), for: .normal)
+        middleView.smileButton.setImage(#imageLiteral(resourceName: "emoji_origin").withRenderingMode(.alwaysOriginal), for: .normal)
         self.view.addSubview(middleView)
         middleView.snp.makeConstraints({ (mk) in
             mk.left.right.equalTo(self.view)
             mk.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
-            mk.height.equalTo(40)
         })
         return middleView
     }()
