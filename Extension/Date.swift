@@ -40,12 +40,17 @@ extension Date{
         return dateFormatter.string(from: date)
     }
     
-    static func timeToString(date: Date)->String{
+    static func ampmSymbol(date: Date) -> String{
+        let amPmString = date.hour < 12 ? "오전 " : "오후 "
+        return amPmString
+    }
+    
+    static func timeToString(date: Date) -> String{
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "a h:mm:ss"
         dateFormatter.amSymbol = "오전"
         dateFormatter.pmSymbol = "오후"
-        return dateFormatter.string(from: date)
+        dateFormatter.dateFormat = "a h시 mm분 s초"
+        return "\n" + dateFormatter.string(from: date)
     }
     static func isSameDateInChatRoom(date1: Date,date2: Date)->Bool{
         let dateFormatter = DateFormatter()

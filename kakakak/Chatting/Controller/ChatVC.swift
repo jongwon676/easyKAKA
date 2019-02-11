@@ -150,15 +150,20 @@ class ChatVC: UIViewController{
         
         if !(bottomController.mode == .capture) {
             
+           
             attributedString.append(NSAttributedString(string:
-                "\n" + Date.timeToString(date: self.room.currentDate), attributes:
+                 Date.timeToString(date: self.room.currentDate), attributes:
                 [NSAttributedString.Key.foregroundColor :  bgType.getNavUserCountColor(),.font: UIFont.systemFont(ofSize: 14, weight: .medium),.paragraphStyle:paragraph])
             )
         }
 
         navLabel.attributedText = attributedString
-        navLabel.numberOfLines = 2
-        self.navigationItem.titleView = navLabel
+        navLabel.numberOfLines = 0
+        navLabel.sizeToFit()
+        if self.navigationItem.titleView == nil{
+            self.navigationItem.titleView = navLabel
+        }
+        
     }
     
     
