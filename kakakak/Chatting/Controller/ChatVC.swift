@@ -46,6 +46,7 @@ class ChatVC: UIViewController{
 
     lazy var closeButton:UIBarButtonItem = {
         let btn = UIButton(type: .custom)
+        
         btn.setImage(UIImage(named: "close"), for: .normal)
         btn.addTarget(self, action: #selector(handleClose), for: .touchUpInside)
         btn.snp.makeConstraints({ (mk) in
