@@ -57,16 +57,11 @@ class ReplayController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        if let colorHex = room.backgroundColorHex{
-            tableView.backgroundColor = UIColor.init(hexString: colorHex)
-            tableView.backgroundView = nil
-            navigationController?.navigationBar.barTintColor = tableView.backgroundColor
-        }else{
-            tableView.backgroundColor = #colorLiteral(red: 0.7427546382, green: 0.8191892505, blue: 0.8610599637, alpha: 1)
-            tableView.backgroundView = nil
-            navigationController?.navigationBar.barTintColor = tableView.backgroundColor
-        }
+
+        let colorIndex = room.backgroundcolorIndex
+        tableView.backgroundColor = Style.allColors[colorIndex]
+        tableView.backgroundView = nil
+        navigationController?.navigationBar.barTintColor = Style.allColors[colorIndex]
         setupNavBar()
         
         

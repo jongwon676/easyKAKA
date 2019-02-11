@@ -31,9 +31,9 @@ class ChatVC: UIViewController{
     var normalModeTableViewConstraint: Constraint?
     var editModeTableViewConstraint: Constraint?
     
-    
-    
-    
+    var bgType: BgType = .light
+
+
     
     lazy var editView:EditView = {
         let eview = EditView()
@@ -56,7 +56,7 @@ class ChatVC: UIViewController{
     
     lazy var backButton: UIBarButtonItem = {
         let btn = UIButton(type: .system)
-        btn.setImage(#imageLiteral(resourceName: "back").withRenderingMode(.alwaysOriginal), for: .normal)
+        btn.setImage(#imageLiteral(resourceName: "back"), for: .normal)
         btn.addTarget(self, action: #selector(handleBack), for: .touchUpInside)
         btn.snp.makeConstraints({ (mk) in
             mk.width.equalTo(32/3)
@@ -77,7 +77,7 @@ class ChatVC: UIViewController{
     }()
     lazy var hamburgerButton: UIBarButtonItem = {
         let btn = UIButton(type: .system)
-        btn.setImage(#imageLiteral(resourceName: "menu").withRenderingMode(.alwaysOriginal), for: .normal)
+        btn.setImage(#imageLiteral(resourceName: "menu"), for: .normal)
         btn.addTarget(self, action: #selector(handleHamburger), for: .touchUpInside)
         
         btn.snp.makeConstraints({ (mk) in
@@ -89,8 +89,7 @@ class ChatVC: UIViewController{
     
     lazy var searchButton:UIBarButtonItem = {
         let btn = UIButton()
-        btn.setImage(UIImage(named: "searchCopy")!.withRenderingMode(.alwaysOriginal), for: .normal)
-//        btn.setImage(#imageLiteral(resourceName: "search"), for: .normal)
+        btn.setImage(UIImage(named: "searchCopy")!.withRenderingMode(.alwaysTemplate), for: .normal)
         btn.snp.makeConstraints({ (mk) in
             mk.width.height.equalTo(53 / 3)
         })
@@ -137,13 +136,14 @@ class ChatVC: UIViewController{
         
         
         attributedString.append(NSAttributedString(string: room.getRoomTitleName(),attributes: [
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18)
-            ,.paragraphStyle:paragraph])
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18, weight: .semibold)
+            ,.paragraphStyle:paragraph,
+              .foregroundColor : bgType.getNavTitleColor()])
         )
         
         attributedString.append(NSAttributedString(string: room.getUserNumber(), attributes: [
-            NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0.3319326043, green: 0.3760439456, blue: 0.4094469249, alpha: 1)
-            , .font: UIFont.systemFont(ofSize: 18)
+            NSAttributedString.Key.foregroundColor : bgType.getNavUserCountColor()
+            , .font: UIFont.systemFont(ofSize: 18, weight: .semibold)
             ,.paragraphStyle:paragraph]
             )
         )
@@ -152,7 +152,7 @@ class ChatVC: UIViewController{
             
             attributedString.append(NSAttributedString(string:
                 "\n" + Date.timeToString(date: self.room.currentDate), attributes:
-                [NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0.4180841446, green: 0.4661870003, blue: 0.5037575364, alpha: 1),.font: UIFont.systemFont(ofSize: 14),.paragraphStyle:paragraph])
+                [NSAttributedString.Key.foregroundColor :  bgType.getNavUserCountColor(),.font: UIFont.systemFont(ofSize: 14, weight: .medium),.paragraphStyle:paragraph])
             )
         }
 
@@ -291,6 +291,9 @@ class ChatVC: UIViewController{
         tableView.dataSource = self
         view.addSubview(bottomController.view)
         
+        
+    
+        
         tableView.snp.makeConstraints { (mk) in
             mk.left.right.top.equalTo(self.view)
             normalModeTableViewConstraint = mk.bottom.equalTo(self.bottomController.view.snp.top).constraint
@@ -355,7 +358,7 @@ class ChatVC: UIViewController{
         let btnWidth: CGFloat = 259 / 3
         let btnHeight: CGFloat = 114 / 3
         editButton.frame = CGRect(x: UIScreen.main.bounds.width - btnWidth - offset, y: navHeight + offset, width: btnWidth, height: btnHeight)
-        setNeedsStatusBarAppearanceUpdate()
+        
         
     }
     func setTimer(){
@@ -377,20 +380,25 @@ class ChatVC: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let colorHex = room.backgroundColorHex{
-            tableView.backgroundColor = UIColor.init(hexString: colorHex)
-            tableView.backgroundView = nil
-        }else{
-            
-            navigationController?.navigationBar.barTintColor =  Style.allColors[0]
-            tableView.backgroundColor =  Style.allColors[0]
-            tableView.backgroundView = nil
-        }
-        (self.navigationController as? ColorNavigationViewController)?.setChattingNAv(color: tableView.backgroundColor ??  Style.allColors[0])
+        let colorIndex = room.backgroundcolorIndex
+        tableView.backgroundColor = Style.allColors[colorIndex]
+        tableView.backgroundView = nil
+        navigationController?.navigationBar.barTintColor = Style.allColors[colorIndex]
+        
+        
+        
         bottomController.topView.backgroundColor = tableView.backgroundColor
         tabBarController?.tabBar.isHidden = true
         
+        bgType = Style.getBgType(color: tableView.backgroundColor!)
+        
+        if let colorNav =   (self.navigationController as? ColorNavigationViewController){
+            colorNav.setChattingNAv(color: tableView.backgroundColor ??  Style.allColors[0])
+            colorNav.type = bgType
+        }
+        
         setTimer()
+        setNavTitle()
         floatingButton()
     }
 

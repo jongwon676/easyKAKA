@@ -11,8 +11,10 @@ class Room: Object{
     @objc dynamic var currentDate: Date = Date()
     @objc dynamic var id: String = UUID().uuidString
     
-    @objc dynamic var backgroundImageName: String?
-    @objc dynamic var backgroundColorHex: String?
+    
+    
+    @objc dynamic var backgroundcolorIndex = 0
+    
     @objc dynamic var title: String?
     @objc dynamic var isGroupChatting: Bool = false
     
@@ -57,20 +59,11 @@ class Room: Object{
         }
     }
     
-    func writeBackgroundImage(in realm:Realm =  try! Realm(), image: UIImage){
-        let imageName = Date().currentDateToString() + ".jpg"
-        if image.writeImage(imgName: imageName){
-            try! realm.write {
-                self.backgroundImageName = imageName
-                self.backgroundColorHex = nil
-            }
-        }
-    }
+  
     
-    func writeBackgroundColor(in realm:Realm = try! Realm(),colorHex: String){
+    func writeBackgroundColor(in realm:Realm = try! Realm(), index: Int){
         try! realm.write {
-            self.backgroundColorHex = colorHex
-            self.backgroundImageName = nil
+            self.backgroundcolorIndex = index
         }
     }
     func setDate(date: Date){

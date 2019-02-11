@@ -80,7 +80,7 @@ class BackgroundSelectController: UICollectionViewController{
                     
                     
                     let color = colors[indexPath.item]
-                    self.room?.writeBackgroundColor(colorHex: color.toHexString())
+                    self.room?.writeBackgroundColor(index: indexPath.item)
                     
                     
                 }

@@ -153,10 +153,18 @@ class ColorNavigationViewController: UINavigationController {
         
         navigationBar.isTranslucent = true
     }
-//    override var preferredStatusBarStyle: UIStatusBarStyle {
-//        print("statusbarstyle")
-//        return .lightContent
-//    }
+    var type: BgType = .dark{
+        didSet{
+            setNeedsStatusBarAppearanceUpdate()
+            self.navigationBar.tintColor = type.barTintColor()
+        }
+    }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        switch type {
+            case .dark: return .lightContent
+            case .light: return .default
+        }
+    }
 }
 
 extension UIColor {
