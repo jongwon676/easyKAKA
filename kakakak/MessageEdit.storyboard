@@ -1872,7 +1872,7 @@
                                         <rect key="frame" x="0.0" y="1986" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6is-Ru-bsW" id="0SI-ov-ECh">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U66-E4-fTZ" userLabel="bubble" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
@@ -1937,7 +1937,7 @@
                                         <rect key="frame" x="0.0" y="2056" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QWq-sP-FPD" id="fV6-Ud-Ozm">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FIJ-dG-sfn" userLabel="bubble" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
@@ -1998,29 +1998,36 @@
                                             <outlet property="timeReadLabel" destination="nXM-za-or5" id="4D4-k7-vtG"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="invite" rowHeight="58" id="Z2g-o8-70C" userLabel="invite" customClass="InviteCell" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="invite" rowHeight="58" id="Z2g-o8-70C" userLabel="invite" customClass="InviteCell" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="2126" width="375" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Z2g-o8-70C" id="eQ2-3L-tcm">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="57.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OWx-Sa-7fv">
-                                                    <rect key="frame" x="0.0" y="0.0" width="336" height="58"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="57.5"/>
                                                     <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xqh-91-Now">
+                                                            <rect key="frame" x="0.0" y="12" width="375" height="45.5"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김민성님이 김재준님을 초대했습니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8u-wu-6UN">
-                                                            <rect key="frame" x="72.5" y="12" width="191" height="34"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <rect key="frame" x="106.5" y="21" width="162" height="27.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="z8u-wu-6UN" firstAttribute="top" secondItem="OWx-Sa-7fv" secondAttribute="top" constant="12" id="7D5-mj-j1U"/>
+                                                        <constraint firstItem="Xqh-91-Now" firstAttribute="top" secondItem="OWx-Sa-7fv" secondAttribute="top" constant="12" id="5nU-EZ-ANB"/>
+                                                        <constraint firstItem="z8u-wu-6UN" firstAttribute="top" secondItem="OWx-Sa-7fv" secondAttribute="top" constant="21" id="7D5-mj-j1U"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Xqh-91-Now" secondAttribute="bottom" id="AL6-6c-dBf"/>
                                                         <constraint firstItem="z8u-wu-6UN" firstAttribute="width" relation="lessThanOrEqual" secondItem="OWx-Sa-7fv" secondAttribute="width" multiplier="0.8" id="Ijd-Fp-HTy"/>
-                                                        <constraint firstItem="z8u-wu-6UN" firstAttribute="centerY" secondItem="OWx-Sa-7fv" secondAttribute="centerY" id="OWr-Sb-EEI"/>
+                                                        <constraint firstItem="Xqh-91-Now" firstAttribute="leading" secondItem="OWx-Sa-7fv" secondAttribute="leading" id="JTl-5o-EJW"/>
                                                         <constraint firstItem="z8u-wu-6UN" firstAttribute="centerX" secondItem="OWx-Sa-7fv" secondAttribute="centerX" id="UZV-bF-VDh"/>
-                                                        <constraint firstAttribute="bottom" secondItem="z8u-wu-6UN" secondAttribute="bottom" constant="12" id="tZ4-bk-Aq2"/>
+                                                        <constraint firstAttribute="bottom" secondItem="z8u-wu-6UN" secondAttribute="bottom" constant="9" id="tZ4-bk-Aq2"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Xqh-91-Now" secondAttribute="trailing" id="x1z-RS-AE3"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -2033,32 +2040,40 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.66315305233001709" green="0.77142900228500366" blue="0.85490447282791138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
+                                            <outlet property="containerView" destination="Xqh-91-Now" id="tcf-z2-tOD"/>
                                             <outlet property="inviteLabel" destination="z8u-wu-6UN" id="UTT-K8-ehj"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="exit" rowHeight="58" id="Ltg-7w-SFE" userLabel="exit" customClass="ExitCell" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="exit" rowHeight="58" id="Ltg-7w-SFE" userLabel="exit" customClass="ExitCell" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="2184" width="375" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ltg-7w-SFE" id="4XZ-de-lwG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="57.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IDA-Ls-adN">
-                                                    <rect key="frame" x="0.0" y="0.0" width="336" height="58"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="57.5"/>
                                                     <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oWK-DK-MCa">
+                                                            <rect key="frame" x="0.0" y="12" width="375" height="45.5"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김민성님이 퇴장했습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2g4-tG-Esy">
-                                                            <rect key="frame" x="97.5" y="12" width="141.5" height="34"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <rect key="frame" x="132" y="21" width="111.5" height="27.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="2g4-tG-Esy" firstAttribute="centerY" secondItem="IDA-Ls-adN" secondAttribute="centerY" id="GAE-gH-JzW"/>
                                                         <constraint firstItem="2g4-tG-Esy" firstAttribute="centerX" secondItem="IDA-Ls-adN" secondAttribute="centerX" id="JF2-mF-j38"/>
+                                                        <constraint firstAttribute="trailing" secondItem="oWK-DK-MCa" secondAttribute="trailing" id="RY8-aj-iGY"/>
                                                         <constraint firstItem="2g4-tG-Esy" firstAttribute="width" relation="lessThanOrEqual" secondItem="IDA-Ls-adN" secondAttribute="width" multiplier="0.8" id="XDm-gK-kMc"/>
-                                                        <constraint firstAttribute="bottom" secondItem="2g4-tG-Esy" secondAttribute="bottom" constant="12" id="fuN-X1-yt7"/>
-                                                        <constraint firstItem="2g4-tG-Esy" firstAttribute="top" secondItem="IDA-Ls-adN" secondAttribute="top" constant="12" id="ow2-pg-WC8"/>
+                                                        <constraint firstAttribute="bottom" secondItem="2g4-tG-Esy" secondAttribute="bottom" constant="9" id="fuN-X1-yt7"/>
+                                                        <constraint firstItem="oWK-DK-MCa" firstAttribute="leading" secondItem="IDA-Ls-adN" secondAttribute="leading" id="gOR-uN-WJn"/>
+                                                        <constraint firstAttribute="bottom" secondItem="oWK-DK-MCa" secondAttribute="bottom" id="m8f-hH-VnJ"/>
+                                                        <constraint firstItem="2g4-tG-Esy" firstAttribute="top" secondItem="IDA-Ls-adN" secondAttribute="top" constant="21" id="ow2-pg-WC8"/>
+                                                        <constraint firstItem="oWK-DK-MCa" firstAttribute="top" secondItem="IDA-Ls-adN" secondAttribute="top" constant="12" id="xpM-vU-C08"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -2071,6 +2086,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.66315305229999999" green="0.7714290023" blue="0.85490447280000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
+                                            <outlet property="containerView" destination="oWK-DK-MCa" id="GQ6-Yl-NDz"/>
                                             <outlet property="exitLabel" destination="2g4-tG-Esy" id="mb3-pF-syU"/>
                                         </connections>
                                     </tableViewCell>
@@ -2078,7 +2094,7 @@
                                         <rect key="frame" x="0.0" y="2242" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Oc4-Ly-1TW" id="oqx-Ry-L7v">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vwb-Vd-Buv">
@@ -2183,6 +2199,6 @@
         <image name="wave" width="260" height="117"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sj8-Rw-Ime"/>
+        <segue reference="S6p-33-9sC"/>
     </inferredMetricsTieBreakers>
 </document>
