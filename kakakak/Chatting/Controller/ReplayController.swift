@@ -149,6 +149,7 @@ class ReplayController: UIViewController {
         })
         return UIBarButtonItem(customView: btn)
     }()
+    
     let screenView = LiveScreenView()
     
     override func viewDidLoad() {
@@ -207,6 +208,7 @@ class ReplayController: UIViewController {
             let bottomPadding = window?.safeAreaInsets.bottom
             recordButtonYMargin += bottomPadding ?? 0
         }
+        
         recordButtonYMargin += middleView.frame.height
         let recordButtonSize:CGFloat = 50
         
@@ -259,14 +261,15 @@ extension ReplayController: UITableViewDelegate,UITableViewDataSource{
     @objc fileprivate func processTouchRecord() {
         let recorder = RPScreenRecorder.shared()
         if !recorder.isRecording {
+            self.recordButton.setImage(#imageLiteral(resourceName: "recordStop").withRenderingMode(.alwaysOriginal), for: .normal)
+            self.screenView.isRecord = true
             
             recorder.startRecording { [weak self] (error) in
                 guard error == nil else {
                     print("Failed to start recording")
                     return
                 }
-                self?.recordButton.setImage(#imageLiteral(resourceName: "recordStop").withRenderingMode(.alwaysOriginal), for: .normal)
-                self?.screenView.isRecord = true
+                
             }
         } else {
             recorder.stopRecording(handler: { [weak self] (previewController, error) in
