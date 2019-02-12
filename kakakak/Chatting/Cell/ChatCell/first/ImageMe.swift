@@ -53,8 +53,7 @@ class ImageMe: UserChattingBaseMeCell,ChattingCellProtocol{
     override func layoutSubviews() {
         super.layoutSubviews()
         print("messaeImage frame")
-        print(messageImage)
-        print(mImage)
+        
     }
     
 }

@@ -24,12 +24,6 @@ class ImageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
     fileprivate func setupImage(){
         
         imageRatio.isActive = false
-        
-        
-    
-        
-        
-        
         guard let image = messageImage.image else { return }
         let ratio = image.size.width / image.size.height
         imageRatio = NSLayoutConstraint(item: messageImage, attribute: .width,
@@ -40,6 +34,7 @@ class ImageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
         imageRatio.isActive = true
         print(imageRatio)
         updateConstraints()
+        
     }
     
     

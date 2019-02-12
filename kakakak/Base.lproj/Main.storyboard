@@ -895,6 +895,10 @@
                                     <segment title="Second"/>
                                 </segments>
                             </segmentedControl>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="olm-Vh-lR2">
+                                <rect key="frame" x="88" y="463" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -910,6 +914,7 @@
                         <outlet property="bannerView" destination="6mc-gA-oSt" id="pXO-Ms-u6b"/>
                         <outlet property="btn" destination="V0q-yh-upj" id="j0n-Dk-Rd8"/>
                         <outlet property="fontTestLabel" destination="b1N-50-Tkl" id="du4-PW-XpG"/>
+                        <outlet property="maskImageView" destination="olm-Vh-lR2" id="w3M-oS-SgZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Vp-LA-hhA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1195,6 +1200,7 @@
     <resources>
         <image name="abcd.jpg" width="552" height="414"/>
         <image name="addUser" width="343" height="66"/>
+        <image name="back" width="32" height="55"/>
         <image name="back_arrow" width="22" height="14"/>
         <image name="dotBorder" width="335" height="313"/>
         <image name="imageChange" width="152" height="54"/>

@@ -11,7 +11,12 @@ class UserChattingBaseMeCell: BaseChat{
         }
     }
     
-    let maskImage = CALayer()
+    
+    lazy var maskImageView:UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = #imageLiteral(resourceName: "mask")
+        return imageView
+    }()
     
     @IBOutlet var leading: NSLayoutConstraint!
     
@@ -38,22 +43,19 @@ class UserChattingBaseMeCell: BaseChat{
         self.nameLabel.text = owner.name
         
         
-        maskImage.contents =  [ UIImage(named: "back")!] as Any
         
         
 
-        profile.layer.cornerRadius = 0
-        profile.layer.mask = maskImage
-        profile.layer.masksToBounds = true
+        
     }
     override func layoutSubviews() {
         super.layoutSubviews()
-        maskImage.frame = profile.frame
-        let maskView = UIView(frame: CGRect(x: 64, y: 0, width: 128, height: 128))
-        maskView.backgroundColor = .blue
-        maskView.layer.cornerRadius = 64
-        profile.mask = maskView
-//        redView.mask = maskView
+        
+        maskImageView.frame = profile.bounds
+        profile.mask = maskImageView
+        profile.layer.cornerRadius = 0
+        
+        profile.layer.masksToBounds = true
     }
     
 }
