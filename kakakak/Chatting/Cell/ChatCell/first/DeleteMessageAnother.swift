@@ -45,6 +45,7 @@ class DeleteMessageAnother: UserChattingBaseAnotherCell, ChattingCellProtocol{
             timeReadLabel.isHidden = true
         }
         
+        bubble.layer.cornerRadius = 2
         
         updateConstraintsIfNeeded()
     }

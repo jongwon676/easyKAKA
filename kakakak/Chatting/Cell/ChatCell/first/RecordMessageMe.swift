@@ -1,6 +1,7 @@
 
 import UIKit
 class RecordMessageMe: UserChattingBaseMeCell,ChattingCellProtocol{
+    @IBOutlet var bubble: CornerRadiusView!
     func configure(message: Message, bgType: BgType) {
         self.message = message
         self.containerView.backgroundColor = UIColor.clear
@@ -13,6 +14,7 @@ class RecordMessageMe: UserChattingBaseMeCell,ChattingCellProtocol{
         playTimeLabel.text! += secondString.count < 2 ? ":0" + secondString : ":" + secondString
         
         moveConstraint()
+        bubble.cornerRadius = 2
     }
     
     

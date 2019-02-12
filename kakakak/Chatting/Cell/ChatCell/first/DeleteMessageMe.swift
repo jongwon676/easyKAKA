@@ -33,7 +33,9 @@ class DeleteMessageMe: UserChattingBaseMeCell,ChattingCellProtocol {
         self.backgroundColor = UIColor.clear
         containerView.backgroundColor = UIColor.clear
         moveConstraint()
+        bubble.layer.cornerRadius = 2
         updateFocusIfNeeded()
+        
     }
     override func draw(_ rect: CGRect) {
         

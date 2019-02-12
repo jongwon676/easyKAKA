@@ -28,6 +28,7 @@ class ImageMe: UserChattingBaseMeCell,ChattingCellProtocol{
                                         toItem: messageImage, attribute: .height,
                                         multiplier: ratio, constant: 0)
         imageRatio.isActive = true
+        messageImage.layer.cornerRadius = 2
         updateConstraints()
     }
     

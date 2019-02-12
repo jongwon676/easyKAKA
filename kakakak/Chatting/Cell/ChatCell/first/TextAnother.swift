@@ -15,6 +15,7 @@ class TextAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
         }else{
             timeReadLabel.isHidden = true
         }
+        bubble.layer.cornerRadius = 2
     }
     
     

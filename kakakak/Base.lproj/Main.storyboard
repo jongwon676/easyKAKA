@@ -895,7 +895,7 @@
                                     <segment title="Second"/>
                                 </segments>
                             </segmentedControl>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="olm-Vh-lR2">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="olm-Vh-lR2">
                                 <rect key="frame" x="88" y="463" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -1027,9 +1027,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j3D-60-zRG">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="125"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c53-AO-cLW" userLabel="back_button">
-                                        <rect key="frame" x="23" y="38" width="22" height="22"/>
-                                        <state key="normal" image="back_arrow"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c53-AO-cLW" userLabel="back_button">
+                                        <rect key="frame" x="23" y="38" width="23" height="23"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="23" id="a8K-58-kSD"/>
+                                            <constraint firstAttribute="width" constant="23" id="eUF-85-Txj"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="closeWhite">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
                                             <action selector="dismiss:" destination="pa8-zv-ZSc" eventType="touchUpInside" id="YBZ-Mb-vMh"/>
                                         </connections>
@@ -1194,14 +1201,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MC4-7I-Ske" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="858" y="588"/>
+            <point key="canvasLocation" x="857.97101449275374" y="587.77173913043487"/>
         </scene>
     </scenes>
     <resources>
         <image name="abcd.jpg" width="552" height="414"/>
         <image name="addUser" width="343" height="66"/>
         <image name="back" width="32" height="55"/>
-        <image name="back_arrow" width="22" height="14"/>
+        <image name="closeWhite" width="16" height="16"/>
         <image name="dotBorder" width="335" height="313"/>
         <image name="imageChange" width="152" height="54"/>
         <image name="uploadDefault" width="143" height="150"/>

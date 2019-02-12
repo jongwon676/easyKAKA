@@ -11,6 +11,7 @@ class TextMe: UserChattingBaseMeCell,ChattingCellProtocol{
         moveConstraint()
         
         
+        bubble.layer.cornerRadius = 2
         
         updateConstraintsIfNeeded()
     }

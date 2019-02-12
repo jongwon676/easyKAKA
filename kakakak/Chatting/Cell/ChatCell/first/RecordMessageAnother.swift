@@ -17,10 +17,12 @@ class RecordMessageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
         playRecordLabel.text! += String(message.duration / 60)
         let secondString = String(message.duration % 60)
         playRecordLabel.text! += secondString.count < 2 ? ":0" + secondString : ":" + secondString
+        bubble.cornerRadius = 2
     }
     
     
     
+    @IBOutlet var bubble: CornerRadiusView!
     
     @IBOutlet var playRecordLabel: UILabel!
     static var reuseId: String{

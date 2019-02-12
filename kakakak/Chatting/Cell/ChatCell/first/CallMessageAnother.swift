@@ -22,6 +22,7 @@ class CallMessageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
         
         callImage.image = callImageAndTitle.image
         callLabel.text = callImageAndTitle.title
+        bubble.layer.cornerRadius = 2
     }
     
     

@@ -1,5 +1,7 @@
 import UIKit
 class CallMessageMe: UserChattingBaseMeCell, ChattingCellProtocol{
+    
+    @IBOutlet var bubble: CornerRadiusView!
     func configure(message: Message, bgType: BgType) {
         self.message = message
         
@@ -10,6 +12,7 @@ class CallMessageMe: UserChattingBaseMeCell, ChattingCellProtocol{
         callImage.image = callImageAndTitle.image
         callLabel.text = callImageAndTitle.title
         moveConstraint()
+        bubble.layer.cornerRadius = 2
     }
     
     

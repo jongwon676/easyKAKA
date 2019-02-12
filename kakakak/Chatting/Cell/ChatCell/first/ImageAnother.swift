@@ -34,7 +34,7 @@ class ImageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
         imageRatio.isActive = true
         print(imageRatio)
         updateConstraints()
-        
+        messageImage.layer.cornerRadius = 2
     }
     
     

@@ -3,7 +3,7 @@ import UIKit
 class CornerRadiusView: UIView{
     func setUp(){
         self.layer.masksToBounds = true
-        self.radius = 3
+        self.radius = 2
     }
     @IBInspectable var radius: CGFloat = 0{
         didSet{
