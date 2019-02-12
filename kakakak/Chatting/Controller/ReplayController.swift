@@ -19,7 +19,6 @@ class ReplayController: UIViewController {
         didSet{
             if pvController != nil{
                 downloadBUtton.isHidden = false
-                self.present(pvController!, animated: true)
             }
         }
     }
@@ -191,7 +190,9 @@ class ReplayController: UIViewController {
     }()
     
     @objc func downloadButtonClicked(){
-        
+        if let pvController = self.pvController{
+            self.present(pvController, animated: true)
+        }
     }
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -269,7 +270,6 @@ extension ReplayController: UITableViewDelegate,UITableViewDataSource{
                     print("Failed to start recording")
                     return
                 }
-                
             }
         } else {
             recorder.stopRecording(handler: { [weak self] (previewController, error) in

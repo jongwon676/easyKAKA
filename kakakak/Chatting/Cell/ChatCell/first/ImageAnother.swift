@@ -30,7 +30,7 @@ class ImageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
         
         
         
-        guard let image = messageImage else { return }
+        guard let image = messageImage.image else { return }
         let ratio = image.size.width / image.size.height
         imageRatio = NSLayoutConstraint(item: messageImage, attribute: .width,
                                         relatedBy: .equal,

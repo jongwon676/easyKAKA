@@ -20,8 +20,9 @@ class ImageMe: UserChattingBaseMeCell,ChattingCellProtocol{
     fileprivate func setupImage(){
         messageImage.image = mImage
         imageRatio.isActive = false
-        guard let image = messageImage else { return }
+        guard let image = messageImage.image else { return }
         let ratio = image.size.width / image.size.height
+        print("ratio \(ratio)")
         imageRatio = NSLayoutConstraint(item: messageImage, attribute: .width,
                                         relatedBy: .equal,
                                         toItem: messageImage, attribute: .height,
