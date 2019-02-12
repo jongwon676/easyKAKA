@@ -13,18 +13,18 @@ class RoomListVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .singleLine
     }
-    
-    @objc func roomAdd(){
-        let allPreset = Preset.all()
-        if allPreset.count >= 2{
-            let userList =   List<User>()
-            userList.append(objectsIn: [User(preset: allPreset[0]),User(preset: allPreset[1])])
-            let messages = List<Message>()
-            Room.add(users: userList, messages: messages)
-            
-            tableView.reloadData()
-        }
-    }
+//    
+//    @objc func roomAdd(){
+//        let allPreset = Preset.all()
+//        if allPreset.count >= 2{
+//            let userList =   List<User>()
+//            userList.append(objectsIn: [User(preset: allPreset[0]),User(preset: allPreset[1])])
+//            let messages = List<Message>()
+//            Room.add(users: userList, messages: messages)
+//            
+//            tableView.reloadData()
+//        }
+//    }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)

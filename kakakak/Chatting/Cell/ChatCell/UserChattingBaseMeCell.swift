@@ -32,7 +32,19 @@ class UserChattingBaseMeCell: BaseChat{
             timeReadLabel.isHidden = true
         }
         if message.isFirstMessage{
-            profile.image = UIImage.loadImageFromName(owner.profileImageUrl ?? "")
+           
+            let imgName = owner.profileImageUrl ?? ""
+            
+            if let img = ProfileImageCacher.shared.requestImage(imgName: imgName){
+                profile.image = img
+            }else{
+                profile.image = UIImage.loadImageFromName(imgName)
+                ProfileImageCacher.shared.addImageToCache(imgName: imgName, img: profile.image ?? UIImage())
+            }
+            
+            
+                
+            
             profile.isHidden = false
             nameLabel.isHidden = false
         }else{

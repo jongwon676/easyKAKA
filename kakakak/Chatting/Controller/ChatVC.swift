@@ -414,6 +414,7 @@ class ChatVC: UIViewController{
         super.viewWillDisappear(animated)
         timer?.invalidate()
         editButton.removeFromSuperview()
+        ProfileImageCacher.shared.removeAll()
     }
     
     deinit {

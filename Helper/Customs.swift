@@ -56,14 +56,7 @@ class ChatRadiusProfileView: UIImageView{
 import UIKit
 
 class ColorNavigationViewController: UINavigationController {
-    
-    
-    
-    
-    
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -73,7 +66,7 @@ class ColorNavigationViewController: UINavigationController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-//        changeGradientImage(orangeGradient: <#T##[UIColor]#>, orangeGradientLocation: <#T##[Double]#>)
+
         changeGradientImage(orangeGradient: orangeGradient, orangeGradientLocation: orangeGradientLocation)
     }
     

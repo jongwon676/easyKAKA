@@ -11,27 +11,31 @@ class CharacterListVC: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
         setupUI()
-        presets = Preset.all()
+        presets = Preset.getListAlivePreset()
         tableView.bounces = true
     }
     
     
-    
+    func setNavTitle(){
+        self.navigationItem.title = "친구 " + String(presets.count) + "명"
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
-        self.navigationItem.title = "친구 " + String(presets.count) + "명"
+        setNavTitle()
         token = presets?.observe{
             [weak tableView] changes in
             guard let tableView = tableView else { return }
             switch changes{
             case .initial:
                 tableView.reloadData()
+                self.setNavTitle()
             case .update(_, let deletions, let insertions, let updates): tableView.reloadData()
+                self.setNavTitle()
             case .error: break
             }
         }
@@ -121,6 +125,38 @@ class CharacterListVC: UITableViewController{
             addButton.widthAnchor.constraint(equalTo: addButton.heightAnchor)
         ])
     }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        
+        let alert = UIAlertController(title: "삭제된 데이터는 복구 할 수 없습니다.", message: nil, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "삭제", style: .destructive, handler: { (action) in
+            self.presets[indexPath.row].delete()
+        }))
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+        
+        let deleteAction = UIContextualAction(style: .normal, title: "Delete") { (action, sourceView, completionHandler) in
+            
+            self.present(alert, animated: true, completion: nil)
+            
+            
+            completionHandler(true)
+        }
+        
+        
+        deleteAction.backgroundColor = UIColor(red: 231.0/255.0, green: 76.0/255.0, blue: 60.0/255.0, alpha: 1.0)
+        deleteAction.image = UIImage(named: "bomb")
+        
+        
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction])
+        
+        return swipeConfiguration
+    }
+    
+    
+    
+    
 }
 
 

@@ -1,7 +1,6 @@
 import UIKit
 
 extension UIImage{
-    static var cache: [String:UIImage] = [String:UIImage]()
     
     static func loadImageFromPath(_ path: String) -> UIImage? {
         let image = UIImage(contentsOfFile: path)
@@ -13,12 +12,6 @@ extension UIImage{
         do{
             let path = try Path.inDocuments(imgName)
             return UIImage(contentsOfFile: path.path)
-//            if cache[imgName] != nil{
-//                return cache[imgName]
-//            }
-//
-//            cache[imgName] = UIImage(contentsOfFile: path.path)
-//            return cache[imgName]
         }catch _{
             return nil
         }
@@ -46,5 +39,23 @@ extension UIImage{
         self.init(cgImage: image!.cgImage!)
     }
     
+    
+}
+
+class ProfileImageCacher{
+    
+    static let shared = ProfileImageCacher()
+    private var imageCache = [String: UIImage]()
+    private init(){}
+    
+    func requestImage(imgName: String) -> UIImage?{
+        return imageCache[imgName]
+    }
+    func addImageToCache(imgName: String, img: UIImage){
+        imageCache[imgName] = img
+    }
+    func removeAll(){
+        imageCache.removeAll()
+    }
     
 }

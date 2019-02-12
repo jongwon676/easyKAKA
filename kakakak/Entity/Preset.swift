@@ -7,7 +7,7 @@ class Preset: Object{
     @objc dynamic var id: String = ""
     @objc dynamic var profileImageUrl: String = ""
     @objc dynamic var creationDate: Date = Date.distantPast
-    
+    @objc dynamic var isDeleted: Bool = false
     
     enum Properties: String{
         case name,id,profileImageUrl,isMe,creationDate
@@ -22,9 +22,9 @@ class Preset: Object{
         let objects = realm.objects(Preset.self).sorted(byKeyPath: Preset.Properties.creationDate.rawValue)
         
         for obj in objects{
-            if type == .create{
+            if type == .create && obj.isDeleted == false{
                 list.append(obj)
-            }else if type == .invite{
+            }else if type == .invite && obj.isDeleted == false{
                 if !exclude.contains(obj.id){
                     list.append(obj)
                 }
@@ -41,7 +41,9 @@ class Preset: Object{
     static func all(in realm: Realm = try! Realm()) -> Results<Preset>{
         return realm.objects(Preset.self).sorted(byKeyPath: Preset.Properties.creationDate.rawValue)
     }
-    
+    static func getListAlivePreset(in realm: Realm = try! Realm()) ->Results<Preset>{
+        return realm.objects(Preset.self).sorted(byKeyPath: Preset.Properties.name.rawValue).filter("isDeleted == false")
+    }
     convenience init(name: String, url: String){
         self.init()
         self.name = name
@@ -59,16 +61,15 @@ class Preset: Object{
         }
     }
     func edit(name: String, image: UIImage, in realm: Realm = try! Realm()){
-        image.writeImage(imgName: self.profileImageUrl)
         try! realm.write {
+            image.writeImage(imgName: self.profileImageUrl)
             self.name = name
         }
     }
     
     func delete(in realm: Realm = try! Realm()){
         try! realm.write {
-            //이미지도 삭제해야됨.
-            realm.delete(self)
+            self.isDeleted = true
         }
     }
 }
