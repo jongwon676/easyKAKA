@@ -1,5 +1,5 @@
-
 import UIKit
+
 class ExitCell: BaseChat,ChattingCellProtocol{
     @IBOutlet var containerView: UIView!
     func configure(message: Message, bgType: BgType) {
@@ -10,9 +10,7 @@ class ExitCell: BaseChat,ChattingCellProtocol{
         self.contentView.backgroundColor = UIColor.clear
         exitLabel.text = message.messageText
     }
-    
-    
-    
+
     @IBOutlet var exitLabel: UILabel!
     static var reuseId: String{
         return "exit"
