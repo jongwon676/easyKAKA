@@ -63,6 +63,7 @@ extension ChatVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate
             let nav = UINavigationController(rootViewController: backGroundController)
             self.present(nav, animated: true, completion: nil)
         }))
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel))
         
         present(alert, animated: true) 
         

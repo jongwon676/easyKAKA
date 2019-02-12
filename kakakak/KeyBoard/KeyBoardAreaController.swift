@@ -453,6 +453,7 @@ extension KeyBoardAreaController: UIImagePickerControllerDelegate,UINavigationCo
                 self.imagePicker(.photoLibrary)
             }))
         }
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel))
         self.view.endEditing(true)
         self.present(alert, animated: true)
     }
@@ -460,7 +461,7 @@ extension KeyBoardAreaController: UIImagePickerControllerDelegate,UINavigationCo
         let picker = UIImagePickerController()
         picker.sourceType = source
         picker.delegate = self
-
+        picker.allowsEditing = true
         self.present(picker, animated: true, completion: nil)
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
