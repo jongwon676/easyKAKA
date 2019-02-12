@@ -601,7 +601,6 @@ extension KeyBoardAreaController: UIImagePickerControllerDelegate,UINavigationCo
 }
 extension  KeyBoardAreaController: CropViewControllerDelegate{
     func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
-        print("crop Image Size\(cropRect)")
         guard let user = selectedUser else { return }
         let imgName = Date().currentDateToString() + ".jpg"
         if image.writeImage(imgName: imgName){

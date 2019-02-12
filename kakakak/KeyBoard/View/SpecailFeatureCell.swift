@@ -14,8 +14,10 @@ class SpecailFeatureCell: UICollectionViewCell{
         self.addSubview(imageContainer)
         imageContainer.addSubview(imageView)
         self.addSubview(titleLabel)
+        imageView.contentMode = .scaleAspectFit
         titleLabel.text = title
         titleLabel.font = UIFont.systemFont(ofSize: 12)
+        titleLabel.textColor = #colorLiteral(red: 0.3999532461, green: 0.4000268579, blue: 0.3999486566, alpha: 1)
         imageView.image = image
         
         imageView.snp.makeConstraints { (mk) in

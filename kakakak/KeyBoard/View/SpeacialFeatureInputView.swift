@@ -4,7 +4,7 @@ class SpeacialFeatureInputView: UIView,UICollectionViewDelegateFlowLayout,UIColl
     
     
     
-    let buttonInfo: [(name: String,image: UIImage)] = [ ("사진",#imageLiteral(resourceName: "enter")),("날짜선",#imageLiteral(resourceName: "enter")),("보이스톡",#imageLiteral(resourceName: "enter")),("음성 메시지",#imageLiteral(resourceName: "enter")),("삭제 메세지",#imageLiteral(resourceName: "enter")),("페이스톡",#imageLiteral(resourceName: "enter")) ]
+    let buttonInfo: [(name: String,image: UIImage)] = [ ("사진",#imageLiteral(resourceName: "Image-3")),("날짜선",#imageLiteral(resourceName: "Image")),("보이스톡",#imageLiteral(resourceName: "Image-1")),("음성 메시지",#imageLiteral(resourceName: "Image-4")),("삭제 메세지",#imageLiteral(resourceName: "Image-5")),("페이스톡",#imageLiteral(resourceName: "Image-2")) ]
     lazy var collectionView: UICollectionView = {
        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         return collectionView
@@ -41,9 +41,12 @@ class SpeacialFeatureInputView: UIView,UICollectionViewDelegateFlowLayout,UIColl
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SpecailFeatureCell.reuseId, for: indexPath) as! SpecailFeatureCell
+        
         let buttonName = buttonInfo[indexPath.row].name
         let buttonImage = buttonInfo[indexPath.row].image
+        
         cell.configure(title: buttonName, image: buttonImage)
+        
         
         
         return cell
