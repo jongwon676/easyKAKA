@@ -13,6 +13,36 @@ class ReplayController: UIViewController {
         }
     }
     
+    var navLabel = UILabel()
+    func setNavTitle(){
+        
+        let attributedString = NSMutableAttributedString()
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.alignment = .center
+        
+        
+        attributedString.append(NSAttributedString(string: room.getRoomTitleName(),attributes: [
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18, weight: .semibold)
+            ,.paragraphStyle:paragraph,
+             .foregroundColor : bgType.getNavTitleColor()])
+        )
+        
+        attributedString.append(NSAttributedString(string: room.getUserNumber(), attributes: [
+            NSAttributedString.Key.foregroundColor : bgType.getNavUserCountColor()
+            , .font: UIFont.systemFont(ofSize: 18, weight: .semibold)
+            ,.paragraphStyle:paragraph]
+            )
+        )
+  
+        navLabel.attributedText = attributedString
+        navLabel.numberOfLines = 1
+        navLabel.sizeToFit()
+        if self.navigationItem.titleView == nil{
+            self.navigationItem.titleView = navLabel
+        }
+        
+    }
+    
     var messageManager: MessageProcessor!
     var window: UIWindow?
     var pvController: RPPreviewViewController?{
@@ -69,7 +99,7 @@ class ReplayController: UIViewController {
         setupNavBar()
         
         bgType = Style.getBgType(color: tableView.backgroundColor!)
-        
+        setNavTitle()
     }
     
     func setupNavBar(){
