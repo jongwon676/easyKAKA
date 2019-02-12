@@ -53,7 +53,7 @@ class UserChattingBaseMeCell: BaseChat{
             nameLabel.isHidden = true
         }
         self.nameLabel.text = owner.name
-        
+        self.nameLabel.textColor = bgType?.getNavUserCountColor()
         
         
         

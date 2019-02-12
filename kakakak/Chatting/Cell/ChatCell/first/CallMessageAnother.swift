@@ -16,13 +16,32 @@ class CallMessageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
         }
         
         
-        //        timeReadLabel.setUp(message: message)
         
         let callImageAndTitle: (title: String, image: UIImage) = message.getTitleAndCallImage()
         
         callImage.image = callImageAndTitle.image
         callLabel.text = callImageAndTitle.title
         bubble.layer.cornerRadius = 2
+        
+        
+        
+        
+        if message.isLastMessage{
+            timeReadLabel.isHidden = false
+            timeReadLabel.setUp(message: message, timeColor: bgType.getNavUserCountColor())
+        }else{
+            timeReadLabel.isHidden = true
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
     
     

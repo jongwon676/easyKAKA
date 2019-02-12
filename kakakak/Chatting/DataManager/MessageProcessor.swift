@@ -404,6 +404,7 @@ class MessageProcessor{
     func sendCallMessage(owner: User,minute: Int, second: Int, callType: Message.callType){
         let msg = Message.makeCallMessage(duration: minute * 60 + second, owner: owner, ctype: callType)
         try! realm.write {
+            msg.sendDate = room.currentDate
             self.messages.append(msg)
             room.messages.append(msg)
             reload()
