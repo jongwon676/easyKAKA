@@ -9,8 +9,7 @@ class ImageMe: UserChattingBaseMeCell,ChattingCellProtocol{
         timeReadLabel.setUp(message: message, timeColor: bgType.getNavUserCountColor())
         moveConstraint()
     }
-    
-    
+
     static var reuseId = "imageMe"
     
     @IBOutlet var messageImage: UIImageView!
@@ -49,6 +48,12 @@ class ImageMe: UserChattingBaseMeCell,ChattingCellProtocol{
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        print("messaeImage frame")
+        print(messageImage)
+        print(mImage)
     }
     
 }

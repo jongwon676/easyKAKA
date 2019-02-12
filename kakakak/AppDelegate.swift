@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        Firebase.configure()
         FirebaseApp.configure()
         GADMobileAds.configure(withApplicationID: "ca-app-pub-1497706702442314~7743899510")
+        
         TimeZone.ReferenceType.default = TimeZone(abbreviation: "KST")!
 
         UITabBar.appearance().tintColor = #colorLiteral(red: 0.8922857642, green: 0.5250218511, blue: 0.9140356183, alpha: 1)
