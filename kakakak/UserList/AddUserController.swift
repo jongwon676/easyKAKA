@@ -91,17 +91,18 @@ class AddUserController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         if UIImagePickerController.isSourceTypeAvailable(.camera){
             alert.addAction(UIAlertAction(title: "카메라", style: .default, handler: { (_) in
-                ImagePickerHelper.imagePicker(.camera, vc: self)
+            
+                ImagePickerHelper.shared.imagePicker(.camera, vc: self,allowEdit: true)
             }))
         }
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
             alert.addAction(UIAlertAction(title: "저장된 앨범", style: .default, handler: { (_) in
-                ImagePickerHelper.imagePicker(.savedPhotosAlbum, vc: self)
+                ImagePickerHelper.shared.imagePicker(.savedPhotosAlbum, vc: self,allowEdit: true)
             }))
         }
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
             alert.addAction(UIAlertAction(title: "포토 라이브러리", style: .default, handler: { (_) in
-                ImagePickerHelper.imagePicker(.photoLibrary, vc: self)
+                ImagePickerHelper.shared.imagePicker(.photoLibrary, vc: self,allowEdit: true)
             }))
         }
         if profileImage != nil{

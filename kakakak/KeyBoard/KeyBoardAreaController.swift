@@ -3,6 +3,7 @@ import UIKit
 import RealmSwift
 import GoogleMobileAds
 import SnapKit
+import CropViewController
 
 enum chatState{
     case capture
@@ -435,6 +436,10 @@ extension KeyBoardAreaController: FirstResponderControlDelegate{
 
 
 extension KeyBoardAreaController: UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+    
+    
+    
+    
     func messageImageAlert(){
         let alert = UIAlertController(title: nil, message: "사진을 가져올 곳을 선택해주세요.", preferredStyle: .actionSheet)
         
@@ -461,18 +466,26 @@ extension KeyBoardAreaController: UIImagePickerControllerDelegate,UINavigationCo
         let picker = UIImagePickerController()
         picker.sourceType = source
         picker.delegate = self
-        picker.allowsEditing = true
+        
         self.present(picker, animated: true, completion: nil)
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let img = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
-            guard let user = selectedUser else { return }
-            let imgName = Date().currentDateToString() + ".jpg"
-            if img.writeImage(imgName: imgName){
-                messageManager?.sendMessaegImage(imageName: imgName, user: user)
-            }
+            
+            
+            
+            
+            let cropViewController = CropViewController(image: img)
+            cropViewController.delegate = self
+            picker.dismiss(animated: true, completion: nil)
+            present(cropViewController, animated: true, completion: nil)
+            
+            
+        }else{
+            picker.dismiss(animated: true, completion: nil)
         }
-        picker.dismiss(animated: true, completion: nil)
+        
+        
     }
     
     
@@ -586,7 +599,17 @@ extension KeyBoardAreaController: UIImagePickerControllerDelegate,UINavigationCo
         alert.show()
     }
 }
-
+extension  KeyBoardAreaController: CropViewControllerDelegate{
+    func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+        print("crop Image Size\(cropRect)")
+        guard let user = selectedUser else { return }
+        let imgName = Date().currentDateToString() + ".jpg"
+        if image.writeImage(imgName: imgName){
+            messageManager?.sendMessaegImage(imageName: imgName, user: user)
+        }
+        dismiss(animated: true, completion: nil)
+    }
+}
 
 
 

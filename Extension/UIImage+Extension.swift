@@ -18,8 +18,12 @@ extension UIImage{
     }
     
     func writeImage(imgName name: String ) -> Bool{
-        let data = self.jpegData(compressionQuality: 0.01)
-        
+        let maxWidth: CGFloat = UIScreen.main.bounds.width * 0.6
+        let maxHeight: CGFloat = UIScreen.main.bounds.height * 0.5
+        print(maxWidth * maxHeight)
+        let imgCompress = resizeImageWithAspect(image: self, scaledToMaxWidth: maxWidth, maxHeight: maxHeight)
+//        let data = imgCompress?.jpegData(compressionQuality: 1.0)
+        let data = imgCompress?.jpegData(compressionQuality: 0.3)
         guard let imgData = data else { return false }
         do{
             try print(Path.inDocuments(name))
@@ -38,7 +42,23 @@ extension UIImage{
         UIGraphicsEndImageContext()
         self.init(cgImage: image!.cgImage!)
     }
-    
+    func resizeImageWithAspect(image: UIImage,scaledToMaxWidth width:CGFloat,maxHeight height :CGFloat)->UIImage? {
+        let oldWidth = image.size.width;
+        let oldHeight = image.size.height;
+        
+        let scaleFactor = (oldWidth > oldHeight) ? width / oldWidth : height / oldHeight;
+        
+        let newHeight = oldHeight * scaleFactor;
+        let newWidth = oldWidth * scaleFactor;
+        let newSize = CGSize(width: newWidth, height: newHeight)
+        
+        UIGraphicsBeginImageContextWithOptions(newSize,false,UIScreen.main.scale);
+        
+        image.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height));
+        let newImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return newImage
+    }
     
 }
 

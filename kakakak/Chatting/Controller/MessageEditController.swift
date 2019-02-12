@@ -1,5 +1,6 @@
 import UIKit
 import SnapKit
+import CropViewController
 import RealmSwift
 
 class MessageEditController: UITableViewController,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
@@ -155,8 +156,9 @@ class MessageEditController: UITableViewController,UINavigationControllerDelegat
     }
 
     @IBAction func editButtonClicked(_ sender: Any) {
-        ImagePickerHelper.addAction(titleString: nil, messageString: "사진을 가져올 곳을 선택해주세요.", vc: self)
+        ImagePickerHelper.shared.addAction(titleString: nil, messageString: "사진을 가져올 곳을 선택해주세요.", vc: self,allowEdit: false)
     }
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: infos[indexPath.section].reuseId)!
@@ -175,20 +177,45 @@ class MessageEditController: UITableViewController,UINavigationControllerDelegat
         return cell
     }
     
+   
+    
+   
+    
+    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let img = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
-            for section in (0 ..< tableView.numberOfSections){
-                var indexPath = IndexPath(row: 0, section: section)
-                if let cell = tableView.cellForRow(at: indexPath) as? ImageEditCell{
-                    cell.messageImage = img
-                }
-            }
+        if let img = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            
+            
+            let cropViewController = CropViewController(image: img)
+            cropViewController.delegate = self
+            
+            picker.dismiss(animated: true, completion: nil)
+            present(cropViewController, animated: true, completion: nil)
+            
         }
-        picker.dismiss(animated: true, completion: nil)
+        else { picker.dismiss(animated: true, completion: nil) }
     }
     
 }
+extension  MessageEditController: CropViewControllerDelegate{
+    func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+        
+        
+        
+        let img = image.resizeImageWithAspect(image: image, scaledToMaxWidth: UIScreen.main.bounds.width * 0.6, maxHeight: UIScreen.main.bounds.height * 0.5)
+        
+        for section in (0 ..< tableView.numberOfSections){
+            let indexPath = IndexPath(row: 0, section: section)
+            if let cell = tableView.cellForRow(at: indexPath) as? ImageEditCell{
+                cell.messageImage = img
+            }
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+}
+
 
 
 

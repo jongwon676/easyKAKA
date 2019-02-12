@@ -14,4 +14,5 @@ pod 'Google-Mobile-Ads-SDK'
 pod 'Firebase/Core'
 pod 'Firebase/AdMob'
 pod 'CBFlashyTabBarController'
+pod 'CropViewController'
 end
