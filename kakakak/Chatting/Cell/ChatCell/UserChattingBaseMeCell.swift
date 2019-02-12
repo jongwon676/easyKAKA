@@ -11,6 +11,8 @@ class UserChattingBaseMeCell: BaseChat{
         }
     }
     
+    let maskImage = CALayer()
+    
     @IBOutlet var leading: NSLayoutConstraint!
     
     func moveConstraint(){
@@ -34,7 +36,26 @@ class UserChattingBaseMeCell: BaseChat{
             nameLabel.isHidden = true
         }
         self.nameLabel.text = owner.name
+        
+        
+        maskImage.contents =  [ UIImage(named: "back")!] as Any
+        
+        
+
+        profile.layer.cornerRadius = 0
+        profile.layer.mask = maskImage
+        profile.layer.masksToBounds = true
     }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        maskImage.frame = profile.frame
+        let maskView = UIView(frame: CGRect(x: 64, y: 0, width: 128, height: 128))
+        maskView.backgroundColor = .blue
+        maskView.layer.cornerRadius = 64
+        profile.mask = maskView
+//        redView.mask = maskView
+    }
+    
 }
 
 

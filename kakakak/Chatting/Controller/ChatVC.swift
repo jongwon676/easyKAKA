@@ -349,7 +349,6 @@ class ChatVC: UIViewController{
         
         addKeyboardObserver()
         
-        tableView.reloadData()
         tableView.showsVerticalScrollIndicator = false
         isEditMode = false
     }
@@ -407,6 +406,7 @@ class ChatVC: UIViewController{
         setTimer()
         setNavTitle()
         floatingButton()
+        tableView.reloadData()
     }
 
     

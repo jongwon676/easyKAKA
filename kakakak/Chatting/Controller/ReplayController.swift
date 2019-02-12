@@ -30,7 +30,7 @@ class ReplayController: UIViewController {
         return btn
     }()
     var room: Room!
-
+    
     var tableView: UITableView!{
         didSet{
             tableView.delegate = self
@@ -46,7 +46,7 @@ class ReplayController: UIViewController {
     }
     
     lazy var middleView: MiddleView = {
-       let middleView = MiddleView()
+        let middleView = MiddleView()
         middleView.textView.isEditable = false
         middleView.sendButton.setImage(#imageLiteral(resourceName: "sharp").withRenderingMode(.alwaysOriginal), for: .normal)
         middleView.smileButton.setImage(#imageLiteral(resourceName: "emoji_origin").withRenderingMode(.alwaysOriginal), for: .normal)
@@ -58,10 +58,10 @@ class ReplayController: UIViewController {
         return middleView
     }()
     
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        setUpRecordIndicationWindow()
         let colorIndex = room.backgroundcolorIndex
         tableView.backgroundColor = Style.allColors[colorIndex]
         tableView.backgroundView = nil
@@ -90,7 +90,7 @@ class ReplayController: UIViewController {
         gradient.cornerRadius = view.layer.cornerRadius
         return UIImage.image(from: gradient) ?? UIImage()
     }
-   
+    
     @IBOutlet var childView: UIView!
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -104,8 +104,8 @@ class ReplayController: UIViewController {
         
         recordButton.removeFromSuperview()
         
-//        window?.removeFromSuperview()
-//        window = nil
+        //        window?.removeFromSuperview()
+        //        window = nil
         
     }
     
@@ -157,7 +157,7 @@ class ReplayController: UIViewController {
         messageManager = MessageProcessor(room: self.room)
         messageManager.clear()
         self.tableView = (children[0] as! ChatBaseVC).tableView
-
+        
         tableView.snp.makeConstraints({ (mk) in
             mk.left.right.top.equalTo(self.view)
             mk.bottom.equalTo(self.middleView.snp.top)
@@ -169,13 +169,12 @@ class ReplayController: UIViewController {
         
         self.navigationItem.leftBarButtonItem = backButton
         self.navigationItem.rightBarButtonItems = [searchButton,fixedSpace,hamburgerButton]
-        setUpRecordIndicationWindow()
+        
         tableView.showsVerticalScrollIndicator = false
         tableView.isScrollEnabled = false
-    
-   }
+    }
     lazy var closeButotn: UIButton = {
-       let btn = UIButton()
+        let btn = UIButton()
         btn.setImage(#imageLiteral(resourceName: "replayClose").withRenderingMode(.alwaysOriginal), for: .normal)
         btn.addTarget(self, action: #selector(backButtonClick), for: .touchUpInside)
         return btn
@@ -237,8 +236,8 @@ class CustomWindow: UIWindow{
 }
 
 extension ReplayController: UITableViewDelegate,UITableViewDataSource{
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {        
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messageManager.messages.count
     }
     
@@ -264,7 +263,6 @@ extension ReplayController: UITableViewDelegate,UITableViewDataSource{
         if !recorder.isRecording {
             self.recordButton.setImage(#imageLiteral(resourceName: "recordStop").withRenderingMode(.alwaysOriginal), for: .normal)
             self.screenView.isRecord = true
-            
             recorder.startRecording { [weak self] (error) in
                 guard error == nil else {
                     print("Failed to start recording")
@@ -289,18 +287,11 @@ extension ReplayController: UITableViewDelegate,UITableViewDataSource{
             })
         }
     }
-
+    
     func setUpRecordIndicationWindow() {
-        
-        
-        
-        
-        
-        
-        
-        
-        window = CustomWindow(frame: view.bounds)
 
+        window = CustomWindow(frame: view.bounds)
+        
         window?.backgroundColor = UIColor.clear
         window?.isUserInteractionEnabled = true
         window?.addSubview(recordButton)
@@ -319,6 +310,7 @@ extension ReplayController: UITableViewDelegate,UITableViewDataSource{
 extension ReplayController: RPPreviewViewControllerDelegate {
     func previewControllerDidFinish(_ previewController: RPPreviewViewController) {
         self.dismiss(animated: true, completion: nil)
+        self.navigationController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
 }
 class LiveScreenView: UIView{
