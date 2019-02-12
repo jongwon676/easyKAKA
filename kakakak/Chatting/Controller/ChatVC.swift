@@ -8,7 +8,7 @@ protocol CellConfigurator: class{
     func configure(message: Message)
 }
 
-class ChatVC: UIViewController{
+class ChatVC: UIViewController,UIGestureRecognizerDelegate{
     var realm = try! Realm()
     private weak var timer: Timer?{
         didSet{
@@ -277,7 +277,7 @@ class ChatVC: UIViewController{
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
         token = room.observe({ [weak self] (change)  in
             guard let `self` = self else { return }
             switch change{
