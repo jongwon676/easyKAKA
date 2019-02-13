@@ -182,11 +182,8 @@ class AddUserController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     
     func isProblem(text: String) -> Bool{
-        
-        
         let alert = UIAlertController(style: .alert)
         alert.addAction(UIAlertAction(title: "확인", style: .default))
-        
         switch text.count {
         case 0:
             alert.message = "이름을 입력해주세요."

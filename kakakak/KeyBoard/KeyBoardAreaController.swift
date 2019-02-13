@@ -163,6 +163,7 @@ class KeyBoardAreaController: UIViewController{
         return view
     }()
     
+    var isFirst = true
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -174,7 +175,10 @@ class KeyBoardAreaController: UIViewController{
             case .initial:
                 userCollectionView.reloadData()
                 let middleIndexPath = IndexPath(item: self.users.count / 2, section: 0)
-                self.selectCell(for: middleIndexPath, animated: false)
+                if self.isFirst{
+                    self.selectCell(for: middleIndexPath, animated: false)
+                    self.isFirst = false
+                }
             case .update(_, let deletions, let insertions, let updates): userCollectionView.reloadData()
             case .error: break
             }
