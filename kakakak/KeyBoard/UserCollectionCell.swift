@@ -116,7 +116,7 @@ class UserCollectionCell: UICollectionViewCell {
         
         imageView.contentMode = .scaleAspectFill
         nameLabel.text = user?.name
-        nameLabel.font = UIFont.systemFont(ofSize: 11)
+        nameLabel.font = UIFont.systemFont(ofSize: 11, weight: .semibold)
         nameLabel.textAlignment = .center
         
     }
