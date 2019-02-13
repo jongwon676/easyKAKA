@@ -8,6 +8,7 @@ class TimeAndReadLabel: UILabel{
     }
     func setUp(message: Message,timeColor: UIColor){
         self.numberOfLines = 0
+        
         var shadow = NSShadow()
         shadow.shadowColor = #colorLiteral(red: 0.5343024731, green: 0.6267417073, blue: 0.6852725148, alpha: 1)
         shadow.shadowOffset = CGSize(width: 0.5, height: 0.5)

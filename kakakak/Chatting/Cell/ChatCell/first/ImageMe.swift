@@ -22,7 +22,6 @@ class ImageMe: UserChattingBaseMeCell,ChattingCellProtocol{
         imageRatio.isActive = false
         guard let image = messageImage.image else { return }
         let ratio = image.size.width / image.size.height
-        print("ratio \(ratio)")
         imageRatio = NSLayoutConstraint(item: messageImage, attribute: .width,
                                         relatedBy: .equal,
                                         toItem: messageImage, attribute: .height,
@@ -53,7 +52,7 @@ class ImageMe: UserChattingBaseMeCell,ChattingCellProtocol{
     }
     override func layoutSubviews() {
         super.layoutSubviews()
-        print("messaeImage frame")
+
         
     }
     

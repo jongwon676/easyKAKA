@@ -4,7 +4,11 @@ class UserChattingBaseMeCell: BaseChat{
     //
     @IBOutlet var profile: ChatRadiusProfileView!
     @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var timeReadLabel: TimeAndReadLabel!
+    @IBOutlet var timeReadLabel: TimeAndReadLabel!{
+        didSet{
+            timeReadLabel.text = ""
+        }
+    }
     @IBOutlet var containerView: UIView!{
         didSet{
             containerView.backgroundColor = UIColor.black
@@ -22,14 +26,11 @@ class UserChattingBaseMeCell: BaseChat{
     
     func moveConstraint(){
         guard let owner = message.owner else { return }
+        timeReadLabel.text = ""
         leading.constant = editMode ? 30 : 0
-        if message.isLastMessage{
-            if let bgType = self.bgType{
-                timeReadLabel.setUp(message: message, timeColor: bgType.getNavUserCountColor())
-            }
-            timeReadLabel.isHidden = false            
-        }else{
-            timeReadLabel.isHidden = true
+        
+        if let bgType = self.bgType{
+            timeReadLabel.setUp(message: message, timeColor: bgType.getNavUserCountColor())
         }
         if message.isFirstMessage{
            
@@ -41,10 +42,7 @@ class UserChattingBaseMeCell: BaseChat{
                 profile.image = UIImage.loadImageFromName(imgName)
                 ProfileImageCacher.shared.addImageToCache(imgName: imgName, img: profile.image ?? UIImage())
             }
-            
-            
-                
-            
+
             profile.isHidden = false
             nameLabel.isHidden = false
         }else{

@@ -19,7 +19,7 @@ class TimeEditCell: UITableViewCell,EditCellProtocol {
     }
     
     @objc func changed(){
-        print(timerPicker.date)
+        
     }
     
 

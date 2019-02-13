@@ -32,7 +32,6 @@ class ImageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
                                         multiplier: ratio, constant: 0)
         
         imageRatio.isActive = true
-        print(imageRatio)
         updateConstraints()
         messageImage.layer.cornerRadius = 2
     }
@@ -57,15 +56,13 @@ class ImageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
         self.contentView.backgroundColor = UIColor.clear
         failView.isHidden = !message.isFail
         self.message = message
-        if message.isLastMessage{
-            timeReadLabel.isHidden = false
-            timeReadLabel.isHidden = !failView.isHidden
-        }else{
-            timeReadLabel.isHidden = true
-        }
+        timeReadLabel.setUp(message: message, timeColor: bgType.getNavUserCountColor())
+        timeReadLabel.isHidden = false
+        timeReadLabel.isHidden = !failView.isHidden
+        
         mImage = UIImage.loadImageFromName(message.messageImageUrl)
         
-        timeReadLabel.setUp(message: message, timeColor: bgType.getNavUserCountColor())
+        
     }
     override func layoutSubviews() {
         super.layoutSubviews()

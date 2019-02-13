@@ -178,9 +178,14 @@ class AddUserController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
     }
     
+    @IBOutlet var addButton: GradientButton!
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
+        if user != nil{
+            addButton.setTitle("수정하기", for: .normal)
+            
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

@@ -91,7 +91,6 @@ class ColorNavigationViewController: UINavigationController {
     func changeGradientImage(orangeGradient: [UIColor],orangeGradientLocation: [Double] ) {
         // 1 status bar
         
-        print("gradient image")
         colorView.frame = CGRect(x: 0, y: -UIApplication.shared.statusBarFrame.height, width: navigationBar.frame.width, height: UIApplication.shared.statusBarFrame.height)
         
         // 2

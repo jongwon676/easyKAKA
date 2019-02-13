@@ -38,12 +38,7 @@ class DeleteMessageAnother: UserChattingBaseAnotherCell, ChattingCellProtocol{
         self.contentView.backgroundColor = UIColor.clear
         self.backgroundColor = UIColor.clear
         self.message = message
-        if message.isLastMessage{
-            timeReadLabel.setUp(message: message, timeColor: bgType.getNavUserCountColor())
-            timeReadLabel.isHidden = false
-        }else{
-            timeReadLabel.isHidden = true
-        }
+        timeReadLabel.setUp(message: message, timeColor: bgType.getNavUserCountColor())
         
         bubble.layer.cornerRadius = 2
         

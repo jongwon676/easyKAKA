@@ -20,7 +20,6 @@ extension UIImage{
     func writeImage(imgName name: String ) -> Bool{
         let maxWidth: CGFloat = UIScreen.main.bounds.width * 0.6
         let maxHeight: CGFloat = UIScreen.main.bounds.height * 0.5
-        print(maxWidth * maxHeight)
         let imgCompress = resizeImageWithAspect(image: self, scaledToMaxWidth: maxWidth, maxHeight: maxHeight)
 //        let data = imgCompress?.jpegData(compressionQuality: 1.0)
         let data = imgCompress?.jpegData(compressionQuality: 0.3)

@@ -160,13 +160,24 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Uy-P1-XiZ">
                                                 <rect key="frame" x="0.0" y="636" width="414" height="80"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7W-1q-BsH">
-                                                        <rect key="frame" x="35.666666666666657" y="15" width="343" height="66"/>
+                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7W-1q-BsH" customClass="GradientButton" customModule="kakakak" customModuleProvider="target">
+                                                        <rect key="frame" x="20" y="23" width="374" height="50"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="66" id="Orn-Bb-shD"/>
-                                                            <constraint firstAttribute="width" constant="343" id="PHg-E9-NnX"/>
+                                                            <constraint firstAttribute="height" constant="50" id="Orn-Bb-shD"/>
                                                         </constraints>
-                                                        <state key="normal" image="addUser"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                        <state key="normal" title="추가하기"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="topGradientColor">
+                                                                <color key="value" red="0.81176470590000005" green="0.63921568630000003" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="bottomGradientColor">
+                                                                <color key="value" red="1" green="0.68235294120000001" blue="0.99215686270000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="save" destination="qjc-OB-QBd" eventType="touchUpInside" id="yeV-Ox-JHP"/>
                                                         </connections>
@@ -176,6 +187,8 @@
                                                     <constraint firstItem="d7W-1q-BsH" firstAttribute="centerY" secondItem="1Uy-P1-XiZ" secondAttribute="centerY" constant="8" id="7eY-5z-Otc"/>
                                                     <constraint firstAttribute="height" constant="80" id="CkP-9B-QtD"/>
                                                     <constraint firstItem="d7W-1q-BsH" firstAttribute="centerX" secondItem="1Uy-P1-XiZ" secondAttribute="centerX" id="bwk-pg-7XS"/>
+                                                    <constraint firstAttribute="trailing" secondItem="d7W-1q-BsH" secondAttribute="trailing" constant="20" id="efV-Qp-6jt"/>
+                                                    <constraint firstItem="d7W-1q-BsH" firstAttribute="leading" secondItem="1Uy-P1-XiZ" secondAttribute="leading" constant="20" id="zT4-x7-MBT"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hz-Ky-k9J">
@@ -227,6 +240,7 @@
                         <viewLayoutGuide key="safeArea" id="VSC-BW-1Nc"/>
                     </view>
                     <connections>
+                        <outlet property="addButton" destination="d7W-1q-BsH" id="Jfc-o5-sKg"/>
                         <outlet property="addUserButton" destination="d7W-1q-BsH" id="IAm-wn-4yO"/>
                         <outlet property="limtLabel" destination="6hz-Ky-k9J" id="pRf-dV-bo4"/>
                         <outlet property="nameField" destination="ygO-I4-Lj3" id="0hz-tE-6c9"/>
@@ -1206,7 +1220,6 @@
     </scenes>
     <resources>
         <image name="abcd.jpg" width="552" height="414"/>
-        <image name="addUser" width="343" height="66"/>
         <image name="back" width="32" height="55"/>
         <image name="closeWhite" width="16" height="16"/>
         <image name="dotBorder" width="335" height="313"/>

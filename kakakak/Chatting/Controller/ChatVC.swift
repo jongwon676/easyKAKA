@@ -10,11 +10,7 @@ protocol CellConfigurator: class{
 
 class ChatVC: UIViewController,UIGestureRecognizerDelegate{
     var realm = try! Realm()
-    private weak var timer: Timer?{
-        didSet{
-            print("timer set")
-        }
-    }
+    private weak var timer: Timer?
     
     @IBOutlet var childView: UIView!
     var room: Room!

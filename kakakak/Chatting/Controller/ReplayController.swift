@@ -295,7 +295,7 @@ extension ReplayController: UITableViewDelegate,UITableViewDataSource{
             self.screenView.isRecord = true
             recorder.startRecording { [weak self] (error) in
                 guard error == nil else {
-                    print("Failed to start recording")
+
                     return
                 }
             }
@@ -303,7 +303,6 @@ extension ReplayController: UITableViewDelegate,UITableViewDataSource{
             recorder.stopRecording(handler: { [weak self] (previewController, error) in
                 guard let `self` = self else { return }
                 guard error == nil else {
-                    print("Failed to stop recording")
                     return
                 }
                 self.pvController = previewController
@@ -365,7 +364,7 @@ class LiveScreenView: UIView{
     
     var currentMessageNumbr = 0{
         didSet {
-            print("currentMessgaeNumber \(currentMessageNumbr)")
+
             setupText()
         }
     }

@@ -7,14 +7,10 @@ class TextAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
         self.bubble.backgroundColor = Style.rightBubbleColor
         messageLabel.text = message.messageText
         failView.isHidden = !message.isFail
-        if message.isLastMessage{
-            
-            timeReadLabel.setUp(message: message, timeColor: bgType.getNavUserCountColor())
-            timeReadLabel.isHidden = false
-            timeReadLabel.isHidden = !failView.isHidden
-        }else{
-            timeReadLabel.isHidden = true
-        }
+        timeReadLabel.setUp(message: message, timeColor: bgType.getNavUserCountColor())
+        timeReadLabel.isHidden = false
+        timeReadLabel.isHidden = !failView.isHidden
+        
         bubble.layer.cornerRadius = 2
     }
     
