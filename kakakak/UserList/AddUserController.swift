@@ -167,7 +167,8 @@ class AddUserController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     @IBAction func save(){
         
-        guard let name = nameField.text, let image = profile.image else { return }
+        guard let name = nameField.text, let image = profile.image, !isProblem(text: name)
+            else { return }
         if user != nil{
             user?.edit(name: name, image: image)
             self.navigationController?.popViewController(animated: true)
@@ -176,6 +177,30 @@ class AddUserController: UIViewController, UITableViewDelegate, UITableViewDataS
             Preset.add(name: name, image: image)
             self.navigationController?.popViewController(animated: true)
         }
+    }
+    
+    
+    
+    func isProblem(text: String) -> Bool{
+        
+        
+        let alert = UIAlertController(style: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default))
+        
+        switch text.count {
+        case 0:
+            alert.message = "이름을 입력해주세요."
+            self.present(alert, animated: true, completion: nil)
+            return true
+        case (31...) :
+            alert.message = "이름의 최대길이를 초과했습니다."
+            self.present(alert, animated: true, completion: nil)
+            return true
+        default: return false
+            
+        }
+        
+        
     }
     
     @IBOutlet var addButton: GradientButton!
