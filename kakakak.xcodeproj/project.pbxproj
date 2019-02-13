@@ -40,6 +40,8 @@
 		AD542CB621EC871A00656196 /* RoomAddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD542CB521EC871A00656196 /* RoomAddVC.swift */; };
 		AD542CB821EC8D8A00656196 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD542CB721EC8D8A00656196 /* UserCell.swift */; };
 		AD6911C32204E07D0045CEFF /* AddUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6911C22204E07D0045CEFF /* AddUserController.swift */; };
+		AD6EF40F2214A8A100C6F0C1 /* OptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6EF40E2214A8A100C6F0C1 /* OptionViewController.swift */; };
+		AD6EF4112214ACF200C6F0C1 /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6EF4102214ACF200C6F0C1 /* OptionCell.swift */; };
 		AD87909921EA048A0008177D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD87909821EA048A0008177D /* ViewController.swift */; };
 		AD8C17C022045CEA00B7C8F9 /* ImageAnother.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8C17BF22045CEA00B7C8F9 /* ImageAnother.swift */; };
 		AD8CD3FF2200D6BA0040AE81 /* xeicon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD8CD3FE2200D6BA0040AE81 /* xeicon.ttf */; };
@@ -188,6 +190,8 @@
 		AD542CB521EC871A00656196 /* RoomAddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomAddVC.swift; sourceTree = "<group>"; };
 		AD542CB721EC8D8A00656196 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		AD6911C22204E07D0045CEFF /* AddUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserController.swift; sourceTree = "<group>"; };
+		AD6EF40E2214A8A100C6F0C1 /* OptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionViewController.swift; sourceTree = "<group>"; };
+		AD6EF4102214ACF200C6F0C1 /* OptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
 		AD87909821EA048A0008177D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AD8C17BF22045CEA00B7C8F9 /* ImageAnother.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnother.swift; sourceTree = "<group>"; };
 		AD8CD3FE2200D6BA0040AE81 /* xeicon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = xeicon.ttf; sourceTree = "<group>"; };
@@ -777,6 +781,8 @@
 				ADA7E01321FF596300FCF517 /* MessageEdit.storyboard */,
 				ADC672B421E2260800D6D3F5 /* Info.plist */,
 				ADB8E576220BD64C006628F2 /* Replay.storyboard */,
+				AD6EF40E2214A8A100C6F0C1 /* OptionViewController.swift */,
+				AD6EF4102214ACF200C6F0C1 /* OptionCell.swift */,
 			);
 			path = kakakak;
 			sourceTree = "<group>";
@@ -1032,6 +1038,7 @@
 				ADC672C221E24F1F00D6D3F5 /* CharacterCell.swift in Sources */,
 				ADC672DC21E391B500D6D3F5 /* RoomCell.swift in Sources */,
 				AD2B6A8222046CDE00DD563A /* DeleteMessageMe.swift in Sources */,
+				AD6EF40F2214A8A100C6F0C1 /* OptionViewController.swift in Sources */,
 				AD95E2242208712F00CD8451 /* Array+Extensions.swift in Sources */,
 				AD95E2442208712F00CD8451 /* SearchHistoryManager.swift in Sources */,
 				ADDDF02B21E53E6E007E3D16 /* ChatVC+extension.swift in Sources */,
@@ -1141,6 +1148,7 @@
 				ADC672A921E2260700D6D3F5 /* AppDelegate.swift in Sources */,
 				AD0D47FF220B166400FFAC7D /* TextEditCell.swift in Sources */,
 				AD50748421F2971D003B50F5 /* MiddleView.swift in Sources */,
+				AD6EF4112214ACF200C6F0C1 /* OptionCell.swift in Sources */,
 				ADA7E00E21FED65500FCF517 /* SpeacialFeatureInputView.swift in Sources */,
 				AD95E2512208712F00CD8451 /* TelegramPickerViewController.swift in Sources */,
 				AD95E2542208712F00CD8451 /* Label.swift in Sources */,

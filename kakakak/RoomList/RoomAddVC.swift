@@ -5,6 +5,13 @@ class RoomAddVC:UIViewController, UITableViewDataSource,UITableViewDelegate{
     
     @IBOutlet var titleLabel: UILabel!
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return UIView()
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 10
+    }
+    
     enum ControllerType {
         case invite
         case exit

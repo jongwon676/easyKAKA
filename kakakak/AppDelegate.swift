@@ -37,9 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 tbItems[1].image = UIImage(named: "tabBar2")
                 tbItems[2].image = UIImage(named: "tabBar3")
                 
-//                tbItems[0].title = "등장인물"
-//                tbItems[1].title = "대화"
-//                tbItems[2].title = "설정"
+                tbItems[0].title = nil
+                tbItems[1].title = nil
+                tbItems[2].title = nil
             }
             
         }
