@@ -44,6 +44,7 @@ extension ChatVC: UITextViewDelegate{
             })
             UIView.animate(withDuration: duration, animations: {
                 self.view.layoutIfNeeded()
+                
             }) { (comp) in
                 self.tableView.scrollToBottom(animation: true)
             }

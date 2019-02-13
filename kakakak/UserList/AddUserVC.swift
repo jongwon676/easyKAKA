@@ -4,8 +4,7 @@ class AddUserVC: UITableViewController, UIImagePickerControllerDelegate,UINaviga
     
     @IBOutlet var profile: UIImageView!
     @IBOutlet var nameField: UITextField!
-    @IBOutlet var stateField: UITextField!
-    @IBOutlet var isMe: UISwitch!
+    
     var user: Preset? = nil
     @objc func saveKeyboardHeight(_ notification: NSNotification){
         guard let userInfo = notification.userInfo else { return }

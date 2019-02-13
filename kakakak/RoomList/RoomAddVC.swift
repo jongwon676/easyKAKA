@@ -184,6 +184,7 @@ extension RoomAddVC{
                 self.dismiss(animated: true, completion: nil)
             }))
         }
+        inviteAlert.addAction(UIAlertAction(title: "취소", style: .cancel))
         
         for user in selectedUsers{
             checkMeAlert.addAction(UIAlertAction(title: user.name, style: .default, handler: { (action) in
@@ -199,6 +200,7 @@ extension RoomAddVC{
                 }
             }))
         }
+        checkMeAlert.addAction(UIAlertAction(title: "취소", style: .cancel))
         present(checkMeAlert, animated: true)
     }
     
