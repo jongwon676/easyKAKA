@@ -30,7 +30,7 @@ class UserChattingBaseMeCell: BaseChat{
         leading.constant = editMode ? 30 : 0
         
         if let bgType = self.bgType{
-            timeReadLabel.setUp(message: message, timeColor: bgType.getNavUserCountColor())
+            timeReadLabel.setUp(message: message, timeColor: bgType.chattingTimeColor)
         }
         if message.isFirstMessage{
            
@@ -51,7 +51,7 @@ class UserChattingBaseMeCell: BaseChat{
             nameLabel.isHidden = true
         }
         self.nameLabel.text = owner.name
-        self.nameLabel.textColor = bgType?.getNavUserCountColor()
+        self.nameLabel.textColor = bgType?.userNameColor
         
         
         

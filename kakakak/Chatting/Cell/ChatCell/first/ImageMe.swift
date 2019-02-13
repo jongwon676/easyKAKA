@@ -6,7 +6,7 @@ class ImageMe: UserChattingBaseMeCell,ChattingCellProtocol{
         self.message = message
         mImage = UIImage.loadImageFromName(message.messageImageUrl)
         
-        timeReadLabel.setUp(message: message, timeColor: bgType.getNavUserCountColor())
+        timeReadLabel.setUp(message: message, timeColor: bgType.chattingTimeColor)
         moveConstraint()
     }
 

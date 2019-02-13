@@ -5,7 +5,7 @@ class RecordMessageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
         self.message = message
         self.backgroundColor = UIColor.clear
         
-        timeReadLabel.setUp(message: message, timeColor: bgType.getNavUserCountColor())
+        timeReadLabel.setUp(message: message, timeColor: bgType.chattingTimeColor)
         
         updateConstraintsIfNeeded()
         playRecordLabel.text = ""

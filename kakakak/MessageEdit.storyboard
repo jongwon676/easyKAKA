@@ -494,7 +494,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.22402314449999999" green="0.14089486970000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="textMe" rowHeight="90" id="pFN-BG-SxJ" customClass="TextMe" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="textMe" rowHeight="90" id="pFN-BG-SxJ" customClass="TextMe" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pFN-BG-SxJ" id="Sse-3e-XiO">
@@ -502,7 +502,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dpu-1Z-Nbo">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="336" height="90"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="abcd.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="JaS-1Z-2jl" customClass="ChatRadiusProfileView" customModule="kakakak" customModuleProvider="target">
                                                             <rect key="frame" x="4" y="12" width="34" height="34"/>
@@ -512,10 +512,10 @@
                                                             </constraints>
                                                         </imageView>
                                                         <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pTi-C0-N5k" userLabel="bubble" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
-                                                            <rect key="frame" x="49.5" y="38.5" width="238" height="51.5"/>
+                                                            <rect key="frame" x="49.5" y="38.5" width="216" height="51.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="adsfjas;ldfjl;asjdfl;asjldf;jasl;dfjl;asdjfl;ajsdf;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWW-Vf-ipP">
-                                                                    <rect key="frame" x="8" y="10" width="222" height="31.5"/>
+                                                                    <rect key="frame" x="8" y="10" width="200" height="31.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -536,7 +536,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오전 11시 30분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWd-uL-kDm" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                            <rect key="frame" x="293.5" y="75" width="63" height="12"/>
+                                                            <rect key="frame" x="271.5" y="75" width="63" height="12"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -579,7 +579,7 @@
                                             <outlet property="timeReadLabel" destination="FWd-uL-kDm" id="biJ-Zh-5MK"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="textMeSecond" rowHeight="90" id="sXv-a6-FgT" userLabel="textMeSecond" customClass="TextMe" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="textMeSecond" rowHeight="90" id="sXv-a6-FgT" userLabel="textMeSecond" customClass="TextMe" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="118" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sXv-a6-FgT" id="SDp-xl-vTB">
@@ -587,7 +587,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JLn-6I-j3E">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="336" height="90"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="abcd.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="6Yn-ix-tCI" customClass="ChatRadiusProfileView" customModule="kakakak" customModuleProvider="target">
                                                             <rect key="frame" x="4" y="12" width="34" height="34"/>
@@ -597,10 +597,10 @@
                                                             </constraints>
                                                         </imageView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oHo-by-2lX" userLabel="bubble" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
-                                                            <rect key="frame" x="49.5" y="4" width="238" height="86"/>
+                                                            <rect key="frame" x="49.5" y="4" width="216" height="86"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="adsfjas;ldfjl;asjdfl;asjldf;jasl;dfjl;asdjfl;ajsdf;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAR-o0-2iS">
-                                                                    <rect key="frame" x="8" y="8" width="222" height="70"/>
+                                                                    <rect key="frame" x="8" y="8" width="200" height="70"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -621,7 +621,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오전 11시 30분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWD-bj-FRm" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                            <rect key="frame" x="293.5" y="75" width="63" height="12"/>
+                                                            <rect key="frame" x="271.5" y="75" width="63" height="12"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -664,7 +664,7 @@
                                             <outlet property="timeReadLabel" destination="CWD-bj-FRm" id="j0J-4d-bH7"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="textAnother" rowHeight="70" id="E3E-n6-nnc" customClass="TextAnother" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="textAnother" rowHeight="70" id="E3E-n6-nnc" customClass="TextAnother" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="208" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="E3E-n6-nnc" id="0sE-HA-ALu">
@@ -672,7 +672,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6fX-Lp-BWX" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="156.5" y="12" width="206" height="58"/>
+                                                    <rect key="frame" x="117.5" y="12" width="206" height="58"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="sdfak;jdsfl;ajdsk;fjl;asdfjlasjdkf;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4K-t9-zsO">
                                                             <rect key="frame" x="12" y="9" width="238" height="42"/>
@@ -690,13 +690,13 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6시30분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLm-ZY-eLw" userLabel="6시 30분" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="90" y="46" width="60.5" height="21"/>
+                                                    <rect key="frame" x="51" y="46" width="60.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fail" translatesAutoresizingMaskIntoConstraints="NO" id="LPq-bI-OPk">
-                                                    <rect key="frame" x="109.5" y="47" width="41" height="20"/>
+                                                    <rect key="frame" x="70.5" y="47" width="41" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="Nl3-PO-Aim"/>
                                                         <constraint firstAttribute="width" constant="41" id="cJB-zz-t5m"/>
@@ -721,7 +721,7 @@
                                             <outlet property="timeReadLabel" destination="xLm-ZY-eLw" id="PYb-2y-TF1"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="textAnotherSecond" rowHeight="70" id="gn7-0F-wMr" userLabel="textAnotherSecond" customClass="TextAnother" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="textAnotherSecond" rowHeight="70" id="gn7-0F-wMr" userLabel="textAnotherSecond" customClass="TextAnother" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="278" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gn7-0F-wMr" id="7H5-TS-btn">
@@ -729,7 +729,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uue-ZU-8UM" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="156.5" y="4" width="206" height="66"/>
+                                                    <rect key="frame" x="117.5" y="4" width="206" height="66"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="sdfak;jdsfl;ajdsk;fjl;asdfjlasjdkf;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhL-H6-2EX">
                                                             <rect key="frame" x="12" y="9" width="238" height="42"/>
@@ -747,13 +747,13 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6시30분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="baJ-lX-cJA" userLabel="6시 30분" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="90" y="46" width="60.5" height="21"/>
+                                                    <rect key="frame" x="51" y="46" width="60.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fail" translatesAutoresizingMaskIntoConstraints="NO" id="1ON-ie-y8f">
-                                                    <rect key="frame" x="109.5" y="47" width="41" height="20"/>
+                                                    <rect key="frame" x="70.5" y="47" width="41" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="41" id="99y-yt-JAj"/>
                                                         <constraint firstAttribute="height" constant="20" id="XQd-t4-Akm"/>
@@ -826,6 +826,13 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share" translatesAutoresizingMaskIntoConstraints="NO" id="cge-eo-FgA">
+                                                            <rect key="frame" x="295.5" y="165" width="28" height="28"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="28" id="HsN-6d-xWE"/>
+                                                                <constraint firstAttribute="width" constant="28" id="VNn-1K-7WW"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="b3u-b2-eSX" secondAttribute="bottom" constant="3" id="0i5-xS-7Fi"/>
@@ -833,7 +840,9 @@
                                                         <constraint firstItem="CM7-44-4VY" firstAttribute="top" secondItem="XM2-h3-Xeq" secondAttribute="top" constant="12" id="4TP-5u-KY6"/>
                                                         <constraint firstItem="Ppt-sz-k8B" firstAttribute="top" secondItem="q0g-Db-tDK" secondAttribute="bottom" constant="6" id="7tU-h7-iGE"/>
                                                         <constraint firstItem="q0g-Db-tDK" firstAttribute="top" secondItem="CM7-44-4VY" secondAttribute="top" id="BCC-XD-eDl"/>
+                                                        <constraint firstItem="cge-eo-FgA" firstAttribute="leading" secondItem="Ppt-sz-k8B" secondAttribute="trailing" constant="21" id="NpN-u0-KZs"/>
                                                         <constraint firstItem="b3u-b2-eSX" firstAttribute="leading" secondItem="Ppt-sz-k8B" secondAttribute="trailing" constant="6" id="SQI-63-dI0"/>
+                                                        <constraint firstItem="cge-eo-FgA" firstAttribute="centerY" secondItem="8iB-zf-qEc" secondAttribute="centerY" id="XmD-eD-FIP"/>
                                                         <constraint firstItem="Ppt-sz-k8B" firstAttribute="leading" secondItem="CM7-44-4VY" secondAttribute="trailing" constant="11.5" id="i1n-3g-cMj"/>
                                                         <constraint firstAttribute="bottom" secondItem="Ppt-sz-k8B" secondAttribute="bottom" id="vuu-58-YMH"/>
                                                         <constraint firstItem="CM7-44-4VY" firstAttribute="leading" secondItem="XM2-h3-Xeq" secondAttribute="leading" constant="4" id="wH0-t6-J1A"/>
@@ -908,9 +917,17 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share" translatesAutoresizingMaskIntoConstraints="NO" id="DMa-Lg-FCF">
+                                                            <rect key="frame" x="295.5" y="110" width="28" height="28"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="28" id="D2i-xE-HCj"/>
+                                                                <constraint firstAttribute="height" constant="28" id="rhi-SO-ARK"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="Hnv-kV-z5A" firstAttribute="top" secondItem="5pg-68-hzX" secondAttribute="top" constant="12" id="1xe-Ow-aiD"/>
+                                                        <constraint firstItem="DMa-Lg-FCF" firstAttribute="leading" secondItem="3DH-3E-zhl" secondAttribute="trailing" constant="21" id="9QE-wN-2HL"/>
                                                         <constraint firstItem="3DH-3E-zhl" firstAttribute="top" secondItem="5pg-68-hzX" secondAttribute="top" constant="8" id="Ici-hF-Aof"/>
                                                         <constraint firstItem="riM-cY-azF" firstAttribute="leading" secondItem="3DH-3E-zhl" secondAttribute="trailing" constant="6" id="KRj-VJ-ypc"/>
                                                         <constraint firstItem="3DH-3E-zhl" firstAttribute="width" relation="lessThanOrEqual" secondItem="5pg-68-hzX" secondAttribute="width" multiplier="0.6" id="Kni-Fc-XgR"/>
@@ -919,6 +936,7 @@
                                                         <constraint firstItem="3DH-3E-zhl" firstAttribute="top" secondItem="5pg-68-hzX" secondAttribute="top" constant="8" id="fha-ah-gye"/>
                                                         <constraint firstAttribute="bottom" secondItem="riM-cY-azF" secondAttribute="bottom" constant="3" id="lfn-mq-dnQ"/>
                                                         <constraint firstItem="Hnv-kV-z5A" firstAttribute="leading" secondItem="5pg-68-hzX" secondAttribute="leading" constant="4" id="tWW-rM-wsJ"/>
+                                                        <constraint firstItem="DMa-Lg-FCF" firstAttribute="centerY" secondItem="PQd-mz-3Bn" secondAttribute="centerY" id="va5-D5-AZx"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -979,11 +997,20 @@
                                                         <constraint firstAttribute="height" constant="20" id="mEk-Ei-byq"/>
                                                     </constraints>
                                                 </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share" translatesAutoresizingMaskIntoConstraints="NO" id="6vy-U9-Iza">
+                                                    <rect key="frame" x="182.5" y="63.5" width="28" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="28" id="ahZ-lT-ieY"/>
+                                                        <constraint firstAttribute="width" constant="28" id="yYB-i4-g9B"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="yXF-fu-nqR" firstAttribute="leading" secondItem="cAt-VX-pM5" secondAttribute="trailing" constant="6" id="6gC-sy-C0U"/>
+                                                <constraint firstItem="yXF-fu-nqR" firstAttribute="leading" secondItem="6vy-U9-Iza" secondAttribute="trailing" constant="21" id="Av5-CM-C4R"/>
                                                 <constraint firstItem="yXF-fu-nqR" firstAttribute="leading" secondItem="GYv-7W-bZ2" secondAttribute="trailing" constant="6" id="MG0-fc-nP8"/>
                                                 <constraint firstAttribute="bottom" secondItem="cAt-VX-pM5" secondAttribute="bottom" constant="3" id="Tyg-hr-GBX"/>
+                                                <constraint firstItem="6vy-U9-Iza" firstAttribute="centerY" secondItem="qtj-0f-3a7" secondAttribute="centerY" id="UuL-l1-y6s"/>
                                                 <constraint firstItem="yXF-fu-nqR" firstAttribute="top" secondItem="BHJ-Qb-v1g" secondAttribute="top" constant="12" id="d1y-OU-STz"/>
                                                 <constraint firstAttribute="trailing" secondItem="yXF-fu-nqR" secondAttribute="trailing" constant="12.5" id="pqf-nD-cjJ"/>
                                                 <constraint firstItem="yXF-fu-nqR" firstAttribute="width" relation="lessThanOrEqual" secondItem="BHJ-Qb-v1g" secondAttribute="width" multiplier="0.6" id="q4A-O4-Xfq"/>
@@ -1037,15 +1064,24 @@
                                                         <constraint firstAttribute="width" constant="41" id="aFq-Hb-ks2"/>
                                                     </constraints>
                                                 </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share" translatesAutoresizingMaskIntoConstraints="NO" id="oPF-7Q-cB1">
+                                                    <rect key="frame" x="112.5" y="61.5" width="28" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="28" id="PlA-gB-RsM"/>
+                                                        <constraint firstAttribute="height" constant="28" id="k8j-7e-BH6"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="NFb-kf-0lR" secondAttribute="bottom" constant="3" id="1sh-Wj-QHT"/>
                                                 <constraint firstItem="tcJ-f1-8jd" firstAttribute="leading" secondItem="EkA-vP-R1c" secondAttribute="trailing" constant="6" id="6f0-09-ncP"/>
+                                                <constraint firstItem="tcJ-f1-8jd" firstAttribute="leading" secondItem="oPF-7Q-cB1" secondAttribute="trailing" constant="21" id="8Yu-pO-8Uv"/>
                                                 <constraint firstAttribute="bottom" secondItem="EkA-vP-R1c" secondAttribute="bottom" constant="3" id="D4z-e7-hD0"/>
                                                 <constraint firstItem="tcJ-f1-8jd" firstAttribute="top" secondItem="xh6-jb-ZbH" secondAttribute="top" constant="8" id="HFq-sx-sBu"/>
                                                 <constraint firstAttribute="bottom" secondItem="tcJ-f1-8jd" secondAttribute="bottom" id="fUf-88-uCX"/>
                                                 <constraint firstItem="tcJ-f1-8jd" firstAttribute="width" relation="lessThanOrEqual" secondItem="xh6-jb-ZbH" secondAttribute="width" multiplier="0.6" id="glV-Z3-mEB"/>
                                                 <constraint firstAttribute="trailing" secondItem="tcJ-f1-8jd" secondAttribute="trailing" constant="12.5" id="hjF-qF-LbJ"/>
+                                                <constraint firstItem="oPF-7Q-cB1" firstAttribute="centerY" secondItem="gdB-8z-zw4" secondAttribute="centerY" id="qkd-ZL-TKj"/>
                                                 <constraint firstItem="tcJ-f1-8jd" firstAttribute="leading" secondItem="NFb-kf-0lR" secondAttribute="trailing" constant="6" id="vvg-I0-Er8"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1056,7 +1092,7 @@
                                             <outlet property="timeReadLabel" destination="NFb-kf-0lR" id="nSE-bh-74F"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="callMessageMe" rowHeight="86" id="F2x-zd-vse" userLabel="callMessageMe" customClass="CallMessageMe" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="callMessageMe" rowHeight="86" id="F2x-zd-vse" userLabel="callMessageMe" customClass="CallMessageMe" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1174" width="375" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F2x-zd-vse" id="QVi-vm-myt">
@@ -1064,7 +1100,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IzN-rk-uDz">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="86"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="336" height="86"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="abcd.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="JDx-Hf-z61" customClass="ChatRadiusProfileView" customModule="kakakak" customModuleProvider="target">
                                                             <rect key="frame" x="4" y="12" width="34" height="34"/>
@@ -1150,7 +1186,7 @@
                                             <outlet property="timeReadLabel" destination="cwg-un-IE5" id="ill-Oh-K7y"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="callMessageMeSecond" rowHeight="86" id="AQy-0u-Ugm" userLabel="callMessageMeSecond" customClass="CallMessageMe" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="callMessageMeSecond" rowHeight="86" id="AQy-0u-Ugm" userLabel="callMessageMeSecond" customClass="CallMessageMe" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1260" width="375" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AQy-0u-Ugm" id="IJD-Fz-Lpp">
@@ -1158,7 +1194,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CYe-Jq-lGf">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="86"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="336" height="86"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="abcd.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="dmh-op-GLt" customClass="ChatRadiusProfileView" customModule="kakakak" customModuleProvider="target">
                                                             <rect key="frame" x="4" y="12" width="34" height="34"/>
@@ -1244,7 +1280,7 @@
                                             <outlet property="timeReadLabel" destination="Qf3-FC-xf1" id="asT-Hj-WLP"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="callMessageAnother" rowHeight="70" id="NfC-Ed-3eJ" userLabel="callMessageAnother" customClass="CallMessageAnother" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="callMessageAnother" rowHeight="70" id="NfC-Ed-3eJ" userLabel="callMessageAnother" customClass="CallMessageAnother" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1346" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NfC-Ed-3eJ" id="mrC-WB-EL0">
@@ -1252,7 +1288,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EUn-E0-gWM" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="217.5" y="12" width="145" height="55"/>
+                                                    <rect key="frame" x="178.5" y="12" width="145" height="55"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="voiceOff" translatesAutoresizingMaskIntoConstraints="NO" id="Hlb-Xj-6In">
                                                             <rect key="frame" x="8" y="10" width="35" height="35"/>
@@ -1279,7 +1315,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlm-oQ-Ivr" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="169.5" y="46" width="42" height="21"/>
+                                                    <rect key="frame" x="130.5" y="46" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1301,7 +1337,7 @@
                                             <outlet property="timeReadLabel" destination="nlm-oQ-Ivr" id="x0X-ds-hM2"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="callMessageAnotherSecond" rowHeight="70" id="pEu-ZS-X2e" userLabel="callMessageAnotherSecond" customClass="CallMessageAnother" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="callMessageAnotherSecond" rowHeight="70" id="pEu-ZS-X2e" userLabel="callMessageAnotherSecond" customClass="CallMessageAnother" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1416" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pEu-ZS-X2e" id="K5D-dY-JbP">
@@ -1309,7 +1345,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NGg-2M-OIa" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="217.5" y="4" width="145" height="55"/>
+                                                    <rect key="frame" x="178.5" y="4" width="145" height="55"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="voiceOff" translatesAutoresizingMaskIntoConstraints="NO" id="COt-KL-2fm">
                                                             <rect key="frame" x="8" y="10" width="35" height="35"/>
@@ -1336,7 +1372,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWE-p2-Y98" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="169.5" y="44" width="42" height="21"/>
+                                                    <rect key="frame" x="130.5" y="44" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1358,7 +1394,7 @@
                                             <outlet property="timeReadLabel" destination="LWE-p2-Y98" id="jEZ-ZV-tiv"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="deleteMessageMe" rowHeight="90" id="JNU-nd-NGh" userLabel="deleteMessageMe" customClass="DeleteMessageMe" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="deleteMessageMe" rowHeight="90" id="JNU-nd-NGh" userLabel="deleteMessageMe" customClass="DeleteMessageMe" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1486" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JNU-nd-NGh" id="NBW-KA-hcf">
@@ -1366,7 +1402,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9QK-po-uTi">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="336" height="90"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="abcd.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="fng-iC-5HT" customClass="ChatRadiusProfileView" customModule="kakakak" customModuleProvider="target">
                                                             <rect key="frame" x="4" y="12" width="34" height="34"/>
@@ -1452,7 +1488,7 @@
                                             <outlet property="warningView" destination="c7L-LP-lW7" id="5iM-OR-wDQ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="deleteMessageMeSecond" rowHeight="90" id="Wzk-eE-bvq" userLabel="deleteMessageMeSecond" customClass="DeleteMessageMe" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="deleteMessageMeSecond" rowHeight="90" id="Wzk-eE-bvq" userLabel="deleteMessageMeSecond" customClass="DeleteMessageMe" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1576" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wzk-eE-bvq" id="ndi-7R-Mcr">
@@ -1460,7 +1496,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="03p-zA-qe3">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="336" height="90"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="abcd.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="OJb-lE-Sw9" customClass="ChatRadiusProfileView" customModule="kakakak" customModuleProvider="target">
                                                             <rect key="frame" x="4" y="12" width="34" height="34"/>
@@ -1546,7 +1582,7 @@
                                             <outlet property="warningView" destination="B8I-ek-hrS" id="hxI-wT-4ue"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="deleteMessageAnother" rowHeight="70" id="pmY-Cx-Hu0" userLabel="deleteMessageAnother" customClass="DeleteMessageAnother" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="deleteMessageAnother" rowHeight="70" id="pmY-Cx-Hu0" userLabel="deleteMessageAnother" customClass="DeleteMessageAnother" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1666" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pmY-Cx-Hu0" id="dGs-fT-zgx">
@@ -1554,7 +1590,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pcH-BZ-cAr" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="214.5" y="12" width="148" height="58"/>
+                                                    <rect key="frame" x="175.5" y="12" width="148" height="58"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="warning" translatesAutoresizingMaskIntoConstraints="NO" id="aaP-vw-DOc">
                                                             <rect key="frame" x="8" y="21" width="16" height="16"/>
@@ -1584,7 +1620,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6시30분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EyA-0d-7LL" userLabel="6시 30분" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="171.5" y="55" width="37" height="12"/>
+                                                    <rect key="frame" x="132.5" y="55" width="37" height="12"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1604,7 +1640,7 @@
                                             <outlet property="warningVIew" destination="aaP-vw-DOc" id="Y74-aJ-M9m"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="deleteMessageAnotherSecond" rowHeight="70" id="xDW-yp-WFf" userLabel="deleteMessageAnotherSecond" customClass="DeleteMessageAnother" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="deleteMessageAnotherSecond" rowHeight="70" id="xDW-yp-WFf" userLabel="deleteMessageAnotherSecond" customClass="DeleteMessageAnother" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1736" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xDW-yp-WFf" id="dXq-uh-tdk">
@@ -1612,7 +1648,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZxJ-S0-Utn" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="214.5" y="4" width="148" height="66"/>
+                                                    <rect key="frame" x="175.5" y="4" width="148" height="66"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="warning" translatesAutoresizingMaskIntoConstraints="NO" id="Xjz-RJ-juA">
                                                             <rect key="frame" x="8" y="25" width="16" height="16"/>
@@ -1642,7 +1678,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6시30분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sm1-lG-k2P" userLabel="6시 30분" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="171.5" y="55" width="37" height="12"/>
+                                                    <rect key="frame" x="132.5" y="55" width="37" height="12"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1662,7 +1698,7 @@
                                             <outlet property="warningVIew" destination="Xjz-RJ-juA" id="PWu-db-JRf"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordMessageMe" rowHeight="90" id="akn-19-Kv8" userLabel="recordMessageMe" customClass="RecordMessageMe" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordMessageMe" rowHeight="90" id="akn-19-Kv8" userLabel="recordMessageMe" customClass="RecordMessageMe" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1806" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="akn-19-Kv8" id="ASd-tM-DK7">
@@ -1670,7 +1706,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2V3-k9-v6D">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="336" height="90"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="abcd.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="F74-RH-Bxc" customClass="ChatRadiusProfileView" customModule="kakakak" customModuleProvider="target">
                                                             <rect key="frame" x="4" y="12" width="34" height="34"/>
@@ -1765,7 +1801,7 @@
                                             <outlet property="timeReadLabel" destination="jbR-v3-Uxq" id="3b2-5Y-ahU"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordMessageMeSecond" rowHeight="90" id="OQE-ec-A4A" userLabel="recordMessageMeSecond" customClass="RecordMessageMe" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordMessageMeSecond" rowHeight="90" id="OQE-ec-A4A" userLabel="recordMessageMeSecond" customClass="RecordMessageMe" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1896" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OQE-ec-A4A" id="FeF-oa-Y63">
@@ -1773,7 +1809,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KOr-q7-U2B">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="336" height="54"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="abcd.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="S2Z-E6-fLc" customClass="ChatRadiusProfileView" customModule="kakakak" customModuleProvider="target">
                                                             <rect key="frame" x="4" y="12" width="34" height="34"/>
@@ -1868,15 +1904,15 @@
                                             <outlet property="timeReadLabel" destination="R4b-X9-EeV" id="smk-BR-FcM"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordMessageAnother" rowHeight="70" id="6is-Ru-bsW" userLabel="recordMessageAnother" customClass="RecordMessageAnother" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordMessageAnother" rowHeight="70" id="6is-Ru-bsW" userLabel="recordMessageAnother" customClass="RecordMessageAnother" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1986" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6is-Ru-bsW" id="0SI-ov-ECh">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U66-E4-fTZ" userLabel="bubble" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="177" y="12" width="185.5" height="51"/>
+                                                    <rect key="frame" x="138" y="12" width="185.5" height="51"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play" translatesAutoresizingMaskIntoConstraints="NO" id="a16-eC-QwK">
                                                             <rect key="frame" x="8" y="8" width="35" height="35"/>
@@ -1913,7 +1949,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6시30분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNS-y6-6Oy" userLabel="6시 30분" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="110.5" y="37" width="60.5" height="21"/>
+                                                    <rect key="frame" x="71.5" y="34" width="60.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1933,15 +1969,15 @@
                                             <outlet property="timeReadLabel" destination="eNS-y6-6Oy" id="W8V-sb-NYU"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordMessageAnotherSecond" rowHeight="70" id="QWq-sP-FPD" customClass="RecordMessageAnother" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordMessageAnotherSecond" rowHeight="70" id="QWq-sP-FPD" customClass="RecordMessageAnother" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="2056" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QWq-sP-FPD" id="fV6-Ud-Ozm">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FIJ-dG-sfn" userLabel="bubble" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="177" y="4" width="185.5" height="51"/>
+                                                    <rect key="frame" x="138" y="4" width="185.5" height="51"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play" translatesAutoresizingMaskIntoConstraints="NO" id="xJM-Ir-Xec">
                                                             <rect key="frame" x="8" y="8" width="35" height="35"/>
@@ -1978,7 +2014,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6시30분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nXM-za-or5" userLabel="6시 30분" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="110.5" y="29" width="60.5" height="21"/>
+                                                    <rect key="frame" x="71.5" y="26" width="60.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1998,22 +2034,22 @@
                                             <outlet property="timeReadLabel" destination="nXM-za-or5" id="4D4-k7-vtG"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="invite" rowHeight="58" id="Z2g-o8-70C" userLabel="invite" customClass="InviteCell" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="invite" rowHeight="58" id="Z2g-o8-70C" userLabel="invite" customClass="InviteCell" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="2126" width="375" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Z2g-o8-70C" id="eQ2-3L-tcm">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="57.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OWx-Sa-7fv">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="57.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="336" height="58"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xqh-91-Now">
-                                                            <rect key="frame" x="0.0" y="12" width="375" height="45.5"/>
+                                                            <rect key="frame" x="0.0" y="12" width="336" height="46"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김민성님이 김재준님을 초대했습니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8u-wu-6UN">
-                                                            <rect key="frame" x="106.5" y="21" width="162" height="27.5"/>
+                                                            <rect key="frame" x="87" y="21" width="162" height="28"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -2044,22 +2080,22 @@
                                             <outlet property="inviteLabel" destination="z8u-wu-6UN" id="UTT-K8-ehj"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="exit" rowHeight="58" id="Ltg-7w-SFE" userLabel="exit" customClass="ExitCell" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="exit" rowHeight="58" id="Ltg-7w-SFE" userLabel="exit" customClass="ExitCell" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="2184" width="375" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ltg-7w-SFE" id="4XZ-de-lwG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="57.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IDA-Ls-adN">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="57.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="336" height="58"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oWK-DK-MCa">
-                                                            <rect key="frame" x="0.0" y="12" width="375" height="45.5"/>
+                                                            <rect key="frame" x="0.0" y="12" width="336" height="46"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김민성님이 퇴장했습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2g4-tG-Esy">
-                                                            <rect key="frame" x="132" y="21" width="111.5" height="27.5"/>
+                                                            <rect key="frame" x="112.5" y="21" width="111.5" height="28"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -2094,7 +2130,7 @@
                                         <rect key="frame" x="0.0" y="2242" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Oc4-Ly-1TW" id="oqx-Ry-L7v">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vwb-Vd-Buv">
@@ -2193,6 +2229,7 @@
         <image name="fail" width="129" height="62"/>
         <image name="imageEdit" width="96" height="96"/>
         <image name="play" width="105" height="105"/>
+        <image name="share" width="86" height="86"/>
         <image name="userPick" width="46" height="20"/>
         <image name="voiceOff" width="105" height="105"/>
         <image name="warning" width="48" height="48"/>

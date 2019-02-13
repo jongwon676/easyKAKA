@@ -31,10 +31,7 @@ class KeyBoardAreaController: UIViewController{
     
     func keyboardHide(){
         self.view.endEditing(true)
-        
     }
-    
-    
     
     var mode: ChatMode = .chatting{
         didSet{

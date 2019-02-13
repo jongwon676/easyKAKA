@@ -56,7 +56,7 @@ class ImageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
         self.contentView.backgroundColor = UIColor.clear
         failView.isHidden = !message.isFail
         self.message = message
-        timeReadLabel.setUp(message: message, timeColor: bgType.getNavUserCountColor())
+        timeReadLabel.setUp(message: message, timeColor: bgType.chattingTimeColor)
         timeReadLabel.isHidden = false
         timeReadLabel.isHidden = !failView.isHidden
         

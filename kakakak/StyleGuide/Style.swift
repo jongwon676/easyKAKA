@@ -62,6 +62,42 @@ class Style{
 enum BgType{
     case dark
     case light
+    
+    var dateTextColor: UIColor {
+        switch self {
+        case .dark:
+            return #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5)
+        case .light:
+            return #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.5)
+        }
+    }
+    
+    var userNameColor: UIColor{
+        switch self {
+        case .dark:
+            return #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.6)
+        case .light:
+            return #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.6)
+        }
+    }
+    
+    var dateSeparatorColor: UIColor{
+        switch self {
+        case .dark:
+            return #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.3)
+        case .light:
+            return #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.3)
+        }
+    }
+    var chattingTimeColor: UIColor{
+        switch self {
+        case .dark:
+            return #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.4)
+        case .light:
+            return #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.4)
+        }
+    }
+    
     func getNavUserCountColor() -> UIColor{
         switch self {
             case .dark:

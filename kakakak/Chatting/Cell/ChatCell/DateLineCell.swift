@@ -5,8 +5,8 @@ class DateLineCell: BaseChat,ChattingCellProtocol{
         self.backgroundColor = UIColor.clear
         self.bgView.backgroundColor = UIColor.clear
         dateLabel.text = Date.timeToStringDateLineVersion(date: message.sendDate)
-        dateLabel.textColor = bgType.getNavUserCountColor()
-        leftSep.backgroundColor = bgType.getNavUserCountColor()
+        dateLabel.textColor = bgType.dateTextColor
+        leftSep.backgroundColor = bgType.dateSeparatorColor
         rightSep.backgroundColor = bgType.getNavUserCountColor()
     }
     

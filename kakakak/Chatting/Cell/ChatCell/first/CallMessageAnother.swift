@@ -7,7 +7,7 @@ class CallMessageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
         self.contentView.backgroundColor = UIColor.clear
         self.message = message
         
-        timeReadLabel.setUp(message: message, timeColor: bgType.getNavUserCountColor())
+        timeReadLabel.setUp(message: message, timeColor: bgType.chattingTimeColor)
         
         
         
@@ -23,7 +23,7 @@ class CallMessageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
         
         if message.isLastMessage{
             timeReadLabel.isHidden = false
-            timeReadLabel.setUp(message: message, timeColor: bgType.getNavUserCountColor())
+            timeReadLabel.setUp(message: message, timeColor: bgType.chattingTimeColor)
         }else{
             timeReadLabel.isHidden = true
         }
