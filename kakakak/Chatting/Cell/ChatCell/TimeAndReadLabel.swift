@@ -30,6 +30,8 @@ class TimeAndReadLabel: UILabel{
         shadow = NSShadow()
         shadow.shadowColor = UIColor.clear
         let timeAttributes:  [NSAttributedString.Key: Any] = [
+            
+            
             .font: Style.timeLabelFont,
             .foregroundColor: timeColor,
             .paragraphStyle: paragraphStyle,

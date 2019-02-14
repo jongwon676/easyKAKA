@@ -1119,10 +1119,10 @@
                                 </constraints>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AzI-4E-58r" customClass="AutoLayoutRadiusView" customModule="kakakak" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="125" width="414" height="511"/>
+                                <rect key="frame" x="0.0" y="125" width="414" height="562"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="67" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iaM-y8-hEm">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="511"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="562"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                         <view key="tableFooterView" contentMode="scaleToFill" id="nzT-YL-m94">
@@ -1187,60 +1187,15 @@
                                     <constraint firstAttribute="trailing" secondItem="iaM-y8-hEm" secondAttribute="trailing" id="zJU-D2-0tp"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="usl-vU-adJ">
-                                <rect key="frame" x="0.0" y="636" width="414" height="100"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H0D-Xt-ZWi" customClass="GradientButton" customModule="kakakak" customModuleProvider="target">
-                                        <rect key="frame" x="18" y="18" width="378" height="28"/>
-                                        <state key="normal" title="생성하기 4">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="topGradientColor">
-                                                <color key="value" red="0.81176470590000005" green="0.63921568630000003" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="bottomGradientColor">
-                                                <color key="value" red="1" green="0.68235294120000001" blue="0.99215686270000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="8"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="maskToBounds" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="H0D-Xt-ZWi" firstAttribute="leading" secondItem="usl-vU-adJ" secondAttribute="leading" constant="18" id="KM4-nf-XQi"/>
-                                    <constraint firstAttribute="trailing" secondItem="H0D-Xt-ZWi" secondAttribute="trailing" constant="18" id="OTS-Y6-p5C"/>
-                                    <constraint firstAttribute="height" constant="100" id="Orf-1r-Lj8"/>
-                                    <constraint firstItem="H0D-Xt-ZWi" firstAttribute="top" secondItem="usl-vU-adJ" secondAttribute="top" constant="18" id="hX1-7Y-gim"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                        <size key="value" width="2" height="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                        <real key="value" value="0.29999999999999999"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="usl-vU-adJ" firstAttribute="bottom" secondItem="D9Z-Zx-9eT" secondAttribute="bottom" id="1G9-n2-d5S"/>
                             <constraint firstItem="AzI-4E-58r" firstAttribute="leading" secondItem="S8i-bu-FaV" secondAttribute="leading" id="GM1-05-l6A"/>
                             <constraint firstItem="wDj-Ug-HCv" firstAttribute="top" secondItem="D9Z-Zx-9eT" secondAttribute="top" id="LdN-QD-X98"/>
                             <constraint firstItem="AzI-4E-58r" firstAttribute="top" secondItem="wDj-Ug-HCv" secondAttribute="bottom" id="NJP-Os-X7i"/>
+                            <constraint firstItem="S8i-bu-FaV" firstAttribute="bottom" secondItem="AzI-4E-58r" secondAttribute="bottom" id="Z1C-mK-vOv"/>
                             <constraint firstItem="wDj-Ug-HCv" firstAttribute="leading" secondItem="S8i-bu-FaV" secondAttribute="leading" id="ZeC-i0-U4H"/>
-                            <constraint firstItem="S8i-bu-FaV" firstAttribute="bottom" secondItem="H0D-Xt-ZWi" secondAttribute="bottom" constant="5" id="h4B-J5-mFk"/>
-                            <constraint firstItem="usl-vU-adJ" firstAttribute="top" secondItem="AzI-4E-58r" secondAttribute="bottom" id="m2a-RT-vMC"/>
                             <constraint firstItem="wDj-Ug-HCv" firstAttribute="height" secondItem="D9Z-Zx-9eT" secondAttribute="height" multiplier="0.17" id="mJm-Na-eRc"/>
-                            <constraint firstItem="usl-vU-adJ" firstAttribute="leading" secondItem="S8i-bu-FaV" secondAttribute="leading" id="mqI-JR-XE5"/>
-                            <constraint firstItem="usl-vU-adJ" firstAttribute="trailing" secondItem="S8i-bu-FaV" secondAttribute="trailing" id="tkA-8U-BR9"/>
                             <constraint firstItem="S8i-bu-FaV" firstAttribute="trailing" secondItem="AzI-4E-58r" secondAttribute="trailing" id="vfP-iN-f50"/>
                             <constraint firstItem="S8i-bu-FaV" firstAttribute="trailing" secondItem="wDj-Ug-HCv" secondAttribute="trailing" id="wtb-AY-WNt"/>
                         </constraints>

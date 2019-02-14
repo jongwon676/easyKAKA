@@ -130,17 +130,22 @@ class ChatVC: UIViewController,UIGestureRecognizerDelegate{
         let attributedString = NSMutableAttributedString()
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = .center
+        paragraph.lineSpacing = 1
+        
+        
+        
+        
         
         
         attributedString.append(NSAttributedString(string: room.getRoomTitleName(),attributes: [
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18, weight: .semibold)
+            .font: UIFont(name: "AppleSDGothicNeo-SemiBold", size: 15.0)!
             ,.paragraphStyle:paragraph,
               .foregroundColor : bgType.getNavTitleColor()])
         )
         
         attributedString.append(NSAttributedString(string: room.getUserNumber(), attributes: [
             NSAttributedString.Key.foregroundColor : bgType.getNavUserCountColor()
-            , .font: UIFont.systemFont(ofSize: 18, weight: .semibold)
+            , .font: UIFont.systemFont(ofSize: 15, weight: .semibold)
             ,.paragraphStyle:paragraph]
             )
         )
@@ -150,7 +155,7 @@ class ChatVC: UIViewController,UIGestureRecognizerDelegate{
            
             attributedString.append(NSAttributedString(string:
                  Date.timeToString(date: self.room.currentDate), attributes:
-                [NSAttributedString.Key.foregroundColor :  bgType.getNavUserCountColor(),.font: UIFont.systemFont(ofSize: 14, weight: .medium),.paragraphStyle:paragraph])
+                [NSAttributedString.Key.foregroundColor :  bgType.getNavUserCountColor(),.font: UIFont.systemFont(ofSize: 12, weight: .medium),.paragraphStyle:paragraph])
             )
         }
 
