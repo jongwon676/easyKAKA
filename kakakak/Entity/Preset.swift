@@ -61,8 +61,14 @@ class Preset: Object{
         }
     }
     func edit(name: String, image: UIImage, in realm: Realm = try! Realm()){
+        
+        
         try! realm.write {
             image.writeImage(imgName: self.profileImageUrl)
+            let users = realm.objects(User.self).filter("presetId == %@",self.id)
+            for user in users{
+                user.name = name
+            }
             self.name = name
         }
     }
