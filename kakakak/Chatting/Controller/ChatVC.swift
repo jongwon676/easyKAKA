@@ -385,12 +385,13 @@ class ChatVC: UIViewController,UIGestureRecognizerDelegate{
         tableView.backgroundColor = Style.allColors[colorIndex]
         tableView.backgroundView = nil
         navigationController?.navigationBar.barTintColor = Style.allColors[colorIndex]
-        
         (bottomController.topView as? UserCollectionView)?.bgType = self.bgType
-        
-        
         bottomController.topView.backgroundColor = tableView.backgroundColor
         tabBarController?.tabBar.isHidden = true
+        
+        
+        
+
         
         bgType = Style.getBgType(color: tableView.backgroundColor!)
         
@@ -403,14 +404,30 @@ class ChatVC: UIViewController,UIGestureRecognizerDelegate{
         setNavTitle()
         floatingButton()
         tableView.reloadData()
-    }
 
+        
+        
+    
+        if let navigationController = self.navigationController {
+            let navigationBar = navigationController.navigationBar
+            
+            navigationBar.addSubview(navSpearator)
+            navSpearator.frame = CGRect(x: 0, y: navigationBar.frame.size.height - 1, width: navigationBar.frame.size.width, height: 0.5)
+            
+        }
+    }
+    let navSpearator: UIView = {
+       let sep = UIView()
+        sep.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.15)
+        return sep
+    }()
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         timer?.invalidate()
         editButton.removeFromSuperview()
         ProfileImageCacher.shared.removeAll()
+        navSpearator.removeFromSuperview()
     }
     
     deinit {

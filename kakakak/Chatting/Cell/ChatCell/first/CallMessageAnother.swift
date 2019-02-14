@@ -20,13 +20,7 @@ class CallMessageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
         
         
         
-        
-        if message.isLastMessage{
-            timeReadLabel.isHidden = false
-            timeReadLabel.setUp(message: message, timeColor: bgType.chattingTimeColor)
-        }else{
-            timeReadLabel.isHidden = true
-        }
+        timeReadLabel.setUp(message: message, timeColor: bgType.chattingTimeColor)
         
         
         

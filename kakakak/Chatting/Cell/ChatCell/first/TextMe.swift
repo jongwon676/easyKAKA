@@ -10,18 +10,11 @@ class TextMe: UserChattingBaseMeCell,ChattingCellProtocol{
         messageLabel.text = message.messageText
         moveConstraint()
         
-        
-        bubble.layer.cornerRadius = 2
-        
         updateConstraintsIfNeeded()
     }
     
-    
-    
     static var reuseId = "textMe"
-    
-    
-    //
+
     
     @IBOutlet var bubble: UIView!
     @IBOutlet var messageLabel: UILabel!

@@ -42,6 +42,7 @@
 		AD6911C32204E07D0045CEFF /* AddUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6911C22204E07D0045CEFF /* AddUserController.swift */; };
 		AD6EF40F2214A8A100C6F0C1 /* OptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6EF40E2214A8A100C6F0C1 /* OptionViewController.swift */; };
 		AD6EF4112214ACF200C6F0C1 /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6EF4102214ACF200C6F0C1 /* OptionCell.swift */; };
+		AD6EF4132214BB3C00C6F0C1 /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6EF4122214BB3C00C6F0C1 /* BubbleView.swift */; };
 		AD87909921EA048A0008177D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD87909821EA048A0008177D /* ViewController.swift */; };
 		AD8C17C022045CEA00B7C8F9 /* ImageAnother.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8C17BF22045CEA00B7C8F9 /* ImageAnother.swift */; };
 		AD8CD3FF2200D6BA0040AE81 /* xeicon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD8CD3FE2200D6BA0040AE81 /* xeicon.ttf */; };
@@ -192,6 +193,7 @@
 		AD6911C22204E07D0045CEFF /* AddUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserController.swift; sourceTree = "<group>"; };
 		AD6EF40E2214A8A100C6F0C1 /* OptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionViewController.swift; sourceTree = "<group>"; };
 		AD6EF4102214ACF200C6F0C1 /* OptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
+		AD6EF4122214BB3C00C6F0C1 /* BubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleView.swift; sourceTree = "<group>"; };
 		AD87909821EA048A0008177D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AD8C17BF22045CEA00B7C8F9 /* ImageAnother.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnother.swift; sourceTree = "<group>"; };
 		AD8CD3FE2200D6BA0040AE81 /* xeicon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = xeicon.ttf; sourceTree = "<group>"; };
@@ -432,13 +434,6 @@
 				AD2B6A872204781B00DD563A /* RecordMessageAnother.swift */,
 			);
 			path = first;
-			sourceTree = "<group>";
-		};
-		AD8D17EE220B60AA002034FF /* second */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = second;
 			sourceTree = "<group>";
 		};
 		AD95E1D32208712F00CD8451 /* Source */ = {
@@ -880,7 +875,6 @@
 			isa = PBXGroup;
 			children = (
 				AD2B39A621FC7F4B00BE6869 /* ChattingCellProtocol.swift */,
-				AD8D17EE220B60AA002034FF /* second */,
 				AD8D17ED220B608D002034FF /* first */,
 				AD2B6A892204796700DD563A /* InviteCell.swift */,
 				AD2B6A8B22047C9400DD563A /* ExitCell.swift */,
@@ -888,6 +882,7 @@
 				AD2B6A8F220486C900DD563A /* TimeAndReadLabel.swift */,
 				AD8D17EF220B60E1002034FF /* UserChattingBaseMeCell.swift */,
 				AD8D17F1220B623F002034FF /* UserChattingBaseAnotherCell.swift */,
+				AD6EF4122214BB3C00C6F0C1 /* BubbleView.swift */,
 			);
 			path = ChatCell;
 			sourceTree = "<group>";
@@ -1109,6 +1104,7 @@
 				ADE5486A220F30300096AB96 /* AspectImageView.swift in Sources */,
 				AD50748821F30471003B50F5 /* ReplayController.swift in Sources */,
 				ADA7E01221FEF44800FCF517 /* TimeChangeButton.swift in Sources */,
+				AD6EF4132214BB3C00C6F0C1 /* BubbleView.swift in Sources */,
 				AD95E2462208712F00CD8451 /* Address.swift in Sources */,
 				AD95E23A2208712F00CD8451 /* LocalePickerViewController.swift in Sources */,
 				AD95E2292208712F00CD8451 /* Date+Extension.swift in Sources */,

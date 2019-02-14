@@ -369,6 +369,7 @@ class MessageProcessor{
     }
     func sendRecordMessage(owner: User, minute: Int, second: Int){
         let msg = Message.makeRecordMessage(duration: minute * 60 + second, owner: owner)
+        msg.sendDate = room.currentDate
         msg.noReadUser = room.actviateUserExcepteMe(me: owner)
         try! realm.write {
             self.messages.append(msg)
@@ -403,6 +404,7 @@ class MessageProcessor{
     
     func sendCallMessage(owner: User,minute: Int, second: Int, callType: Message.callType){
         let msg = Message.makeCallMessage(duration: minute * 60 + second, owner: owner, ctype: callType)
+        msg.noReadUser = room.actviateUserExcepteMe(me: owner)
         try! realm.write {
             msg.sendDate = room.currentDate
             self.messages.append(msg)

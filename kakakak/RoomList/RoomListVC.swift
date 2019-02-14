@@ -30,7 +30,7 @@ class RoomListVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
         super.viewWillDisappear(animated)
         addButton.isHidden = true
         token?.invalidate()
-        shadowImageView?.isHidden = false
+        shadowImageView?.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,18 +57,11 @@ class RoomListVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
         }
         
         tableView.reloadData()
-        
-        
-        
-        
         (self.navigationController as? ColorNavigationViewController)?.setRoomListNav()
-        
-        
-            
-            if shadowImageView == nil {
+        if shadowImageView == nil {
                 shadowImageView = findShadowImage(under: navigationController!.navigationBar)
-            }
-            shadowImageView?.isHidden = true
+        }
+        shadowImageView?.isHidden = true
         
         
 
@@ -107,7 +100,7 @@ class RoomListVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
         let storyboard = UIStoryboard.init(name: "MessageEdit", bundle: Bundle.main)
         
         if let chatvc = storyboard.instantiateViewController(withIdentifier: "ChatVC") as? ChatVC{
-           chatvc.room = rooms[indexPath.row]
+            chatvc.room = rooms[indexPath.row]
             chatvc.navigationItem.largeTitleDisplayMode = .never
             self.navigationController?.pushViewController(chatvc, animated: true)
         }
