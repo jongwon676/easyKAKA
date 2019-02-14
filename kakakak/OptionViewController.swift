@@ -31,7 +31,9 @@ class OptionViewController: UIViewController,UITableViewDelegate,UITableViewData
         tableView.dataSource = self
     }
     
-
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+            return .lightContent
+    }
     /*
     // MARK: - Navigation
 

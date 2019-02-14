@@ -150,7 +150,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
-                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uploadDefault" translatesAutoresizingMaskIntoConstraints="NO" id="XxL-Ti-iYf">
+                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultUser" translatesAutoresizingMaskIntoConstraints="NO" id="XxL-Ti-iYf">
                                                 <rect key="frame" x="147" y="65" width="120" height="120"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="120" id="aQc-3w-U36"/>
@@ -278,7 +278,7 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dotBorder" translatesAutoresizingMaskIntoConstraints="NO" id="2pd-Ue-KVj">
                                                     <rect key="frame" x="18" y="18" width="378" height="294"/>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uploadDefault" translatesAutoresizingMaskIntoConstraints="NO" id="OpD-bO-q1U">
+                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultUser" translatesAutoresizingMaskIntoConstraints="NO" id="OpD-bO-q1U">
                                                     <rect key="frame" x="147" y="50" width="120" height="120"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="120" id="C5C-wM-ZTe"/>
@@ -1029,7 +1029,10 @@
                                 <rect key="frame" x="0.0" y="636" width="414" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jNF-cC-Igx" customClass="GradientButton" customModule="kakakak" customModuleProvider="target">
-                                        <rect key="frame" x="18" y="18" width="378" height="77"/>
+                                        <rect key="frame" x="18" y="18" width="378" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="2TW-vh-PZg"/>
+                                        </constraints>
                                         <state key="normal" title="생성하기 4">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -1076,7 +1079,6 @@
                             <constraint firstItem="j3D-60-zRG" firstAttribute="height" secondItem="Kyt-jf-MXT" secondAttribute="height" multiplier="0.17" id="ZNM-9W-DaC"/>
                             <constraint firstItem="No4-4h-FbK" firstAttribute="trailing" secondItem="Tkc-NU-U8H" secondAttribute="trailing" id="dNH-H6-Vkz"/>
                             <constraint firstItem="j3D-60-zRG" firstAttribute="leading" secondItem="No4-4h-FbK" secondAttribute="leading" id="dcW-a1-Dcy"/>
-                            <constraint firstItem="No4-4h-FbK" firstAttribute="bottom" secondItem="jNF-cC-Igx" secondAttribute="bottom" constant="5" id="hC0-Yx-JXj"/>
                             <constraint firstItem="P2S-As-u3z" firstAttribute="trailing" secondItem="No4-4h-FbK" secondAttribute="trailing" id="jBj-mW-FwX"/>
                             <constraint firstItem="P2S-As-u3z" firstAttribute="leading" secondItem="No4-4h-FbK" secondAttribute="leading" id="kJl-vh-fb6"/>
                             <constraint firstItem="Tkc-NU-U8H" firstAttribute="leading" secondItem="No4-4h-FbK" secondAttribute="leading" id="rvn-tz-AzM"/>
@@ -1093,7 +1095,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MC4-7I-Ske" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="191" y="1059"/>
+            <point key="canvasLocation" x="-45" y="1145"/>
         </scene>
         <!--Item-->
         <scene sceneID="01L-fc-imh">
@@ -1215,9 +1217,9 @@
         <image name="abcd.jpg" width="552" height="414"/>
         <image name="back" width="32" height="55"/>
         <image name="closeWhite" width="16" height="16"/>
+        <image name="defaultUser" width="34" height="34"/>
         <image name="dotBorder" width="335" height="313"/>
         <image name="imageChange" width="152" height="54"/>
-        <image name="uploadDefault" width="143" height="150"/>
         <image name="userPick" width="46" height="20"/>
         <image name="ver" width="123" height="123"/>
     </resources>

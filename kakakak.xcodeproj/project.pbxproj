@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2201941D9767FC1EB65D0802 /* Pods_kakakak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31166B9B380F3B955A1AACD7 /* Pods_kakakak.framework */; };
+		AD091C2C2215F45C001C0CEC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD091C2B2215F45C001C0CEC /* Images.xcassets */; };
 		AD0AA03221EA00D000B45EF5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD0AA03121EA00D000B45EF5 /* GoogleService-Info.plist */; };
 		AD0D47FD220B165100FFAC7D /* UserNameEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D47FC220B165100FFAC7D /* UserNameEditCell.swift */; };
 		AD0D47FF220B166400FFAC7D /* TextEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D47FE220B166400FFAC7D /* TextEditCell.swift */; };
@@ -35,7 +36,6 @@
 		AD50748421F2971D003B50F5 /* MiddleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD50748321F2971D003B50F5 /* MiddleView.swift */; };
 		AD50748621F29EEA003B50F5 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD50748521F29EEA003B50F5 /* EditView.swift */; };
 		AD50748821F30471003B50F5 /* ReplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD50748721F30471003B50F5 /* ReplayController.swift */; };
-		AD50748A21F31635003B50F5 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD50748921F31635003B50F5 /* RealmProvider.swift */; };
 		AD51D17C21E9996D00DA4B13 /* smileTemp.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = AD51D17B21E9996C00DA4B13 /* smileTemp.jpeg */; };
 		AD542CB621EC871A00656196 /* RoomAddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD542CB521EC871A00656196 /* RoomAddVC.swift */; };
 		AD542CB821EC8D8A00656196 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD542CB721EC8D8A00656196 /* UserCell.swift */; };
@@ -159,6 +159,7 @@
 /* Begin PBXFileReference section */
 		31166B9B380F3B955A1AACD7 /* Pods_kakakak.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kakakak.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DCAA90BC1391044DF37135F /* Pods-kakakak.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kakakak.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kakakak/Pods-kakakak.debug.xcconfig"; sourceTree = "<group>"; };
+		AD091C2B2215F45C001C0CEC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AD0AA03121EA00D000B45EF5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AD0D47FC220B165100FFAC7D /* UserNameEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameEditCell.swift; sourceTree = "<group>"; };
 		AD0D47FE220B166400FFAC7D /* TextEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditCell.swift; sourceTree = "<group>"; };
@@ -186,7 +187,6 @@
 		AD50748321F2971D003B50F5 /* MiddleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleView.swift; sourceTree = "<group>"; };
 		AD50748521F29EEA003B50F5 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		AD50748721F30471003B50F5 /* ReplayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplayController.swift; sourceTree = "<group>"; };
-		AD50748921F31635003B50F5 /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
 		AD51D17B21E9996C00DA4B13 /* smileTemp.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = smileTemp.jpeg; sourceTree = "<group>"; };
 		AD542CB521EC871A00656196 /* RoomAddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomAddVC.swift; sourceTree = "<group>"; };
 		AD542CB721EC8D8A00656196 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
@@ -778,6 +778,7 @@
 				ADB8E576220BD64C006628F2 /* Replay.storyboard */,
 				AD6EF40E2214A8A100C6F0C1 /* OptionViewController.swift */,
 				AD6EF4102214ACF200C6F0C1 /* OptionCell.swift */,
+				AD091C2B2215F45C001C0CEC /* Images.xcassets */,
 			);
 			path = kakakak;
 			sourceTree = "<group>";
@@ -846,7 +847,6 @@
 		ADC672CA21E28FCD00D6D3F5 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				AD50748921F31635003B50F5 /* RealmProvider.swift */,
 				ADB8D83721F48D13001D88BD /* SizeCalculator.swift */,
 				AD9E3F232203113200F45BF9 /* Customs.swift */,
 				ADD271862209B65400DBD72C /* CSTabbarController.swift */,
@@ -964,6 +964,7 @@
 				ADC672AE21E2260700D6D3F5 /* Main.storyboard in Resources */,
 				AD95E2372208712F00CD8451 /* Countries.bundle in Resources */,
 				ADC672BC21E22B6F00D6D3F5 /* abcd.jpg in Resources */,
+				AD091C2C2215F45C001C0CEC /* Images.xcassets in Resources */,
 				AD51D17C21E9996D00DA4B13 /* smileTemp.jpeg in Resources */,
 				AD0AA03221EA00D000B45EF5 /* GoogleService-Info.plist in Resources */,
 			);
@@ -1044,7 +1045,6 @@
 				ADC672D221E2B91300D6D3F5 /* UIImage+Extension.swift in Sources */,
 				ADD271872209B65400DBD72C /* CSTabbarController.swift in Sources */,
 				ADB8E57B220C6D65006628F2 /* DrawHelper.swift in Sources */,
-				AD50748A21F31635003B50F5 /* RealmProvider.swift in Sources */,
 				ADC672BE21E24E2500D6D3F5 /* CharacterListVC.swift in Sources */,
 				AD95E2272208712F00CD8451 /* UIViewController+Extensions.swift in Sources */,
 				ADC672D621E2C67F00D6D3F5 /* RoomListVC.swift in Sources */,
@@ -1310,6 +1310,7 @@
 			baseConfigurationReference = 3DCAA90BC1391044DF37135F /* Pods-kakakak.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U6L6476C2Z;
 				INFOPLIST_FILE = kakakak/Info.plist;
@@ -1329,6 +1330,7 @@
 			baseConfigurationReference = DD4718A9C835A6A90A2808AA /* Pods-kakakak.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U6L6476C2Z;
 				INFOPLIST_FILE = kakakak/Info.plist;

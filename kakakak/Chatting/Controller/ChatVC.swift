@@ -433,6 +433,7 @@ class ChatVC: UIViewController,UIGestureRecognizerDelegate{
         editButton.removeFromSuperview()
         ProfileImageCacher.shared.removeAll()
         navSpearator.removeFromSuperview()
+        (self.navigationController as? ColorNavigationViewController)?.type = .dark
     }
     
     deinit {

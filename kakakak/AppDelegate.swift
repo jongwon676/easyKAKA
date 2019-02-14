@@ -11,20 +11,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        
-        
         SyncManager.shared.logLevel = .off
         FirebaseApp.configure()
         GADMobileAds.configure(withApplicationID: "ca-app-pub-1497706702442314~7743899510")
-        
-        
-
+        let path = try! Path.documents()
+        print(path)
         UITabBar.appearance().tintColor = #colorLiteral(red: 0.8922857642, green: 0.5250218511, blue: 0.9140356183, alpha: 1)
         UITabBar.appearance().unselectedItemTintColor = #colorLiteral(red: 0.8594388366, green: 0.8221279979, blue: 0.892310679, alpha: 1)
 
-//
-        
-     
         
         if let tbc = self.window?.rootViewController as? CSTabbarController{
             
@@ -65,9 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        
     }
-
-
 }
 

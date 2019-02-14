@@ -512,10 +512,10 @@
                                                             </constraints>
                                                         </imageView>
                                                         <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pTi-C0-N5k" userLabel="bubble" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
-                                                            <rect key="frame" x="49.5" y="38.5" width="238" height="51.5"/>
+                                                            <rect key="frame" x="49.5" y="38.5" width="237" height="51.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="adsfjas;ldfjl;asjdfl;asjldf;jasl;dfjl;asdjfl;ajsdf;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWW-Vf-ipP">
-                                                                    <rect key="frame" x="8" y="10" width="222" height="31.5"/>
+                                                                    <rect key="frame" x="7" y="10" width="222" height="31.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -523,8 +523,8 @@
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstItem="sWW-Vf-ipP" firstAttribute="leading" secondItem="pTi-C0-N5k" secondAttribute="leading" constant="8" id="W1U-of-JDu"/>
-                                                                <constraint firstItem="sWW-Vf-ipP" firstAttribute="top" secondItem="pTi-C0-N5k" secondAttribute="top" constant="8" id="msZ-Ed-sbH"/>
+                                                                <constraint firstItem="sWW-Vf-ipP" firstAttribute="leading" secondItem="pTi-C0-N5k" secondAttribute="leading" constant="7" id="W1U-of-JDu"/>
+                                                                <constraint firstItem="sWW-Vf-ipP" firstAttribute="top" secondItem="pTi-C0-N5k" secondAttribute="top" constant="8.6999999999999993" id="msZ-Ed-sbH"/>
                                                                 <constraint firstAttribute="trailing" secondItem="sWW-Vf-ipP" secondAttribute="trailing" constant="8" id="wSg-z8-UmU"/>
                                                                 <constraint firstAttribute="bottom" secondItem="sWW-Vf-ipP" secondAttribute="bottom" constant="8" id="xLx-Mq-pFH"/>
                                                             </constraints>
@@ -536,7 +536,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오전 11시 30분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWd-uL-kDm" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                            <rect key="frame" x="293.5" y="75" width="63" height="12"/>
+                                                            <rect key="frame" x="291.5" y="76.5" width="63" height="12"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -551,9 +551,9 @@
                                                         <constraint firstItem="sWW-Vf-ipP" firstAttribute="width" relation="lessThanOrEqual" secondItem="Dpu-1Z-Nbo" secondAttribute="width" multiplier="0.6" id="LHQ-8H-7ge"/>
                                                         <constraint firstItem="pTi-C0-N5k" firstAttribute="top" secondItem="Dpu-1Z-Nbo" secondAttribute="top" constant="4" id="QBX-Xn-uXI"/>
                                                         <constraint firstItem="Oro-Y6-ST2" firstAttribute="top" secondItem="JaS-1Z-2jl" secondAttribute="top" id="Uby-aQ-apQ"/>
-                                                        <constraint firstAttribute="bottom" secondItem="FWd-uL-kDm" secondAttribute="bottom" constant="3" id="eN6-5x-ERv"/>
+                                                        <constraint firstAttribute="bottom" secondItem="FWd-uL-kDm" secondAttribute="bottom" constant="1.3" id="eN6-5x-ERv"/>
                                                         <constraint firstItem="Oro-Y6-ST2" firstAttribute="leading" secondItem="JaS-1Z-2jl" secondAttribute="trailing" constant="11.5" id="h7A-ak-ita"/>
-                                                        <constraint firstItem="FWd-uL-kDm" firstAttribute="leading" secondItem="pTi-C0-N5k" secondAttribute="trailing" constant="6" id="oXZ-4V-ORh"/>
+                                                        <constraint firstItem="FWd-uL-kDm" firstAttribute="leading" secondItem="pTi-C0-N5k" secondAttribute="trailing" constant="5" id="oXZ-4V-ORh"/>
                                                     </constraints>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -579,7 +579,7 @@
                                             <outlet property="timeReadLabel" destination="FWd-uL-kDm" id="biJ-Zh-5MK"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="textMeSecond" rowHeight="90" id="sXv-a6-FgT" userLabel="textMeSecond" customClass="TextMe" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="textMeSecond" rowHeight="90" id="sXv-a6-FgT" userLabel="textMeSecond" customClass="TextMe" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="118" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sXv-a6-FgT" id="SDp-xl-vTB">
@@ -587,7 +587,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JLn-6I-j3E">
-                                                    <rect key="frame" x="0.0" y="0.0" width="336" height="90"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="abcd.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="6Yn-ix-tCI" customClass="ChatRadiusProfileView" customModule="kakakak" customModuleProvider="target">
                                                             <rect key="frame" x="4" y="12" width="34" height="34"/>
@@ -597,10 +597,10 @@
                                                             </constraints>
                                                         </imageView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oHo-by-2lX" userLabel="bubble" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
-                                                            <rect key="frame" x="49.5" y="4" width="216" height="86"/>
+                                                            <rect key="frame" x="49.5" y="4" width="237" height="86"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="adsfjas;ldfjl;asjdfl;asjldf;jasl;dfjl;asdjfl;ajsdf;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAR-o0-2iS">
-                                                                    <rect key="frame" x="8" y="8" width="200" height="70"/>
+                                                                    <rect key="frame" x="7" y="8.5" width="222" height="69.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -610,8 +610,8 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="iAR-o0-2iS" secondAttribute="bottom" constant="8" id="dWB-bv-ty3"/>
                                                                 <constraint firstAttribute="trailing" secondItem="iAR-o0-2iS" secondAttribute="trailing" constant="8" id="eBV-Fb-o9a"/>
-                                                                <constraint firstItem="iAR-o0-2iS" firstAttribute="leading" secondItem="oHo-by-2lX" secondAttribute="leading" constant="8" id="t3j-EY-BpG"/>
-                                                                <constraint firstItem="iAR-o0-2iS" firstAttribute="top" secondItem="oHo-by-2lX" secondAttribute="top" constant="8" id="yGS-ER-j6m"/>
+                                                                <constraint firstItem="iAR-o0-2iS" firstAttribute="leading" secondItem="oHo-by-2lX" secondAttribute="leading" constant="7" id="t3j-EY-BpG"/>
+                                                                <constraint firstItem="iAR-o0-2iS" firstAttribute="top" secondItem="oHo-by-2lX" secondAttribute="top" constant="8.6999999999999993" id="yGS-ER-j6m"/>
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="adsfjadls;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyk-E1-1na">
@@ -621,7 +621,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오전 11시 30분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWD-bj-FRm" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                            <rect key="frame" x="271.5" y="75" width="63" height="12"/>
+                                                            <rect key="frame" x="291.5" y="76.5" width="63" height="12"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -630,8 +630,8 @@
                                                     <constraints>
                                                         <constraint firstItem="iAR-o0-2iS" firstAttribute="width" relation="lessThanOrEqual" secondItem="JLn-6I-j3E" secondAttribute="width" multiplier="0.6" id="1LL-ly-z1O"/>
                                                         <constraint firstItem="oHo-by-2lX" firstAttribute="top" secondItem="hyk-E1-1na" secondAttribute="bottom" constant="6" id="4Ku-d1-ajE"/>
-                                                        <constraint firstItem="CWD-bj-FRm" firstAttribute="leading" secondItem="oHo-by-2lX" secondAttribute="trailing" constant="6" id="7Nh-SI-BSP"/>
-                                                        <constraint firstAttribute="bottom" secondItem="CWD-bj-FRm" secondAttribute="bottom" constant="3" id="Jqc-iL-znn"/>
+                                                        <constraint firstItem="CWD-bj-FRm" firstAttribute="leading" secondItem="oHo-by-2lX" secondAttribute="trailing" constant="5" id="7Nh-SI-BSP"/>
+                                                        <constraint firstAttribute="bottom" secondItem="CWD-bj-FRm" secondAttribute="bottom" constant="1.3" id="Jqc-iL-znn"/>
                                                         <constraint firstItem="6Yn-ix-tCI" firstAttribute="leading" secondItem="JLn-6I-j3E" secondAttribute="leading" constant="4" id="PL5-sP-8f1"/>
                                                         <constraint firstItem="hyk-E1-1na" firstAttribute="leading" secondItem="6Yn-ix-tCI" secondAttribute="trailing" constant="11.5" id="Vu2-Zv-ONy"/>
                                                         <constraint firstItem="oHo-by-2lX" firstAttribute="leading" secondItem="6Yn-ix-tCI" secondAttribute="trailing" constant="11.5" id="gSG-lD-09B"/>
@@ -664,7 +664,7 @@
                                             <outlet property="timeReadLabel" destination="CWD-bj-FRm" id="j0J-4d-bH7"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="textAnother" rowHeight="70" id="E3E-n6-nnc" customClass="TextAnother" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="textAnother" rowHeight="70" id="E3E-n6-nnc" customClass="TextAnother" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="208" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="E3E-n6-nnc" id="0sE-HA-ALu">
@@ -672,7 +672,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6fX-Lp-BWX" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="117.5" y="12" width="206" height="58"/>
+                                                    <rect key="frame" x="157.5" y="12" width="205" height="58"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="sdfak;jdsfl;ajdsk;fjl;asdfjlasjdkf;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4K-t9-zsO">
                                                             <rect key="frame" x="12" y="9" width="238" height="42"/>
@@ -684,19 +684,19 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="q4K-t9-zsO" firstAttribute="leading" secondItem="6fX-Lp-BWX" secondAttribute="leading" constant="8" id="3NF-ni-vTI"/>
-                                                        <constraint firstItem="q4K-t9-zsO" firstAttribute="top" secondItem="6fX-Lp-BWX" secondAttribute="top" constant="8" id="RTJ-xQ-RwL"/>
+                                                        <constraint firstItem="q4K-t9-zsO" firstAttribute="top" secondItem="6fX-Lp-BWX" secondAttribute="top" constant="8.6999999999999993" id="RTJ-xQ-RwL"/>
                                                         <constraint firstAttribute="bottom" secondItem="q4K-t9-zsO" secondAttribute="bottom" constant="8" id="dCu-42-0cO"/>
-                                                        <constraint firstAttribute="trailing" secondItem="q4K-t9-zsO" secondAttribute="trailing" constant="8" id="fAO-Ta-PPv"/>
+                                                        <constraint firstAttribute="trailing" secondItem="q4K-t9-zsO" secondAttribute="trailing" constant="7" id="fAO-Ta-PPv"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6시30분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLm-ZY-eLw" userLabel="6시 30분" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="51" y="46" width="60.5" height="21"/>
+                                                    <rect key="frame" x="92" y="47.5" width="60.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fail" translatesAutoresizingMaskIntoConstraints="NO" id="LPq-bI-OPk">
-                                                    <rect key="frame" x="70.5" y="47" width="41" height="20"/>
+                                                    <rect key="frame" x="111.5" y="48.5" width="41" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="Nl3-PO-Aim"/>
                                                         <constraint firstAttribute="width" constant="41" id="cJB-zz-t5m"/>
@@ -704,12 +704,12 @@
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="xLm-ZY-eLw" secondAttribute="bottom" constant="3" id="EXl-a7-7Zh"/>
+                                                <constraint firstAttribute="bottom" secondItem="xLm-ZY-eLw" secondAttribute="bottom" constant="1.3" id="EXl-a7-7Zh"/>
                                                 <constraint firstItem="6fX-Lp-BWX" firstAttribute="top" secondItem="0sE-HA-ALu" secondAttribute="top" constant="12" id="Eph-SZ-GyQ"/>
-                                                <constraint firstAttribute="bottom" secondItem="LPq-bI-OPk" secondAttribute="bottom" constant="3" id="QUi-JK-Vx2"/>
-                                                <constraint firstItem="6fX-Lp-BWX" firstAttribute="leading" secondItem="LPq-bI-OPk" secondAttribute="trailing" constant="6" id="fcG-ps-2JC"/>
+                                                <constraint firstAttribute="bottom" secondItem="LPq-bI-OPk" secondAttribute="bottom" constant="1.3" id="QUi-JK-Vx2"/>
+                                                <constraint firstItem="6fX-Lp-BWX" firstAttribute="leading" secondItem="LPq-bI-OPk" secondAttribute="trailing" constant="5" id="fcG-ps-2JC"/>
                                                 <constraint firstAttribute="trailing" secondItem="6fX-Lp-BWX" secondAttribute="trailing" constant="12.5" id="oeB-IH-LAA"/>
-                                                <constraint firstItem="6fX-Lp-BWX" firstAttribute="leading" secondItem="xLm-ZY-eLw" secondAttribute="trailing" constant="6" id="rok-1y-NSN"/>
+                                                <constraint firstItem="6fX-Lp-BWX" firstAttribute="leading" secondItem="xLm-ZY-eLw" secondAttribute="trailing" constant="5" id="rok-1y-NSN"/>
                                                 <constraint firstAttribute="bottom" secondItem="6fX-Lp-BWX" secondAttribute="bottom" id="rsm-1j-S3v"/>
                                                 <constraint firstItem="q4K-t9-zsO" firstAttribute="width" relation="lessThanOrEqual" secondItem="0sE-HA-ALu" secondAttribute="width" multiplier="0.6" id="sdY-1E-yGZ"/>
                                             </constraints>
@@ -721,7 +721,7 @@
                                             <outlet property="timeReadLabel" destination="xLm-ZY-eLw" id="PYb-2y-TF1"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="textAnotherSecond" rowHeight="70" id="gn7-0F-wMr" userLabel="textAnotherSecond" customClass="TextAnother" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="textAnotherSecond" rowHeight="70" id="gn7-0F-wMr" userLabel="textAnotherSecond" customClass="TextAnother" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="278" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gn7-0F-wMr" id="7H5-TS-btn">
@@ -729,7 +729,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uue-ZU-8UM" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="117.5" y="4" width="206" height="66"/>
+                                                    <rect key="frame" x="157.5" y="4" width="205" height="66"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="sdfak;jdsfl;ajdsk;fjl;asdfjlasjdkf;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhL-H6-2EX">
                                                             <rect key="frame" x="12" y="9" width="238" height="42"/>
@@ -740,20 +740,20 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstItem="hhL-H6-2EX" firstAttribute="leading" secondItem="Uue-ZU-8UM" secondAttribute="leading" constant="8" id="G3W-YM-lkN"/>
+                                                        <constraint firstItem="hhL-H6-2EX" firstAttribute="leading" secondItem="Uue-ZU-8UM" secondAttribute="leading" constant="7" id="G3W-YM-lkN"/>
                                                         <constraint firstAttribute="trailing" secondItem="hhL-H6-2EX" secondAttribute="trailing" constant="8" id="P3g-LB-gCZ"/>
                                                         <constraint firstAttribute="bottom" secondItem="hhL-H6-2EX" secondAttribute="bottom" constant="8" id="Zu3-KC-yNA"/>
-                                                        <constraint firstItem="hhL-H6-2EX" firstAttribute="top" secondItem="Uue-ZU-8UM" secondAttribute="top" constant="8" id="x0g-ja-BOy"/>
+                                                        <constraint firstItem="hhL-H6-2EX" firstAttribute="top" secondItem="Uue-ZU-8UM" secondAttribute="top" constant="8.6999999999999993" id="x0g-ja-BOy"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6시30분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="baJ-lX-cJA" userLabel="6시 30분" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="51" y="46" width="60.5" height="21"/>
+                                                    <rect key="frame" x="92" y="47.5" width="60.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fail" translatesAutoresizingMaskIntoConstraints="NO" id="1ON-ie-y8f">
-                                                    <rect key="frame" x="70.5" y="47" width="41" height="20"/>
+                                                    <rect key="frame" x="111.5" y="48.5" width="41" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="41" id="99y-yt-JAj"/>
                                                         <constraint firstAttribute="height" constant="20" id="XQd-t4-Akm"/>
@@ -763,11 +763,11 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="Uue-ZU-8UM" secondAttribute="trailing" constant="12.5" id="2FF-Dd-BAj"/>
                                                 <constraint firstItem="Uue-ZU-8UM" firstAttribute="top" secondItem="7H5-TS-btn" secondAttribute="top" constant="4" id="4Y9-Sh-xfx"/>
-                                                <constraint firstItem="Uue-ZU-8UM" firstAttribute="leading" secondItem="baJ-lX-cJA" secondAttribute="trailing" constant="6" id="IbF-hn-79M"/>
-                                                <constraint firstAttribute="bottom" secondItem="baJ-lX-cJA" secondAttribute="bottom" constant="3" id="OVN-PZ-plb"/>
-                                                <constraint firstAttribute="bottom" secondItem="1ON-ie-y8f" secondAttribute="bottom" constant="3" id="PlP-0b-3QH"/>
+                                                <constraint firstItem="Uue-ZU-8UM" firstAttribute="leading" secondItem="baJ-lX-cJA" secondAttribute="trailing" constant="5" id="IbF-hn-79M"/>
+                                                <constraint firstAttribute="bottom" secondItem="baJ-lX-cJA" secondAttribute="bottom" constant="1.3" id="OVN-PZ-plb"/>
+                                                <constraint firstAttribute="bottom" secondItem="1ON-ie-y8f" secondAttribute="bottom" constant="1.3" id="PlP-0b-3QH"/>
                                                 <constraint firstItem="hhL-H6-2EX" firstAttribute="width" relation="lessThanOrEqual" secondItem="7H5-TS-btn" secondAttribute="width" multiplier="0.6" id="Va5-dG-DIz"/>
-                                                <constraint firstItem="Uue-ZU-8UM" firstAttribute="leading" secondItem="1ON-ie-y8f" secondAttribute="trailing" constant="6" id="tr5-h2-0ob"/>
+                                                <constraint firstItem="Uue-ZU-8UM" firstAttribute="leading" secondItem="1ON-ie-y8f" secondAttribute="trailing" constant="5" id="tr5-h2-0ob"/>
                                                 <constraint firstAttribute="bottom" secondItem="Uue-ZU-8UM" secondAttribute="bottom" id="vFP-Mc-R7b"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -821,7 +821,7 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labelasdfasdf" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3u-b2-eSX" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                            <rect key="frame" x="280.5" y="267" width="108" height="21"/>
+                                                            <rect key="frame" x="279.5" y="268.5" width="108" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -835,13 +835,13 @@
                                                         </imageView>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="b3u-b2-eSX" secondAttribute="bottom" constant="3" id="0i5-xS-7Fi"/>
+                                                        <constraint firstAttribute="bottom" secondItem="b3u-b2-eSX" secondAttribute="bottom" constant="1.3" id="0i5-xS-7Fi"/>
                                                         <constraint firstItem="q0g-Db-tDK" firstAttribute="leading" secondItem="CM7-44-4VY" secondAttribute="trailing" constant="11.5" id="2Ob-Ge-3pn"/>
                                                         <constraint firstItem="CM7-44-4VY" firstAttribute="top" secondItem="XM2-h3-Xeq" secondAttribute="top" constant="12" id="4TP-5u-KY6"/>
                                                         <constraint firstItem="Ppt-sz-k8B" firstAttribute="top" secondItem="q0g-Db-tDK" secondAttribute="bottom" constant="3.5" id="7tU-h7-iGE"/>
                                                         <constraint firstItem="q0g-Db-tDK" firstAttribute="top" secondItem="CM7-44-4VY" secondAttribute="top" id="BCC-XD-eDl"/>
                                                         <constraint firstItem="cge-eo-FgA" firstAttribute="leading" secondItem="Ppt-sz-k8B" secondAttribute="trailing" constant="21" id="NpN-u0-KZs"/>
-                                                        <constraint firstItem="b3u-b2-eSX" firstAttribute="leading" secondItem="Ppt-sz-k8B" secondAttribute="trailing" constant="6" id="SQI-63-dI0"/>
+                                                        <constraint firstItem="b3u-b2-eSX" firstAttribute="leading" secondItem="Ppt-sz-k8B" secondAttribute="trailing" constant="5" id="SQI-63-dI0"/>
                                                         <constraint firstItem="cge-eo-FgA" firstAttribute="centerY" secondItem="8iB-zf-qEc" secondAttribute="centerY" id="XmD-eD-FIP"/>
                                                         <constraint firstItem="Ppt-sz-k8B" firstAttribute="leading" secondItem="CM7-44-4VY" secondAttribute="trailing" constant="11.5" id="i1n-3g-cMj"/>
                                                         <constraint firstAttribute="bottom" secondItem="Ppt-sz-k8B" secondAttribute="bottom" id="vuu-58-YMH"/>
@@ -912,7 +912,7 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labelasdfasdf" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="riM-cY-azF" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                            <rect key="frame" x="280.5" y="216" width="108" height="21"/>
+                                                            <rect key="frame" x="279.5" y="217.5" width="108" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -929,12 +929,12 @@
                                                         <constraint firstItem="Hnv-kV-z5A" firstAttribute="top" secondItem="5pg-68-hzX" secondAttribute="top" constant="12" id="1xe-Ow-aiD"/>
                                                         <constraint firstItem="DMa-Lg-FCF" firstAttribute="leading" secondItem="3DH-3E-zhl" secondAttribute="trailing" constant="21" id="9QE-wN-2HL"/>
                                                         <constraint firstItem="3DH-3E-zhl" firstAttribute="top" secondItem="5pg-68-hzX" secondAttribute="top" constant="8" id="Ici-hF-Aof"/>
-                                                        <constraint firstItem="riM-cY-azF" firstAttribute="leading" secondItem="3DH-3E-zhl" secondAttribute="trailing" constant="6" id="KRj-VJ-ypc"/>
+                                                        <constraint firstItem="riM-cY-azF" firstAttribute="leading" secondItem="3DH-3E-zhl" secondAttribute="trailing" constant="5" id="KRj-VJ-ypc"/>
                                                         <constraint firstItem="3DH-3E-zhl" firstAttribute="width" relation="lessThanOrEqual" secondItem="5pg-68-hzX" secondAttribute="width" multiplier="0.6" id="Kni-Fc-XgR"/>
                                                         <constraint firstAttribute="bottom" secondItem="3DH-3E-zhl" secondAttribute="bottom" id="NwM-0E-wtu"/>
                                                         <constraint firstItem="3DH-3E-zhl" firstAttribute="leading" secondItem="Hnv-kV-z5A" secondAttribute="trailing" constant="11.5" id="aNP-Lb-960"/>
                                                         <constraint firstItem="3DH-3E-zhl" firstAttribute="top" secondItem="5pg-68-hzX" secondAttribute="top" constant="8" id="fha-ah-gye"/>
-                                                        <constraint firstAttribute="bottom" secondItem="riM-cY-azF" secondAttribute="bottom" constant="3" id="lfn-mq-dnQ"/>
+                                                        <constraint firstAttribute="bottom" secondItem="riM-cY-azF" secondAttribute="bottom" constant="1.3" id="lfn-mq-dnQ"/>
                                                         <constraint firstItem="Hnv-kV-z5A" firstAttribute="leading" secondItem="5pg-68-hzX" secondAttribute="leading" constant="4" id="tWW-rM-wsJ"/>
                                                         <constraint firstItem="DMa-Lg-FCF" firstAttribute="centerY" secondItem="PQd-mz-3Bn" secondAttribute="centerY" id="va5-D5-AZx"/>
                                                     </constraints>
@@ -985,7 +985,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labelasdfasdf" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAt-VX-pM5" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="117.5" y="119" width="108" height="21"/>
+                                                    <rect key="frame" x="118.5" y="120.5" width="108" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1006,15 +1006,15 @@
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="yXF-fu-nqR" firstAttribute="leading" secondItem="cAt-VX-pM5" secondAttribute="trailing" constant="6" id="6gC-sy-C0U"/>
+                                                <constraint firstItem="yXF-fu-nqR" firstAttribute="leading" secondItem="cAt-VX-pM5" secondAttribute="trailing" constant="5" id="6gC-sy-C0U"/>
                                                 <constraint firstItem="yXF-fu-nqR" firstAttribute="leading" secondItem="6vy-U9-Iza" secondAttribute="trailing" constant="21" id="Av5-CM-C4R"/>
-                                                <constraint firstItem="yXF-fu-nqR" firstAttribute="leading" secondItem="GYv-7W-bZ2" secondAttribute="trailing" constant="6" id="MG0-fc-nP8"/>
-                                                <constraint firstAttribute="bottom" secondItem="cAt-VX-pM5" secondAttribute="bottom" constant="3" id="Tyg-hr-GBX"/>
+                                                <constraint firstItem="yXF-fu-nqR" firstAttribute="leading" secondItem="GYv-7W-bZ2" secondAttribute="trailing" constant="5" id="MG0-fc-nP8"/>
+                                                <constraint firstAttribute="bottom" secondItem="cAt-VX-pM5" secondAttribute="bottom" constant="1.3" id="Tyg-hr-GBX"/>
                                                 <constraint firstItem="6vy-U9-Iza" firstAttribute="centerY" secondItem="qtj-0f-3a7" secondAttribute="centerY" id="UuL-l1-y6s"/>
                                                 <constraint firstItem="yXF-fu-nqR" firstAttribute="top" secondItem="BHJ-Qb-v1g" secondAttribute="top" constant="12" id="d1y-OU-STz"/>
                                                 <constraint firstAttribute="trailing" secondItem="yXF-fu-nqR" secondAttribute="trailing" constant="12.5" id="pqf-nD-cjJ"/>
                                                 <constraint firstItem="yXF-fu-nqR" firstAttribute="width" relation="lessThanOrEqual" secondItem="BHJ-Qb-v1g" secondAttribute="width" multiplier="0.6" id="q4A-O4-Xfq"/>
-                                                <constraint firstAttribute="bottom" secondItem="GYv-7W-bZ2" secondAttribute="bottom" constant="3" id="uR7-IM-qb4"/>
+                                                <constraint firstAttribute="bottom" secondItem="GYv-7W-bZ2" secondAttribute="bottom" constant="1.3" id="uR7-IM-qb4"/>
                                                 <constraint firstAttribute="bottom" secondItem="yXF-fu-nqR" secondAttribute="bottom" id="zFX-mf-4Hb"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1052,7 +1052,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labelasdfasdf" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFb-kf-0lR" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="47.5" y="119" width="108" height="21"/>
+                                                    <rect key="frame" x="48.5" y="120.5" width="108" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1073,7 +1073,7 @@
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="NFb-kf-0lR" secondAttribute="bottom" constant="3" id="1sh-Wj-QHT"/>
+                                                <constraint firstAttribute="bottom" secondItem="NFb-kf-0lR" secondAttribute="bottom" constant="1.3" id="1sh-Wj-QHT"/>
                                                 <constraint firstItem="tcJ-f1-8jd" firstAttribute="leading" secondItem="EkA-vP-R1c" secondAttribute="trailing" constant="6" id="6f0-09-ncP"/>
                                                 <constraint firstItem="tcJ-f1-8jd" firstAttribute="leading" secondItem="oPF-7Q-cB1" secondAttribute="trailing" constant="21" id="8Yu-pO-8Uv"/>
                                                 <constraint firstAttribute="bottom" secondItem="EkA-vP-R1c" secondAttribute="bottom" constant="3" id="D4z-e7-hD0"/>
@@ -1082,7 +1082,7 @@
                                                 <constraint firstItem="tcJ-f1-8jd" firstAttribute="width" relation="lessThanOrEqual" secondItem="xh6-jb-ZbH" secondAttribute="width" multiplier="0.6" id="glV-Z3-mEB"/>
                                                 <constraint firstAttribute="trailing" secondItem="tcJ-f1-8jd" secondAttribute="trailing" constant="12.5" id="hjF-qF-LbJ"/>
                                                 <constraint firstItem="oPF-7Q-cB1" firstAttribute="centerY" secondItem="gdB-8z-zw4" secondAttribute="centerY" id="qkd-ZL-TKj"/>
-                                                <constraint firstItem="tcJ-f1-8jd" firstAttribute="leading" secondItem="NFb-kf-0lR" secondAttribute="trailing" constant="6" id="vvg-I0-Er8"/>
+                                                <constraint firstItem="tcJ-f1-8jd" firstAttribute="leading" secondItem="NFb-kf-0lR" secondAttribute="trailing" constant="5" id="vvg-I0-Er8"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1143,7 +1143,7 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwg-un-IE5" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                            <rect key="frame" x="200.5" y="62" width="42" height="21"/>
+                                                            <rect key="frame" x="199.5" y="63.5" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1152,11 +1152,11 @@
                                                     <constraints>
                                                         <constraint firstItem="Q89-nX-y5B" firstAttribute="top" secondItem="JDx-Hf-z61" secondAttribute="top" id="20D-0g-dPJ"/>
                                                         <constraint firstItem="0mX-JI-gBt" firstAttribute="top" secondItem="Q89-nX-y5B" secondAttribute="bottom" constant="3.5" id="3fj-4M-C8p"/>
-                                                        <constraint firstItem="cwg-un-IE5" firstAttribute="leading" secondItem="0mX-JI-gBt" secondAttribute="trailing" constant="6" id="Mbd-RD-7od"/>
+                                                        <constraint firstItem="cwg-un-IE5" firstAttribute="leading" secondItem="0mX-JI-gBt" secondAttribute="trailing" constant="5" id="Mbd-RD-7od"/>
                                                         <constraint firstItem="0mX-JI-gBt" firstAttribute="leading" secondItem="JDx-Hf-z61" secondAttribute="trailing" constant="11.5" id="W3n-kd-jy6"/>
                                                         <constraint firstItem="Q89-nX-y5B" firstAttribute="leading" secondItem="0mX-JI-gBt" secondAttribute="leading" id="Zmb-Fu-5TC"/>
                                                         <constraint firstAttribute="bottom" secondItem="0mX-JI-gBt" secondAttribute="bottom" id="aGc-LT-mRU"/>
-                                                        <constraint firstAttribute="bottom" secondItem="cwg-un-IE5" secondAttribute="bottom" constant="3" id="nko-hl-Gl9"/>
+                                                        <constraint firstAttribute="bottom" secondItem="cwg-un-IE5" secondAttribute="bottom" constant="1.3" id="nko-hl-Gl9"/>
                                                         <constraint firstItem="0mX-JI-gBt" firstAttribute="top" secondItem="IzN-rk-uDz" secondAttribute="top" constant="4" id="pK9-RI-CCa" userLabel="second"/>
                                                         <constraint firstItem="JDx-Hf-z61" firstAttribute="leading" secondItem="IzN-rk-uDz" secondAttribute="leading" constant="4" id="vxG-AF-OMq"/>
                                                         <constraint firstItem="JDx-Hf-z61" firstAttribute="top" secondItem="IzN-rk-uDz" secondAttribute="top" constant="12" id="x50-Ty-5nx"/>
@@ -1186,7 +1186,7 @@
                                             <outlet property="timeReadLabel" destination="cwg-un-IE5" id="ill-Oh-K7y"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="callMessageMeSecond" rowHeight="86" id="AQy-0u-Ugm" userLabel="callMessageMeSecond" customClass="CallMessageMe" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="callMessageMeSecond" rowHeight="86" id="AQy-0u-Ugm" userLabel="callMessageMeSecond" customClass="CallMessageMe" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1260" width="375" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AQy-0u-Ugm" id="IJD-Fz-Lpp">
@@ -1194,7 +1194,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CYe-Jq-lGf">
-                                                    <rect key="frame" x="0.0" y="0.0" width="336" height="86"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="86"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="abcd.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="dmh-op-GLt" customClass="ChatRadiusProfileView" customModule="kakakak" customModuleProvider="target">
                                                             <rect key="frame" x="4" y="12" width="34" height="34"/>
@@ -1237,14 +1237,14 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qf3-FC-xf1" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                            <rect key="frame" x="200.5" y="61" width="42" height="21"/>
+                                                            <rect key="frame" x="199.5" y="61" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="Qf3-FC-xf1" secondAttribute="bottom" constant="3" id="5Kv-St-AsV"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Qf3-FC-xf1" secondAttribute="bottom" constant="1.3" id="5Kv-St-AsV"/>
                                                         <constraint firstItem="dmh-op-GLt" firstAttribute="top" secondItem="CYe-Jq-lGf" secondAttribute="top" constant="12" id="BVo-9z-mpC"/>
                                                         <constraint firstItem="dmh-op-GLt" firstAttribute="leading" secondItem="CYe-Jq-lGf" secondAttribute="leading" constant="4" id="IMQ-9S-Fen"/>
                                                         <constraint firstItem="QHx-Cg-BvJ" firstAttribute="top" secondItem="CYe-Jq-lGf" secondAttribute="top" constant="4" id="JLg-Nn-Y98" userLabel="second"/>
@@ -1253,7 +1253,7 @@
                                                         <constraint firstItem="tju-fS-CPS" firstAttribute="leading" secondItem="QHx-Cg-BvJ" secondAttribute="leading" id="aVj-QT-hjU"/>
                                                         <constraint firstItem="QHx-Cg-BvJ" firstAttribute="leading" secondItem="dmh-op-GLt" secondAttribute="trailing" constant="11.5" id="grn-dy-9Rv"/>
                                                         <constraint firstItem="QHx-Cg-BvJ" firstAttribute="top" secondItem="tju-fS-CPS" secondAttribute="bottom" constant="6" id="skW-rJ-kdB"/>
-                                                        <constraint firstItem="Qf3-FC-xf1" firstAttribute="leading" secondItem="QHx-Cg-BvJ" secondAttribute="trailing" constant="6" id="vMn-Wh-2ym"/>
+                                                        <constraint firstItem="Qf3-FC-xf1" firstAttribute="leading" secondItem="QHx-Cg-BvJ" secondAttribute="trailing" constant="5" id="vMn-Wh-2ym"/>
                                                     </constraints>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -1280,7 +1280,7 @@
                                             <outlet property="timeReadLabel" destination="Qf3-FC-xf1" id="asT-Hj-WLP"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="callMessageAnother" rowHeight="70" id="NfC-Ed-3eJ" userLabel="callMessageAnother" customClass="CallMessageAnother" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="callMessageAnother" rowHeight="70" id="NfC-Ed-3eJ" userLabel="callMessageAnother" customClass="CallMessageAnother" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1346" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NfC-Ed-3eJ" id="mrC-WB-EL0">
@@ -1288,7 +1288,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EUn-E0-gWM" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="178.5" y="12" width="145" height="55"/>
+                                                    <rect key="frame" x="217.5" y="12" width="145" height="55"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="voiceOff" translatesAutoresizingMaskIntoConstraints="NO" id="Hlb-Xj-6In">
                                                             <rect key="frame" x="8" y="10" width="35" height="35"/>
@@ -1315,17 +1315,16 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlm-oQ-Ivr" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="130.5" y="46" width="42" height="21"/>
+                                                    <rect key="frame" x="170.5" y="46" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="EUn-E0-gWM" secondAttribute="bottom" id="0Ns-0I-Dcj"/>
-                                                <constraint firstAttribute="bottom" secondItem="nlm-oQ-Ivr" secondAttribute="bottom" constant="3" id="S4U-LP-TBq"/>
-                                                <constraint firstItem="EUn-E0-gWM" firstAttribute="leading" secondItem="nlm-oQ-Ivr" secondAttribute="trailing" constant="6" id="XrK-7b-GC2"/>
+                                                <constraint firstAttribute="bottom" secondItem="nlm-oQ-Ivr" secondAttribute="bottom" constant="1.3" id="S4U-LP-TBq"/>
+                                                <constraint firstItem="EUn-E0-gWM" firstAttribute="leading" secondItem="nlm-oQ-Ivr" secondAttribute="trailing" constant="5" id="XrK-7b-GC2"/>
                                                 <constraint firstItem="EUn-E0-gWM" firstAttribute="top" secondItem="mrC-WB-EL0" secondAttribute="top" constant="12" id="gIX-mS-Gum"/>
                                                 <constraint firstAttribute="trailing" secondItem="EUn-E0-gWM" secondAttribute="trailing" constant="12.5" id="qh3-pI-h9Z"/>
                                             </constraints>
@@ -1372,7 +1371,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWE-p2-Y98" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="169.5" y="44" width="42" height="21"/>
+                                                    <rect key="frame" x="170.5" y="44" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1380,13 +1379,12 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="NGg-2M-OIa" secondAttribute="bottom" id="IxP-Vs-yHz"/>
-                                                <constraint firstItem="NGg-2M-OIa" firstAttribute="leading" secondItem="LWE-p2-Y98" secondAttribute="trailing" constant="6" id="Ng0-OX-7qg"/>
+                                                <constraint firstItem="NGg-2M-OIa" firstAttribute="leading" secondItem="LWE-p2-Y98" secondAttribute="trailing" constant="5" id="Ng0-OX-7qg"/>
                                                 <constraint firstItem="NGg-2M-OIa" firstAttribute="top" secondItem="K5D-dY-JbP" secondAttribute="top" constant="4" id="aLe-hA-7Im"/>
-                                                <constraint firstAttribute="bottom" secondItem="LWE-p2-Y98" secondAttribute="bottom" constant="3" id="mza-E9-N1F"/>
+                                                <constraint firstAttribute="bottom" secondItem="LWE-p2-Y98" secondAttribute="bottom" constant="1.3" id="mza-E9-N1F"/>
                                                 <constraint firstAttribute="trailing" secondItem="NGg-2M-OIa" secondAttribute="trailing" constant="12.5" id="ov5-CB-Lkl"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="1" green="0.68235294120000001" blue="0.99215686270000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="bubble" destination="NGg-2M-OIa" id="yo9-8b-r7l"/>
                                             <outlet property="callImage" destination="COt-KL-2fm" id="VcY-2u-yhr"/>
@@ -1445,7 +1443,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오전 11시 30분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yx4-MM-pTP" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                            <rect key="frame" x="202.5" y="75" width="63" height="12"/>
+                                                            <rect key="frame" x="201.5" y="76.5" width="63" height="12"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1456,12 +1454,12 @@
                                                         <constraint firstItem="MOM-uB-jrl" firstAttribute="leading" secondItem="fng-iC-5HT" secondAttribute="trailing" constant="11.5" id="9Lu-AK-UMC"/>
                                                         <constraint firstItem="htd-28-gBq" firstAttribute="leading" secondItem="MOM-uB-jrl" secondAttribute="leading" id="Gxo-kX-iyh"/>
                                                         <constraint firstItem="MOM-uB-jrl" firstAttribute="top" secondItem="9QK-po-uTi" secondAttribute="top" constant="4" id="OSm-FF-auy" userLabel="second"/>
-                                                        <constraint firstAttribute="bottom" secondItem="Yx4-MM-pTP" secondAttribute="bottom" constant="3" id="Tke-bB-RDX"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Yx4-MM-pTP" secondAttribute="bottom" constant="1.3" id="Tke-bB-RDX"/>
                                                         <constraint firstItem="fng-iC-5HT" firstAttribute="leading" secondItem="9QK-po-uTi" secondAttribute="leading" constant="4" id="fa1-gI-Dd3"/>
                                                         <constraint firstItem="htd-28-gBq" firstAttribute="top" secondItem="fng-iC-5HT" secondAttribute="top" id="k3c-DI-M9h"/>
                                                         <constraint firstItem="fng-iC-5HT" firstAttribute="top" secondItem="9QK-po-uTi" secondAttribute="top" constant="12" id="q8O-TP-bzQ"/>
                                                         <constraint firstItem="MOM-uB-jrl" firstAttribute="top" secondItem="htd-28-gBq" secondAttribute="bottom" constant="3.5" id="xaZ-gu-wcc" userLabel="first"/>
-                                                        <constraint firstItem="Yx4-MM-pTP" firstAttribute="leading" secondItem="MOM-uB-jrl" secondAttribute="trailing" constant="6" id="z98-H0-kBE"/>
+                                                        <constraint firstItem="Yx4-MM-pTP" firstAttribute="leading" secondItem="MOM-uB-jrl" secondAttribute="trailing" constant="5" id="z98-H0-kBE"/>
                                                     </constraints>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -1488,7 +1486,7 @@
                                             <outlet property="warningView" destination="c7L-LP-lW7" id="5iM-OR-wDQ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="deleteMessageMeSecond" rowHeight="90" id="Wzk-eE-bvq" userLabel="deleteMessageMeSecond" customClass="DeleteMessageMe" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="deleteMessageMeSecond" rowHeight="90" id="Wzk-eE-bvq" userLabel="deleteMessageMeSecond" customClass="DeleteMessageMe" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1576" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wzk-eE-bvq" id="ndi-7R-Mcr">
@@ -1496,7 +1494,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="03p-zA-qe3">
-                                                    <rect key="frame" x="0.0" y="0.0" width="336" height="90"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="abcd.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="OJb-lE-Sw9" customClass="ChatRadiusProfileView" customModule="kakakak" customModuleProvider="target">
                                                             <rect key="frame" x="4" y="12" width="34" height="34"/>
@@ -1539,7 +1537,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오전 11시 30분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btT-bC-tSj" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                            <rect key="frame" x="202.5" y="75" width="63" height="12"/>
+                                                            <rect key="frame" x="201.5" y="76.5" width="63" height="12"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1550,12 +1548,12 @@
                                                         <constraint firstItem="OJb-lE-Sw9" firstAttribute="leading" secondItem="03p-zA-qe3" secondAttribute="leading" constant="4" id="HBZ-8V-QTF"/>
                                                         <constraint firstItem="nD3-5O-s3V" firstAttribute="leading" secondItem="BQ1-FK-fwj" secondAttribute="leading" id="MBc-lt-1eD"/>
                                                         <constraint firstItem="BQ1-FK-fwj" firstAttribute="top" secondItem="nD3-5O-s3V" secondAttribute="bottom" constant="6" id="Y6A-he-U6Y" userLabel="first"/>
-                                                        <constraint firstItem="btT-bC-tSj" firstAttribute="leading" secondItem="BQ1-FK-fwj" secondAttribute="trailing" constant="6" id="mHO-G5-ZfU"/>
+                                                        <constraint firstItem="btT-bC-tSj" firstAttribute="leading" secondItem="BQ1-FK-fwj" secondAttribute="trailing" constant="5" id="mHO-G5-ZfU"/>
                                                         <constraint firstItem="BQ1-FK-fwj" firstAttribute="leading" secondItem="OJb-lE-Sw9" secondAttribute="trailing" constant="11.5" id="r37-cy-g7y"/>
                                                         <constraint firstItem="OJb-lE-Sw9" firstAttribute="top" secondItem="03p-zA-qe3" secondAttribute="top" constant="12" id="th4-ft-Xll"/>
                                                         <constraint firstItem="nD3-5O-s3V" firstAttribute="top" secondItem="OJb-lE-Sw9" secondAttribute="top" id="ukT-H6-atu"/>
                                                         <constraint firstAttribute="bottom" secondItem="BQ1-FK-fwj" secondAttribute="bottom" id="wlS-Wl-u8g"/>
-                                                        <constraint firstAttribute="bottom" secondItem="btT-bC-tSj" secondAttribute="bottom" constant="3" id="yOc-MM-kj9"/>
+                                                        <constraint firstAttribute="bottom" secondItem="btT-bC-tSj" secondAttribute="bottom" constant="1.3" id="yOc-MM-kj9"/>
                                                     </constraints>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -1582,7 +1580,7 @@
                                             <outlet property="warningView" destination="B8I-ek-hrS" id="hxI-wT-4ue"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="deleteMessageAnother" rowHeight="70" id="pmY-Cx-Hu0" userLabel="deleteMessageAnother" customClass="DeleteMessageAnother" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="deleteMessageAnother" rowHeight="70" id="pmY-Cx-Hu0" userLabel="deleteMessageAnother" customClass="DeleteMessageAnother" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1666" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pmY-Cx-Hu0" id="dGs-fT-zgx">
@@ -1590,7 +1588,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pcH-BZ-cAr" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="175.5" y="12" width="148" height="58"/>
+                                                    <rect key="frame" x="214.5" y="12" width="148" height="58"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="warning" translatesAutoresizingMaskIntoConstraints="NO" id="aaP-vw-DOc">
                                                             <rect key="frame" x="8" y="21" width="16" height="16"/>
@@ -1620,7 +1618,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6시30분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EyA-0d-7LL" userLabel="6시 30분" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="132.5" y="55" width="37" height="12"/>
+                                                    <rect key="frame" x="172.5" y="56.5" width="37" height="12"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1629,9 +1627,9 @@
                                             <constraints>
                                                 <constraint firstItem="pcH-BZ-cAr" firstAttribute="top" secondItem="dGs-fT-zgx" secondAttribute="top" constant="12" id="KZz-PZ-eoe"/>
                                                 <constraint firstAttribute="trailing" secondItem="pcH-BZ-cAr" secondAttribute="trailing" constant="12.5" id="OaL-m3-0iR"/>
-                                                <constraint firstItem="pcH-BZ-cAr" firstAttribute="leading" secondItem="EyA-0d-7LL" secondAttribute="trailing" constant="6" id="QEX-Y6-zUe"/>
+                                                <constraint firstItem="pcH-BZ-cAr" firstAttribute="leading" secondItem="EyA-0d-7LL" secondAttribute="trailing" constant="5" id="QEX-Y6-zUe"/>
                                                 <constraint firstAttribute="bottom" secondItem="pcH-BZ-cAr" secondAttribute="bottom" id="S22-kp-VoV"/>
-                                                <constraint firstAttribute="bottom" secondItem="EyA-0d-7LL" secondAttribute="bottom" constant="3" id="iEn-Jq-Uhh"/>
+                                                <constraint firstAttribute="bottom" secondItem="EyA-0d-7LL" secondAttribute="bottom" constant="1.3" id="iEn-Jq-Uhh"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1640,7 +1638,7 @@
                                             <outlet property="warningVIew" destination="aaP-vw-DOc" id="Y74-aJ-M9m"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="deleteMessageAnotherSecond" rowHeight="70" id="xDW-yp-WFf" userLabel="deleteMessageAnotherSecond" customClass="DeleteMessageAnother" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="deleteMessageAnotherSecond" rowHeight="70" id="xDW-yp-WFf" userLabel="deleteMessageAnotherSecond" customClass="DeleteMessageAnother" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1736" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xDW-yp-WFf" id="dXq-uh-tdk">
@@ -1648,7 +1646,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZxJ-S0-Utn" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="175.5" y="4" width="148" height="66"/>
+                                                    <rect key="frame" x="214.5" y="4" width="148" height="66"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="warning" translatesAutoresizingMaskIntoConstraints="NO" id="Xjz-RJ-juA">
                                                             <rect key="frame" x="8" y="25" width="16" height="16"/>
@@ -1678,16 +1676,16 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6시30분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sm1-lG-k2P" userLabel="6시 30분" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="132.5" y="55" width="37" height="12"/>
+                                                    <rect key="frame" x="172.5" y="56.5" width="37" height="12"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="sm1-lG-k2P" secondAttribute="bottom" constant="3" id="jSf-MG-fLj"/>
+                                                <constraint firstAttribute="bottom" secondItem="sm1-lG-k2P" secondAttribute="bottom" constant="1.3" id="jSf-MG-fLj"/>
                                                 <constraint firstItem="ZxJ-S0-Utn" firstAttribute="top" secondItem="dXq-uh-tdk" secondAttribute="top" constant="4" id="n1n-oy-qqM"/>
-                                                <constraint firstItem="ZxJ-S0-Utn" firstAttribute="leading" secondItem="sm1-lG-k2P" secondAttribute="trailing" constant="6" id="n6a-jd-26Q"/>
+                                                <constraint firstItem="ZxJ-S0-Utn" firstAttribute="leading" secondItem="sm1-lG-k2P" secondAttribute="trailing" constant="5" id="n6a-jd-26Q"/>
                                                 <constraint firstAttribute="bottom" secondItem="ZxJ-S0-Utn" secondAttribute="bottom" id="nH6-Jz-Ocm"/>
                                                 <constraint firstAttribute="trailing" secondItem="ZxJ-S0-Utn" secondAttribute="trailing" constant="12.5" id="zAl-f6-Zbc"/>
                                             </constraints>
@@ -1759,16 +1757,16 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오전 11시 30분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbR-v3-Uxq" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                            <rect key="frame" x="241.5" y="75" width="63" height="12"/>
+                                                            <rect key="frame" x="240.5" y="76.5" width="63" height="12"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="jbR-v3-Uxq" secondAttribute="bottom" constant="3" id="Eky-Hi-hSo"/>
+                                                        <constraint firstAttribute="bottom" secondItem="jbR-v3-Uxq" secondAttribute="bottom" constant="1.3" id="Eky-Hi-hSo"/>
                                                         <constraint firstItem="CwK-RA-EwK" firstAttribute="leading" secondItem="F74-RH-Bxc" secondAttribute="trailing" constant="11.5" id="IYr-YM-GHc"/>
-                                                        <constraint firstItem="jbR-v3-Uxq" firstAttribute="leading" secondItem="C6w-ex-mbj" secondAttribute="trailing" constant="6" id="U3G-kX-3qc"/>
+                                                        <constraint firstItem="jbR-v3-Uxq" firstAttribute="leading" secondItem="C6w-ex-mbj" secondAttribute="trailing" constant="5" id="U3G-kX-3qc"/>
                                                         <constraint firstItem="CwK-RA-EwK" firstAttribute="top" secondItem="F74-RH-Bxc" secondAttribute="top" id="XDz-U7-Kz1"/>
                                                         <constraint firstItem="C6w-ex-mbj" firstAttribute="top" secondItem="2V3-k9-v6D" secondAttribute="top" constant="4" id="XY7-p5-WfQ"/>
                                                         <constraint firstItem="F74-RH-Bxc" firstAttribute="leading" secondItem="2V3-k9-v6D" secondAttribute="leading" constant="4" id="emX-v8-uKx"/>
@@ -1801,7 +1799,7 @@
                                             <outlet property="timeReadLabel" destination="jbR-v3-Uxq" id="3b2-5Y-ahU"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordMessageMeSecond" rowHeight="90" id="OQE-ec-A4A" userLabel="recordMessageMeSecond" customClass="RecordMessageMe" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordMessageMeSecond" rowHeight="90" id="OQE-ec-A4A" userLabel="recordMessageMeSecond" customClass="RecordMessageMe" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1896" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OQE-ec-A4A" id="FeF-oa-Y63">
@@ -1809,7 +1807,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KOr-q7-U2B">
-                                                    <rect key="frame" x="0.0" y="0.0" width="336" height="54"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="abcd.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="S2Z-E6-fLc" customClass="ChatRadiusProfileView" customModule="kakakak" customModuleProvider="target">
                                                             <rect key="frame" x="4" y="12" width="34" height="34"/>
@@ -1862,20 +1860,20 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오전 11시 30분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R4b-X9-EeV" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                            <rect key="frame" x="241.5" y="39" width="63" height="12"/>
+                                                            <rect key="frame" x="240.5" y="40.5" width="63" height="12"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="R4b-X9-EeV" firstAttribute="leading" secondItem="24P-z5-F0Y" secondAttribute="trailing" constant="6" id="8Tc-Zj-xIC"/>
+                                                        <constraint firstItem="R4b-X9-EeV" firstAttribute="leading" secondItem="24P-z5-F0Y" secondAttribute="trailing" constant="5" id="8Tc-Zj-xIC"/>
                                                         <constraint firstItem="S2Z-E6-fLc" firstAttribute="leading" secondItem="KOr-q7-U2B" secondAttribute="leading" constant="4" id="EF9-Go-TzA"/>
                                                         <constraint firstItem="S2Z-E6-fLc" firstAttribute="top" secondItem="KOr-q7-U2B" secondAttribute="top" constant="12" id="Gv4-XD-brt"/>
                                                         <constraint firstItem="24P-z5-F0Y" firstAttribute="leading" secondItem="S2Z-E6-fLc" secondAttribute="trailing" constant="11.5" id="OWY-Ae-OsP"/>
                                                         <constraint firstItem="24P-z5-F0Y" firstAttribute="top" secondItem="KOr-q7-U2B" secondAttribute="top" constant="4" id="RuF-ea-DPm"/>
                                                         <constraint firstItem="XSD-vJ-IYt" firstAttribute="top" secondItem="S2Z-E6-fLc" secondAttribute="top" id="WLu-VD-Ufu"/>
-                                                        <constraint firstAttribute="bottom" secondItem="R4b-X9-EeV" secondAttribute="bottom" constant="3" id="ezs-u3-dEN"/>
+                                                        <constraint firstAttribute="bottom" secondItem="R4b-X9-EeV" secondAttribute="bottom" constant="1.3" id="ezs-u3-dEN"/>
                                                         <constraint firstItem="XSD-vJ-IYt" firstAttribute="leading" secondItem="S2Z-E6-fLc" secondAttribute="trailing" constant="11.5" id="hOo-ox-cFS"/>
                                                         <constraint firstItem="24P-z5-F0Y" firstAttribute="top" secondItem="XSD-vJ-IYt" secondAttribute="bottom" constant="6" id="mkl-34-pIV"/>
                                                         <constraint firstAttribute="bottom" secondItem="24P-z5-F0Y" secondAttribute="bottom" constant="-1" id="sUP-6K-pA7"/>
@@ -1904,7 +1902,7 @@
                                             <outlet property="timeReadLabel" destination="R4b-X9-EeV" id="smk-BR-FcM"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordMessageAnother" rowHeight="70" id="6is-Ru-bsW" userLabel="recordMessageAnother" customClass="RecordMessageAnother" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordMessageAnother" rowHeight="70" id="6is-Ru-bsW" userLabel="recordMessageAnother" customClass="RecordMessageAnother" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1986" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6is-Ru-bsW" id="0SI-ov-ECh">
@@ -1912,7 +1910,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U66-E4-fTZ" userLabel="bubble" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="138" y="12" width="185.5" height="51"/>
+                                                    <rect key="frame" x="177" y="12" width="185.5" height="51"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play" translatesAutoresizingMaskIntoConstraints="NO" id="a16-eC-QwK">
                                                             <rect key="frame" x="8" y="8" width="35" height="35"/>
@@ -1949,7 +1947,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6시30분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNS-y6-6Oy" userLabel="6시 30분" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="71.5" y="34" width="60.5" height="21"/>
+                                                    <rect key="frame" x="111.5" y="35" width="60.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1957,8 +1955,8 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="U66-E4-fTZ" firstAttribute="top" secondItem="0SI-ov-ECh" secondAttribute="top" constant="12" id="27z-tH-RsA"/>
-                                                <constraint firstItem="eNS-y6-6Oy" firstAttribute="bottom" secondItem="0SI-ov-ECh" secondAttribute="bottomMargin" constant="3" id="Nhg-Vi-xU6"/>
-                                                <constraint firstItem="U66-E4-fTZ" firstAttribute="leading" secondItem="eNS-y6-6Oy" secondAttribute="trailing" constant="6" id="oea-68-vXY"/>
+                                                <constraint firstItem="eNS-y6-6Oy" firstAttribute="bottom" secondItem="0SI-ov-ECh" secondAttribute="bottomMargin" constant="1.3" id="Nhg-Vi-xU6"/>
+                                                <constraint firstItem="U66-E4-fTZ" firstAttribute="leading" secondItem="eNS-y6-6Oy" secondAttribute="trailing" constant="5" id="oea-68-vXY"/>
                                                 <constraint firstAttribute="trailing" secondItem="U66-E4-fTZ" secondAttribute="trailing" constant="12.5" id="rGB-5v-iJM"/>
                                                 <constraint firstAttribute="bottom" secondItem="U66-E4-fTZ" secondAttribute="bottom" id="wp6-Ct-1Yq"/>
                                             </constraints>
@@ -1969,7 +1967,7 @@
                                             <outlet property="timeReadLabel" destination="eNS-y6-6Oy" id="W8V-sb-NYU"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordMessageAnotherSecond" rowHeight="70" id="QWq-sP-FPD" customClass="RecordMessageAnother" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordMessageAnotherSecond" rowHeight="70" id="QWq-sP-FPD" customClass="RecordMessageAnother" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="2056" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QWq-sP-FPD" id="fV6-Ud-Ozm">
@@ -1977,7 +1975,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FIJ-dG-sfn" userLabel="bubble" customClass="CornerRadiusView" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="138" y="4" width="185.5" height="51"/>
+                                                    <rect key="frame" x="177" y="4" width="185.5" height="51"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play" translatesAutoresizingMaskIntoConstraints="NO" id="xJM-Ir-Xec">
                                                             <rect key="frame" x="8" y="8" width="35" height="35"/>
@@ -2014,18 +2012,18 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6시30분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nXM-za-or5" userLabel="6시 30분" customClass="TimeAndReadLabel" customModule="kakakak" customModuleProvider="target">
-                                                    <rect key="frame" x="71.5" y="26" width="60.5" height="21"/>
+                                                    <rect key="frame" x="111.5" y="27" width="60.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="FIJ-dG-sfn" firstAttribute="leading" secondItem="nXM-za-or5" secondAttribute="trailing" constant="6" id="57G-YM-ZgM"/>
+                                                <constraint firstItem="FIJ-dG-sfn" firstAttribute="leading" secondItem="nXM-za-or5" secondAttribute="trailing" constant="5" id="57G-YM-ZgM"/>
                                                 <constraint firstAttribute="bottom" secondItem="FIJ-dG-sfn" secondAttribute="bottom" id="86g-XJ-cH8"/>
                                                 <constraint firstAttribute="trailing" secondItem="FIJ-dG-sfn" secondAttribute="trailing" constant="12.5" id="Qq0-S3-O5Q"/>
                                                 <constraint firstItem="FIJ-dG-sfn" firstAttribute="top" secondItem="fV6-Ud-Ozm" secondAttribute="top" constant="4" id="bsM-hX-bKx"/>
-                                                <constraint firstItem="nXM-za-or5" firstAttribute="bottom" secondItem="fV6-Ud-Ozm" secondAttribute="bottomMargin" constant="3" id="ffq-Nn-6db"/>
+                                                <constraint firstItem="nXM-za-or5" firstAttribute="bottom" secondItem="fV6-Ud-Ozm" secondAttribute="bottomMargin" constant="1.3" id="ffq-Nn-6db"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -2126,7 +2124,7 @@
                                             <outlet property="exitLabel" destination="2g4-tG-Esy" id="mb3-pF-syU"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dateLine" rowHeight="100" id="Oc4-Ly-1TW" userLabel="dateLine" customClass="DateLineCell" customModule="kakakak" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dateLine" rowHeight="100" id="Oc4-Ly-1TW" userLabel="dateLine" customClass="DateLineCell" customModule="kakakak" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="2242" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Oc4-Ly-1TW" id="oqx-Ry-L7v">
@@ -2134,23 +2132,23 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vwb-Vd-Buv">
-                                                    <rect key="frame" x="0.0" y="15" width="336" height="70"/>
+                                                    <rect key="frame" x="0.0" y="15" width="375" height="69.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018년 4월 27일 금요일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4v-Mg-Asl">
-                                                            <rect key="frame" x="97.5" y="0.0" width="141.5" height="70"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018년 24월 27일 금요일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4v-Mg-Asl">
+                                                            <rect key="frame" x="128" y="0.0" width="119.5" height="69.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                             <color key="textColor" red="0.28890964388847351" green="0.32896369695663452" blue="0.36234229803085327" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WZK-uD-Jg3">
-                                                            <rect key="frame" x="6" y="35" width="83.5" height="0.5"/>
+                                                            <rect key="frame" x="6" y="34.5" width="114" height="0.5"/>
                                                             <color key="backgroundColor" red="0.53725490196078429" green="0.59215686274509804" blue="0.63137254901960782" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="0.5" id="fH3-l9-tMZ"/>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZtM-22-lpH">
-                                                            <rect key="frame" x="247" y="35" width="83" height="0.5"/>
+                                                            <rect key="frame" x="255.5" y="34.5" width="113.5" height="0.5"/>
                                                             <color key="backgroundColor" red="0.53725490200000003" green="0.59215686270000001" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="0.5" id="Gt4-DC-QnC"/>

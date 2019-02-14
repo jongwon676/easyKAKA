@@ -1,6 +1,6 @@
 import UIKit
 import SnapKit
-import CropViewController
+
 import RealmSwift
 
 class MessageEditController: UITableViewController,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
@@ -185,37 +185,22 @@ class MessageEditController: UITableViewController,UINavigationControllerDelegat
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let img = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            var image = img.resizeImageWithAspect(image: img, scaledToMaxWidth: UIScreen.main.bounds.width * 0.6, maxHeight: UIScreen.main.bounds.height * 0.5)
+            
+            for section in (0 ..< tableView.numberOfSections){
+                let indexPath = IndexPath(row: 0, section: section)
+                if let cell = tableView.cellForRow(at: indexPath) as? ImageEditCell{
+                    cell.messageImage = image
+                }
+            }
             
             
-            let cropViewController = CropViewController(image: img)
-            cropViewController.delegate = self
-            
-            picker.dismiss(animated: true, completion: nil)
-            present(cropViewController, animated: true, completion: nil)
             
         }
-        else { picker.dismiss(animated: true, completion: nil) }
+            picker.dismiss(animated: true, completion: nil)
     }
     
 }
-extension  MessageEditController: CropViewControllerDelegate{
-    func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
-        
-        
-        
-        let img = image.resizeImageWithAspect(image: image, scaledToMaxWidth: UIScreen.main.bounds.width * 0.6, maxHeight: UIScreen.main.bounds.height * 0.5)
-        
-        for section in (0 ..< tableView.numberOfSections){
-            let indexPath = IndexPath(row: 0, section: section)
-            if let cell = tableView.cellForRow(at: indexPath) as? ImageEditCell{
-                cell.messageImage = img
-            }
-        }
-        
-        dismiss(animated: true, completion: nil)
-    }
-}
-
 
 
 

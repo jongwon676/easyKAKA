@@ -13,21 +13,23 @@ class AddUserController: UIViewController, UITableViewDelegate, UITableViewDataS
         didSet{
             if profileImage == nil{
                 profile.maskToBounds = false
-                profile.image = #imageLiteral(resourceName: "uploadDefault")
+                profile.image = #imageLiteral(resourceName: "defaultUser")
             }else{
                 profile.maskToBounds = true
                 profile.image = profileImage
             }
         }
     }
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         profile.layer.cornerRadius = profile.frame.size.width / 2
-        if profileImage == nil{
-            profile.layer.masksToBounds = false
-        }else{
-            profile.layer.masksToBounds = true
-        }
+        profile.layer.masksToBounds = true
+//        if profileImage == nil{
+//            profile.layer.masksToBounds = false
+//        }else{
+//            profile.layer.masksToBounds = true
+//        }
         
     }
     
@@ -37,7 +39,6 @@ class AddUserController: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBOutlet var nameField: UITextField!{
         didSet{
             nameField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-            
         }
     }
     var user: Preset? = nil
@@ -151,13 +152,11 @@ class AddUserController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         nameField.delegate = self
         nameField.text = user?.name
+        
         if let imgName = user?.profileImageUrl,let image = UIImage.loadImageFromName(imgName){
             profileImage = image
         }
-        
-        
         if user != nil{
-            
             limtLabel.text = String(user!.name.count) + "/" + String(bottomCnt)
         }else{
             limtLabel.text = String(0) + "/" + String(bottomCnt)
@@ -172,7 +171,6 @@ class AddUserController: UIViewController, UITableViewDelegate, UITableViewDataS
         if user != nil{
             user?.edit(name: name, image: image)
             self.navigationController?.popViewController(animated: true)
-            
         }else{
             Preset.add(name: name, image: image)
             self.navigationController?.popViewController(animated: true)
@@ -194,10 +192,7 @@ class AddUserController: UIViewController, UITableViewDelegate, UITableViewDataS
             self.present(alert, animated: true, completion: nil)
             return true
         default: return false
-            
         }
-        
-        
     }
     
     @IBOutlet var addButton: GradientButton!
