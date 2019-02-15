@@ -329,6 +329,7 @@ extension KeyBoardAreaController: UICollectionViewDelegateFlowLayout{
 let maxHeight: CGFloat = 90
 let minHeight: CGFloat = 36
 extension KeyBoardAreaController: UITextViewDelegate{
+    
     func textViewDidChange(_ textView: UITextView) {
         let size = CGSize(width: textView.frame.width, height: .infinity)
         let estimateSize = textView.sizeThatFits(size)
@@ -336,12 +337,12 @@ extension KeyBoardAreaController: UITextViewDelegate{
         var nextHeight = min(estimateSize.height, maxHeight)
         nextHeight = max(elementHeight - 20 , nextHeight)
         nextHeight = max(minHeight,nextHeight)
-        
         textView.isScrollEnabled = (nextHeight >= maxHeight)
         textView.snp.updateConstraints { (mk) in
             mk.height.equalTo(nextHeight)
         }
     }
+    
 }
 
 extension KeyBoardAreaController: UIScrollViewDelegate{

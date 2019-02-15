@@ -16,6 +16,7 @@ class ViewController: UIViewController{
     }
     @IBOutlet var fontTestLabel: UILabel!{
         didSet{
+
             fontTestLabel.font = UIFont(name: "xeicon", size: 18)
             fontTestLabel.text = "\u{e9aa}"
             fontTestLabel.textColor = UIColor.lightGray

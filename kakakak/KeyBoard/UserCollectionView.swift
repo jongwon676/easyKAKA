@@ -6,7 +6,7 @@ class UserCollectionView: UICollectionView{
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         let horRadius: CGFloat = 333
-        let verRadius: CGFloat = 225 // 타원의 세로 반지름
+        let verRadius: CGFloat = 180 // 타원의 세로 반지름
         let offset: CGFloat = 5
         let halfCircle: CGFloat = 30
         var points = [CGPoint]()
@@ -40,15 +40,6 @@ class UserCollectionView: UICollectionView{
     override func layoutSubviews() {
         super.layoutSubviews()
         self.layer.masksToBounds = false
-//        self.layer.cornerRadius = 2.0
-//        self.layer.borderWidth = 1.0
-//        self.layer.borderColor = UIColor.clear.cgColor
-//        self.layer.shadowColor = UIColor.black.cgColor
-//        self.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-//        self.layer.shadowRadius = 2.0
-//        self.layer.shadowOpacity = 0.3
-//        self.layer.masksToBounds = false  // false해야지 그림자가 보임.
-//        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.layer.cornerRadius).cgPath
     }
 }
 extension CGRect{

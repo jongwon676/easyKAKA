@@ -26,9 +26,13 @@ class OptionViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.isScrollEnabled = false
+        tableView.bounces = false
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 61
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle{

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2201941D9767FC1EB65D0802 /* Pods_kakakak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31166B9B380F3B955A1AACD7 /* Pods_kakakak.framework */; };
 		AD091C2C2215F45C001C0CEC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD091C2B2215F45C001C0CEC /* Images.xcassets */; };
+		AD091C5222176639001C0CEC /* KMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD091C5122176639001C0CEC /* KMessageCell.swift */; };
+		AD091C552217666E001C0CEC /* KTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD091C542217666E001C0CEC /* KTextCell.swift */; };
+		AD091C5722176676001C0CEC /* KImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD091C5622176676001C0CEC /* KImageCell.swift */; };
 		AD0AA03221EA00D000B45EF5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD0AA03121EA00D000B45EF5 /* GoogleService-Info.plist */; };
 		AD0D47FD220B165100FFAC7D /* UserNameEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D47FC220B165100FFAC7D /* UserNameEditCell.swift */; };
 		AD0D47FF220B166400FFAC7D /* TextEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D47FE220B166400FFAC7D /* TextEditCell.swift */; };
@@ -160,6 +163,9 @@
 		31166B9B380F3B955A1AACD7 /* Pods_kakakak.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kakakak.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DCAA90BC1391044DF37135F /* Pods-kakakak.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kakakak.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kakakak/Pods-kakakak.debug.xcconfig"; sourceTree = "<group>"; };
 		AD091C2B2215F45C001C0CEC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		AD091C5122176639001C0CEC /* KMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMessageCell.swift; sourceTree = "<group>"; };
+		AD091C542217666E001C0CEC /* KTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KTextCell.swift; sourceTree = "<group>"; };
+		AD091C5622176676001C0CEC /* KImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KImageCell.swift; sourceTree = "<group>"; };
 		AD0AA03121EA00D000B45EF5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AD0D47FC220B165100FFAC7D /* UserNameEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameEditCell.swift; sourceTree = "<group>"; };
 		AD0D47FE220B166400FFAC7D /* TextEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditCell.swift; sourceTree = "<group>"; };
@@ -331,6 +337,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		AD091C5322176640001C0CEC /* KChatCell */ = {
+			isa = PBXGroup;
+			children = (
+				AD091C5122176639001C0CEC /* KMessageCell.swift */,
+				AD091C542217666E001C0CEC /* KTextCell.swift */,
+				AD091C5622176676001C0CEC /* KImageCell.swift */,
+			);
+			path = KChatCell;
+			sourceTree = "<group>";
+		};
 		AD0D47FA220B159100FFAC7D /* EditCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,13 +359,6 @@
 				AD3566BE220B322D00BB3141 /* TimeEditCell.swift */,
 			);
 			path = EditCell;
-			sourceTree = "<group>";
-		};
-		AD0D47FB220B159900FFAC7D /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		AD27D16A21F1855A009E367A /* KeyBoard */ = {
@@ -727,6 +736,7 @@
 		ADA7E01721FF757200FCF517 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				AD091C5322176640001C0CEC /* KChatCell */,
 				AD0D47FA220B159100FFAC7D /* EditCell */,
 				ADFA306322043C0200744C31 /* ChatCell */,
 			);
@@ -795,7 +805,6 @@
 		ADC672BF21E24E2A00D6D3F5 /* Chatting */ = {
 			isa = PBXGroup;
 			children = (
-				AD0D47FB220B159900FFAC7D /* New Group */,
 				ADA7E01721FF757200FCF517 /* Cell */,
 				AD2B397921FB5C6A00BE6869 /* DataManager */,
 				AD2B397821FB5C2800BE6869 /* View */,
@@ -1050,6 +1059,7 @@
 				ADC672D621E2C67F00D6D3F5 /* RoomListVC.swift in Sources */,
 				ADCB80A121F9530A00BE25D8 /* UserCollectionLayoutAttributes.swift in Sources */,
 				ADDFB86021E7037A003D5DF1 /* ChatVC+Alert.swift in Sources */,
+				AD091C5722176676001C0CEC /* KImageCell.swift in Sources */,
 				ADC672CE21E29BC800D6D3F5 /* User.swift in Sources */,
 				AD3566BF220B322D00BB3141 /* TimeEditCell.swift in Sources */,
 				ADFA3069220448B700744C31 /* TextAnother.swift in Sources */,
@@ -1147,6 +1157,7 @@
 				AD6EF4112214ACF200C6F0C1 /* OptionCell.swift in Sources */,
 				ADA7E00E21FED65500FCF517 /* SpeacialFeatureInputView.swift in Sources */,
 				AD95E2512208712F00CD8451 /* TelegramPickerViewController.swift in Sources */,
+				AD091C5222176639001C0CEC /* KMessageCell.swift in Sources */,
 				AD95E2542208712F00CD8451 /* Label.swift in Sources */,
 				AD95E22A2208712F00CD8451 /* String+Extensions.swift in Sources */,
 				ADE5486C220F483A0096AB96 /* ImagePickerHelper.swift in Sources */,
@@ -1159,6 +1170,7 @@
 				AD95E2522208712F00CD8451 /* ItemWithPhoto.swift in Sources */,
 				AD27D18E21F1D422009E367A /* ChatTableView.swift in Sources */,
 				AD2B6A84220474CB00DD563A /* DeleteMessageAnother.swift in Sources */,
+				AD091C552217666E001C0CEC /* KTextCell.swift in Sources */,
 				AD95E2422208712F00CD8451 /* LocationSearchResultsViewController.swift in Sources */,
 				AD0D4803220B167900FFAC7D /* DateLineEditCell.swift in Sources */,
 				AD95E2552208712F00CD8451 /* SegmentedControl.swift in Sources */,
@@ -1318,7 +1330,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.twilio.ReplayKitExamplehkhkjkhj;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dreamchat.movietalktalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1338,7 +1350,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.twilio.ReplayKitExamplehkhkjkhj;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dreamchat.movietalktalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

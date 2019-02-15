@@ -25,10 +25,8 @@ extension UIImage{
         let data = imgCompress?.jpegData(compressionQuality: 0.3)
         guard let imgData = data else { return false }
         do{
-            try print(Path.inDocuments(name))
             try imgData.write(to: Path.inDocuments(name))
         }catch let err as NSError{
-            print(err.localizedDescription)
             return false
         }
         return true

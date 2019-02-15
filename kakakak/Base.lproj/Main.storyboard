@@ -559,7 +559,7 @@
                                                     <color key="textColor" red="0.39304590225219727" green="0.47641021013259888" blue="0.59280097484588623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BdA-3R-riA">
+                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BdA-3R-riA">
                                                     <rect key="frame" x="343" y="20.666666666666668" width="46" height="20.000000000000004"/>
                                                     <color key="backgroundColor" red="0.83890146017074585" green="0.84707039594650269" blue="0.85113054513931274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
@@ -636,7 +636,7 @@
                                                     <color key="textColor" red="0.53104788059999997" green="0.60330396890000004" blue="0.65344202520000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L7t-S3-EFk">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L7t-S3-EFk">
                                                     <rect key="frame" x="343" y="20.666666666666668" width="46" height="20.000000000000004"/>
                                                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -1144,7 +1144,9 @@
                                                             <rect key="frame" x="25" y="10" width="41" height="41"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="41" id="6tE-j1-Lx8"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="41" id="CMo-Dv-Szx"/>
                                                                 <constraint firstAttribute="height" constant="41" id="IfC-Nn-Omt"/>
+                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="41" id="UMk-xQ-Imc"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

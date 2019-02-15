@@ -307,10 +307,7 @@ class MessageProcessor{
             
         }
     }
-    
-    
-    
-    
+
     func getMessage(idx: Int) -> Message{
         return messages[idx]
     }
@@ -343,18 +340,36 @@ class MessageProcessor{
     }
     
     
+    private weak var timer: Timer?
     
     func sendMessaegImage(imageName: String,user: User){
         //보내는사람, 이미지 이름, 보내는날짜
         let msg = Message.makeImageMessage(owner: user, sendDate: room.currentDate, imageUrl: imageName)
         msg.noReadUser = room.actviateUserExcepteMe(me: user)
+        
+        timer?.invalidate()
+        timer = nil
         try! realm.write {
             self.messages.append(msg)
             room.messages.append(msg)
             reload()
             self.vc?.tableView.reloadData()
             self.vc?.tableView.scrollToBottom(animation: false)
+            
+            
+            timer = Timer.scheduledTimer(withTimeInterval: 0.3,
+                                         repeats: false) { [weak self] _ in
+                                            guard let `self` = self else { return }
+                                            self.vc?.tableView.reloadData()
+                                            self.vc?.tableView.scrollToBottom(animation: false)
+            }
+            
+            
         }
+    }
+    
+    deinit {
+        print("processor deinie")
     }
     func addDateLine(sendDate: Date){
         let msg = Message.makeDateMessage(date: sendDate)

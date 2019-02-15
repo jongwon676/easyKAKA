@@ -72,7 +72,7 @@ class UserLayout: UICollectionViewFlowLayout{
     func calculateCoordinates(){
         //타원의 가로세로 비율 2000 : 1250
         let horRadius: CGFloat = 333
-        let verRadius: CGFloat = 225 // 타원의 세로 반지름
+        let verRadius: CGFloat = 180 // 타원의 세로 반지름
         let offset: CGFloat = 5
         let halfCircle: CGFloat = 30
         

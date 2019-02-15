@@ -19,7 +19,17 @@ class MiddleView: UIView{
         let textView = customTextView()
         textView.isUserInteractionEnabled = true
         textView.showsVerticalScrollIndicator = false
+        
+            textView.autocorrectionType = UITextAutocorrectionType.no
+        textView.autocorrectionType = .no
+        textView.spellCheckingType = .no
+        textView.smartDashesType = .no
+        textView.smartQuotesType = .no
+        textView.keyboardType = .default
+        textView.autocapitalizationType = .none
         textView.font = UIFont.systemFont(ofSize: 16)
+        
+        
         textView.textContainerInset = textViewInset
         textView.layer.cornerRadius = 16
         textView.layer.borderColor = #colorLiteral(red: 0.9097726345, green: 0.9057027698, blue: 0.917971909, alpha: 1)
@@ -28,6 +38,7 @@ class MiddleView: UIView{
         textView.layer.borderWidth = 1
         textView.layer.masksToBounds = true
         textView.isScrollEnabled = false
+        
         return textView
     }()
     

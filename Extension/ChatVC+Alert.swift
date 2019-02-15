@@ -6,6 +6,31 @@ extension ChatVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate
         self.bottomController.keyboardHide()
         
         let alert = UIAlertController(title: nil, message: "옵션", preferredStyle: .alert)
+        
+        
+        alert.addAction(UIAlertAction(title: "대화방 시간 변경", style: .default, handler: { (_) in
+            self.bottomController.middleView.smileButton.becomeFirstResponder()
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "녹화하기", style: .default, handler: { (action) in
+            
+            let replayControlelr = self.storyboard?.instantiateViewController(withIdentifier: "ReplayController") as! ReplayController
+            
+            replayControlelr.room = self.room
+            replayControlelr.bgType = self.bgType
+            let nav = CustomNavigationController(rootViewController: replayControlelr)
+            nav.type = self.bgType
+            self.present(nav, animated: true, completion: nil)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "사진찍기", style: .default, handler: { (action) in
+            self.bottomController.mode = .capture
+            self.setNavTitle()
+        }))
+        
+        
+        
         alert.addAction(UIAlertAction(title: "등장인물 초대", style: .default, handler: { (_) in
             let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
             if let roomAddVC = storyboard.instantiateViewController(withIdentifier: "RoomAddVC") as? RoomAddVC{
@@ -34,26 +59,10 @@ extension ChatVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate
             self.changeChattingRoomTitle()
             
         }))
-        alert.addAction(UIAlertAction(title: "대화방 시간 변경", style: .default, handler: { (_) in
-            self.bottomController.middleView.smileButton.becomeFirstResponder()
-            
-        }))
         
-        alert.addAction(UIAlertAction(title: "사진찍기", style: .default, handler: { (action) in
-            self.bottomController.mode = .capture
-            self.setNavTitle()
-        }))
         
-        alert.addAction(UIAlertAction(title: "녹화하기", style: .default, handler: { (action) in
-            
-            let replayControlelr = self.storyboard?.instantiateViewController(withIdentifier: "ReplayController") as! ReplayController
-            
-                replayControlelr.room = self.room
-                replayControlelr.bgType = self.bgType
-                let nav = CustomNavigationController(rootViewController: replayControlelr)
-                nav.type = self.bgType
-                self.present(nav, animated: true, completion: nil)
-        }))
+        
+        
         
         alert.addAction(UIAlertAction(title: "배경 변경", style: .default, handler: { (action)
             in
@@ -97,15 +106,13 @@ extension ChatVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
         if let img = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
             let imageName = Date().currentDateToString() + ".jpg"
+            
             img.writeImage(imgName: imageName)
-            //            let msg = Message.makeImageMessage(owner: getCurrentUser(), sendDate: room.currentDate, imageUrl: imageName)
-            //            try! realm.write {
-            //                    messages.insert(msg, at: guideLineIndex.row)
-            //
-            //            }
         }
+        
         picker.dismiss(animated: true, completion: nil)
     }
     
