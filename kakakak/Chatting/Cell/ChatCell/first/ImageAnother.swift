@@ -1,4 +1,5 @@
 import UIKit
+import SnapKit
 class ImageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
     
     
@@ -10,7 +11,7 @@ class ImageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
     }
     
     
-    @IBOutlet var imageRatio: NSLayoutConstraint!
+    
     
     @IBOutlet var messageImage: UIImageView!
     @IBOutlet var failView: UIImageView!
@@ -23,21 +24,14 @@ class ImageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
     
     fileprivate func setupImage(){
         
-        imageRatio.isActive = false
+
         guard let image = messageImage.image else { return }
-        let ratio = image.size.width / image.size.height
-        imageRatio = NSLayoutConstraint(item: messageImage, attribute: .width,
-                                        relatedBy: .equal,
-                                        toItem: messageImage, attribute: .height,
-                                        multiplier: ratio, constant: 0)
-        
-        imageRatio.isActive = true
+                
         updateConstraints()
         messageImage.layer.cornerRadius = 2
+        
     }
-    
-    
-    
+
     var mImage: UIImage?{
         didSet{
             messageImage.image = mImage
@@ -45,6 +39,8 @@ class ImageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
         }
     }
     
+    var lastWidth = -1
+    var lastHeight = -1
     
     
     required init?(coder aDecoder: NSCoder) {
@@ -62,6 +58,15 @@ class ImageAnother: UserChattingBaseAnotherCell,ChattingCellProtocol{
         
         mImage = UIImage.loadImageFromName(message.messageImageUrl)
         
+        
+        if lastWidth != message.imageWidth || lastHeight != message.imageHeight{
+            lastWidth = message.imageWidth
+            lastHeight = message.imageHeight
+            messageImage.snp.remakeConstraints { (mk) in
+                mk.width.equalTo(message.imageWidth)
+                mk.height.equalTo(message.imageHeight)
+            }
+        }
         
     }
     override func layoutSubviews() {

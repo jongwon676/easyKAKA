@@ -12,6 +12,13 @@
 		AD091C5222176639001C0CEC /* KMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD091C5122176639001C0CEC /* KMessageCell.swift */; };
 		AD091C552217666E001C0CEC /* KTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD091C542217666E001C0CEC /* KTextCell.swift */; };
 		AD091C5722176676001C0CEC /* KImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD091C5622176676001C0CEC /* KImageCell.swift */; };
+		AD091C59221769C1001C0CEC /* KBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD091C58221769C1001C0CEC /* KBaseCell.swift */; };
+		AD091C5B221769F0001C0CEC /* KDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD091C5A221769F0001C0CEC /* KDateCell.swift */; };
+		AD091C5D22176A09001C0CEC /* KInviteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD091C5C22176A09001C0CEC /* KInviteCell.swift */; };
+		AD091C5F22176A1C001C0CEC /* KExitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD091C5E22176A1C001C0CEC /* KExitCell.swift */; };
+		AD091C6122176A33001C0CEC /* KCallMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD091C6022176A33001C0CEC /* KCallMessageCell.swift */; };
+		AD091C6322176A5A001C0CEC /* KRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD091C6222176A5A001C0CEC /* KRecordCell.swift */; };
+		AD091C6522176A65001C0CEC /* KDeleteMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD091C6422176A65001C0CEC /* KDeleteMessageCell.swift */; };
 		AD0AA03221EA00D000B45EF5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD0AA03121EA00D000B45EF5 /* GoogleService-Info.plist */; };
 		AD0D47FD220B165100FFAC7D /* UserNameEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D47FC220B165100FFAC7D /* UserNameEditCell.swift */; };
 		AD0D47FF220B166400FFAC7D /* TextEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D47FE220B166400FFAC7D /* TextEditCell.swift */; };
@@ -166,6 +173,13 @@
 		AD091C5122176639001C0CEC /* KMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMessageCell.swift; sourceTree = "<group>"; };
 		AD091C542217666E001C0CEC /* KTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KTextCell.swift; sourceTree = "<group>"; };
 		AD091C5622176676001C0CEC /* KImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KImageCell.swift; sourceTree = "<group>"; };
+		AD091C58221769C1001C0CEC /* KBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KBaseCell.swift; sourceTree = "<group>"; };
+		AD091C5A221769F0001C0CEC /* KDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDateCell.swift; sourceTree = "<group>"; };
+		AD091C5C22176A09001C0CEC /* KInviteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KInviteCell.swift; sourceTree = "<group>"; };
+		AD091C5E22176A1C001C0CEC /* KExitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KExitCell.swift; sourceTree = "<group>"; };
+		AD091C6022176A33001C0CEC /* KCallMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCallMessageCell.swift; sourceTree = "<group>"; };
+		AD091C6222176A5A001C0CEC /* KRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRecordCell.swift; sourceTree = "<group>"; };
+		AD091C6422176A65001C0CEC /* KDeleteMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDeleteMessageCell.swift; sourceTree = "<group>"; };
 		AD0AA03121EA00D000B45EF5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AD0D47FC220B165100FFAC7D /* UserNameEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameEditCell.swift; sourceTree = "<group>"; };
 		AD0D47FE220B166400FFAC7D /* TextEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditCell.swift; sourceTree = "<group>"; };
@@ -342,7 +356,14 @@
 			children = (
 				AD091C5122176639001C0CEC /* KMessageCell.swift */,
 				AD091C542217666E001C0CEC /* KTextCell.swift */,
+				AD091C6022176A33001C0CEC /* KCallMessageCell.swift */,
+				AD091C6222176A5A001C0CEC /* KRecordCell.swift */,
+				AD091C6422176A65001C0CEC /* KDeleteMessageCell.swift */,
 				AD091C5622176676001C0CEC /* KImageCell.swift */,
+				AD091C58221769C1001C0CEC /* KBaseCell.swift */,
+				AD091C5A221769F0001C0CEC /* KDateCell.swift */,
+				AD091C5C22176A09001C0CEC /* KInviteCell.swift */,
+				AD091C5E22176A1C001C0CEC /* KExitCell.swift */,
 			);
 			path = KChatCell;
 			sourceTree = "<group>";
@@ -1007,10 +1028,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-kakakak/Pods-kakakak-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/CBFlashyTabBarController/CBFlashyTabBarController.framework",
-				"${BUILT_PRODUCTS_DIR}/CropViewController/CropViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/InputBarAccessoryView/InputBarAccessoryView.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
@@ -1018,10 +1036,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CBFlashyTabBarController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CropViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InputBarAccessoryView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
@@ -1045,6 +1060,7 @@
 				AD2B6A8222046CDE00DD563A /* DeleteMessageMe.swift in Sources */,
 				AD6EF40F2214A8A100C6F0C1 /* OptionViewController.swift in Sources */,
 				AD95E2242208712F00CD8451 /* Array+Extensions.swift in Sources */,
+				AD091C6522176A65001C0CEC /* KDeleteMessageCell.swift in Sources */,
 				AD95E2442208712F00CD8451 /* SearchHistoryManager.swift in Sources */,
 				ADDDF02B21E53E6E007E3D16 /* ChatVC+extension.swift in Sources */,
 				AD8CD4012200E70F0040AE81 /* UITableView+Extension.swift in Sources */,
@@ -1061,6 +1077,7 @@
 				ADDFB86021E7037A003D5DF1 /* ChatVC+Alert.swift in Sources */,
 				AD091C5722176676001C0CEC /* KImageCell.swift in Sources */,
 				ADC672CE21E29BC800D6D3F5 /* User.swift in Sources */,
+				AD091C5F22176A1C001C0CEC /* KExitCell.swift in Sources */,
 				AD3566BF220B322D00BB3141 /* TimeEditCell.swift in Sources */,
 				ADFA3069220448B700744C31 /* TextAnother.swift in Sources */,
 				AD95E24B2208712F00CD8451 /* ContactCell.swift in Sources */,
@@ -1077,6 +1094,7 @@
 				AD95E24E2208712F00CD8451 /* ImagePickerViewController.swift in Sources */,
 				AD2B6A90220486C900DD563A /* TimeAndReadLabel.swift in Sources */,
 				AD2B6A862204760A00DD563A /* RecordMessageMe.swift in Sources */,
+				AD091C5D22176A09001C0CEC /* KInviteCell.swift in Sources */,
 				AD95E2502208712F00CD8451 /* PhotoLayout.swift in Sources */,
 				AD0D4807220B170F00FFAC7D /* RecordEditCell.swift in Sources */,
 				AD95E2262208712F00CD8451 /* UIImageView+Extensions.swift in Sources */,
@@ -1092,9 +1110,11 @@
 				ADFA306522043C1100744C31 /* BaseChat.swift in Sources */,
 				ADC672DE21E39FCB00D6D3F5 /* ChatVC.swift in Sources */,
 				AD95E2282208712F00CD8451 /* UIView+Extensions.swift in Sources */,
+				AD091C5B221769F0001C0CEC /* KDateCell.swift in Sources */,
 				AD95E2322208712F00CD8451 /* Common+Extensions.swift in Sources */,
 				ADC672D021E2A68B00D6D3F5 /* AddUserVC.swift in Sources */,
 				AD0D47FD220B165100FFAC7D /* UserNameEditCell.swift in Sources */,
+				AD091C59221769C1001C0CEC /* KBaseCell.swift in Sources */,
 				AD2B6A882204781B00DD563A /* RecordMessageAnother.swift in Sources */,
 				AD95E22B2208712F00CD8451 /* UITextView+Extensions.swift in Sources */,
 				AD8D17F0220B60E1002034FF /* UserChattingBaseMeCell.swift in Sources */,
@@ -1154,6 +1174,7 @@
 				ADC672A921E2260700D6D3F5 /* AppDelegate.swift in Sources */,
 				AD0D47FF220B166400FFAC7D /* TextEditCell.swift in Sources */,
 				AD50748421F2971D003B50F5 /* MiddleView.swift in Sources */,
+				AD091C6122176A33001C0CEC /* KCallMessageCell.swift in Sources */,
 				AD6EF4112214ACF200C6F0C1 /* OptionCell.swift in Sources */,
 				ADA7E00E21FED65500FCF517 /* SpeacialFeatureInputView.swift in Sources */,
 				AD95E2512208712F00CD8451 /* TelegramPickerViewController.swift in Sources */,
@@ -1171,6 +1192,7 @@
 				AD27D18E21F1D422009E367A /* ChatTableView.swift in Sources */,
 				AD2B6A84220474CB00DD563A /* DeleteMessageAnother.swift in Sources */,
 				AD091C552217666E001C0CEC /* KTextCell.swift in Sources */,
+				AD091C6322176A5A001C0CEC /* KRecordCell.swift in Sources */,
 				AD95E2422208712F00CD8451 /* LocationSearchResultsViewController.swift in Sources */,
 				AD0D4803220B167900FFAC7D /* DateLineEditCell.swift in Sources */,
 				AD95E2552208712F00CD8451 /* SegmentedControl.swift in Sources */,

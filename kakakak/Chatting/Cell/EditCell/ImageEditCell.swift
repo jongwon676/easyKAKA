@@ -4,8 +4,12 @@ class ImageEditCell: UITableViewCell,EditCellProtocol,UIImagePickerControllerDel
     var message: Message?
     func getEditContent() -> (MessageProcessor.EditContent)? {
         guard let message = self.message else { return nil }
-        messageImageView.image?.writeImage(imgName: message.messageImageUrl)
-        return nil
+        if let newImage =  messageImageView.image?.writeImage(imgName: message.messageImageUrl){
+            ProfileImageCacher.shared.addImageToCache(imgName: message.messageImageUrl, img: newImage)
+            return MessageProcessor.EditContent.imageSize(CGSize(width: newImage.size.width, height: newImage.size.height))
+        } else {
+            return nil
+        }
     }
     
     @IBOutlet var imageRatio: NSLayoutConstraint!

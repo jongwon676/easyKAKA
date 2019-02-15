@@ -476,8 +476,8 @@ extension KeyBoardAreaController: UIImagePickerControllerDelegate,UINavigationCo
             
             guard let user = selectedUser else { return }
             let imgName = Date().currentDateToString() + ".jpg"
-            if img.writeImage(imgName: imgName){
-                messageManager?.sendMessaegImage(imageName: imgName, user: user)
+            if let newImage = img.writeImage(imgName: imgName){
+                messageManager?.sendMessaegImage(imageName: imgName, user: user, saveImage: newImage)
             }
             
             

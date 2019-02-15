@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 import RealmSwift
-import CBFlashyTabBarController
+
 
 protocol CellConfigurator: class{
     static var reuseId: String { get }
@@ -550,7 +550,6 @@ class CustomNavigationController: UINavigationController{
         }
     }
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
         switch type {
             
         case .dark: return .lightContent

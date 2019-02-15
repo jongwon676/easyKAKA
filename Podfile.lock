@@ -1,6 +1,4 @@
 PODS:
-  - CBFlashyTabBarController (0.8.0)
-  - CropViewController (2.4.0)
   - Firebase/AdMob (5.15.0):
     - Firebase/Core
     - Google-Mobile-Ads-SDK (~> 7.37)
@@ -49,7 +47,6 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (5.3.6):
     - GoogleUtilities/Logger
-  - InputBarAccessoryView (4.1.1)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
@@ -63,19 +60,14 @@ PODS:
   - SnapKit (4.0.1)
 
 DEPENDENCIES:
-  - CBFlashyTabBarController
-  - CropViewController
   - Firebase/AdMob
   - Firebase/Core
   - Google-Mobile-Ads-SDK
-  - InputBarAccessoryView
   - RealmSwift (= 3.7.1)
   - SnapKit (~> 4.0.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - CBFlashyTabBarController
-    - CropViewController
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -83,15 +75,12 @@ SPEC REPOS:
     - Google-Mobile-Ads-SDK
     - GoogleAppMeasurement
     - GoogleUtilities
-    - InputBarAccessoryView
     - nanopb
     - Realm
     - RealmSwift
     - SnapKit
 
 SPEC CHECKSUMS:
-  CBFlashyTabBarController: 4a5373a5b586646f8c4c22b28a6d33d01328538e
-  CropViewController: a090820b15fc3da68e694d7c192a4708c576828b
   Firebase: 8bb9268bff82374f2cbaaabb143e725743c316ae
   FirebaseAnalytics: c06f9d70577d79074214700a71fd5d39de5550fb
   FirebaseCore: 35747502d9e8c6ee217385ad04446c7c2aaf9c5c
@@ -99,12 +88,11 @@ SPEC CHECKSUMS:
   Google-Mobile-Ads-SDK: d028682d7450749a1955679da050eaf70d997b3e
   GoogleAppMeasurement: 98b71f5e04142793729a5ef23e5b96651ff4b70f
   GoogleUtilities: 95996bea7c7d9b8fb811b7507669a4a8762f80c7
-  InputBarAccessoryView: 00890d184fd2903b7e0f7f1551bb546ec9c5845c
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Realm: 906be37d52f17f25484ac01643a7f26a9d3bfbd5
   RealmSwift: 1c2b6bae3dc55bb87e080ffa96537d71442f6dce
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
 
-PODFILE CHECKSUM: 408a41185273157a654e3cb5865a1a3ab165a91b
+PODFILE CHECKSUM: 7bf4b85005860098e495553f048af9c166341486
 
 COCOAPODS: 1.5.3

@@ -10,26 +10,33 @@ extension UIImage{
     
     static func loadImageFromName(_ imgName: String) -> UIImage?{
         do{
-            let path = try Path.inDocuments(imgName)
-            return UIImage(contentsOfFile: path.path)
+            if let image = ProfileImageCacher.shared.requestImage(imgName: imgName){
+                return image
+            }else{
+                let path = try Path.inDocuments(imgName)
+                let image = UIImage(contentsOfFile: path.path)!
+                ProfileImageCacher.shared.addImageToCache(imgName: imgName, img: image)
+                return image
+            }
         }catch _{
             return nil
         }
     }
     
-    func writeImage(imgName name: String ) -> Bool{
+    func writeImage(imgName name: String ) -> UIImage?{
         let maxWidth: CGFloat = UIScreen.main.bounds.width * 0.6
         let maxHeight: CGFloat = UIScreen.main.bounds.height * 0.5
         let imgCompress = resizeImageWithAspect(image: self, scaledToMaxWidth: maxWidth, maxHeight: maxHeight)
+        
 //        let data = imgCompress?.jpegData(compressionQuality: 1.0)
         let data = imgCompress?.jpegData(compressionQuality: 0.3)
-        guard let imgData = data else { return false }
+        guard let imgData = data else { return nil }
         do{
             try imgData.write(to: Path.inDocuments(name))
         }catch let err as NSError{
-            return false
+            return nil
         }
-        return true
+        return imgCompress
     }
     
     convenience init(view: UIView) {

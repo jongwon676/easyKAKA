@@ -9,7 +9,6 @@ class TextMe: UserChattingBaseMeCell,ChattingCellProtocol{
         self.bubble.backgroundColor = Style.leftBubbleColor
         messageLabel.text = message.messageText
         moveConstraint()
-        
         updateConstraintsIfNeeded()
     }
     

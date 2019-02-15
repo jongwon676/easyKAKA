@@ -1,5 +1,10 @@
 import UIKit
+import SnapKit
 class ImageMe: UserChattingBaseMeCell,ChattingCellProtocol{
+    
+    var lastWidth = -1
+    var lastHeight = -1
+    
     func configure(message: Message, bgType: BgType) {
         self.backgroundColor = UIColor.clear
         containerView.backgroundColor = UIColor.clear
@@ -7,6 +12,16 @@ class ImageMe: UserChattingBaseMeCell,ChattingCellProtocol{
         mImage = UIImage.loadImageFromName(message.messageImageUrl)
         
         timeReadLabel.setUp(message: message, timeColor: bgType.chattingTimeColor)
+        
+        if lastWidth != message.imageWidth || lastHeight != message.imageHeight{
+            lastWidth = message.imageWidth
+            lastHeight = message.imageHeight
+            messageImage.snp.remakeConstraints { (mk) in
+                mk.width.equalTo(message.imageWidth)
+                mk.height.equalTo(message.imageHeight)
+            }
+        }
+        
         moveConstraint()
     }
 
@@ -14,19 +29,11 @@ class ImageMe: UserChattingBaseMeCell,ChattingCellProtocol{
     
     @IBOutlet var messageImage: UIImageView!
     
-    @IBOutlet var imageRatio: NSLayoutConstraint!
+    
     
     
     fileprivate func setupImage(){
         messageImage.image = mImage
-        imageRatio.isActive = false
-        guard let image = messageImage.image else { return }
-        let ratio = image.size.width / image.size.height
-        imageRatio = NSLayoutConstraint(item: messageImage, attribute: .width,
-                                        relatedBy: .equal,
-                                        toItem: messageImage, attribute: .height,
-                                        multiplier: ratio, constant: 0)
-        imageRatio.isActive = true
         messageImage.layer.cornerRadius = 2
         updateConstraints()
     }

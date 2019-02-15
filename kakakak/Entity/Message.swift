@@ -20,6 +20,9 @@ class Message: Object,NSCopying {
     @objc dynamic var isDelete: Bool = false
     @objc dynamic var isFail: Bool = false
     @objc dynamic var duration: Int = 0
+    @objc dynamic var imageHeight = 0
+    @objc dynamic var imageWidth = 0
+    
     override static func ignoredProperties() -> [String] {
         return ["isFirstMessage","isLastMessage","isSelected"]
     }

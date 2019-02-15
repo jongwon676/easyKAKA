@@ -1,7 +1,7 @@
 import UIKit
 import RealmSwift
 import Firebase
-import CBFlashyTabBarController
+
 @UIApplicationMain
 
 

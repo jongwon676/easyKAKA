@@ -16,6 +16,7 @@ class MessageProcessor{
         case dateLine(Date)
         case dateTime(Date)
         case duration(Int)
+        case imageSize(CGSize)
     }
     
     init(room: Room) {
@@ -184,6 +185,9 @@ class MessageProcessor{
                 case .text(let string):
                     messages[row].messageText = string
                     room.messages[row].messageText = string
+                case .imageSize(let size):
+                    messages[row].imageWidth = Int(size.width)
+                    messages[row].imageHeight = Int(size.height)
                 }
             }
             
@@ -342,11 +346,12 @@ class MessageProcessor{
     
     private weak var timer: Timer?
     
-    func sendMessaegImage(imageName: String,user: User){
+    func sendMessaegImage(imageName: String,user: User, saveImage: UIImage){
         //보내는사람, 이미지 이름, 보내는날짜
         let msg = Message.makeImageMessage(owner: user, sendDate: room.currentDate, imageUrl: imageName)
         msg.noReadUser = room.actviateUserExcepteMe(me: user)
-        
+        msg.imageWidth = Int(saveImage.size.width)
+        msg.imageHeight = Int(saveImage.size.height)
         timer?.invalidate()
         timer = nil
         try! realm.write {
@@ -400,7 +405,6 @@ class MessageProcessor{
         var change: Bool = false
         try! realm.write {
             for message in room.messages{
-                
                 for (idx,user) in message.noReadUser.enumerated(){
                     if user.id == owner.id {
                         message.noReadUser.remove(at: idx)
@@ -409,8 +413,8 @@ class MessageProcessor{
                     }
                 }
             }
+            
             if change {
-                reload()
                 self.vc?.tableView.reloadData()
             }
         }
