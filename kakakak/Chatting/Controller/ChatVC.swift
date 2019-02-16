@@ -296,6 +296,12 @@ class ChatVC: UIViewController,UIGestureRecognizerDelegate{
         tableView.addGestureRecognizer(tableviewGestureRecog)
         tableView.delegate = self
         tableView.dataSource = self
+        
+        tableView.register(KTextCell.self, forCellReuseIdentifier: KTextCell.reuseId)
+        tableView.register(KImageCell.self, forCellReuseIdentifier: KImageCell.reuseId)
+        
+        
+        
         view.addSubview(bottomController.view)
         
         
