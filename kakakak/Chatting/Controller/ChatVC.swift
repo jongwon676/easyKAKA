@@ -477,8 +477,10 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
         
        
         let msg = messageManager.getMessage(idx: indexPath.row)
-
-        if let cell = tableView.dequeueReusableCell(withIdentifier: msg.getIdent()) as? BaseChat{
+        
+        let tableCell = tableView.dequeueReusableCell(withIdentifier: msg.getIdent())
+        
+        if let cell = tableCell as? BaseChat{
             
             cell.selectionStyle = .none
             cell.editMode = self.isEditMode
@@ -486,13 +488,36 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
             (cell as? ChattingCellProtocol)?.configure(message: msg, bgType: bgType)
             cell.checkBoxImage.image = msg.isSelected ? UIImage(named: "selected") : UIImage(named: "unSelected")
             cell.bringSubviewToFront(cell.checkBoxImage)
-            
-         
-            
+            return cell
+        }
+        if let cell = tableCell as? KTextCell{
+            cell.selectionStyle = .none
+            cell.editMode = self.isEditMode
+            (cell as? ChattingCellProtocol)?.configure(message: msg, bgType: bgType)
+            cell.checkBoxImage.image = msg.isSelected ? UIImage(named: "selected") : UIImage(named: "unSelected")
+            cell.bringSubviewToFront(cell.checkBoxImage)
+            return cell
+        }
+        if let cell = tableCell as? KImageCell{
+            cell.selectionStyle = .none
+            cell.editMode = self.isEditMode
+            (cell as? ChattingCellProtocol)?.configure(message: msg, bgType: bgType)
+            cell.checkBoxImage.image = msg.isSelected ? UIImage(named: "selected") : UIImage(named: "unSelected")
+            cell.bringSubviewToFront(cell.checkBoxImage)
             return cell
         }
         
         return UITableViewCell()
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let msg = messageManager.getMessage(idx: indexPath.row)
+        if msg.type == Message.MessageType.text{
+            return KTextCell.height(message: msg)
+        }else if msg.type == Message.MessageType.image{
+            return KImageCell.height(message: msg)
+        }else{
+            return 50
+        }
     }
     
 }
@@ -562,5 +587,7 @@ class CustomNavigationController: UINavigationController{
         case .light: return .default
         }
     }
+    
+    
     
 }

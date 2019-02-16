@@ -1,6 +1,9 @@
 import UIKit
 import SnapKit
 class TextMe: UserChattingBaseMeCell,ChattingCellProtocol{
+    
+    
+    
     func configure(message: Message, bgType: BgType) {
         self.message = message
         self.backgroundColor = UIColor.clear

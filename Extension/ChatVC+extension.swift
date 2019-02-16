@@ -141,7 +141,9 @@ extension ChatVC: bottomInfoReceiver{
     
     func sendMessage(text: String) {
         guard let currentUser = bottomController.selectedUser else { return }
-        messageManager.addLast(message: Message(owner: currentUser, sendDate: room.currentDate, messageText: text), tableView: self.tableView)
+        let message = Message(owner: currentUser, sendDate: room.currentDate, messageText: text)
+        
+        messageManager.addLast(message: message, tableView: self.tableView)
         
     }
     func addMinute(minute: Int) {

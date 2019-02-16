@@ -3,9 +3,6 @@ import SnapKit
 
 class KMessageCell: KBaseCell{
     
-    static var reuseId: String {
-        return "KMessageCell"
-    }
     
     lazy var bubble: UIView = {
         let view = UIView()
@@ -42,16 +39,18 @@ class KMessageCell: KBaseCell{
     
     func configure(message: Message, bgType: BgType) {
         
-        timeReadLabel.setUp(message: message, timeColor: bgType.chattingTimeColor)
-        timeReadLabel.sizeToFit()
         
+        
+        timeReadLabel.setUp(message: message, timeColor: bgType.chattingTimeColor)
         nameLabel.font = Style.nameLabelFont
         nameLabel.textColor = bgType.userNameColor
         
         guard let owner = message.owner else { return }
-        profile.image = UIImage.loadImageFromName(message.messageImageUrl)
+        profile.image = UIImage.loadImageFromName(owner.profileImageUrl ?? "")
         nameLabel.text = owner.name
         addSubViews(!owner.isMe)
+        
+        bubble.backgroundColor = UIColor.white
         
         if !owner.isMe  && message.isFirstMessage{
             profile.isHidden = false
@@ -98,7 +97,7 @@ class KMessageCell: KBaseCell{
     
     func layoutSubviews(size: CGSize){ // 멀 넘겨주냐면, 버블의 크기를 넘겨줌.
         super.layoutSubviews()
-        //버블 사이즈를 받앗음. 갱신합시다.
+        
         guard let owner = message.owner else { return }
         if owner.isMe{
             setupLayoutRightSide(bubbleSize: size)

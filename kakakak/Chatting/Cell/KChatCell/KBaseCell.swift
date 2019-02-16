@@ -4,7 +4,6 @@ class KBaseCell: UITableViewCell{
     
     var message: Message!
     
-    
     lazy var containerView: UIView = {
        let view = UIView()
        self.addSubview(view)
@@ -26,12 +25,14 @@ class KBaseCell: UITableViewCell{
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        containerView.backgroundColor = UIColor.clear
+        contentView.backgroundColor = UIColor.clear
         self.backgroundColor = UIColor.clear
-        self.contentView.backgroundColor = UIColor.clear
         
         
         self.addSubview(checkBoxImage)
         self.addSubview(containerView)
+        
         containerView.snp.makeConstraints { (mk) in
             mk.edges.equalTo(self)
         }

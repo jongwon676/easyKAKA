@@ -159,7 +159,10 @@ class Message: Object,NSCopying {
         switch self.type {
             
         case .text:
+            return KTextCell.reuseId
             if let isMe = owner?.isMe, isMe == true {
+                
+                
                 if isFirstMessage { return  "textAnother" }
                 else { return "textAnotherSecond" }
             }
@@ -170,6 +173,7 @@ class Message: Object,NSCopying {
             }
             
         case .image:
+            return KImageCell.reuseId
             if let isMe = owner?.isMe, isMe == true{
                 if isFirstMessage {
                     return "imageAnother"
