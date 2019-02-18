@@ -54,4 +54,15 @@ class ImageEditCell: UITableViewCell,EditCellProtocol,UIImagePickerControllerDel
         
     }
     
+//    let gradientLayer = CAGradientLayer()
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+//        gradientLayer.colors = [UIColor.clear.cgColor,UIColor.white.cgColor]
+//        gradientLayer.locations = [0.5,1]
+//        
+//        self.layer.addSublayer(gradientLayer)
+//        gradientLayer.frame = self.frame
+    }
+    
 }

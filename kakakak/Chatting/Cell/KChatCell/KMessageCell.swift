@@ -6,6 +6,8 @@ class KMessageCell: KBaseCell{
     
     lazy var bubble: UIView = {
         let view = UIView()
+        view.layer.cornerRadius = 2
+        view.layer.masksToBounds = true
         return view
     }()
     
@@ -22,6 +24,11 @@ class KMessageCell: KBaseCell{
         return label
     }()
     
+    lazy var profileMask:UIImageView = {
+       let view = UIImageView()
+        view.image = #imageLiteral(resourceName: "mask")
+        return view
+    }()
     
     lazy var subViews: [UIView] = [ bubble,profile,nameLabel,timeReadLabel ]
     
@@ -50,7 +57,9 @@ class KMessageCell: KBaseCell{
         nameLabel.text = owner.name
         addSubViews(!owner.isMe)
         
-        bubble.backgroundColor = UIColor.white
+        bubble.backgroundColor = (owner.isMe && message.type == .text) ? Style.rightBubbleColor : Style.leftBubbleColor
+        
+        
         
         if !owner.isMe  && message.isFirstMessage{
             profile.isHidden = false
@@ -65,16 +74,13 @@ class KMessageCell: KBaseCell{
     
         profile.frame = CGRect(x: Style.profileToLeftCornerGap, y: Style.firstMessageGap, width: Style.profileSize, height: Style.profileSize)
         nameLabel.frame.origin = CGPoint(x: profile.frame.maxX + Style.bubbleProfileGap, y: profile.frame.minY)
-        
-        
-        
         nameLabel.sizeToFit()
-        
         if message.isFirstMessage{
             bubble.frame = CGRect(origin: CGPoint(x: nameLabel.frame.minX, y: nameLabel.frame.maxY + Style.nameLabelBubbleGap), size: bubbleSize)
         }else{
             bubble.frame = CGRect(origin: CGPoint(x: nameLabel.frame.minX, y: Style.moreThanFirstMessageGap), size: bubbleSize)
         }
+        timeReadLabel.frame.size.width = 1000
         let timeHeight = timeReadLabel.frame.height
         timeReadLabel.frame.origin = CGPoint(
             x: bubble.frame.maxX + Style.bubbleToTimeSideGap,
@@ -104,6 +110,9 @@ class KMessageCell: KBaseCell{
         }else{
             setupLayoutLeftSide(bubbleSize: size)
         }
+        profileMask.frame = profile.bounds
+        profile.mask = profileMask
+        profile.layer.masksToBounds = true        
     }
     class func nameLabelHeight(_ message: Message) -> CGFloat{
         let maxWidth = UIScreen.main.bounds.width * 1.0

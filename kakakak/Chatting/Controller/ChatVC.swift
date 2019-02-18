@@ -498,6 +498,7 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
             cell.bringSubviewToFront(cell.checkBoxImage)
             return cell
         }
+        
         if let cell = tableCell as? KImageCell{
             cell.selectionStyle = .none
             cell.editMode = self.isEditMode
@@ -506,9 +507,9 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
             cell.bringSubviewToFront(cell.checkBoxImage)
             return cell
         }
-        
         return UITableViewCell()
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let msg = messageManager.getMessage(idx: indexPath.row)
         if msg.type == Message.MessageType.text{

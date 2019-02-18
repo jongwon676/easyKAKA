@@ -29,7 +29,7 @@ class Style{
     
     
     static let messageTextLeftInset: CGFloat = 8
-    static let messageTextRightInset: CGFloat = 13
+    static let messageTextRightInset: CGFloat = 7
     static let messageTextTopInset: CGFloat = 8.7
     static let messageTextBottomInset: CGFloat = 8
     

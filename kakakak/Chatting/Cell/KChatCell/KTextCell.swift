@@ -22,7 +22,7 @@ class KTextCell: KMessageCell,ChattingCellProtocol{
     
     override func layoutSubviews() {
         super.layoutSubviews(size: KTextCell.bubbleSize(message))
-        bubbleTextLabel.frame.origin = CGPoint(x: Style.messageTextLeftInset, y: Style.messageTextRightInset)
+        bubbleTextLabel.frame.origin = CGPoint(x: Style.messageTextLeftInset, y: Style.messageTextTopInset)
     }
     
     
@@ -31,6 +31,26 @@ class KTextCell: KMessageCell,ChattingCellProtocol{
         let rect = message.messageText.boundingRect(with: CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: Style.messageLabelFont], context: nil)
         return CGSize(width: rect.width + Style.messageTextLeftInset + Style.messageTextRightInset, height: rect.height + Style.messageTextTopInset + Style.messageTextBottomInset)
     }
+    
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        guard let owner = message.owner else { return }
+        let direction: DrawHelper.Direction  = owner.isMe ? .right : .left
+        let corner: CGPoint = direction == .left ? bubble.frame.origin : bubble.frame.rightTopCorner
+        if self.message.isFirstMessage{
+            let path = UIBezierPath()
+            let points = DrawHelper.drawTail(dir: direction, cornerPoint: corner)
+            path.move(to: points[0])
+            path.addLine(to: points[1])
+            path.addLine(to: points[2])
+            path.addLine(to: points[3])
+            path.close()
+            bubble.backgroundColor?.setFill()
+            path.fill()
+        }        
+    }
+    
+    
 
     class func height(message: Message) -> CGFloat{
         let bubbleSize = self.bubbleSize(message)

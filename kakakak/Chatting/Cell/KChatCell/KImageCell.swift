@@ -16,8 +16,9 @@ class KImageCell: KMessageCell,ChattingCellProtocol{
     }
     
     override func layoutSubviews() {
-        super.layoutSubviews(size: KTextCell.bubbleSize(message))
-        messageImageView.frame.origin = CGPoint(x: 0, y: 0)
+        super.layoutSubviews(size: KImageCell.bubbleSize(message))
+        messageImageView.frame = CGRect(x: 0, y: 0, width: CGFloat(message.imageWidth), height: CGFloat(message.imageHeight))
+        
     }
     
     
