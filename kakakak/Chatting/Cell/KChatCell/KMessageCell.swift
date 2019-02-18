@@ -98,6 +98,7 @@ class KMessageCell: KBaseCell{
         timeReadLabel.frame.origin = CGPoint(
             x: bubble.frame.minX - timeWidth - Style.bubbleToTimeSideGap,
             y: bubble.frame.maxY - Style.bubbleToTimeBottomGap - timeHeight)
+        
     }
     
     

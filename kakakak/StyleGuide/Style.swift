@@ -17,7 +17,7 @@ class Style{
     static let moreThanFirstMessageGap: CGFloat = 4
     
     static let basicTopGap:CGFloat = 4
-    
+    static let recordTimeLabelFont = UIFont.systemFont(ofSize: 17)
     
     static let nameLabelBubbleGap:CGFloat = 3.7
     static let bubbleProfileGap:CGFloat = 9
@@ -46,6 +46,31 @@ class Style{
     static let bubbleCornerRadius: CGFloat = 4
     static let checkBoxOffset: CGFloat = 8
     static let checkBoxSize: CGFloat = 20
+    
+    
+    
+    
+    ////////////RecordCell////////////////
+    static let recordBubbleCellHeight: CGFloat = 51
+    static let recordPlayImageSize: CGSize = CGSize(width: 35, height: 35)
+    static let recordWaveImageSize: CGSize = CGSize(width: 87, height: 39)
+    static let recordPlayImageLeftGap: CGFloat = 8
+    static let recordPlayImageToWaveImageGap: CGFloat = 7
+    static let recrodWaveImageToTimeLabelGap: CGFloat = 3
+    static let recordTimeLabelToRightGap: CGFloat = 10
+    
+    
+    ///////////deletemessageCell///////
+    static let warningViewToDeleteLabelGap: CGFloat = 4
+    static let warningViewSize: CGSize = CGSize(width: 16, height: 16)
+    static let warningToLeftGap: CGFloat = 8
+    static let deleteLabelTopInset: CGFloat = 9
+    static let deleteLabelBottomInset: CGFloat = 9
+    static let deleteLabelRightInset: CGFloat = 9
+    static let deleteLabelFont: UIFont = UIFont.systemFont(ofSize: 13)
+    static let deleteText:String = "삭제된 메시지입니다"
+    
+    
     
     static let editModeOffset:CGFloat = 30
     

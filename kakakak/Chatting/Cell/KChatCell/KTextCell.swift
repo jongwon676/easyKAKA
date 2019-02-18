@@ -16,7 +16,6 @@ class KTextCell: KMessageCell,ChattingCellProtocol{
         super.configure(message: message, bgType: bgType)
         bubbleTextLabel.font = Style.messageLabelFont
         bubbleTextLabel.text = message.messageText
-        bubbleTextLabel.font = Style.messageLabelFont
         bubbleTextLabel.sizeToFit()
     }
     
@@ -26,7 +25,9 @@ class KTextCell: KMessageCell,ChattingCellProtocol{
     }
     
     
-    class func bubbleSize(_ message: Message) -> CGSize{
+    class func bubbleSize(_
+        
+        message: Message) -> CGSize{
         let maxWidth = UIScreen.main.bounds.width * 0.6
         let rect = message.messageText.boundingRect(with: CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: Style.messageLabelFont], context: nil)
         return CGSize(width: rect.width + Style.messageTextLeftInset + Style.messageTextRightInset, height: rect.height + Style.messageTextTopInset + Style.messageTextBottomInset)

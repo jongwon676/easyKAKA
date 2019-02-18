@@ -299,8 +299,8 @@ class ChatVC: UIViewController,UIGestureRecognizerDelegate{
         
         tableView.register(KTextCell.self, forCellReuseIdentifier: KTextCell.reuseId)
         tableView.register(KImageCell.self, forCellReuseIdentifier: KImageCell.reuseId)
-        
-        
+        tableView.register(KRecordCell.self, forCellReuseIdentifier: KRecordCell.reuseId)
+        tableView.register(KDeleteMessageCell.self, forCellReuseIdentifier: KDeleteMessageCell.reuseId)
         
         view.addSubview(bottomController.view)
         
@@ -490,16 +490,7 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
             cell.bringSubviewToFront(cell.checkBoxImage)
             return cell
         }
-        if let cell = tableCell as? KTextCell{
-            cell.selectionStyle = .none
-            cell.editMode = self.isEditMode
-            (cell as? ChattingCellProtocol)?.configure(message: msg, bgType: bgType)
-            cell.checkBoxImage.image = msg.isSelected ? UIImage(named: "selected") : UIImage(named: "unSelected")
-            cell.bringSubviewToFront(cell.checkBoxImage)
-            return cell
-        }
-        
-        if let cell = tableCell as? KImageCell{
+        if let cell = (tableCell as? KTextCell) ?? (tableCell as? KRecordCell) ?? (tableCell as? KImageCell) ?? (tableCell as? KDeleteMessageCell){
             cell.selectionStyle = .none
             cell.editMode = self.isEditMode
             (cell as? ChattingCellProtocol)?.configure(message: msg, bgType: bgType)
@@ -510,13 +501,35 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
         return UITableViewCell()
     }
     
+    
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let msg = messageManager.getMessage(idx: indexPath.row)
         if msg.type == Message.MessageType.text{
             return KTextCell.height(message: msg)
         }else if msg.type == Message.MessageType.image{
             return KImageCell.height(message: msg)
-        }else{
+        }else if msg.type == Message.MessageType.record{
+            return KRecordCell.height(message: msg)
+        } else if msg.type == Message.MessageType.delete{
+            return KDeleteMessageCell.height(message: msg)
+        }
+        else{
+            return 50
+        }
+    }
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        let msg = messageManager.getMessage(idx: indexPath.row)
+        if msg.type == Message.MessageType.text{
+            return KTextCell.height(message: msg)
+        }else if msg.type == Message.MessageType.image{
+            return KImageCell.height(message: msg)
+        }else if msg.type == Message.MessageType.record{
+            return KRecordCell.height(message: msg)
+        }else if msg.type == Message.MessageType.delete{
+            return KDeleteMessageCell.height(message: msg)
+        }
+        else{
             return 50
         }
     }
@@ -583,9 +596,8 @@ class CustomNavigationController: UINavigationController{
     }
     override var preferredStatusBarStyle: UIStatusBarStyle {
         switch type {
-            
-        case .dark: return .lightContent
-        case .light: return .default
+            case .dark: return .lightContent
+            case .light: return .default
         }
     }
     

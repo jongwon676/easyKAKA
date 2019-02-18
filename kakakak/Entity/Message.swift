@@ -206,6 +206,7 @@ class Message: Object,NSCopying {
             }
         case .record:
             if let isMe = owner?.isMe, isMe == true{
+                return KRecordCell.reuseId
                 if isFirstMessage { return "recordMessageAnother"}
                 else { return  "recordMessageAnotherSecond"}
             }
@@ -216,6 +217,7 @@ class Message: Object,NSCopying {
             }
             
         case .delete:
+            return KDeleteMessageCell.reuseId
             if let isMe = owner?.isMe, isMe == true{
                 if isFirstMessage { return "deleteMessageAnother"}
                 else { return  "deleteMessageAnotherSecond"}
