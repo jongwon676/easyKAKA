@@ -304,6 +304,7 @@ class ChatVC: UIViewController,UIGestureRecognizerDelegate{
         tableView.register(KDateCell.self, forCellReuseIdentifier: KDateCell.reuseId)
         tableView.register(KInviteCell.self, forCellReuseIdentifier: KInviteCell.reuseId)
         tableView.register(KExitCell.self, forCellReuseIdentifier: KExitCell.reuseId)
+        tableView.register(KCallMessageCell.self, forCellReuseIdentifier: KCallMessageCell.reuseId)
         view.addSubview(bottomController.view)
         
         
@@ -492,7 +493,7 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
             cell.bringSubviewToFront(cell.checkBoxImage)
             return cell
         }
-        if let cell = (tableCell as? KExitCell){
+        if let cell = (tableCell as? KExitCell) ?? (tableCell as? KCallMessageCell){
             cell.selectionStyle = .none
             cell.editMode = self.isEditMode
             (cell as? ChattingCellProtocol)?.configure(message: msg, bgType: bgType)
@@ -537,6 +538,8 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
             return KInviteCell.height(message: msg)
         }else if msg.type == .exit{
             return KExitCell.height(message: msg)
+        }else if msg.type == .call{
+            return KCallMessageCell.height(message: msg)
         }
         else{
             return 50
@@ -558,6 +561,8 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
             return KInviteCell.height(message: msg)
         }else if msg.type == .exit{
             return KExitCell.height(message: msg)
+        }else if msg.type == .call{
+            return KCallMessageCell.height(message: msg)
         }else{
             return 50
         }

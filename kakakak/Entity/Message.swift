@@ -198,6 +198,7 @@ class Message: Object,NSCopying {
             return KDateCell.reuseId
             return "dateLine"
         case .call:
+            return "KCallMessageCell"
             if let isMe = owner?.isMe, isMe == true{
                 if isFirstMessage { return "callMessageAnother" }
                 else { return "callMessageAnotherSecond"}
@@ -207,8 +208,9 @@ class Message: Object,NSCopying {
                 else { return "callMessageMeSecond"}
             }
         case .record:
+            return KRecordCell.reuseId
             if let isMe = owner?.isMe, isMe == true{
-                return KRecordCell.reuseId
+                
                 if isFirstMessage { return "recordMessageAnother"}
                 else { return  "recordMessageAnotherSecond"}
             }

@@ -98,6 +98,15 @@ class Style{
     static let exitLabelMaxWidth: CGFloat = 0.85 * UIScreen.main.bounds.width
     
     
+    //callMessage//
+    
+    static let callMessageFont = UIFont.systemFont(ofSize: 15)
+    static let callImageSize: CGSize = CGSize(width: 35, height: 35)
+    static let callImageLeftGap: CGFloat = 8
+    static let callImageLabelGap: CGFloat = 9
+    static let callLabelRightGap: CGFloat = 11
+    static let callBubbleHeight: CGFloat =  55
+    
     static let limitMessageWidth: CGFloat = UIScreen.main.bounds.width * 0.6
     static let limitUsernameWidth: CGFloat = UIScreen.main.bounds.width * 0.5
     static let readLabelFont: UIFont = UIFont.systemFont(ofSize: 10, weight: .semibold)
