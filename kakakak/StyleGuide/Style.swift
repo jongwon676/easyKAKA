@@ -71,8 +71,31 @@ class Style{
     static let deleteText:String = "삭제된 메시지입니다"
     
     
+    //////dateLine////
     
+    static let dateSeperatorHeight: CGFloat = 0.5
+    static let dateFont: UIFont = UIFont.systemFont(ofSize: 11)
+    static let dateLabelTopInset: CGFloat = 15
+    static let dateLabelBottomInset:CGFloat = 15
+    static let dateSeperatorCornerGap:CGFloat = 6
+    static let dateSeperatorDateLabelGap: CGFloat = 8
     static let editModeOffset:CGFloat = 30
+    
+    
+    // inviteCell///
+    static let inviteLabelFont = UIFont.systemFont(ofSize: 11)
+    static let inviteLabelTopInset: CGFloat = 9
+    static let inviteLabelBottomInset: CGFloat = 9
+    static let inviteLabelMaxWidth: CGFloat = 0.85 * UIScreen.main.bounds.width
+    
+    
+    // exitCell//
+    
+    
+    static let exitLabelFont = UIFont.systemFont(ofSize: 11)
+    static let exitLabelTopInset: CGFloat = 9
+    static let exitLabelBottomInset: CGFloat = 9
+    static let exitLabelMaxWidth: CGFloat = 0.85 * UIScreen.main.bounds.width
     
     
     static let limitMessageWidth: CGFloat = UIScreen.main.bounds.width * 0.6

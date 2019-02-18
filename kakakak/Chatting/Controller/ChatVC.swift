@@ -301,7 +301,9 @@ class ChatVC: UIViewController,UIGestureRecognizerDelegate{
         tableView.register(KImageCell.self, forCellReuseIdentifier: KImageCell.reuseId)
         tableView.register(KRecordCell.self, forCellReuseIdentifier: KRecordCell.reuseId)
         tableView.register(KDeleteMessageCell.self, forCellReuseIdentifier: KDeleteMessageCell.reuseId)
-        
+        tableView.register(KDateCell.self, forCellReuseIdentifier: KDateCell.reuseId)
+        tableView.register(KInviteCell.self, forCellReuseIdentifier: KInviteCell.reuseId)
+        tableView.register(KExitCell.self, forCellReuseIdentifier: KExitCell.reuseId)
         view.addSubview(bottomController.view)
         
         
@@ -490,7 +492,23 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
             cell.bringSubviewToFront(cell.checkBoxImage)
             return cell
         }
-        if let cell = (tableCell as? KTextCell) ?? (tableCell as? KRecordCell) ?? (tableCell as? KImageCell) ?? (tableCell as? KDeleteMessageCell){
+        if let cell = (tableCell as? KExitCell){
+            cell.selectionStyle = .none
+            cell.editMode = self.isEditMode
+            (cell as? ChattingCellProtocol)?.configure(message: msg, bgType: bgType)
+            cell.checkBoxImage.image = msg.isSelected ? UIImage(named: "selected") : UIImage(named: "unSelected")
+            cell.bringSubviewToFront(cell.checkBoxImage)
+            return cell
+        }
+        if let cell =
+            (tableCell as? KTextCell) ??
+            (tableCell as? KRecordCell) ??
+            (tableCell as? KImageCell) ??
+            (tableCell as? KDeleteMessageCell) ??
+            (tableCell as? KDateCell)  ??
+            (tableCell as? KInviteCell)
+                {
+            
             cell.selectionStyle = .none
             cell.editMode = self.isEditMode
             (cell as? ChattingCellProtocol)?.configure(message: msg, bgType: bgType)
@@ -505,14 +523,20 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let msg = messageManager.getMessage(idx: indexPath.row)
-        if msg.type == Message.MessageType.text{
+        if msg.type == .text{
             return KTextCell.height(message: msg)
-        }else if msg.type == Message.MessageType.image{
+        }else if msg.type == .image{
             return KImageCell.height(message: msg)
-        }else if msg.type == Message.MessageType.record{
+        }else if msg.type == .record{
             return KRecordCell.height(message: msg)
-        } else if msg.type == Message.MessageType.delete{
+        }else if msg.type == .delete{
             return KDeleteMessageCell.height(message: msg)
+        }else if msg.type == .date{
+            return KDateCell.height(message: msg)
+        }else if msg.type == .enter{
+            return KInviteCell.height(message: msg)
+        }else if msg.type == .exit{
+            return KExitCell.height(message: msg)
         }
         else{
             return 50
@@ -520,16 +544,21 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         let msg = messageManager.getMessage(idx: indexPath.row)
-        if msg.type == Message.MessageType.text{
+        if msg.type == .text{
             return KTextCell.height(message: msg)
-        }else if msg.type == Message.MessageType.image{
+        }else if msg.type == .image{
             return KImageCell.height(message: msg)
-        }else if msg.type == Message.MessageType.record{
+        }else if msg.type == .record{
             return KRecordCell.height(message: msg)
-        }else if msg.type == Message.MessageType.delete{
+        }else if msg.type == .delete{
             return KDeleteMessageCell.height(message: msg)
-        }
-        else{
+        }else if msg.type == .date{
+            return KDateCell.height(message: msg)
+        }else if msg.type == .enter{
+            return KInviteCell.height(message: msg)
+        }else if msg.type == .exit{
+            return KExitCell.height(message: msg)
+        }else{
             return 50
         }
     }

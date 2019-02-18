@@ -190,10 +190,12 @@ class Message: Object,NSCopying {
                 }
             }
         case .enter:
-            return "invite"
+            return KInviteCell.reuseId
         case .exit:
+            return KExitCell.reuseId
             return "exit"
         case .date:
+            return KDateCell.reuseId
             return "dateLine"
         case .call:
             if let isMe = owner?.isMe, isMe == true{
