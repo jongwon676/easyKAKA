@@ -1,4 +1,5 @@
 import UIKit
+import SnapKit
 
 class ImageEditCell: UITableViewCell,EditCellProtocol,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     var message: Message?
@@ -12,19 +13,22 @@ class ImageEditCell: UITableViewCell,EditCellProtocol,UIImagePickerControllerDel
         }
     }
     
-    @IBOutlet var imageRatio: NSLayoutConstraint!
+    
     @IBOutlet var messageImageView: UIImageView!
     
     fileprivate func setupImage(){
         messageImageView.image = messageImage
-        imageRatio.isActive = false
+        
         guard let image = messageImage else { return }
-        let ratio = image.size.width / image.size.height
-        imageRatio = NSLayoutConstraint(item: messageImageView, attribute: .width,
-                                        relatedBy: .equal,
-                                        toItem: messageImageView, attribute: .height,
-                                        multiplier: ratio, constant: 0)
-        imageRatio.isActive = true
+        let maxWidth: CGFloat = UIScreen.main.bounds.width * 0.6
+        let maxHeight: CGFloat = UIScreen.main.bounds.height * 0.5
+        let newSize = image.getModifyImageSize(width: maxWidth, height: maxHeight)
+        messageImageView.snp.remakeConstraints { (mk) in
+            mk.size.equalTo(newSize)
+        }
+        layoutIfNeeded()
+        
+        
         updateConstraints()
     }
     var messageImage: UIImage?{

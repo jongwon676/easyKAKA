@@ -65,6 +65,7 @@ class Preset: Object{
         
         try! realm.write {
             image.writeImage(imgName: self.profileImageUrl)
+            ProfileImageCacher.shared.addImageToCache(imgName: self.profileImageUrl, img: image)
             let users = realm.objects(User.self).filter("presetId == %@",self.id)
             for user in users{
                 user.name = name

@@ -23,6 +23,17 @@ extension UIImage{
         }
     }
     
+    func getModifyImageSize(width: CGFloat, height: CGFloat) -> CGSize{
+        let oldWidth = self.size.width;
+        let oldHeight = self.size.height;
+        
+        let scaleFactor = (oldWidth / width > oldHeight / height) ? width / oldWidth : height / oldHeight;
+        
+        let newHeight = oldHeight * scaleFactor;
+        let newWidth = oldWidth * scaleFactor;
+        let newSize = CGSize(width: newWidth, height: newHeight)
+        return newSize
+    }
     func writeImage(imgName name: String ) -> UIImage?{
         let maxWidth: CGFloat = UIScreen.main.bounds.width * 0.6
         let maxHeight: CGFloat = UIScreen.main.bounds.height * 0.5
