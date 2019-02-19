@@ -28,8 +28,7 @@ extension UIImage{
         let maxHeight: CGFloat = UIScreen.main.bounds.height * 0.5
         let imgCompress = resizeImageWithAspect(image: self, scaledToMaxWidth: maxWidth, maxHeight: maxHeight)
         
-//        let data = imgCompress?.jpegData(compressionQuality: 1.0)
-        let data = imgCompress?.jpegData(compressionQuality: 0.3)
+        let data = imgCompress?.jpegData(compressionQuality: 0.5)
         guard let imgData = data else { return nil }
         do{
             try imgData.write(to: Path.inDocuments(name))
@@ -50,7 +49,7 @@ extension UIImage{
         let oldWidth = image.size.width;
         let oldHeight = image.size.height;
         
-        let scaleFactor = (oldWidth > oldHeight) ? width / oldWidth : height / oldHeight;
+        let scaleFactor = (oldWidth / width > oldHeight / height) ? width / oldWidth : height / oldHeight;
         
         let newHeight = oldHeight * scaleFactor;
         let newWidth = oldWidth * scaleFactor;

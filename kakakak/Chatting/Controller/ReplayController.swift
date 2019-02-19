@@ -138,7 +138,16 @@ class ReplayController: UIViewController {
         //        window = nil
         
     }
-    
+    fileprivate func registerTableCells() {
+        tableView.register(KTextCell.self, forCellReuseIdentifier: KTextCell.reuseId)
+        tableView.register(KImageCell.self, forCellReuseIdentifier: KImageCell.reuseId)
+        tableView.register(KRecordCell.self, forCellReuseIdentifier: KRecordCell.reuseId)
+        tableView.register(KDeleteMessageCell.self, forCellReuseIdentifier: KDeleteMessageCell.reuseId)
+        tableView.register(KDateCell.self, forCellReuseIdentifier: KDateCell.reuseId)
+        tableView.register(KInviteCell.self, forCellReuseIdentifier: KInviteCell.reuseId)
+        tableView.register(KExitCell.self, forCellReuseIdentifier: KExitCell.reuseId)
+        tableView.register(KCallMessageCell.self, forCellReuseIdentifier: KCallMessageCell.reuseId)
+    }
     
     lazy var backButton: UIBarButtonItem = {
         let btn = UIButton(type: .system)
@@ -202,6 +211,8 @@ class ReplayController: UIViewController {
         
         tableView.showsVerticalScrollIndicator = false
         tableView.isScrollEnabled = false
+        
+        registerTableCells()
     }
     lazy var closeButotn: UIButton = {
         let btn = UIButton()
@@ -272,18 +283,69 @@ extension ReplayController: UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
         let msg = messageManager.getMessage(idx: indexPath.row)
-        if let cell = tableView.dequeueReusableCell(withIdentifier: msg.getIdent()) as? BaseChat{
-            cell.selectionStyle = .none
-            cell.editMode = false
-            cell.bgType = bgType
+        
+        let tableCell = tableView.dequeueReusableCell(withIdentifier: msg.getIdent())
+        
+        
+        if let cell = tableCell as? KBaseCell {
             
+            cell.selectionStyle = .none
             (cell as? ChattingCellProtocol)?.configure(message: msg, bgType: bgType)
+            cell.checkBoxImage.image = msg.isSelected ? UIImage(named: "selected") : UIImage(named: "unSelected")
+            cell.bringSubviewToFront(cell.checkBoxImage)
             return cell
         }
         return UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let msg = messageManager.getMessage(idx: indexPath.row)
+        if msg.type == .text{
+            return KTextCell.height(message: msg)
+        }else if msg.type == .image{
+            return KImageCell.height(message: msg)
+        }else if msg.type == .record{
+            return KRecordCell.height(message: msg)
+        }else if msg.type == .delete{
+            return KDeleteMessageCell.height(message: msg)
+        }else if msg.type == .date{
+            return KDateCell.height(message: msg)
+        }else if msg.type == .enter{
+            return KInviteCell.height(message: msg)
+        }else if msg.type == .exit{
+            return KExitCell.height(message: msg)
+        }else if msg.type == .call{
+            return KCallMessageCell.height(message: msg)
+        }
+        else{
+            return 50
+        }
+    }
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        let msg = messageManager.getMessage(idx: indexPath.row)
+        if msg.type == .text{
+            return KTextCell.height(message: msg)
+        }else if msg.type == .image{
+            return KImageCell.height(message: msg)
+        }else if msg.type == .record{
+            return KRecordCell.height(message: msg)
+        }else if msg.type == .delete{
+            return KDeleteMessageCell.height(message: msg)
+        }else if msg.type == .date{
+            return KDateCell.height(message: msg)
+        }else if msg.type == .enter{
+            return KInviteCell.height(message: msg)
+        }else if msg.type == .exit{
+            return KExitCell.height(message: msg)
+        }else if msg.type == .call{
+            return KCallMessageCell.height(message: msg)
+        }else{
+            return 50
+        }
+    }
     
     
     

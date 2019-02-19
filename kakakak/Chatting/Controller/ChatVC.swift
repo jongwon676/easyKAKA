@@ -275,6 +275,17 @@ class ChatVC: UIViewController,UIGestureRecognizerDelegate{
             object: nil)
     }
     
+    fileprivate func registerTableCells() {
+        tableView.register(KTextCell.self, forCellReuseIdentifier: KTextCell.reuseId)
+        tableView.register(KImageCell.self, forCellReuseIdentifier: KImageCell.reuseId)
+        tableView.register(KRecordCell.self, forCellReuseIdentifier: KRecordCell.reuseId)
+        tableView.register(KDeleteMessageCell.self, forCellReuseIdentifier: KDeleteMessageCell.reuseId)
+        tableView.register(KDateCell.self, forCellReuseIdentifier: KDateCell.reuseId)
+        tableView.register(KInviteCell.self, forCellReuseIdentifier: KInviteCell.reuseId)
+        tableView.register(KExitCell.self, forCellReuseIdentifier: KExitCell.reuseId)
+        tableView.register(KCallMessageCell.self, forCellReuseIdentifier: KCallMessageCell.reuseId)
+    }
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -297,14 +308,7 @@ class ChatVC: UIViewController,UIGestureRecognizerDelegate{
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.register(KTextCell.self, forCellReuseIdentifier: KTextCell.reuseId)
-        tableView.register(KImageCell.self, forCellReuseIdentifier: KImageCell.reuseId)
-        tableView.register(KRecordCell.self, forCellReuseIdentifier: KRecordCell.reuseId)
-        tableView.register(KDeleteMessageCell.self, forCellReuseIdentifier: KDeleteMessageCell.reuseId)
-        tableView.register(KDateCell.self, forCellReuseIdentifier: KDateCell.reuseId)
-        tableView.register(KInviteCell.self, forCellReuseIdentifier: KInviteCell.reuseId)
-        tableView.register(KExitCell.self, forCellReuseIdentifier: KExitCell.reuseId)
-        tableView.register(KCallMessageCell.self, forCellReuseIdentifier: KCallMessageCell.reuseId)
+        registerTableCells()
         view.addSubview(bottomController.view)
         
         
@@ -388,7 +392,7 @@ class ChatVC: UIViewController,UIGestureRecognizerDelegate{
                                         }
         }
         
-        RunLoop.current.add(self.timer!, forMode: RunLoop.Mode.common)
+        RunLoop.main.add(self.timer!, forMode: RunLoop.Mode.common)
         
         self.setNavTitle()
     }
@@ -484,23 +488,8 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
         
         let tableCell = tableView.dequeueReusableCell(withIdentifier: msg.getIdent())
         
-      
-        if let cell = (tableCell as? KExitCell) ?? (tableCell as? KCallMessageCell){
-            cell.selectionStyle = .none
-            cell.editMode = self.isEditMode
-            (cell as? ChattingCellProtocol)?.configure(message: msg, bgType: bgType)
-            cell.checkBoxImage.image = msg.isSelected ? UIImage(named: "selected") : UIImage(named: "unSelected")
-            cell.bringSubviewToFront(cell.checkBoxImage)
-            return cell
-        }
-        if let cell =
-            (tableCell as? KTextCell) ??
-            (tableCell as? KRecordCell) ??
-            (tableCell as? KImageCell) ??
-            (tableCell as? KDeleteMessageCell) ??
-            (tableCell as? KDateCell)  ??
-            (tableCell as? KInviteCell)
-                {
+        
+        if let cell = tableCell as? KBaseCell {
             
             cell.selectionStyle = .none
             cell.editMode = self.isEditMode
