@@ -1,7 +1,7 @@
 import UIKit
 import Foundation
 
-let defaultItemScale: CGFloat = 0.8
+let defaultItemScale: CGFloat = 0.6
 class UserLayout: UICollectionViewFlowLayout{
     var points: [Int: CGFloat] = [:]
     
@@ -16,7 +16,7 @@ class UserLayout: UICollectionViewFlowLayout{
         minimumLineSpacing = 0
         minimumInteritemSpacing = 0
         
-        self.itemSize = CGSize(width: 90, height: 90)
+        self.itemSize = CGSize(width: 80, height: 80)
         collectionView?.contentInset = UIEdgeInsets(top: 0, left: collectionView!.frame.width / 2, bottom: 0, right: collectionView!.frame.width / 2)
         
     }
@@ -54,7 +54,7 @@ class UserLayout: UICollectionViewFlowLayout{
         }
         
         
-        let maxDistance = itemSize.width + minimumLineSpacing
+        let maxDistance = 3 * (itemSize.width + minimumLineSpacing)
         let actualDistance = abs(collectionCenter - normalizedCenter)
         let scaleDistance = min(actualDistance, maxDistance)
         
@@ -68,11 +68,10 @@ class UserLayout: UICollectionViewFlowLayout{
         attributes.transform3D = CATransform3DScale(CATransform3DIdentity, scale, scale, 1)
     }
     
-    
     func calculateCoordinates(){
         //타원의 가로세로 비율 2000 : 1250
         let horRadius: CGFloat = 333
-        let verRadius: CGFloat = 180 // 타원의 세로 반지름
+        let verRadius: CGFloat = 160 // 타원의 세로 반지름
         let offset: CGFloat = 5
         let halfCircle: CGFloat = 30
         

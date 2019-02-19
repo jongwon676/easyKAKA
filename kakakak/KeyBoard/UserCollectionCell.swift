@@ -139,9 +139,9 @@ class UserCollectionCell: UICollectionViewCell {
         
         static let imageSize:CGFloat = 60
         
-        static let imageWidthToContainerViewWidth: CGFloat = 60.0 / 90.0
-        static let innerShadowWidthToContainerViewWidth: CGFloat = 70.0 / 90.0
-        static let outerShadowWidthToContainerViewWidth: CGFloat = 80.0 / 90.0
+        static let imageWidthToContainerViewWidth: CGFloat = 60 / 80
+        static let innerShadowWidthToContainerViewWidth: CGFloat = 70 / 80
+        static let outerShadowWidthToContainerViewWidth: CGFloat = 80 / 80
         
         
         static let shadowOffset:CGFloat = 5

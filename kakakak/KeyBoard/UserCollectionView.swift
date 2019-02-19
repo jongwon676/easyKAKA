@@ -6,7 +6,7 @@ class UserCollectionView: UICollectionView{
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         let horRadius: CGFloat = 333
-        let verRadius: CGFloat = 180 // 타원의 세로 반지름
+        let verRadius: CGFloat = 160 // 타원의 세로 반지름
         let offset: CGFloat = 5
         let halfCircle: CGFloat = 30
         var points = [CGPoint]()
