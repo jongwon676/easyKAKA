@@ -21,6 +21,9 @@ class KCallMessageCell: KMessageCell,ChattingCellProtocol{
         super.layoutSubviews(size: KCallMessageCell.bubbleSize(message))
         
         callImageView.frame.size = Style.callImageSize
+        callImageView.center = bubble.center
+        callImageView.center.y -= bubble.frame.origin.y
+        callImageView.frame.origin.x = Style.callImageLeftGap
         
         
         callMessageLabel.center = bubble.center
@@ -28,9 +31,7 @@ class KCallMessageCell: KMessageCell,ChattingCellProtocol{
         callMessageLabel.frame.origin.x = callImageView.frame.maxX + Style.callImageLabelGap
         
         
-        callImageView.center = bubble.center
-        callImageView.center.y -= bubble.frame.origin.y
-        callImageView.frame.origin.x = Style.callImageLeftGap
+        
         
         
         

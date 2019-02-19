@@ -34,6 +34,7 @@ class KInviteCell: KBaseCell,ChattingCellProtocol{
         
         inviteLabel.font = Style.inviteLabelFont
         inviteLabel.text = message.messageText
+        inviteLabel.textColor = bgType.chattingTimeColor
         inviteLabel.frame.size.width = Style.inviteLabelMaxWidth
     }
     

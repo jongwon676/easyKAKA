@@ -4,8 +4,10 @@ class Style{
     
     
     
-    static let leftMessageToCornerGap:CGFloat = 65
-    static let rightMessageToCornerGap:CGFloat = 21
+    //TextCell
+    static let messageTextColor = #colorLiteral(red: 0.03137254902, green: 0.03137254902, blue: 0.03137254902, alpha: 1)
+    static let messageLabelFont: UIFont = UIFont.systemFont(ofSize: 15)
+    
     static let topMessageToCornerGap:CGFloat = 16
     static let tailSize:CGFloat = 5
     static let profileToLeftCornerGap:CGFloat = 6
@@ -22,7 +24,7 @@ class Style{
     static let nameLabelBubbleGap:CGFloat = 3.7
     static let bubbleProfileGap:CGFloat = 9
     static let bubbleToTimeSideGap: CGFloat = 5
-    static let bubbleToTimeBottomGap: CGFloat = 1.5
+    static let bubbleToTimeBottomGap: CGFloat = 1.3
     
     static let bubbleToRightCornerGap:CGFloat = 11.5
     static let nameLabelProfileGap: CGFloat = 9
@@ -111,8 +113,8 @@ class Style{
     static let limitUsernameWidth: CGFloat = UIScreen.main.bounds.width * 0.5
     static let readLabelFont: UIFont = UIFont.systemFont(ofSize: 10, weight: .semibold)
     static let timeLabelFont: UIFont = UIFont.init(name: "AppleSDGothicNeo-Regular", size: 10)!
-    static let messageLabelFont: UIFont = UIFont.systemFont(ofSize: 14)
-    static let nameLabelFont: UIFont = UIFont.systemFont(ofSize: 14)
+    
+    static let nameLabelFont: UIFont = UIFont.systemFont(ofSize: 12)
     
     static let readLabelColor: UIColor = #colorLiteral(red: 0.9960784314, green: 0.8980392157, blue: 0, alpha: 1)
     static let timeLabelColor: UIColor = #colorLiteral(red: 0.3982269764, green: 0.4544478655, blue: 0.4920632243, alpha: 1)
@@ -123,8 +125,10 @@ class Style{
     static var allColors: [UIColor] = [
         #colorLiteral(red: 0.6759738326, green: 0.7519567609, blue: 0.8228363395, alpha: 1),#colorLiteral(red: 0.4036078453, green: 0.5147624612, blue: 0.6726379991, alpha: 1),#colorLiteral(red: 0.6230251789, green: 0.7782136202, blue: 0.7085345387, alpha: 1),#colorLiteral(red: 0.3155667186, green: 0.6444244981, blue: 0.6253412962, alpha: 1),#colorLiteral(red: 0.6062427163, green: 0.6949067712, blue: 0.3358732462, alpha: 1),#colorLiteral(red: 0.9974356294, green: 0.7975012064, blue: 0, alpha: 1),#colorLiteral(red: 0.9370688796, green: 0.545337677, blue: 0.3605213165, alpha: 1),#colorLiteral(red: 0.945753634, green: 0.4633948207, blue: 0.4612485766, alpha: 1),#colorLiteral(red: 0.947542727, green: 0.6109959483, blue: 0.7538235784, alpha: 1),#colorLiteral(red: 0.3311565518, green: 0.2505507171, blue: 0.2539487183, alpha: 1),#colorLiteral(red: 0.7881487012, green: 0.7882850766, blue: 0.7881400585, alpha: 1),#colorLiteral(red: 0.290264219, green: 0.2862787843, blue: 0.2861894071, alpha: 1),#colorLiteral(red: 0.2495647371, green: 0.2613680959, blue: 0.4687768817, alpha: 1),#colorLiteral(red: 0.06200163811, green: 0.2145204544, blue: 0.2895205319, alpha: 1),#colorLiteral(red: 0.4810840487, green: 0.5165579915, blue: 0.5830639005, alpha: 1)
     ]
+    
     static var brightColor = [#colorLiteral(red: 0.6759738326, green: 0.7519567609, blue: 0.8228363395, alpha: 1), #colorLiteral(red: 0.7881487012, green: 0.7882850766, blue: 0.7881400585, alpha: 1), #colorLiteral(red: 0.947542727, green: 0.6109959483, blue: 0.7538235784, alpha: 1), #colorLiteral(red: 0.6230251789, green: 0.7782136202, blue: 0.7085345387, alpha: 1), #colorLiteral(red: 0.6062427163, green: 0.6949067712, blue: 0.3358732462, alpha: 1),#colorLiteral(red: 0.9974356294, green: 0.7975012064, blue: 0, alpha: 1)]
     static var darkColor = [#colorLiteral(red: 0.4810840487, green: 0.5165579915, blue: 0.5830639005, alpha: 1), #colorLiteral(red: 0.06200163811, green: 0.2145204544, blue: 0.2895205319, alpha: 1), #colorLiteral(red: 0.3311565518, green: 0.2505507171, blue: 0.2539487183, alpha: 1), #colorLiteral(red: 0.3155667186, green: 0.6444244981, blue: 0.6253412962, alpha: 1), #colorLiteral(red: 0.945753634, green: 0.4633948207, blue: 0.4612485766, alpha: 1), #colorLiteral(red: 0.4036078453, green: 0.5147624612, blue: 0.6726379991, alpha: 1),#colorLiteral(red: 0.290264219, green: 0.2862787843, blue: 0.2861894071, alpha: 1),#colorLiteral(red: 0.2495647371, green: 0.2613680959, blue: 0.4687768817, alpha: 1), #colorLiteral(red: 0.9370688796, green: 0.545337677, blue: 0.3605213165, alpha: 1)]
+    
     static func getBgType(color: UIColor) -> BgType{
         if Style.brightColor.contains(color){
             return BgType.light
@@ -205,9 +209,6 @@ enum BgType{
             return UIColor.black
         }
     }
-    
-    
-    
 }
 
 

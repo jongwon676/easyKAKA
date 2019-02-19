@@ -11,6 +11,12 @@ class KMessageCell: KBaseCell{
         return view
     }()
     
+    lazy var failView: UIImageView = {
+        let view = UIImageView()
+        view.image = #imageLiteral(resourceName: "fail")
+        return view
+    }()
+    
     lazy var profile: UIImageView = {
         let imageView = UIImageView()
         return imageView
@@ -30,7 +36,7 @@ class KMessageCell: KBaseCell{
         return view
     }()
     
-    lazy var subViews: [UIView] = [ bubble,profile,nameLabel,timeReadLabel ]
+    lazy var subViews: [UIView] = [ bubble,profile,nameLabel,timeReadLabel,failView]
     
     func addSubViews(_ isLeft: Bool){
         if isLeft {
@@ -57,7 +63,8 @@ class KMessageCell: KBaseCell{
         nameLabel.text = owner.name
         addSubViews(!owner.isMe)
         
-        bubble.backgroundColor = (owner.isMe && message.type == .text) ? Style.rightBubbleColor : Style.leftBubbleColor
+        bubble.backgroundColor =
+            (owner.isMe && (message.type == .text || message.type == .delete)) ? Style.rightBubbleColor : Style.leftBubbleColor
         
         
         
@@ -68,6 +75,17 @@ class KMessageCell: KBaseCell{
             profile.isHidden = true
             nameLabel.isHidden = true
         }
+        
+        
+        if message.isFail{
+            failView.isHidden = false
+            timeReadLabel.isHidden = true
+        }else{
+            failView.isHidden = true
+            timeReadLabel.isHidden = false
+        }
+        
+        failView.frame.size = CGSize(width: 41, height: 20)
     }
     
     func setupLayoutLeftSide(bubbleSize: CGSize){
@@ -85,6 +103,7 @@ class KMessageCell: KBaseCell{
         timeReadLabel.frame.origin = CGPoint(
             x: bubble.frame.maxX + Style.bubbleToTimeSideGap,
             y: bubble.frame.maxY - Style.bubbleToTimeBottomGap - timeHeight)
+        
     }
     
     func setupLayoutRightSide(bubbleSize: CGSize){
@@ -95,10 +114,17 @@ class KMessageCell: KBaseCell{
         
         let timeHeight = timeReadLabel.frame.height
         let timeWidth = timeReadLabel.frame.width
+        
+        let failHeight = failView.frame.height
+        let failWidth = failView.frame.width
+        
         timeReadLabel.frame.origin = CGPoint(
             x: bubble.frame.minX - timeWidth - Style.bubbleToTimeSideGap,
             y: bubble.frame.maxY - Style.bubbleToTimeBottomGap - timeHeight)
         
+        failView.frame.origin = CGPoint(
+            x: bubble.frame.minX - failWidth - Style.bubbleToTimeSideGap,
+            y: bubble.frame.maxY - Style.bubbleToTimeBottomGap - failHeight)
     }
     
     
@@ -116,8 +142,9 @@ class KMessageCell: KBaseCell{
         profile.layer.masksToBounds = true        
     }
     class func nameLabelHeight(_ message: Message) -> CGFloat{
+        guard let owner = message.owner else { return 15}
         let maxWidth = UIScreen.main.bounds.width * 1.0
-        let rect = message.messageText.boundingRect(with: CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: Style.nameLabelFont], context: nil)
+        let rect = owner.name.boundingRect(with: CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: Style.nameLabelFont], context: nil)
         return rect.height
     }
     

@@ -109,10 +109,8 @@ extension ChatVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate
         
         if let img = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
             let imageName = Date().currentDateToString() + ".jpg"
-            
             img.writeImage(imgName: imageName)
         }
-        
         picker.dismiss(animated: true, completion: nil)
     }
     

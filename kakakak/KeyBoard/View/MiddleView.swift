@@ -32,7 +32,7 @@ class MiddleView: UIView{
         
         textView.textContainerInset = textViewInset
         textView.layer.cornerRadius = 16
-        textView.layer.borderColor = #colorLiteral(red: 0.9097726345, green: 0.9057027698, blue: 0.917971909, alpha: 1)
+        textView.layer.borderColor = #colorLiteral(red: 0.8666666667, green: 0.8666666667, blue: 0.8705882353, alpha: 1)
         textView.backgroundColor = #colorLiteral(red: 0.9726272225, green: 0.9645878673, blue: 0.9726623893, alpha: 1)
         
         textView.layer.borderWidth = 1

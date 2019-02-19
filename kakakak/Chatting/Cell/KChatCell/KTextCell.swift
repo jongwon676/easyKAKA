@@ -17,7 +17,9 @@ class KTextCell: KMessageCell,ChattingCellProtocol{
         bubble.addSubview(bubbleTextLabel)
         super.configure(message: message, bgType: bgType)
         bubbleTextLabel.font = Style.messageLabelFont
+        bubbleTextLabel.textColor = Style.messageTextColor
         bubbleTextLabel.text = message.messageText
+        
         bubbleTextLabel.sizeToFit()
     }
     
@@ -37,7 +39,6 @@ class KTextCell: KMessageCell,ChattingCellProtocol{
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        
         let direction: DrawHelper.Direction  = isMe ? .right : .left
         let corner: CGPoint = direction == .left ? bubble.frame.origin : bubble.frame.rightTopCorner
         if self.message.isFirstMessage{

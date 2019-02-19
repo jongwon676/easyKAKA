@@ -382,6 +382,7 @@ class ChatVC: UIViewController,UIGestureRecognizerDelegate{
         timer = Timer.scheduledTimer(withTimeInterval: 1.0,
                                      repeats: true) { [weak self] _ in
                                         guard let `self` = self else { return }
+                                        
                                         try! self.realm.write {
                                             self.room.currentDate = self.room.currentDate.addingTimeInterval(1.0)
                                         }

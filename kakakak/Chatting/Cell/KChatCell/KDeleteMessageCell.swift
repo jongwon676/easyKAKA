@@ -17,8 +17,10 @@ class KDeleteMessageCell: KMessageCell,ChattingCellProtocol{
         return imageView
     }()
     
-    
+    var isMe = false
     override func configure(message: Message, bgType: BgType) {
+        guard let owner = message.owner else { return }
+        isMe = owner.isMe
         
         self.message = message
         deleteLabel.text = Style.deleteText
@@ -39,6 +41,22 @@ class KDeleteMessageCell: KMessageCell,ChattingCellProtocol{
         warningImageView.frame.origin.x = Style.warningToLeftGap
         deleteLabel.frame.origin.x = warningImageView.frame.maxX + Style.warningViewToDeleteLabelGap
         
+    }
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        let direction: DrawHelper.Direction  = isMe ? .right : .left
+        let corner: CGPoint = direction == .left ? bubble.frame.origin : bubble.frame.rightTopCorner
+        if self.message.isFirstMessage{
+            let path = UIBezierPath()
+            let points = DrawHelper.drawTail(dir: direction, cornerPoint: corner)
+            path.move(to: points[0])
+            path.addLine(to: points[1])
+            path.addLine(to: points[2])
+            path.addLine(to: points[3])
+            path.close()
+            bubble.backgroundColor?.setFill()
+            path.fill()
+        }
     }
 
     
