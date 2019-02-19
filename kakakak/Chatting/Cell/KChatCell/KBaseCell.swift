@@ -13,6 +13,15 @@ class KBaseCell: UITableViewCell{
     var editMode: Bool = false{
         didSet{
             checkBoxImage.isHidden = !editMode
+            if editMode{
+                containerView.snp.updateConstraints { (mk) in
+                    mk.left.equalTo(self).offset(30)
+                }
+            }else{
+                containerView.snp.updateConstraints { (mk) in
+                    mk.left.equalTo(self).offset(0)
+                }
+            }
         }
     }
     
@@ -21,6 +30,7 @@ class KBaseCell: UITableViewCell{
         
         return imageView
     }()
+    
     
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

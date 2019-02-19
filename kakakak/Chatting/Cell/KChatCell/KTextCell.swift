@@ -3,7 +3,7 @@ import Foundation
 class KTextCell: KMessageCell,ChattingCellProtocol{
     
     static var reuseId = "KTextCell"
-    
+    var isMe = false
     let bubbleTextLabel: UILabel = {
         let label = UILabel()
         
@@ -12,6 +12,8 @@ class KTextCell: KMessageCell,ChattingCellProtocol{
     
     override func configure(message: Message, bgType: BgType) {
         self.message = message
+        guard let owner = message.owner else { return }
+        isMe = owner.isMe
         bubble.addSubview(bubbleTextLabel)
         super.configure(message: message, bgType: bgType)
         bubbleTextLabel.font = Style.messageLabelFont
@@ -35,8 +37,8 @@ class KTextCell: KMessageCell,ChattingCellProtocol{
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        guard let owner = message.owner else { return }
-        let direction: DrawHelper.Direction  = owner.isMe ? .right : .left
+        
+        let direction: DrawHelper.Direction  = isMe ? .right : .left
         let corner: CGPoint = direction == .left ? bubble.frame.origin : bubble.frame.rightTopCorner
         if self.message.isFirstMessage{
             let path = UIBezierPath()

@@ -483,16 +483,7 @@ extension ChatVC: UITableViewDataSource,UITableViewDelegate {
         
         let tableCell = tableView.dequeueReusableCell(withIdentifier: msg.getIdent())
         
-        if let cell = tableCell as? BaseChat{
-            
-            cell.selectionStyle = .none
-            cell.editMode = self.isEditMode
-            cell.bgType = bgType
-            (cell as? ChattingCellProtocol)?.configure(message: msg, bgType: bgType)
-            cell.checkBoxImage.image = msg.isSelected ? UIImage(named: "selected") : UIImage(named: "unSelected")
-            cell.bringSubviewToFront(cell.checkBoxImage)
-            return cell
-        }
+      
         if let cell = (tableCell as? KExitCell) ?? (tableCell as? KCallMessageCell){
             cell.selectionStyle = .none
             cell.editMode = self.isEditMode
@@ -582,7 +573,8 @@ extension ChatVC{
             message.isSelected = true
         }
         tableView.visibleCells.forEach{
-            ($0 as? BaseChat)?.checkBoxImage.image = selectedImage
+            
+            ($0 as? KBaseCell)?.checkBoxImage.image = selectedImage
         }
         refreshEdit()
     }
@@ -591,7 +583,7 @@ extension ChatVC{
             message.isSelected = false
         }
         tableView.visibleCells.forEach{
-            ($0 as? BaseChat)?.checkBoxImage.image = unSelectedImage
+            ($0 as? KBaseCell)?.checkBoxImage.image = unSelectedImage
         }
         refreshEdit()
     }
@@ -601,7 +593,7 @@ extension ChatVC{
         if let indexPath = tableView.indexPathForRow(at: position){
             let newSelected = !messageManager.messages[indexPath.row].isSelected
             messageManager.messages[indexPath.row].isSelected = newSelected
-            (tableView.cellForRow(at: indexPath) as? BaseChat)?.checkBoxImage.image =
+            (tableView.cellForRow(at: indexPath) as? KBaseCell)?.checkBoxImage.image =
                 newSelected ? selectedImage : unSelectedImage
         }
         refreshEdit()
