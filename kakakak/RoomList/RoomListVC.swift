@@ -125,7 +125,8 @@ class RoomListVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
         
 
         deleteAction.backgroundColor = UIColor(red: 231.0/255.0, green: 76.0/255.0, blue: 60.0/255.0, alpha: 1.0)
-        deleteAction.image = UIImage(named: "bomb")
+        deleteAction.title = "삭제"
+        
         
         
         let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction])
