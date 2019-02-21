@@ -4,6 +4,9 @@ class Style{
     
     
     
+    
+    
+    
     //TextCell
     static let messageTextColor = #colorLiteral(red: 0.03137254902, green: 0.03137254902, blue: 0.03137254902, alpha: 1)
     static let messageLabelFont: UIFont = UIFont.systemFont(ofSize: 15)

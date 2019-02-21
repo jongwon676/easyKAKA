@@ -10,6 +10,7 @@ class UserCollectionCell: UICollectionViewCell {
         return view
     }()
     
+    
     lazy var innerShadowView:UIView = {
        let view = UIView()
         view.backgroundColor = UIColor.black
@@ -70,6 +71,7 @@ class UserCollectionCell: UICollectionViewCell {
         self.addSubview(containerView)
         
         setupView()
+        setNeedsLayout()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -99,12 +101,22 @@ class UserCollectionCell: UICollectionViewCell {
             mk.width.height.equalTo(containerView.snp.width).multipliedBy(StyleGuide.outerShadowWidthToContainerViewWidth)
 
         }
-        nameBackgroudView.snp.makeConstraints { (mk) in
-            mk.centerX.equalTo(containerView)
-            nameViewBottomConstraint = mk.bottom.equalTo(containerView).constraint
-            mk.width.equalTo(imageView.snp.width).multipliedBy(StyleGuide.imageWidthToNameBackgroundLabelWidth)
-            mk.height.equalTo(imageView.snp.height).multipliedBy(StyleGuide.imageHeightToNameBackgroundLabelHeight)
-        }
+        
+        
+        
+        // center를 대입한후에
+        // bottom을 붙인다. //
+        // containerView.frame.height -
+        
+        
+        
+        
+//        nameBackgroudView.snp.makeConstraints { (mk) in
+//            mk.centerX.equalTo(containerView)
+//            nameViewBottomConstraint = mk.bottom.equalTo(containerView).constraint
+//            mk.width.equalTo(imageView.snp.width).multipliedBy(StyleGuide.imageWidthToNameBackgroundLabelWidth)
+//            mk.height.equalTo(imageView.snp.height).multipliedBy(StyleGuide.imageHeightToNameBackgroundLabelHeight)
+//        }
 
         nameLabel.snp.makeConstraints { (mk) in
             mk.edges.equalTo(nameBackgroudView).inset(UIEdgeInsets(top: 1.5, left: 1.5, bottom: 1.5, right: 1.5))
@@ -119,13 +131,32 @@ class UserCollectionCell: UICollectionViewCell {
         nameLabel.textAlignment = .center
         nameLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3294117647, blue: 0.3607843137, alpha: 1)
         
+        layoutNameBackground(offset: 0)
+        
     }
     
     
+    
+    
+    
+    fileprivate func layoutNameBackground(offset: CGFloat) {
+        
+        
+        let nameLabelWidth = StyleGuide.imageSize * StyleGuide.imageWidthToNameBackgroundLabelWidth
+        let nameLabelHeight = StyleGuide.imageSize * StyleGuide.imageHeightToNameBackgroundLabelHeight
+        nameBackgroudView.frame.size = CGSize(width: nameLabelWidth, height: nameLabelHeight)
+        nameBackgroudView.center = CGPoint(x: StyleGuide.cellSize.width / 2, y: StyleGuide.cellSize.height / 2)
+        
+        let nameLabelY = StyleGuide.cellSize.height - nameLabelHeight - offset
+        nameBackgroudView.frame.origin.y = nameLabelY
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
-//        innerShadowView.layer.cornerRadius = innerShadowView.frame.height / 2.0
-//        outerShadowView.layer.cornerRadius = innerShadowView.frame.height / 2.0
+        
+        layoutNameBackground(offset: 0)
+        
+        
         
         innerShadowView.layer.cornerRadius = StyleGuide.innerShadowSize / 2
         outerShadowView.layer.cornerRadius = StyleGuide.outerShadowSize / 2
@@ -137,6 +168,7 @@ class UserCollectionCell: UICollectionViewCell {
     
     private struct StyleGuide{
         
+        static let cellSize: CGSize = CGSize(width: 80, height: 80)
         static let imageSize:CGFloat = 60
         
         static let imageWidthToContainerViewWidth: CGFloat = 60 / 80
@@ -159,7 +191,8 @@ class UserCollectionCell: UICollectionViewCell {
     
         let percent: CGFloat = (1.0 - attributes.distToCenterRatio)
         nameBackgroudView.alpha = percent
-        nameViewBottomConstraint?.update(offset: -1.0 * percent * 10 )
+        
+        
         
         innerShadowView.alpha = percent * 0.05
         outerShadowView.alpha = percent * 0.05

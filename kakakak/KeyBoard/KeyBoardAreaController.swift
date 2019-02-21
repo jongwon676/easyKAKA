@@ -162,6 +162,7 @@ class KeyBoardAreaController: UIViewController{
     
     var isFirst = true
     
+    var loadCnt = 0
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         token = users.observe{
@@ -172,9 +173,10 @@ class KeyBoardAreaController: UIViewController{
             case .initial:
                 userCollectionView.reloadData()
                 let middleIndexPath = IndexPath(item: self.users.count / 2, section: 0)
-                if self.isFirst{
-                    self.selectCell(for: middleIndexPath, animated: false)
-                    self.isFirst = false
+                if self.loadCnt < 1{
+
+                        self.selectCell(for: middleIndexPath, animated: false)
+                    self.loadCnt += 1
                 }
             case .update(_, let deletions, let insertions, let updates): userCollectionView.reloadData()
             case .error: break
@@ -188,6 +190,7 @@ class KeyBoardAreaController: UIViewController{
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        
     }
     
     override func viewDidLoad() {
