@@ -51,6 +51,10 @@ class Style{
     
     
     
+    static let downloadIconToBubbleGap: CGFloat = 21
+    static let downloadIconSize: CGSize = .init(width: 29, height: 29)
+    
+    
     
     ////////////RecordCell////////////////
     static let recordBubbleCellHeight: CGFloat = 51

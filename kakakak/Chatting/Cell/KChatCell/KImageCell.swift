@@ -6,11 +6,17 @@ class KImageCell: KMessageCell,ChattingCellProtocol{
         
         return imageView
     }()
+    let downloadIcon: UIImageView = {
+       let imageView = UIImageView()
+        imageView.image = #imageLiteral(resourceName: "share")
+        return imageView
+    }()
     
     override func configure(message: Message, bgType: BgType) {
         self.message = message
         messageImageView.image = UIImage.loadImageFromName(message.messageImageUrl)
         bubble.addSubview(messageImageView)
+        
         super.configure(message: message, bgType: bgType)
         
     }
@@ -19,6 +25,28 @@ class KImageCell: KMessageCell,ChattingCellProtocol{
         super.layoutSubviews(size: KImageCell.bubbleSize(message))
         messageImageView.frame = CGRect(x: 0, y: 0, width: CGFloat(message.imageWidth), height: CGFloat(message.imageHeight))
         
+        guard let owner = message.owner else { return }
+        
+        let downloadIconSize = Style.downloadIconSize
+        
+        let downloadY:CGFloat = messageImageView.center.y - downloadIconSize.height / 2
+        
+        if owner.isMe {
+            self.addSubview(downloadIcon)
+            downloadIcon.frame.size = downloadIconSize
+            
+            let downloadX = bubble.frame.minX - Style.downloadIconToBubbleGap - downloadIconSize.width
+            let downloadOrigin = CGPoint(x: downloadX, y: downloadY)
+            downloadIcon.frame = CGRect(origin: downloadOrigin, size: downloadIconSize)
+            
+        }else{
+            containerView.addSubview(downloadIcon)
+            downloadIcon.frame.size = downloadIconSize
+            
+            let downloadX = bubble.frame.maxX + Style.downloadIconToBubbleGap
+            let downloadOrigin = CGPoint(x: downloadX, y: downloadY)
+            downloadIcon.frame = CGRect(origin: downloadOrigin, size: downloadIconSize)
+        }
     }
     
     
