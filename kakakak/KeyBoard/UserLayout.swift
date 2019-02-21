@@ -21,6 +21,7 @@ class UserLayout: UICollectionViewFlowLayout{
         
     }
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+//        print("Change layout attributes")
         let attributes = super.layoutAttributesForElements(in: rect)
         var attributesCopy: [UICollectionViewLayoutAttributes] = []
         for itemAttributes in attributes! {
@@ -43,7 +44,7 @@ class UserLayout: UICollectionViewFlowLayout{
     }
     
     private func changeLayoutAttributes(_ attributes: UICollectionViewLayoutAttributes) {
-        
+//        print("Change layout attributes")
         let collectionCenter = collectionView!.frame.size.width / 2
         let offset = collectionView!.contentOffset.x
         let normalizedCenter = attributes.center.x - offset
@@ -54,12 +55,22 @@ class UserLayout: UICollectionViewFlowLayout{
         }
         
         
+        
+        
         let maxDistance = 3 * (itemSize.width + minimumLineSpacing)
+        
         let actualDistance = abs(collectionCenter - normalizedCenter)
         let scaleDistance = min(actualDistance, maxDistance)
         
+        
+        
         let ratio = (maxDistance - scaleDistance) / maxDistance
         let scale = defaultItemScale + ratio * (1 - defaultItemScale)
+        
+        
+        
+        
+        
         
         let disToCenterRatio = max(min(1.0, actualDistance / 40 - 0.2),0.0)
         

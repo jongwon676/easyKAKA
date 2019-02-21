@@ -110,14 +110,14 @@ class UserCollectionCell: UICollectionViewCell {
             mk.edges.equalTo(nameBackgroudView).inset(UIEdgeInsets(top: 1.5, left: 1.5, bottom: 1.5, right: 1.5))
         }
         containerView.snp.makeConstraints { (mk) in
-            mk.left.right.top.bottom.equalTo(self)
+            mk.left.right.bottom.top.equalTo(self)
         }
-        
         
         imageView.contentMode = .scaleAspectFill
         nameLabel.text = user?.name
         nameLabel.font = UIFont.systemFont(ofSize: 11, weight: .semibold)
         nameLabel.textAlignment = .center
+        nameLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3294117647, blue: 0.3607843137, alpha: 1)
         
     }
     
@@ -156,9 +156,11 @@ class UserCollectionCell: UICollectionViewCell {
     
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         let attributes = layoutAttributes as! UserCollectionLayoutAttributes
+    
         let percent: CGFloat = (1.0 - attributes.distToCenterRatio)
         nameBackgroudView.alpha = percent
-        nameViewBottomConstraint?.update(offset: -1.0 * percent * 10)
+        nameViewBottomConstraint?.update(offset: -1.0 * percent * 10 )
+        
         innerShadowView.alpha = percent * 0.05
         outerShadowView.alpha = percent * 0.05
         

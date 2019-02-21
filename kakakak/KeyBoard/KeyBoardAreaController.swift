@@ -374,6 +374,7 @@ extension KeyBoardAreaController: UIScrollViewDelegate{
     }
     
     private func selectCell(for indexPath: IndexPath, animated: Bool) {
+        
         userCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: animated)
         
         messageManager?.userReadMessage(owner: users[indexPath.row])
