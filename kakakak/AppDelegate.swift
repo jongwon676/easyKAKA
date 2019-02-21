@@ -21,12 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         
         if let tbc = self.window?.rootViewController as? CSTabbarController{
-            
-            
-
             if let tbItems = tbc.tabBar.items{
-                
-                
                 tbItems[0].image = UIImage(named: "tabBar1")
                 tbItems[1].image = UIImage(named: "tabBar2")
                 tbItems[2].image = UIImage(named: "tabBar3")

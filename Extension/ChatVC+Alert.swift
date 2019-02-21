@@ -60,10 +60,6 @@ extension ChatVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate
             
         }))
         
-        
-        
-        
-        
         alert.addAction(UIAlertAction(title: "배경 변경", style: .default, handler: { (action)
             in
             
@@ -73,9 +69,7 @@ extension ChatVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate
             self.present(nav, animated: true, completion: nil)
         }))
         alert.addAction(UIAlertAction(title: "취소", style: .cancel))
-        
-        present(alert, animated: true) 
-        
+        present(alert, animated: true)         
     }
     
     func changeChattingRoomTitle(){

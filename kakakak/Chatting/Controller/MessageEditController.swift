@@ -2,14 +2,19 @@ import UIKit
 import SnapKit
 
 import RealmSwift
-
+protocol TableViewHeightProtocol:class {
+    func needsRowHeightReCalcualte()
+}
 class MessageEditController: UITableViewController,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
     
     // messageManager
     weak var messageManager: MessageProcessor? // index를 넘기자.
     //
     
+    
+    
     // userNameEdit
+    
     
     var isTimeEdit: Bool = false
     
@@ -86,7 +91,8 @@ class MessageEditController: UITableViewController,UINavigationControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.estimatedRowHeight = 40.0
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.backgroundColor = #colorLiteral(red: 0.9370916486, green: 0.9369438291, blue: 0.9575446248, alpha: 1)
         tableView.tableFooterView?.backgroundColor = tableView.backgroundColor
         navigationItem.leftBarButtonItem = cancelButton
@@ -191,6 +197,7 @@ class MessageEditController: UITableViewController,UINavigationControllerDelegat
                 let indexPath = IndexPath(row: 0, section: section)
                 if let cell = tableView.cellForRow(at: indexPath) as? ImageEditCell{
                     cell.messageImage = image
+                    cell.delegate = self
                 }
             }
             
@@ -204,7 +211,14 @@ class MessageEditController: UITableViewController,UINavigationControllerDelegat
 
 
 
-
+extension MessageEditController: TableViewHeightProtocol{
+    func needsRowHeightReCalcualte() {
+        tableView.beginUpdates()
+        tableView.endUpdates()
+    }
+    
+    
+}
 protocol EditCellProtocol {
     func configure(msg: Message)
     func getEditContent() -> (MessageProcessor.EditContent)?
